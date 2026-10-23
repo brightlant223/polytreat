@@ -68,7 +68,7 @@ export default function FlooringJointSealingPage() {
             </div>
 
             <div className="construction-hero-figures is-single">
-              <figure className="construction-hero-figure">
+              <figure className="industrial-water-figure">
                 <Image
                   src="/images/home/pcs-joint-filling.webp"
                   alt="Worker filling expansion joint in a concrete industrial floor with sealant"
@@ -76,7 +76,7 @@ export default function FlooringJointSealingPage() {
                   priority
                   sizes="(max-width: 760px) 100vw, 420px"
                 />
-                <figcaption>PCS joint filling</figcaption>
+                <figcaption className="industrial-water-figure-label">PCS joint filling</figcaption>
               </figure>
             </div>
           </div>

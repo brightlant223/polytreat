@@ -77,7 +77,7 @@ export default function WaterproofingRepairCoatingsPage() {
             </div>
 
             <div className="construction-hero-figures is-single">
-              <figure className="construction-hero-figure">
+              <figure className="industrial-water-figure">
                 <Image
                   src="/images/home/portfolio-waterproofing.jpg"
                   alt="Elastomeric liquid coating being roller-applied to a flat roof terrace"
@@ -85,7 +85,7 @@ export default function WaterproofingRepairCoatingsPage() {
                   priority
                   sizes="(max-width: 760px) 100vw, 420px"
                 />
-                <figcaption>Roof &amp; terrace waterproofing</figcaption>
+                <figcaption className="industrial-water-figure-label">Roof &amp; terrace waterproofing</figcaption>
               </figure>
             </div>
           </div>
