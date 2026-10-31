@@ -57,7 +57,24 @@ export const metadata: Metadata = {
 
 const specialtyAreas = ["Odour control", "HVAC coil cleaning", "Rust conversion", "Pool & drinking water"];
 
-const ranges = [
+type RangeTag = { label: string; tone: string };
+
+const ranges: {
+  id: string;
+  number: string;
+  icon: typeof Droplets;
+  imageSrc: string | null;
+  imageAlt: string;
+  eyebrow: string;
+  topBadge: string;
+  bottomPill: string;
+  title: string;
+  description: string;
+  tags: RangeTag[];
+  link: string;
+  linkText: string;
+  tone: string;
+}[] = [
   {
     id: "ranges-water",
     number: "01",
@@ -65,10 +82,17 @@ const ranges = [
     imageSrc: homeStockImages.rangeWater.activeUrl,
     imageAlt: homeStockImages.rangeWater.alt,
     eyebrow: "Industrial water & process",
+    topBadge: "Industrial water & process",
+    bottomPill: "Industrial water & process",
     title: "Treatment for the systems that keep your plant running.",
     description:
       "Water-treatment chemistry for boiler, cooling-water, reverse-osmosis, and effluent systems.",
-    tags: ["Boilers", "Cooling towers", "RO", "Effluent"],
+    tags: [
+      { label: "Boilers", tone: "blue" },
+      { label: "Cooling towers", tone: "blue" },
+      { label: "RO", tone: "blue" },
+      { label: "Effluent", tone: "blue" },
+    ],
     link: "/solutions/industrial-water",
     linkText: "Explore water treatment",
     tone: "blue",
@@ -80,10 +104,17 @@ const ranges = [
     imageSrc: homeStockImages.rangeConstruction.activeUrl,
     imageAlt: homeStockImages.rangeConstruction.alt,
     eyebrow: "Construction & protection",
+    topBadge: "Construction & protection",
+    bottomPill: "Construction & protection",
     title: "Surface protection built around the material and the problem.",
     description:
       "Waterproofing, coatings, concrete repair, flooring, and specialty surface-treatment products.",
-    tags: ["Waterproofing", "Coatings", "Flooring", "Rust treatment"],
+    tags: [
+      { label: "Waterproofing", tone: "slate" },
+      { label: "Coatings", tone: "slate" },
+      { label: "Flooring", tone: "slate" },
+      { label: "Rust treatment", tone: "slate" },
+    ],
     link: "/solutions/construction-chemistry",
     linkText: "Explore construction chemistry",
     tone: "slate",
@@ -95,10 +126,17 @@ const ranges = [
     imageSrc: null,
     imageAlt: "",
     eyebrow: "Specialty products",
+    topBadge: "Problem-specific",
+    bottomPill: "Specialty products",
     title: "Single-purpose products, each aimed at one problem.",
     description:
       "A dedicated line for jobs the main ranges do not cover, from odour control to HVAC coil care.",
-    tags: specialtyAreas,
+    tags: [
+      { label: "Odour control", tone: "teal" },
+      { label: "HVAC coil cleaning", tone: "teal" },
+      { label: "Rust conversion", tone: "teal" },
+      { label: "Pool & drinking water", tone: "teal" },
+    ],
     link: "/specialty",
     linkText: "Explore specialty products",
     tone: "teal",
@@ -110,9 +148,16 @@ const ranges = [
     imageSrc: homeStockImages.rangeVklin.activeUrl,
     imageAlt: homeStockImages.rangeVklin.alt,
     eyebrow: "V-Klin care",
+    topBadge: "♡ V-Klin care",
+    bottomPill: "V-Klin care",
     title: "Everyday cleaning for homes, institutions, and facilities.",
     description: "Cleaning and facility-care products grouped under PolyTreat's V-Klin brand.",
-    tags: ["Floor & surface", "Handwash", "Dishwash", "Glass & toilet"],
+    tags: [
+      { label: "Floor & surface", tone: "rose" },
+      { label: "Handwash", tone: "cyan" },
+      { label: "Dishwash", tone: "amber" },
+      { label: "Glass & toilet", tone: "purple" },
+    ],
     link: "/vklin/products",
     linkText: "Explore the V-Klin range",
     tone: "green",
@@ -251,21 +296,34 @@ export default function Home() {
       </section>
 
       {/* What we make — one card per range */}
-      <section className="hp-section hp-section-tint" id="ranges" aria-labelledby="ranges-title">
-        <div className="container">
-          <div className="hp-section-heading hp-reveal">
-            <div>
-              <span className="eyebrow eyebrow-dark">What we make</span>
-              <h2 id="ranges-title">Four ranges, one manufacturer.</h2>
+      <section className="hp-section hp-section-tint hp-ranges-section" id="ranges" aria-labelledby="ranges-title">
+        {/* Subtle decorative aquatic background & mesh lines */}
+        <div className="hp-ranges-bg-decor" aria-hidden="true">
+          <div className="hp-ranges-wave-lines" />
+        </div>
+
+        <div className="hp-hero-container">
+          <div className="hp-ranges-header hp-reveal">
+            <div className="hp-ranges-title-box">
+              <span className="eyebrow eyebrow-dark hp-ranges-eyebrow">
+                <span className="eyebrow-dot" aria-hidden="true" />
+                WHAT WE MAKE
+              </span>
+              <h2 id="ranges-title" className="hp-ranges-title">
+                Four ranges, one manufacturer.
+                <svg className="hp-ranges-brush" viewBox="0 0 260 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M4 11C70 4 160 3 256 9C205 14 115 15 38 12" stroke="#0EA5E9" strokeWidth="4.5" strokeLinecap="round" opacity="0.85" />
+                </svg>
+              </h2>
             </div>
-            <p>
+            <p className="hp-ranges-lead">
               PolyTreat formulates and produces all four of its product ranges at its own
               sites, organized around the systems, surfaces, and spaces they serve.
             </p>
           </div>
 
           <div className="hp-range-grid hp-stagger">
-            {ranges.map(({ id, number, icon: Icon, imageSrc, imageAlt, eyebrow, title, description, tags, link, linkText, tone }) => (
+            {ranges.map(({ id, number, icon: Icon, imageSrc, imageAlt, eyebrow, topBadge, bottomPill, title, description, tags, link, linkText, tone }) => (
               <article className={`hp-range-card hp-tone-${tone}`} id={id} key={id}>
                 <div className="hp-range-media">
                   {imageSrc ? (
@@ -277,33 +335,86 @@ export default function Home() {
                       className="hp-range-media-img"
                     />
                   ) : (
-                    <div className="hp-range-media-panel" aria-hidden="true">
-                      <span className="hp-range-media-icon"><Icon size={26} strokeWidth={1.7} /></span>
-                      <span className="hp-range-media-note">Problem-specific formulations</span>
+                    <div className="hp-range-media-panel hp-specialty-3d-panel" aria-hidden="true">
+                      <div className="hp-specialty-3d-glow" />
+                      <div className="hp-specialty-3d-graphic">
+                        <svg viewBox="0 0 160 160" fill="none" className="hp-3d-gear-svg" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="80" cy="80" r="70" stroke="url(#cyanGlowRing)" strokeWidth="1.5" strokeDasharray="6 6" opacity="0.35" />
+                          <circle cx="80" cy="80" r="54" stroke="url(#cyanGlowRing2)" strokeWidth="2" opacity="0.5" />
+                          <g filter="url(#gearShadow)">
+                            <path d="M80 32C76 32 73 34 72 38L69 46C65 48 61 50 58 53L50 50C46 48 42 50 40 53L32 67C30 71 31 75 35 77L42 82C42 84 42 86 42 88L35 93C31 95 30 99 32 103L40 117C42 120 46 122 50 120L58 117C61 120 65 122 69 124L72 132C73 136 76 138 80 138H96C100 138 103 136 104 132L107 124C111 122 115 120 118 117L126 120C130 122 134 120 136 117L144 103C146 99 145 95 141 93L134 88C134 86 134 84 134 82L141 77C145 75 146 71 144 67L136 53C134 50 130 48 126 50L118 53C115 50 111 48 107 46L104 38C103 34 100 32 96 32H80ZM88 64C99 64 108 73 108 84C108 95 99 104 88 104C77 104 68 95 68 84C68 73 77 64 88 64Z" fill="url(#gearGrad)" />
+                          </g>
+                          <g filter="url(#wrenchShadow)" transform="rotate(-30 80 80)">
+                            <path d="M68 40C68 48 72 54 78 57L54 116C52 121 55 126 60 128C65 130 70 127 72 122L96 63C102 61 106 55 106 48C106 42 102 36 96 34L88 42L82 36L90 28C84 26 78 28 74 32C70 34 68 37 68 40Z" fill="url(#wrenchGrad)" />
+                          </g>
+                          <defs>
+                            <filter id="gearShadow" x="16" y="24" width="144" height="136" filterUnits="userSpaceOnUse">
+                              <feDropShadow dx="0" dy="8" stdDeviation="10" floodColor="#0284C7" floodOpacity="0.35" />
+                            </filter>
+                            <filter id="wrenchShadow" x="30" y="10" width="100" height="135" filterUnits="userSpaceOnUse">
+                              <feDropShadow dx="2" dy="6" stdDeviation="6" floodColor="#0B192C" floodOpacity="0.4" />
+                            </filter>
+                            <linearGradient id="gearGrad" x1="30" y1="30" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+                              <stop stopColor="#818CF8" />
+                              <stop offset="0.5" stopColor="#6366F1" />
+                              <stop offset="1" stopColor="#4338CA" />
+                            </linearGradient>
+                            <linearGradient id="wrenchGrad" x1="50" y1="20" x2="110" y2="130" gradientUnits="userSpaceOnUse">
+                              <stop stopColor="#38BDF8" />
+                              <stop offset="0.6" stopColor="#0284C7" />
+                              <stop offset="1" stopColor="#0369A1" />
+                            </linearGradient>
+                            <linearGradient id="cyanGlowRing" x1="0" y1="0" x2="160" y2="160" gradientUnits="userSpaceOnUse">
+                              <stop stopColor="#0EA5E9" />
+                              <stop offset="1" stopColor="#06B6D4" />
+                            </linearGradient>
+                            <linearGradient id="cyanGlowRing2" x1="160" y1="0" x2="0" y2="160" gradientUnits="userSpaceOnUse">
+                              <stop stopColor="#38BDF8" stopOpacity="0.8" />
+                              <stop offset="1" stopColor="#818CF8" stopOpacity="0.3" />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                      </div>
+                      <span className="hp-specialty-center-pill">Problem-specific formulations</span>
                     </div>
                   )}
-                  <span className={`hp-range-media-badge hp-badge-${tone}`}>
-                    <Icon size={13} strokeWidth={2.2} aria-hidden="true" />
-                    <span>{eyebrow}</span>
+
+                  {/* Top-Left Floating Badge */}
+                  <span className={`hp-range-top-badge hp-badge-${tone}`}>
+                    {topBadge}
                   </span>
+
+                  {/* Top-Right Number Badge */}
                   <span className="hp-range-number" aria-hidden="true">{number}</span>
+
+                  {/* Bottom-Left Floating Pill */}
+                  <span className="hp-range-bottom-pill">
+                    <Icon size={13} strokeWidth={2.2} aria-hidden="true" />
+                    <span>{bottomPill}</span>
+                  </span>
                 </div>
+
                 <div className="hp-range-copy">
                   <h3>{title}</h3>
                   <p>{description}</p>
                   <ul className="hp-tags" aria-label={`${eyebrow} areas`}>
-                    {tags.map((tag) => <li key={tag}>{tag}</li>)}
+                    {tags.map((tag) => (
+                      <li key={tag.label} className={`hp-tag-${tag.tone}`}>
+                        {tag.label}
+                      </li>
+                    ))}
                   </ul>
                   <Link className="text-link hp-range-link" href={link}>
-                    {linkText} <ArrowRight size={15} aria-hidden="true" />
+                    <span>{linkText}</span>
+                    <ArrowRight size={15} aria-hidden="true" className="hp-link-arrow" />
                   </Link>
                 </div>
               </article>
             ))}
           </div>
 
-          <div className="hp-section-foot">
-            <span>Not sure which range fits your requirement?</span>
+          <div className="hp-section-foot hp-ranges-foot">
+            <span className="hp-foot-question">Not sure which range fits your requirement?</span>
             <WhatsAppCta />
           </div>
         </div>
