@@ -190,9 +190,9 @@ const flagshipIcons: Record<string, typeof Paintbrush> = {
 
 const flagshipNotes: Record<string, string> = {
   corosil:
-    "A treatment and primer step — a compatible paint system is still required over it.",
+    "A treatment and primer step; a compatible paint system is still required over it.",
   "polydor-ws":
-    "Odour control only — not a disinfectant, sanitiser or insecticide.",
+    "Odour control only, not a disinfectant, sanitiser or insecticide.",
   polyklin:
     "Directions are as published in our product literature; ask for the current sheet.",
 };
@@ -273,7 +273,7 @@ export default function Home() {
           <div className="cert-badges-grid">
             <div className="cert-badge-item">
               <BadgeCheck size={16} className="cert-badge-icon" aria-hidden="true" />
-              <span>ISO 9001:2015 QMS</span>
+              <span>ISO 9001:2015 quality system</span>
             </div>
             <div className="cert-badge-item">
               <FileCheck2 size={16} className="cert-badge-icon" aria-hidden="true" />
@@ -305,10 +305,6 @@ export default function Home() {
         <div className="hp-hero-container">
           <div className="hp-ranges-header hp-reveal">
             <div className="hp-ranges-title-box">
-              <span className="eyebrow eyebrow-dark hp-ranges-eyebrow">
-                <span className="eyebrow-dot" aria-hidden="true" />
-                WHAT WE MAKE
-              </span>
               <h2 id="ranges-title" className="hp-ranges-title">
                 Four ranges, one manufacturer.
                 <svg className="hp-ranges-brush" viewBox="0 0 260 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -425,11 +421,10 @@ export default function Home() {
         <div className="container">
           <div className="hp-section-heading">
             <div>
-              <span className="eyebrow eyebrow-dark">The complete range</span>
               <h2 id="range-map-title">Every product area, at a glance.</h2>
             </div>
             <p>
-              {rangeProductAreaCount} product areas across the four ranges — each one
+              {rangeProductAreaCount} product areas across the four ranges, each one
               documented on its own page, so nothing here is a dead end.
             </p>
           </div>
@@ -483,7 +478,7 @@ export default function Home() {
                   Chemistry in working environments
                 </span>
                 <p>
-                  Representative effluent-treatment basins — process-water responsibility,
+                  Representative effluent-treatment basins: process-water responsibility,
                   building surfaces, and shared spaces are all part of the same business.
                 </p>
               </div>
@@ -492,8 +487,7 @@ export default function Home() {
 
           <div className="hp-applications-list">
             <div className="hp-section-heading hp-heading-tight hp-reveal">
-              <div>
-                <span className="eyebrow eyebrow-dark">Industries &amp; applications</span>
+<div>
                 <h2 id="applications-title">Where the chemistry goes to work.</h2>
               </div>
               <p>
@@ -524,7 +518,6 @@ export default function Home() {
         <div className="container">
           <div className="hp-section-heading">
             <div>
-              <span className="eyebrow eyebrow-dark">Specialty products</span>
               <h2 id="flagship-title">Specialty products, in detail.</h2>
             </div>
             <p>
@@ -566,7 +559,7 @@ export default function Home() {
               Also in the specialty range:{" "}
               {specialtyOtherLines.map((line, index) => (
                 <span key={line.title}>
-                  {index > 0 && <span aria-hidden="true"> · </span>}
+                  {index > 0 && <span aria-hidden="true">, </span>}
                   <Link href="/specialty">{line.title}</Link>
                 </span>
               ))}
@@ -597,7 +590,7 @@ export default function Home() {
               </span>
               <span className="eyebrow eyebrow-green hp-vklin-eyebrow">
                 <Leaf size={15} strokeWidth={2.4} aria-hidden="true" />
-                <span>A POLYTREAT BRAND</span>
+                <span>A PolyTreat brand</span>
               </span>
             </div>
 
@@ -641,8 +634,8 @@ export default function Home() {
               <span className="hp-vklin-panel-mark" aria-hidden="true">
                 <Leaf size={20} strokeWidth={2.2} aria-hidden="true" />
               </span>
-              <div className="hp-vklin-head-titles">
-                <span className="hp-vklin-head-kicker">INSTITUTIONAL &amp; HOME CARE</span>
+<div className="hp-vklin-head-titles">
+                <span className="hp-vklin-head-kicker">Institutional & home care</span>
                 <strong className="hp-vklin-head-main">Product range</strong>
               </div>
             </div>
@@ -672,11 +665,10 @@ export default function Home() {
         <div className="container">
           <div className="hp-story-layout">
             <div className="hp-story-copy hp-reveal">
-              <span className="eyebrow eyebrow-dark">About PolyTreat</span>
               <h2 id="story-title">A manufacturer first, since 1987.</h2>
               <p>
                 PolyTreat Chemicals Pvt. Ltd. formulates and produces its ranges at its own
-                plants, with an in-house laboratory monitoring quality daily — and a direct
+                plants, with an in-house laboratory monitoring quality daily, and a direct
                 technical conversation behind every enquiry.
               </p>
 
@@ -687,7 +679,7 @@ export default function Home() {
                 </li>
                 <li>
                   <Building2 size={16} aria-hidden="true" />
-                  <span><strong>Three sites</strong> — Mumbai offices and green products facility, plus Tarapur MIDC manufacturing</span>
+                  <span><strong>Three sites</strong>: Mumbai offices and green products facility, plus Tarapur MIDC manufacturing</span>
                 </li>
                 <li>
                   <Factory size={16} aria-hidden="true" />
@@ -718,13 +710,13 @@ export default function Home() {
 
             <div className="hp-story-side">
               <div className="hp-pqrs hp-reveal-scale">
-                <span className="hp-pqrs-label">The PQRS framework</span>
+                <h3 className="hp-pqrs-label">The PQRS framework</h3>
                 <div className="hp-pqrs-list">
                   {pqrsTiles.map(({ letter, icon: Icon, title, description }) => (
                     <article className={`hp-pqrs-tile hp-pqrs-${letter.toLowerCase()}`} key={letter}>
                       <span className="hp-pqrs-letter" aria-hidden="true">{letter}</span>
                       <div className="hp-pqrs-copy">
-                        <h3>{title}</h3>
+                        <h4>{title}</h4>
                         <p>{description}</p>
                       </div>
                     </article>
@@ -743,11 +735,10 @@ export default function Home() {
       <section className="hp-section hp-section-contact" id="contact" aria-labelledby="contact-title">
         <div className="container hp-contact-panel">
           <div className="hp-contact-copy hp-reveal">
-            <span className="eyebrow eyebrow-dark">Start a conversation</span>
             <h2 id="contact-title">Let&apos;s talk about your application.</h2>
             <p>
               Tell us the system, surface, or facility behind the requirement, and we&apos;ll
-              direct it to the right team — including current product documents.
+              direct it to the right team, including current product documents.
             </p>
             <Link className="text-link hp-contact-form-link" href="/contact#contact-form">
               Or send a detailed enquiry form <ArrowRight size={15} aria-hidden="true" />

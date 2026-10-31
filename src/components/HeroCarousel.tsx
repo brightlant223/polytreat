@@ -32,51 +32,56 @@ const industrialSlides = [
     chipBadge: "Water Treatment Systems",
     image: "/images/home/industrial-steam-boilers-water-treatment.jpg",
     alt: "Modern industrial steam boiler facility with high-pressure vessel, combustion burner, piping manifold, and chemical water treatment systems",
-    lead: "Water treatment chemistry for critical plant systems — boilers, cooling towers, reverse osmosis, and effluent.",
+    lead: "Water treatment chemistry for critical plant systems: boilers, cooling towers, reverse osmosis, and effluent.",
+    poster: "/images/home/industrial-steam-boilers-water-treatment.jpg",
     icon: Droplets,
   },
   {
     id: "cooling",
     tabLabel: "COOLING LOOPS",
     label: "Industrial Cooling Towers & Loops",
-    captionTitle: "Recirculating Loops · Legionella Control",
+    captionTitle: "Recirculating Loops, Legionella Control",
     chipBadge: "Cooling Water Systems",
     image: "/images/home/industrial-cooling-towers-loops.jpg",
     alt: "Industrial cooling tower plant with mechanical draft fan stacks, piping manifold, and chemical water treatment pumps",
     lead: "Microbiological fouling prevention, scale inhibition, and biocide programs for industrial cooling towers.",
+    poster: "/images/home/industrial-cooling-towers-loops.jpg",
     icon: Fan,
   },
   {
     id: "laboratory",
     tabLabel: "LABORATORY",
     label: "70,000+ Sq.ft Laboratory & QC",
-    captionTitle: "In-House R&D · ISO Certified QC",
+    captionTitle: "In-House R&D, ISO-Certified QC",
     chipBadge: "Certified Testing & Formulation",
     image: "/images/home/hero-chemical-laboratory.jpg",
     alt: "Modern analytical chemical laboratory with glassware, beakers, spectrophotometer, titration testing, and reagent formulations",
     lead: "Advanced chemical synthesis, quality control, titration, and certified formulation testing.",
+    poster: "/images/home/hero-chemical-laboratory.jpg",
     icon: FlaskConical,
   },
   {
     id: "effluent",
     tabLabel: "EFFLUENT ETP",
     label: "Effluent Treatment Plants & Clarifiers",
-    captionTitle: "Aeration · Coagulation · Zero Discharge",
+    captionTitle: "Aeration, Coagulation, Zero Discharge",
     chipBadge: "Effluent Treatment Plant",
     image: "/images/home/hero-effluent-etp.jpg",
     alt: "Realistic industrial effluent treatment plant with circular clarifier basin, mechanical scraper bridge, and aeration tanks",
     lead: "Coagulant, flocculant, and heavy metal precipitation solutions engineered to meet zero-discharge standards.",
+    poster: "/images/home/hero-effluent-etp.jpg",
     icon: Factory,
   },
   {
     id: "supply",
     tabLabel: "SUPPLY & CARE",
     label: "Chemical Supply & Infrastructure Care",
-    captionTitle: "Industrial Supply · Facility Protection",
+    captionTitle: "Industrial Supply, Facility Protection",
     chipBadge: "Industrial Chemical Infrastructure",
     image: "/images/home/hero-supply-facility.jpg",
     alt: "Industrial chemical manufacturing and supply infrastructure, chemical distribution piping, storage tanks, and facility care",
     lead: "Industrial piping protection, heavy-duty facility care, and multi-site distribution across Maharashtra.",
+    poster: "/images/home/hero-supply-facility.jpg",
     icon: ShieldCheck,
   },
 ];
@@ -392,11 +397,6 @@ export default function HeroCarousel() {
         {/* LEFT COLUMN: Entirely preserved exactly as requested       */}
         {/* ========================================================== */}
         <div className="hp-hero-copy">
-          <div className="hp-hero-eyebrow-wrapper">
-            <span className="hp-eyebrow-dash" aria-hidden="true" />
-            <span className="hp-eyebrow-text">POLYTREAT CHEMICALS PVT. LTD.</span>
-          </div>
-
           <h1 id="hero-title" className="hp-hero-title">
             Applied chemistry{" "}
             <span

@@ -82,7 +82,7 @@ export default function SiteFooter() {
         </div>
         <div className="footer-bottom">
           <span className="footer-copyright">© 2026 PolyTreat Chemicals Pvt. Ltd.</span>
-          <span className="footer-principles">Performance · Quality · Reliability · Service</span>
+          <span className="footer-principles">Performance, quality, reliability, service</span>
           <span className="footer-credit">
             Designed with <span className="footer-credit-heart" aria-hidden="true">♥</span> by{" "}
             <a href="https://brightlant.com" target="_blank" rel="noreferrer">Brightlant</a>
