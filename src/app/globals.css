@@ -19122,3 +19122,310 @@ a.hp-contact-card:hover svg:last-child {
     grid-template-columns: 1fr !important;
   }
 }
+
+
+/* ================================================================== */
+/* Redesigned 3D Animated Card Stack Carousel                         */
+/* ================================================================== */
+
+.hp-hero-visual {
+  position: relative;
+  width: min(100%, 580px);
+  margin-left: auto;
+}
+
+.hp-stack-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  min-height: 380px;
+  perspective: 1200px;
+  perspective-origin: 72% 50%;
+  user-select: none;
+}
+
+.hp-stack-deck {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.hp-stack-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 66px);
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  background: #0B192C;
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+  box-shadow: 0 16px 40px -8px rgba(11, 25, 44, 0.18);
+}
+
+.hp-stack-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hp-stack-card-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 25, 44, 0.28) 0%,
+    rgba(11, 25, 44, 0.05) 30%,
+    rgba(11, 25, 44, 0.18) 60%,
+    rgba(11, 25, 44, 0.78) 100%
+  );
+  pointer-events: none;
+}
+
+.hp-stack-card.is-active {
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 24px 60px -8px rgba(11, 25, 44, 0.26),
+              0 8px 24px -4px rgba(2, 132, 199, 0.2);
+}
+
+/* Floating Glassmorphism Badge (matches user reference image) */
+.hp-card-glass-badge {
+  position: absolute;
+  z-index: 5;
+  bottom: 18px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: calc(100% - 36px);
+  padding: 0.65rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 12px 30px rgba(11, 25, 44, 0.2);
+  animation: hp-card-badge-pop 350ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes hp-card-badge-pop {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hp-card-icon-box {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%);
+  color: #0284C7;
+  border: 1px solid rgba(2, 132, 199, 0.25);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.14);
+}
+
+.hp-card-text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hp-card-badge-title {
+  color: #0F172A;
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hp-card-badge-subtitle {
+  color: #64748B;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Top-Right Control Bar on Active Card */
+.hp-card-top-controls {
+  position: absolute;
+  z-index: 5;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.hp-card-ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease, border-color 180ms ease;
+}
+
+.hp-card-ctrl-btn:hover {
+  background: rgba(2, 132, 199, 0.9);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.08);
+}
+
+.hp-card-index-pill {
+  padding: 0.32rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #F8FAFC;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+}
+
+/* Progress Bar on Active Card */
+.hp-card-progress-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: rgba(255, 255, 255, 0.22);
+  z-index: 6;
+  overflow: hidden;
+}
+
+.hp-card-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #38BDF8, #0284C7, #10B981);
+  transition: width 60ms linear;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.85);
+}
+
+/* ------------------------------------------------------------------ */
+/* Interactive Tabs below Carousel (5 Categories)                     */
+/* ------------------------------------------------------------------ */
+
+.hp-hero-tabs-5 {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.35rem;
+  margin-top: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hp-hero-tabs-5 .hp-hero-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem;
+  min-height: 44px;
+  padding: 0.45rem 0.3rem 0.55rem;
+  border: 1.5px solid rgba(186, 230, 253, 0.95);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  color: #334155;
+  font-size: clamp(0.55rem, 0.72vw, 0.65rem);
+  font-weight: 750;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all 180ms ease;
+  box-shadow: 0 2px 8px rgba(14, 116, 144, 0.05);
+  box-sizing: border-box;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.hp-hero-tabs-5 .hp-hero-tab:hover {
+  transform: translateY(-1px);
+  border-color: #0284C7;
+  color: #0284C7;
+  background: #FFFFFF;
+}
+
+.hp-hero-tabs-5 .hp-hero-tab:focus-visible {
+  outline: 3px solid rgba(2, 132, 199, 0.4);
+  outline-offset: 2px;
+}
+
+.hp-hero-tabs-5 .hp-hero-tab-icon {
+  color: #0284C7;
+  flex-shrink: 0;
+  width: 13px;
+  height: 13px;
+}
+
+.hp-hero-tabs-5 .hp-hero-tab-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.hp-hero-tabs-5 .hp-hero-tab.is-active {
+  border-color: #0284C7;
+  color: #0369A1;
+  background: linear-gradient(135deg, #E0F2FE 0%, #F0FDFA 100%);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.18);
+}
+
+.hp-hero-tabs-5 .hp-hero-tab-dot {
+  position: absolute;
+  bottom: 3.5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 2.5px;
+  border-radius: 2px;
+  background: #0284C7;
+}
+
+@media (max-width: 640px) {
+  .hp-stack-card {
+    width: calc(100% - 36px);
+  }
+  .hp-hero-tabs-5 {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.45rem;
+    padding-bottom: 4px;
+  }
+  .hp-hero-tabs-5::-webkit-scrollbar {
+    display: none;
+  }
+  .hp-hero-tabs-5 .hp-hero-tab {
+    flex: 0 0 auto;
+    min-width: 120px;
+    scroll-snap-align: start;
+    font-size: 0.68rem;
+    padding: 0.45rem 0.65rem 0.65rem;
+  }
+}
