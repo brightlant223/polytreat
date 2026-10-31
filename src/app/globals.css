@@ -19130,7 +19130,7 @@ a.hp-contact-card:hover svg:last-child {
 
 .hp-hero-visual {
   position: relative;
-  width: min(100%, 580px);
+  width: min(100%, 620px);
   margin-left: auto;
 }
 
@@ -19330,7 +19330,7 @@ a.hp-contact-card:hover svg:last-child {
 .hp-hero-tabs-5 {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.35rem;
+  gap: 0.32rem;
   margin-top: 1rem;
   width: 100%;
   box-sizing: border-box;
@@ -19341,15 +19341,15 @@ a.hp-contact-card:hover svg:last-child {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.28rem;
+  gap: 0.25rem;
   min-height: 44px;
-  padding: 0.45rem 0.3rem 0.55rem;
+  padding: 0.45rem 0.2rem 0.55rem;
   border: 1.5px solid rgba(186, 230, 253, 0.95);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(8px);
   color: #334155;
-  font-size: clamp(0.55rem, 0.72vw, 0.65rem);
+  font-size: clamp(0.52rem, 0.68vw, 0.62rem);
   font-weight: 750;
   letter-spacing: 0.01em;
   cursor: pointer;
@@ -19375,16 +19375,13 @@ a.hp-contact-card:hover svg:last-child {
 .hp-hero-tabs-5 .hp-hero-tab-icon {
   color: #0284C7;
   flex-shrink: 0;
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
 }
 
 .hp-hero-tabs-5 .hp-hero-tab-label {
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
 .hp-hero-tabs-5 .hp-hero-tab.is-active {

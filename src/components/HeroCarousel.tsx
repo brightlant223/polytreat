@@ -21,61 +21,61 @@ import {
 } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
-/* 5 Industrial chemistry slides & curated local photography          */
+/* 5 Realistic Industrial Chemistry Slides & Verified Local Imagery   */
 /* ------------------------------------------------------------------ */
 const industrialSlides = [
   {
     id: "boilers",
     tabLabel: "WATER & PLANTS",
-    label: "Industrial Steam Boilers & Heat Recovery",
+    label: "Industrial Steam Boilers & Water Treatment",
     captionTitle: "Boiler · Cooling · RO · Effluent",
     chipBadge: "Water Treatment Systems",
-    image: "/images/home/solution-water-boiler-room.jpg",
-    alt: "Industrial steam boiler plant room with combustion burner and pipework",
+    image: "/images/home/industrial-steam-boilers-water-treatment.jpg",
+    alt: "Modern industrial steam boiler facility with high-pressure vessel, combustion burner, piping manifold, and chemical water treatment systems",
     lead: "Water treatment chemistry for critical plant systems — boilers, cooling towers, reverse osmosis, and effluent.",
     icon: Droplets,
   },
   {
     id: "cooling",
     tabLabel: "COOLING LOOPS",
-    label: "Cooling Towers & Heat Exchangers",
+    label: "Industrial Cooling Towers & Loops",
     captionTitle: "Recirculating Loops · Legionella Control",
     chipBadge: "Cooling Water Systems",
-    image: "/images/home/solution-water-cooling-tower.jpg",
-    alt: "Industrial cooling tower water treatment and recirculating pipe manifold",
+    image: "/images/home/hero-cooling-towers.jpg",
+    alt: "Realistic industrial cooling tower plant with induced draft fan cells, evaporative cooling plume, and recirculating water loops",
     lead: "Microbiological fouling prevention, scale inhibition, and biocide programs for industrial cooling towers.",
     icon: Fan,
   },
   {
     id: "laboratory",
     tabLabel: "LABORATORY",
-    label: "70,000+ Sq.ft Laboratory & R&D",
+    label: "70,000+ Sq.ft Laboratory & QC",
     captionTitle: "In-House R&D · ISO Certified QC",
     chipBadge: "Certified Testing & Formulation",
-    image: "/images/home/reverse-osmosis-plant.webp",
-    alt: "Advanced chemical synthesis, quality control, titration, and certified formulation testing",
+    image: "/images/home/hero-chemical-laboratory.jpg",
+    alt: "Modern analytical chemical laboratory with glassware, beakers, spectrophotometer, titration testing, and reagent formulations",
     lead: "Advanced chemical synthesis, quality control, titration, and certified formulation testing.",
     icon: FlaskConical,
   },
   {
     id: "effluent",
     tabLabel: "EFFLUENT ETP",
-    label: "Effluent Clarifier Basins & ETP Systems",
+    label: "Effluent Treatment Plants & Clarifiers",
     captionTitle: "Aeration · Coagulation · Zero Discharge",
     chipBadge: "Effluent Treatment Plant",
-    image: "/images/home/solution-water-effluent-clarifier.webp",
-    alt: "Industrial effluent treatment plant with clarifier basins and aeration tanks",
+    image: "/images/home/hero-effluent-etp.jpg",
+    alt: "Realistic industrial effluent treatment plant with circular clarifier basin, mechanical scraper bridge, and aeration tanks",
     lead: "Coagulant, flocculant, and heavy metal precipitation solutions engineered to meet zero-discharge standards.",
     icon: Factory,
   },
   {
-    id: "surface",
+    id: "supply",
     tabLabel: "SUPPLY & CARE",
-    label: "Construction Chemistry & Surface Care",
-    captionTitle: "Elastomeric Membranes · Acid Proofing",
-    chipBadge: "Construction Chemistry",
-    image: "/images/home/surface-protection-membrane.webp",
-    alt: "Application of elastomeric liquid roof waterproofing coating over concrete",
+    label: "Chemical Supply & Infrastructure Care",
+    captionTitle: "Industrial Supply · Facility Protection",
+    chipBadge: "Industrial Chemical Infrastructure",
+    image: "/images/home/hero-supply-facility.jpg",
+    alt: "Industrial chemical manufacturing and supply infrastructure, chemical distribution piping, storage tanks, and facility care",
     lead: "Industrial piping protection, heavy-duty facility care, and multi-site distribution across Maharashtra.",
     icon: ShieldCheck,
   },
@@ -475,7 +475,7 @@ export default function HeroCarousel() {
                         alt={slide.alt}
                         fill
                         priority={index < 2}
-                        sizes="(max-width: 768px) 100vw, 560px"
+                        sizes="(max-width: 768px) 100vw, 580px"
                         className="hp-stack-card-img"
                       />
 
@@ -575,7 +575,7 @@ export default function HeroCarousel() {
                   aria-label={`View ${slide.tabLabel}`}
                   onClick={() => goToSlide(index)}
                 >
-                  <TabIcon size={13} strokeWidth={2.4} className="hp-hero-tab-icon" aria-hidden="true" />
+                  <TabIcon size={12} strokeWidth={2.4} className="hp-hero-tab-icon" aria-hidden="true" />
                   <span className="hp-hero-tab-label">{slide.tabLabel}</span>
                   {isActive && <span className="hp-hero-tab-dot" aria-hidden="true" />}
                 </button>
