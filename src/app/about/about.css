@@ -2547,7 +2547,6 @@ html[data-theme="dark"] .nav-link-item small,
 }
 
 /* Footer & Logo in Dark Mode */
-.footer-logo,
 html[data-theme="dark"] .footer-logo,
 [data-theme="dark"] .footer-logo {
   filter: brightness(0) invert(1) !important;
