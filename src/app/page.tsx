@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
-import InteractiveRangesSection from "@/components/InteractiveRangesSection";
 import ScrollReveal from "@/components/ScrollReveal";
 import { homeStockImages } from "@/data/homeImages";
 import {
@@ -10,7 +9,6 @@ import {
   vklinProductCount,
   vklinProductGroups,
 } from "@/data/vklinProducts";
-import { locationSites } from "@/data/locations";
 import {
   environmentIcons,
   operatingEnvironments,
@@ -20,6 +18,7 @@ import {
   specialtyOtherLines,
   specialtyProducts,
 } from "@/data/specialtyProducts";
+import { locationSites } from "@/data/locations";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -102,6 +101,121 @@ const vklinPreviewProducts = findVKlinProducts([
   "Dishwash Gel",
 ]);
 
+/* ---------------------------------------------------------------- */
+/* What we make: one card per range, mirroring the /industries map  */
+/* ---------------------------------------------------------------- */
+
+const specialtyAreas = ["Odour control", "HVAC coil cleaning", "Rust conversion", "Pool & drinking water"];
+
+type RangeTag = { label: string; tone: string };
+
+const ranges: {
+  id: string;
+  number: string;
+  icon: typeof Droplets;
+  imageSrc: string | null;
+  imageAlt: string;
+  eyebrow: string;
+  topBadge: string;
+  bottomPill: string;
+  title: string;
+  description: string;
+  tags: RangeTag[];
+  link: string;
+  linkText: string;
+  tone: string;
+}[] = [
+  {
+    id: "ranges-water",
+    number: "01",
+    icon: Droplets,
+    imageSrc: homeStockImages.rangeWater.activeUrl,
+    imageAlt: homeStockImages.rangeWater.alt,
+    eyebrow: "Industrial water & process",
+    topBadge: "Water treatment",
+    bottomPill: "Boiler, cooling, RO, ETP",
+    title: "Industrial water & process",
+    description:
+      "Boiler, cooling, RO and effluent chemistry for plant systems.",
+    tags: [
+      { label: "Boiler water", tone: "cyan" },
+      { label: "Cooling water", tone: "cyan" },
+      { label: "RO & desalination", tone: "cyan" },
+      { label: "Effluent & sewage", tone: "cyan" },
+    ],
+    link: "/solutions/industrial-water",
+    linkText: "Explore water solutions",
+    tone: "blue",
+  },
+  {
+    id: "ranges-construction",
+    number: "02",
+    icon: Factory,
+    imageSrc: homeStockImages.rangeConstruction.activeUrl,
+    imageAlt: homeStockImages.rangeConstruction.alt,
+    eyebrow: "Construction & protection",
+    topBadge: "Surface protection",
+    bottomPill: "Waterproof, repair, seal",
+    title: "Construction & protection",
+    description:
+      "Waterproofing, repair mortars, coatings and joint sealants for buildings and plant.",
+    tags: [
+      { label: "Waterproofing", tone: "amber" },
+      { label: "Repair & bonding", tone: "amber" },
+      { label: "Floor & joint", tone: "amber" },
+      { label: "External coatings", tone: "amber" },
+    ],
+    link: "/solutions/construction-chemistry",
+    linkText: "Explore construction solutions",
+    tone: "amber",
+  },
+  {
+    id: "ranges-specialty",
+    number: "03",
+    icon: Layers3,
+    imageSrc: null,
+    imageAlt: "Specialty products",
+    eyebrow: "Specialty products",
+    topBadge: "Problem-specific",
+    bottomPill: "Odour, rust, HVAC",
+    title: "Specialty products",
+    description:
+      "POLYDOR-WS for odour, COROSIL for rust, POLYKLIN for HVAC coils.",
+    tags: [
+      { label: "Odour control", tone: "purple" },
+      { label: "Rust conversion", tone: "purple" },
+      { label: "HVAC coil cleaning", tone: "purple" },
+      { label: "Pool & drinking water", tone: "purple" },
+    ],
+    link: "/specialty",
+    linkText: "Explore specialty range",
+    tone: "purple",
+  },
+  {
+    id: "ranges-vklin",
+    number: "04",
+    icon: Leaf,
+    imageSrc: homeStockImages.rangeVklin.activeUrl,
+    imageAlt: homeStockImages.rangeVklin.alt,
+    eyebrow: "V-Klin care",
+    topBadge: "Home & facility",
+    bottomPill: "Clean, protect, freshen",
+    title: "V-Klin care",
+    description:
+      "Cleaning and facility-care products for homes and workplaces, organised by task.",
+    tags: [
+      { label: "Floor & surface", tone: "green" },
+      { label: "Hand hygiene", tone: "green" },
+      { label: "Dishwashing", tone: "green" },
+      { label: "Glass & toilet", tone: "green" },
+    ],
+    link: "/vklin/products",
+    linkText: "Explore V-Klin products",
+    tone: "green",
+  },
+];
+
+/* Industry application rows (merged into ranges section) */
 const markets = operatingEnvironments.map(({ id, eyebrow, description }) => ({
   icon: environmentIcons[id],
   eyebrow,
@@ -110,6 +224,7 @@ const markets = operatingEnvironments.map(({ id, eyebrow, description }) => ({
   href: `/industries#${id}`,
 }));
 
+/* PQRS tiles */
 const pqrsTiles = [
   {
     letter: "P",
@@ -159,9 +274,7 @@ export default function Home() {
       <section className="certifications-strip" aria-label="Quality and compliance documents">
         <div className="container certifications-strip-layout">
           <div className="cert-strip-heading">
-            <span className="cert-strip-icon-box"><ShieldCheck size={20} strokeWidth={2} aria-hidden="true" /></span>
             <div>
-              <span className="cert-strip-eyebrow">Quality &amp; compliance</span>
               <strong>Certificates and their scope</strong>
             </div>
           </div>
@@ -190,88 +303,115 @@ export default function Home() {
         </div>
       </section>
 
-      <InteractiveRangesSection />
-
-      {/* Complete business map */}
-      <section className="hp-section" id="range-map" aria-labelledby="range-map-title">
-        <div className="container">
-          <div className="hp-section-heading">
-            <div>
-              <h2 id="range-map-title">Every product area, at a glance.</h2>
+      {/* What we make — one card per range, with inline application links */}
+      <section className="hp-section hp-section-tint hp-ranges-section" id="ranges" aria-labelledby="ranges-title">
+        <div className="hp-hero-container">
+          <div className="hp-ranges-header hp-reveal">
+            <div className="hp-ranges-title-box">
+              <h2 id="ranges-title" className="hp-ranges-title">
+                Four ranges, one manufacturer.
+                <svg className="hp-ranges-brush" viewBox="0 0 260 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M4 11C70 4 160 3 256 9C205 14 115 15 38 12" stroke="#0EA5E9" strokeWidth="4.5" strokeLinecap="round" opacity="0.85" />
+                </svg>
+              </h2>
             </div>
-            <p>
-              {rangeProductAreaCount} product areas across the four ranges, each one
-              documented on its own page, so nothing here is a dead end.
+            <p className="hp-ranges-lead" style={{fontSize: '0.85rem', lineHeight: '1.4', maxWidth: '380px', color: '#4C6579'}}>
+              PolyTreat formulates four product ranges at its own sites for the systems, surfaces, and spaces they serve.
             </p>
           </div>
 
-          <div className="hp-map-grid hp-stagger">
-            {productMapGroups.map((group) => (
-              <div className={`hp-map-group hp-map-${group.id}`} key={group.id}>
-                <div className="hp-map-group-head">
-                  <h3>{group.title}</h3>
-                  <span className="hp-map-group-summary">{group.summary}</span>
+          <div className="hp-range-grid hp-stagger">
+            {ranges.map(({ id, number, icon: Icon, imageSrc, imageAlt, eyebrow, topBadge, bottomPill, title, description, tags, link, linkText, tone }) => (
+              <article className={`hp-range-card hp-tone-${tone}`} id={id} key={id}>
+                <div className="hp-range-media">
+                  {imageSrc ? (
+                    <Image
+                      src={imageSrc}
+                      alt={imageAlt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 28vw"
+                      className="hp-range-media-img"
+                    />
+                  ) : (
+                    <div className="hp-range-media-panel hp-specialty-3d-panel" aria-hidden="true">
+                      <div className="hp-specialty-3d-glow" />
+                      <div className="hp-specialty-3d-graphic">
+                        <svg viewBox="0 0 160 160" fill="none" className="hp-3d-gear-svg" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="80" cy="80" r="70" stroke="url(#cyanGlowRing)" strokeWidth="1.5" strokeDasharray="6 6" opacity="0.35" />
+                          <circle cx="80" cy="80" r="54" stroke="url(#cyanGlowRing2)" strokeWidth="2" opacity="0.5" />
+                          <g filter="url(#gearShadow)">
+                            <path d="M80 32C76 32 73 34 72 38L69 46C65 48 61 50 58 53L50 50C46 48 42 50 40 53L32 67C30 71 31 75 35 77L42 82C42 84 42 86 42 88L35 93C31 95 30 99 32 103L40 117C42 120 46 122 50 120L58 117C61 120 65 122 69 124L72 132C73 136 76 138 80 138H96C100 138 103 136 104 132L107 124C111 122 115 120 118 117L126 120C130 122 134 120 136 117L144 103C146 99 145 95 141 93L134 88C134 86 134 84 134 82L141 77C145 75 146 71 144 67L136 53C134 50 130 48 126 50L118 53C115 50 111 48 107 46L104 38C103 34 100 32 96 32H80ZM88 64C99 64 108 73 108 84C108 95 99 104 88 104C77 104 68 95 68 84C68 73 77 64 88 64Z" fill="url(#gearGrad)" />
+                          </g>
+                          <g filter="url(#wrenchShadow)" transform="rotate(-30 80 80)">
+                            <path d="M68 40C68 48 72 54 78 57L54 116C52 121 55 126 60 128C65 130 70 127 72 122L96 63C102 61 106 55 106 48C106 42 102 36 96 34L88 42L82 36L90 28C84 26 78 28 74 32C70 34 68 37 68 40Z" fill="url(#wrenchGrad)" />
+                          </g>
+                          <defs>
+                            <filter id="gearShadow" x="16" y="24" width="144" height="136" filterUnits="userSpaceOnUse">
+                              <feDropShadow dx="0" dy="8" stdDeviation="10" floodColor="#0284C7" floodOpacity="0.35" />
+                            </filter>
+                            <filter id="wrenchShadow" x="30" y="10" width="100" height="135" filterUnits="userSpaceOnUse">
+                              <feDropShadow dx="2" dy="6" stdDeviation="6" floodColor="#0B192C" floodOpacity="0.4" />
+                            </filter>
+                            <linearGradient id="gearGrad" x1="30" y1="30" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+                              <stop stopColor="#818CF8" />
+                              <stop offset="0.5" stopColor="#6366F1" />
+                              <stop offset="1" stopColor="#4338CA" />
+                            </linearGradient>
+                            <linearGradient id="wrenchGrad" x1="50" y1="20" x2="110" y2="130" gradientUnits="userSpaceOnUse">
+                              <stop stopColor="#38BDF8" />
+                              <stop offset="0.6" stopColor="#0284C7" />
+                              <stop offset="1" stopColor="#0369A1" />
+                            </linearGradient>
+                            <linearGradient id="cyanGlowRing" x1="0" y1="0" x2="160" y2="160" gradientUnits="userSpaceOnUse">
+                              <stop stopColor="#0EA5E9" />
+                              <stop offset="1" stopColor="#06B6D4" />
+                            </linearGradient>
+                            <linearGradient id="cyanGlowRing2" x1="160" y1="0" x2="0" y2="160" gradientUnits="userSpaceOnUse">
+                              <stop stopColor="#38BDF8" stopOpacity="0.8" />
+                              <stop offset="1" stopColor="#818CF8" stopOpacity="0.3" />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                      </div>
+                      <span className="hp-specialty-center-pill">Problem-specific formulations</span>
+                    </div>
+                  )}
+
+                  <span className={`hp-range-top-badge hp-badge-${tone}`}>
+                    {topBadge}
+                  </span>
+
+                  <span className="hp-range-number" aria-hidden="true">{number}</span>
+
+                  <span className="hp-range-bottom-pill">
+                    <Icon size={13} strokeWidth={2.2} aria-hidden="true" />
+                    <span>{bottomPill}</span>
+                  </span>
                 </div>
-                <ul className="hp-map-pills">
-                  {group.items.map((item) => (
-                    <li key={`${group.id}-${item.label}`}>
-                      <Link href={item.href}>
-                        <span>{item.label}</span>
-                        <ArrowUpRight size={13} aria-hidden="true" />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+
+                <div className="hp-range-copy">
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                  <ul className="hp-tags" aria-label={`${eyebrow} areas`}>
+                    {tags.map((tag) => (
+                      <li key={tag.label} className={`hp-tag-${tag.tone}`}>
+                        {tag.label}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link className="text-link hp-range-link" href={link}>
+                    <span>{linkText}</span>
+                    <ArrowRight size={15} aria-hidden="true" className="hp-link-arrow" />
+                  </Link>
+                </div>
+              </article>
             ))}
           </div>
 
-          <div className="hp-section-foot hp-section-foot-center">
-            <span>The industries page shows the full map with sector contexts.</span>
-            <Link className="text-link" href="/industries">
-              Open the product map <ArrowRight size={15} aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Applications */}
-      <section className="hp-section hp-section-tint" id="applications" aria-labelledby="applications-title">
-        <div className="container hp-applications-layout">
-          <div className="hp-applications-image">
-            <div className="hp-applications-figure hp-reveal-scale">
-              <Image
-                src={homeStockImages.applicationsImage.activeUrl}
-                alt={homeStockImages.applicationsImage.alt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 44vw"
-                className="hp-applications-img"
-              />
-              <div className="hp-applications-shade" aria-hidden="true" />
-              <div className="hp-applications-caption">
-                <span className="hp-applications-tag">
-                  <Factory size={15} strokeWidth={2} aria-hidden="true" />
-                  Chemistry in working environments
-                </span>
-                <p>
-                  Representative effluent-treatment basins: process-water responsibility,
-                  building surfaces, and shared spaces are all part of the same business.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="hp-applications-list">
-            <div className="hp-section-heading hp-heading-tight hp-reveal">
-<div>
-                <h2 id="applications-title">Where the chemistry goes to work.</h2>
-              </div>
-              <p>
-                The same ranges serve plants, infrastructure projects, and everyday
-                facilities. Start with the environment you operate in.
-              </p>
-            </div>
-
+          {/* Inline application links (merged from separate Applications section) */}
+          <div className="hp-applications-inline hp-reveal">
+            <h3>Where the chemistry goes to work</h3>
+            <p>The same ranges serve plants, infrastructure, and everyday facilities.</p>
             <div className="hp-application-rows hp-stagger">
               {markets.map(({ icon: Icon, description, href }, index) => (
                 <Link className="hp-application-row" href={href} key={markets[index].href}>
@@ -285,6 +425,11 @@ export default function Home() {
                 </Link>
               ))}
             </div>
+          </div>
+
+          <div className="hp-section-foot hp-ranges-foot">
+            <span className="hp-foot-question">Not sure which range fits your requirement?</span>
+            <WhatsAppCta />
           </div>
         </div>
       </section>
@@ -349,9 +494,6 @@ export default function Home() {
 
       {/* V-Klin brand spotlight */}
       <section className="hp-section hp-section-vklin" id="vklin" aria-labelledby="vklin-title">
-        {/* Decorative soft mint wave backdrop */}
-        <div className="hp-vklin-decor" aria-hidden="true" />
-
         <div className="hp-hero-container hp-vklin-layout">
           <div className="hp-vklin-copy hp-reveal">
             <div className="hp-vklin-identity">
@@ -410,7 +552,7 @@ export default function Home() {
               <span className="hp-vklin-panel-mark" aria-hidden="true">
                 <Leaf size={20} strokeWidth={2.2} aria-hidden="true" />
               </span>
-<div className="hp-vklin-head-titles">
+              <div className="hp-vklin-head-titles">
                 <span className="hp-vklin-head-kicker">Institutional & home care</span>
                 <strong className="hp-vklin-head-main">Product range</strong>
               </div>
@@ -533,8 +675,8 @@ export default function Home() {
             <a className="hp-contact-card" href="tel:+919820235995">
               <span className="hp-contact-icon"><Phone size={18} aria-hidden="true" /></span>
               <span className="hp-contact-card-copy">
-                <span>Technical &amp; sales</span>
-                <strong>+91 98202 35995</strong>
+                <span>Technical & sales</span>
+                <strong>{'+'}91 98202 35995</strong>
               </span>
               <ArrowUpRight size={16} aria-hidden="true" />
             </a>
