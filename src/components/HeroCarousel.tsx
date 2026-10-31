@@ -54,10 +54,10 @@ const industrialSlides = [
     label: "70,000+ Sq.ft Laboratory & QC",
     captionTitle: "In-House R&D, ISO-Certified QC",
     chipBadge: "Certified Testing & Formulation",
-    image: "/images/home/hero-chemical-laboratory.jpg",
+    image: "/images/home/laboratory-qc-testing.jpg",
     alt: "Quality control chemical research laboratory with researcher analyzing water treatment formulations under microscope",
     lead: "Advanced chemical synthesis, quality control, titration, and certified formulation testing.",
-    poster: "/images/home/hero-chemical-laboratory.jpg",
+    poster: "/images/home/laboratory-qc-testing.jpg",
     icon: FlaskConical,
   },
   {
@@ -81,7 +81,7 @@ const industrialSlides = [
     image: "/images/home/Modern Chemical Plant Operations.png",
     alt: "Industrial chemical manufacturing and supply infrastructure, chemical distribution piping, storage tanks, and facility care",
     lead: "Industrial piping protection, heavy-duty facility care, and multi-site distribution across Maharashtra.",
-    poster: "/images/home/hero-supply-facility.jpg",
+    poster: "/images/home/Modern Chemical Plant Operations.png",
     icon: ShieldCheck,
   },
 ];
