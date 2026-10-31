@@ -1,324 +1,151 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback, CSSProperties } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  CalendarClock,
-  ChevronLeft,
-  ChevronRight,
   Droplets,
-  Factory,
   Fan,
+  Factory,
   FlaskConical,
-  MapPin,
   MessageCircle,
   Pause,
   Play,
-  RotateCcw,
-  ShieldCheck,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 
-/* ------------------------------------------------------------------ */
-/* 5 Realistic Industrial Chemistry Slides & Verified Local Imagery   */
-/* ------------------------------------------------------------------ */
-const industrialSlides = [
+/* 5 hero slides - each with poster for no empty frame */
+const slides = [
   {
-    id: "boilers",
-    tabLabel: "WATER & PLANTS",
-    label: "Industrial Steam Boilers & Water Treatment",
-    captionTitle: "Boiler · Cooling · RO · Effluent",
-    chipBadge: "Water Treatment Systems",
-    image: "/images/home/industrial-steam-boilers-water-treatment.jpg",
-    alt: "Modern industrial steam boiler facility with high-pressure vessel, combustion burner, piping manifold, and chemical water treatment systems",
-    lead: "Water treatment chemistry for critical plant systems: boilers, cooling towers, reverse osmosis, and effluent.",
+    id: "water",
+    label: "Industrial Water & Plants",
+    selectorLabel: "WATER & PLANTS",
+    video: "https://assets.mixkit.co/videos/14631/14631-720.mp4",
     poster: "/images/home/industrial-steam-boilers-water-treatment.jpg",
+    lead: "Water treatment chemistry for critical plant systems: boilers, cooling towers, reverse osmosis, and effluent.",
+    captionTitle: "Boiler, cooling, RO, effluent",
+    chipBadge: "Water Treatment Systems",
     icon: Droplets,
   },
   {
     id: "cooling",
-    tabLabel: "COOLING LOOPS",
     label: "Industrial Cooling Towers & Loops",
-    captionTitle: "Recirculating Loops, Legionella Control",
-    chipBadge: "Cooling Water Systems",
-    image: "/images/home/industrial-cooling-towers-loops.jpg",
-    alt: "Industrial cooling tower plant with mechanical draft fan stacks, piping manifold, and chemical water treatment pumps",
-    lead: "Microbiological fouling prevention, scale inhibition, and biocide programs for industrial cooling towers.",
+    selectorLabel: "COOLING LOOPS",
+    video: "https://assets.mixkit.co/videos/47783/47783-720.mp4",
     poster: "/images/home/industrial-cooling-towers-loops.jpg",
+    lead: "Microbiological fouling prevention, scale inhibition, and biocide programs for industrial cooling towers.",
+    captionTitle: "Recirculating loops, Legionella control",
+    chipBadge: "Cooling Water Systems",
     icon: Fan,
   },
   {
     id: "laboratory",
-    tabLabel: "LABORATORY",
     label: "70,000+ Sq.ft Laboratory & QC",
-    captionTitle: "In-House R&D, ISO-Certified QC",
-    chipBadge: "Certified Testing & Formulation",
-    image: "/images/home/hero-chemical-laboratory.jpg",
-    alt: "Modern analytical chemical laboratory with glassware, beakers, spectrophotometer, titration testing, and reagent formulations",
-    lead: "Advanced chemical synthesis, quality control, titration, and certified formulation testing.",
+    selectorLabel: "LABORATORY",
+    video: "https://assets.mixkit.co/videos/4380/4380-720.mp4",
     poster: "/images/home/hero-chemical-laboratory.jpg",
+    lead: "Advanced chemical synthesis, quality control, titration, and certified formulation testing.",
+    captionTitle: "In-house R&D, ISO-certified QC",
+    chipBadge: "Certified Testing & Formulation",
     icon: FlaskConical,
   },
   {
     id: "effluent",
-    tabLabel: "EFFLUENT ETP",
     label: "Effluent Treatment Plants & Clarifiers",
-    captionTitle: "Aeration, Coagulation, Zero Discharge",
-    chipBadge: "Effluent Treatment Plant",
-    image: "/images/home/hero-effluent-etp.jpg",
-    alt: "Realistic industrial effluent treatment plant with circular clarifier basin, mechanical scraper bridge, and aeration tanks",
-    lead: "Coagulant, flocculant, and heavy metal precipitation solutions engineered to meet zero-discharge standards.",
+    selectorLabel: "EFFLUENT ETP",
+    video: "https://assets.mixkit.co/videos/14631/14631-720.mp4",
     poster: "/images/home/hero-effluent-etp.jpg",
+    lead: "Coagulant, flocculant, and heavy metal precipitation solutions engineered to meet zero-discharge standards.",
+    captionTitle: "Aeration, coagulation, zero discharge",
+    chipBadge: "Effluent Treatment Plant",
     icon: Factory,
   },
   {
     id: "supply",
-    tabLabel: "SUPPLY & CARE",
     label: "Chemical Supply & Infrastructure Care",
-    captionTitle: "Industrial Supply, Facility Protection",
-    chipBadge: "Industrial Chemical Infrastructure",
-    image: "/images/home/hero-supply-facility.jpg",
-    alt: "Industrial chemical manufacturing and supply infrastructure, chemical distribution piping, storage tanks, and facility care",
-    lead: "Industrial piping protection, heavy-duty facility care, and multi-site distribution across Maharashtra.",
+    selectorLabel: "SUPPLY & CARE",
+    video: "https://assets.mixkit.co/videos/47783/47783-720.mp4",
     poster: "/images/home/hero-supply-facility.jpg",
-    icon: ShieldCheck,
+    lead: "Industrial piping protection, heavy-duty facility care, and multi-site distribution across Maharashtra.",
+    captionTitle: "Industrial supply, facility protection",
+    chipBadge: "Industrial Chemical Infrastructure",
+    icon: Factory,
   },
-];
-
-/* ------------------------------------------------------------------ */
-/* Left side: Exact phrases & credentials from original design        */
-/* ------------------------------------------------------------------ */
-const headlinePhrases = [
-  "for water, structures, and everyday care.",
-  "for industrial boilers, cooling & RO plants.",
-  "for certified chemical testing & QC labs.",
-  "for concrete protection & waterproofing.",
-  "for everyday hygiene & facility care.",
-];
-
-const proofChips = [
-  { icon: CalendarClock, text: "Manufacturing since 1987" },
-  { icon: MapPin, text: "Active clients in Maharashtra" },
-  { icon: FlaskConical, text: "70,000+ Sq.ft Laboratory" },
 ];
 
 export default function HeroCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [headlineIndex, setHeadlineIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
-  const [hasEntered, setHasEntered] = useState(false);
-  const [isFullyGathered, setIsFullyGathered] = useState(false);
-  const [exitingIndex, setExitingIndex] = useState<number | null>(null);
-  const [progress, setProgress] = useState(0);
+  const [isFocused, setIsFocused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
-  const isTransitioningRef = useRef(false);
-  const totalSlides = industrialSlides.length;
-  const activeSlide = industrialSlides[activeIndex];
-  const ActiveIcon = activeSlide.icon;
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const activeSlide = slides[activeIndex];
 
-  /* ------------------------------------------------------------------ */
-  /* Entrance animation trigger: cards slide in one by one from left    */
-  /* ------------------------------------------------------------------ */
-  const triggerEntrance = useCallback(() => {
-    setHasEntered(false);
-    setIsFullyGathered(false);
-    setProgress(0);
-
-    const timer1 = setTimeout(() => {
-      setHasEntered(true);
-    }, 60);
-
-    const timer2 = setTimeout(() => {
-      setIsFullyGathered(true);
-    }, 1800);
-
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-    };
+  useEffect(() => {
+    const motionPref = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateMotion = () => setPrefersReducedMotion(motionPref.matches);
+    updateMotion();
+    motionPref.addEventListener("change", updateMotion);
+    return () => motionPref.removeEventListener("change", updateMotion);
   }, []);
 
   useEffect(() => {
-    const cleanup = triggerEntrance();
-    return cleanup;
-  }, [triggerEntrance]);
-
-  /* ------------------------------------------------------------------ */
-  /* Slide transition: Move active card to back, bring next to front    */
-  /* ------------------------------------------------------------------ */
-  const goToSlide = useCallback(
-    (targetIndex: number) => {
-      if (isTransitioningRef.current || targetIndex === activeIndex) return;
-      isTransitioningRef.current = true;
-
-      setExitingIndex(activeIndex);
-      setProgress(0);
-
-      setTimeout(() => {
-        setActiveIndex(targetIndex);
-        setHeadlineIndex(targetIndex % headlinePhrases.length);
-        setExitingIndex(null);
-        isTransitioningRef.current = false;
-      }, 550);
-    },
-    [activeIndex]
-  );
-
-  const advanceToNext = useCallback(() => {
-    if (isTransitioningRef.current) return;
-    const nextIdx = (activeIndex + 1) % totalSlides;
-    goToSlide(nextIdx);
-  }, [activeIndex, goToSlide, totalSlides]);
-
-  const advanceToPrev = useCallback(() => {
-    if (isTransitioningRef.current) return;
-    const prevIdx = (activeIndex - 1 + totalSlides) % totalSlides;
-    goToSlide(prevIdx);
-  }, [activeIndex, goToSlide, totalSlides]);
-
-  /* ------------------------------------------------------------------ */
-  /* Continuous looping timer & progress bar calculation (4.5s cycle)   */
-  /* ------------------------------------------------------------------ */
-  useEffect(() => {
-    if (!isPlaying || isHovered || !isFullyGathered) return;
-
-    const DURATION = 4500;
-    const INTERVAL = 50;
-    const increment = (INTERVAL / DURATION) * 100;
-
-    const intervalTimer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          advanceToNext();
-          return 0;
+    videoRefs.current.forEach((vid, idx) => {
+      if (!vid) return;
+      if (idx === activeIndex) {
+        if (isPlaying) {
+          vid.currentTime = 0;
+          const playPromise = vid.play();
+          if (playPromise !== undefined) playPromise.catch(() => {});
+        } else {
+          vid.pause();
         }
-        return prev + increment;
-      });
-    }, INTERVAL);
+      } else {
+        vid.pause();
+      }
+    });
+  }, [activeIndex, isPlaying]);
 
-    return () => clearInterval(intervalTimer);
-  }, [isPlaying, isHovered, isFullyGathered, advanceToNext]);
+  useEffect(() => {
+    videoRefs.current.forEach((vid) => {
+      if (vid) vid.muted = isMuted;
+    });
+  }, [isMuted]);
 
-  /* ------------------------------------------------------------------ */
-  /* Dynamic 3D Transform computation for each card in the stacked deck */
-  /* ------------------------------------------------------------------ */
-  const getCardStyle = (index: number): CSSProperties => {
-    const isExiting = exitingIndex === index;
-    const relIndex = (index - activeIndex + totalSlides) % totalSlides;
+  useEffect(() => {
+    if (isHovered || isFocused || prefersReducedMotion || !isPlaying) return;
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % slides.length);
+    }, 5000);
+    return () => window.clearInterval(timer);
+  }, [activeIndex, isHovered, isFocused, prefersReducedMotion, isPlaying]);
 
-    const baseStyle: CSSProperties = {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "calc(100% - 66px)",
-      height: "100%",
-    };
+  function showSlide(index: number) {
+    setActiveIndex((index + slides.length) % slides.length);
+  }
 
-    // 1. Initial State before entrance: All cards off-screen to the left
-    if (!hasEntered) {
-      return {
-        ...baseStyle,
-        transform: `translate3d(-150%, ${20 + index * 10}px, 0px) scale(0.72) rotate(-14deg)`,
-        opacity: 0,
-        filter: "blur(8px)",
-        zIndex: totalSlides - index,
-        transition: "none",
-      };
-    }
+  function togglePlayPause() {
+    setIsPlaying((prev) => {
+      const next = !prev;
+      const currentVid = videoRefs.current[activeIndex];
+      if (currentVid) {
+        if (next) currentVid.play().catch(() => {});
+        else currentVid.pause();
+      }
+      return next;
+    });
+  }
 
-    // 2. Entrance sequence: Cards fly in with staggered delay from left side
-    if (!isFullyGathered) {
-      const staggerDelay = index * 180;
-      const stackOffsets = [
-        { x: 0, y: 0, z: 0, scale: 1, rot: 0, opacity: 1 },
-        { x: 24, y: -9, z: -30, scale: 0.95, rot: 1.8, opacity: 0.88 },
-        { x: 46, y: -17, z: -60, scale: 0.9, rot: 3.4, opacity: 0.68 },
-        { x: 66, y: -24, z: -90, scale: 0.85, rot: 4.8, opacity: 0.45 },
-        { x: 82, y: -30, z: -120, scale: 0.8, rot: 6, opacity: 0.25 },
-      ];
-      const target = stackOffsets[relIndex] || stackOffsets[4];
+  function toggleMute() {
+    setIsMuted((prev) => !prev);
+  }
 
-      return {
-        ...baseStyle,
-        transform: `translate3d(${target.x}px, ${target.y}px, ${target.z}px) scale(${target.scale}) rotate(${target.rot}deg)`,
-        opacity: target.opacity,
-        filter: "blur(0px)",
-        zIndex: 10 - relIndex,
-        transition: `transform 900ms cubic-bezier(0.16, 1, 0.3, 1) ${staggerDelay}ms, opacity 750ms ease ${staggerDelay}ms, filter 650ms ease ${staggerDelay}ms`,
-      };
-    }
-
-    // 3. Card is exiting: Slides smoothly out to the left and moves to the end of the stack
-    if (isExiting) {
-      return {
-        ...baseStyle,
-        transform: "translate3d(-114%, -18px, 40px) scale(0.92) rotate(-8deg)",
-        opacity: 0,
-        filter: "blur(2px)",
-        zIndex: 15,
-        transition: "transform 550ms cubic-bezier(0.25, 1, 0.5, 1), opacity 450ms ease, filter 450ms ease",
-      };
-    }
-
-    // 4. Standard Stacked Card Layout:
-    // relIndex === 0 is the main large card
-    // relIndex 1, 2, 3, 4 are layered cards stacked behind to the right
-    switch (relIndex) {
-      case 0:
-        return {
-          ...baseStyle,
-          transform: "translate3d(0px, 0px, 0px) scale(1) rotate(0deg)",
-          opacity: 1,
-          filter: "brightness(1)",
-          zIndex: 10,
-          cursor: "default",
-          transition: "transform 600ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease, filter 500ms ease",
-        };
-      case 1:
-        return {
-          ...baseStyle,
-          transform: "translate3d(24px, -10px, -30px) scale(0.955) rotate(1.8deg)",
-          opacity: 0.9,
-          filter: "brightness(0.94)",
-          zIndex: 9,
-          cursor: "pointer",
-          transition: "transform 600ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease, filter 500ms ease",
-        };
-      case 2:
-        return {
-          ...baseStyle,
-          transform: "translate3d(46px, -18px, -60px) scale(0.91) rotate(3.4deg)",
-          opacity: 0.7,
-          filter: "brightness(0.88)",
-          zIndex: 8,
-          cursor: "pointer",
-          transition: "transform 600ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease, filter 500ms ease",
-        };
-      case 3:
-        return {
-          ...baseStyle,
-          transform: "translate3d(66px, -25px, -90px) scale(0.865) rotate(4.8deg)",
-          opacity: 0.45,
-          filter: "brightness(0.82)",
-          zIndex: 7,
-          cursor: "pointer",
-          transition: "transform 600ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease, filter 500ms ease",
-        };
-      default:
-        // Deepest card at the end of the stack
-        return {
-          ...baseStyle,
-          transform: "translate3d(82px, -31px, -120px) scale(0.82) rotate(6deg)",
-          opacity: 0.25,
-          filter: "brightness(0.76)",
-          zIndex: 6,
-          cursor: "pointer",
-          transition: "transform 600ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease, filter 500ms ease",
-        };
-    }
-  };
+  const ActiveIcon = activeSlide.icon;
 
   return (
     <section
@@ -326,261 +153,112 @@ export default function HeroCarousel() {
       aria-labelledby="hero-title"
       aria-roledescription="carousel"
     >
-      {/* Decorative water splash background graphics (Preserved 100%) */}
-      <div className="hp-hero-water-bg" aria-hidden="true">
-        <div className="hp-water-splash hp-water-splash-top-right">
-          <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M120 0C170 50 160 110 220 140C290 175 360 110 420 160C470 200 480 300 500 360V0H120Z"
-              fill="url(#waterGlow1)"
-              opacity="0.65"
-            />
-            <path
-              d="M260 0C300 45 350 70 410 75C460 79 490 120 500 150V0H260Z"
-              fill="url(#waterGlow2)"
-              opacity="0.8"
-            />
-            <circle cx="190" cy="180" r="14" fill="#38BDF8" opacity="0.35" />
-            <circle cx="193" cy="177" r="4" fill="#FFFFFF" opacity="0.8" />
-            <circle cx="140" cy="220" r="8" fill="#0EA5E9" opacity="0.3" />
-            <circle cx="142" cy="218" r="2.5" fill="#FFFFFF" opacity="0.75" />
-            <circle cx="280" cy="250" r="20" fill="#0284C7" opacity="0.18" />
-            <circle cx="284" cy="246" r="6" fill="#FFFFFF" opacity="0.7" />
-            <defs>
-              <linearGradient id="waterGlow1" x1="500" y1="0" x2="160" y2="300" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#38BDF8" stopOpacity="0.5" />
-                <stop offset="0.6" stopColor="#0EA5E9" stopOpacity="0.2" />
-                <stop offset="1" stopColor="#BAE6FD" stopOpacity="0" />
-              </linearGradient>
-              <linearGradient id="waterGlow2" x1="500" y1="0" x2="300" y2="150" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#7DD3FC" stopOpacity="0.6" />
-                <stop offset="1" stopColor="#38BDF8" stopOpacity="0.1" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-
-        <div className="hp-water-splash hp-water-splash-bottom-left">
-          <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0 400C50 330 30 260 90 220C160 170 230 230 300 180C360 135 370 40 420 0H0V400Z"
-              fill="url(#waterGlow3)"
-              opacity="0.45"
-            />
-            <circle cx="180" cy="140" r="12" fill="#0284C7" opacity="0.22" />
-            <circle cx="183" cy="138" r="3.5" fill="#FFFFFF" opacity="0.75" />
-            <circle cx="320" cy="100" r="16" fill="#38BDF8" opacity="0.25" />
-            <circle cx="324" cy="97" r="5" fill="#FFFFFF" opacity="0.7" />
-            <circle cx="90" cy="160" r="7" fill="#0EA5E9" opacity="0.3" />
-            <defs>
-              <linearGradient id="waterGlow3" x1="0" y1="400" x2="350" y2="100" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#38BDF8" stopOpacity="0.4" />
-                <stop offset="0.7" stopColor="#0284C7" stopOpacity="0.15" />
-                <stop offset="1" stopColor="#E0F2FE" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-
-        <div className="hp-hero-watermark" aria-hidden="true">
-          <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="200" cy="200" r="170" stroke="#0284C7" strokeWidth="2.5" strokeDasharray="8 8" opacity="0.14" />
-            <circle cx="200" cy="200" r="130" stroke="#0EA5E9" strokeWidth="1.5" opacity="0.1" />
-            <circle cx="200" cy="200" r="90" stroke="#38BDF8" strokeWidth="2" strokeDasharray="16 12" opacity="0.18" />
-            <circle cx="200" cy="200" r="40" stroke="#0284C7" strokeWidth="1.5" opacity="0.12" />
-          </svg>
-        </div>
+      {/* Single hero video, no decorative splashes */}
+      <div className="hp-hero-video-wrapper" aria-hidden="true">
+        {slides.map((slide, index) => {
+          const isActive = index === activeIndex;
+          return (
+            <div
+              className={`hp-hero-video-slide${isActive ? " is-active" : ""}`}
+              key={slide.id}
+              aria-hidden={!isActive}
+            >
+              <video
+                ref={(el) => {
+                  videoRefs.current[index] = el;
+                }}
+                src={slide.video}
+                poster={slide.poster}
+                className="hp-hero-video-element"
+                autoPlay
+                loop
+                muted={isMuted}
+                playsInline
+                preload="auto"
+              />
+            </div>
+          );
+        })}
       </div>
 
+      {/* Video Controls */}
+      <div className="hp-hero-video-controls" aria-label="Video playback controls">
+        <button
+          type="button"
+          className="hp-video-ctrl-btn"
+          onClick={togglePlayPause}
+          title={isPlaying ? "Pause video" : "Play video"}
+          aria-label={isPlaying ? "Pause video" : "Play video"}
+        >
+          {isPlaying ? <Pause size={15} strokeWidth={2.4} /> : <Play size={15} strokeWidth={2.4} />}
+        </button>
+        <button
+          type="button"
+          className="hp-video-ctrl-btn"
+          onClick={toggleMute}
+          title={isMuted ? "Unmute video" : "Mute video"}
+          aria-label={isMuted ? "Unmute video" : "Mute video"}
+        >
+          {isMuted ? <VolumeX size={15} strokeWidth={2.4} /> : <Volume2 size={15} strokeWidth={2.4} />}
+        </button>
+      </div>
+
+      /* Floating badge removed to reduce text blocks */
+
+      {/* Content overlay */}
       <div className="hp-hero-container hp-hero-grid">
-        {/* ========================================================== */}
-        {/* LEFT COLUMN: Entirely preserved exactly as requested       */}
-        {/* ========================================================== */}
         <div className="hp-hero-copy">
           <h1 id="hero-title" className="hp-hero-title">
-            Applied chemistry{" "}
-            <span
-              className="hp-hero-highlight hp-hero-rotating-phrase"
-              key={headlineIndex}
-            >
-              {headlinePhrases[headlineIndex]}
-            </span>
+            Applied chemistry for water, structures, and everyday care.
           </h1>
 
           <p className="hp-hero-lead" aria-live="polite" key={activeSlide.id}>
             {activeSlide.lead}
           </p>
 
-          <ul className="hp-hero-proof" aria-label="Company credentials">
-            {proofChips.map(({ icon: Icon, text }) => (
-              <li key={text} className="hp-hero-proof-item">
-                <span className="hp-proof-icon-wrap">
-                  <Icon size={15} strokeWidth={2.2} aria-hidden="true" />
-                </span>
-                <span>{text}</span>
-              </li>
-            ))}
-          </ul>
-
           <div className="hp-hero-actions">
             <Link className="hp-btn-primary" href="#ranges">
               <span>Explore solutions</span>
               <ArrowRight size={17} strokeWidth={2.2} aria-hidden="true" />
             </Link>
-            <a
-              className="hp-btn-secondary"
-              href="https://wa.me/919820235995?text=Hi%20PolyTreat%2C%20I%27d%20like%20to%20discuss%20a%20water%20treatment%20or%20industrial%20chemical%20requirement."
-              target="_blank"
-              rel="noreferrer"
-            >
-              <MessageCircle size={17} strokeWidth={2} aria-hidden="true" />
-              <span>Talk to our team</span>
-            </a>
           </div>
         </div>
 
-        {/* ========================================================== */}
-        {/* RIGHT COLUMN: Redesigned 3D Animated Card Stack Carousel   */}
-        {/* ========================================================== */}
+        {/* Visual column - interactive tabs */}
         <div className="hp-hero-visual">
           <div
-            className="hp-stack-container"
+            className="hp-hero-stage"
             role="region"
-            aria-label="Industrial chemistry applications 3D card carousel"
+            aria-label={`${activeSlide.label} video presentation`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onFocusCapture={() => setIsFocused(true)}
+            onBlurCapture={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setIsFocused(false);
+            }}
           >
-            {/* 3D Stack of Cards */}
-            <div className="hp-stack-deck">
-              {industrialSlides.map((slide, index) => {
+            {/* Interactive Navigation Tabs */}
+            <div className="hp-hero-tabs" role="tablist" aria-label="Hero video topics">
+              {slides.map((slide, index) => {
                 const isActive = index === activeIndex;
-                const SlideIcon = slide.icon;
-                const cardStyle = getCardStyle(index);
-
+                const TabIcon = slide.icon;
                 return (
-                  <div
+                  <button
+                    className={`hp-hero-tab${isActive ? " is-active" : ""}`}
                     key={slide.id}
-                    className={`hp-stack-card${isActive ? " is-active" : ""}`}
-                    style={cardStyle}
-                    onClick={() => !isActive && isFullyGathered && goToSlide(index)}
-                    role="button"
-                    tabIndex={isActive ? 0 : -1}
-                    aria-label={`Slide ${index + 1}: ${slide.label}`}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-label={`View ${slide.selectorLabel}`}
+                    onClick={() => showSlide(index)}
                   >
-                    {/* Relative container with explicit dimensions for Next.js Image */}
-                    <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden" }}>
-                      {/* Industrial Photograph */}
-                      <Image
-                        src={slide.image}
-                        alt={slide.alt}
-                        fill
-                        priority={index < 2}
-                        sizes="(max-width: 768px) 100vw, 580px"
-                        className="hp-stack-card-img"
-                      />
-
-                      {/* Gradient Overlay Vignette */}
-                      <div className="hp-stack-card-shade" aria-hidden="true" />
-
-                      {/* Active Card Progress Bar */}
-                      {isActive && (
-                        <div className="hp-card-progress-track" aria-hidden="true">
-                          <div
-                            className="hp-card-progress-bar"
-                            style={{ width: `${progress}%` }}
-                          />
-                        </div>
-                      )}
-
-                      {/* Top Controls on Active Front Card */}
-                      {isActive && (
-                        <div className="hp-card-top-controls" onClick={(e) => e.stopPropagation()}>
-                          <span className="hp-card-index-pill">
-                            0{activeIndex + 1} / 0{totalSlides}
-                          </span>
-                          <button
-                            type="button"
-                            className="hp-card-ctrl-btn"
-                            onClick={advanceToPrev}
-                            title="Previous industrial slide"
-                            aria-label="Previous industrial slide"
-                          >
-                            <ChevronLeft size={16} strokeWidth={2.4} />
-                          </button>
-                          <button
-                            type="button"
-                            className="hp-card-ctrl-btn"
-                            onClick={advanceToNext}
-                            title="Next industrial slide"
-                            aria-label="Next industrial slide"
-                          >
-                            <ChevronRight size={16} strokeWidth={2.4} />
-                          </button>
-                          <button
-                            type="button"
-                            className="hp-card-ctrl-btn"
-                            onClick={() => setIsPlaying((p) => !p)}
-                            title={isPlaying ? "Pause autoplay" : "Resume autoplay"}
-                            aria-label={isPlaying ? "Pause autoplay" : "Resume autoplay"}
-                          >
-                            {isPlaying ? (
-                              <Pause size={14} strokeWidth={2.5} />
-                            ) : (
-                              <Play size={14} strokeWidth={2.5} />
-                            )}
-                          </button>
-                          <button
-                            type="button"
-                            className="hp-card-ctrl-btn"
-                            onClick={triggerEntrance}
-                            title="Replay entrance animation"
-                            aria-label="Replay entrance animation"
-                          >
-                            <RotateCcw size={14} strokeWidth={2.2} />
-                          </button>
-                        </div>
-                      )}
-
-                      {/* Glassmorphism Badge (matches user reference image) */}
-                      {isActive && (
-                        <div className="hp-card-glass-badge">
-                          <div className="hp-card-icon-box">
-                            <SlideIcon size={20} strokeWidth={2.2} />
-                          </div>
-                          <div className="hp-card-text-box">
-                            <span className="hp-card-badge-title">{slide.label}</span>
-                            <span className="hp-card-badge-subtitle">{slide.captionTitle}</span>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
+                    <TabIcon size={16} strokeWidth={2.2} className="hp-hero-tab-icon" aria-hidden="true" />
+                    <span className="hp-hero-tab-label sr-only">{slide.selectorLabel}</span>
+                    {isActive && <span className="hp-hero-tab-dot" aria-hidden="true" />}
+                  </button>
                 );
               })}
             </div>
-          </div>
-
-          {/* Interactive Navigation Tabs Below Carousel (Matching reference) */}
-          <div className="hp-hero-tabs hp-hero-tabs-5" role="tablist" aria-label="Industrial chemistry topics">
-            {industrialSlides.map((slide, index) => {
-              const isActive = index === activeIndex;
-              const TabIcon = slide.icon;
-              return (
-                <button
-                  className={`hp-hero-tab${isActive ? " is-active" : ""}`}
-                  key={slide.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  aria-label={`View ${slide.tabLabel}`}
-                  onClick={() => goToSlide(index)}
-                >
-                  <TabIcon size={12} strokeWidth={2.4} className="hp-hero-tab-icon" aria-hidden="true" />
-                  <span className="hp-hero-tab-label">{slide.tabLabel}</span>
-                  {isActive && <span className="hp-hero-tab-dot" aria-hidden="true" />}
-                </button>
-              );
-            })}
           </div>
         </div>
       </div>

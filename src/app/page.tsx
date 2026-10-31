@@ -9,7 +9,6 @@ import {
   vklinProductCount,
   vklinProductGroups,
 } from "@/data/vklinProducts";
-import { locationSites } from "@/data/locations";
 import {
   environmentIcons,
   operatingEnvironments,
@@ -19,6 +18,7 @@ import {
   specialtyOtherLines,
   specialtyProducts,
 } from "@/data/specialtyProducts";
+import { locationSites } from "@/data/locations";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -52,128 +52,7 @@ export const metadata: Metadata = {
 };
 
 /* ------------------------------------------------------------------ */
-/* What we make: one card per range, mirroring the /industries map.   */
-/* ------------------------------------------------------------------ */
-
-const specialtyAreas = ["Odour control", "HVAC coil cleaning", "Rust conversion", "Pool & drinking water"];
-
-type RangeTag = { label: string; tone: string };
-
-const ranges: {
-  id: string;
-  number: string;
-  icon: typeof Droplets;
-  imageSrc: string | null;
-  imageAlt: string;
-  eyebrow: string;
-  topBadge: string;
-  bottomPill: string;
-  title: string;
-  description: string;
-  tags: RangeTag[];
-  link: string;
-  linkText: string;
-  tone: string;
-}[] = [
-  {
-    id: "ranges-water",
-    number: "01",
-    icon: Droplets,
-    imageSrc: homeStockImages.rangeWater.activeUrl,
-    imageAlt: homeStockImages.rangeWater.alt,
-    eyebrow: "Industrial water & process",
-    topBadge: "Industrial water & process",
-    bottomPill: "Industrial water & process",
-    title: "Treatment for the systems that keep your plant running.",
-    description:
-      "Water-treatment chemistry for boiler, cooling-water, reverse-osmosis, and effluent systems.",
-    tags: [
-      { label: "Boilers", tone: "blue" },
-      { label: "Cooling towers", tone: "blue" },
-      { label: "RO", tone: "blue" },
-      { label: "Effluent", tone: "blue" },
-    ],
-    link: "/solutions/industrial-water",
-    linkText: "Explore water treatment",
-    tone: "blue",
-  },
-  {
-    id: "ranges-construction",
-    number: "02",
-    icon: Layers3,
-    imageSrc: homeStockImages.rangeConstruction.activeUrl,
-    imageAlt: homeStockImages.rangeConstruction.alt,
-    eyebrow: "Construction & protection",
-    topBadge: "Construction & protection",
-    bottomPill: "Construction & protection",
-    title: "Surface protection built around the material and the problem.",
-    description:
-      "Waterproofing, coatings, concrete repair, flooring, and specialty surface-treatment products.",
-    tags: [
-      { label: "Waterproofing", tone: "slate" },
-      { label: "Coatings", tone: "slate" },
-      { label: "Flooring", tone: "slate" },
-      { label: "Rust treatment", tone: "slate" },
-    ],
-    link: "/solutions/construction-chemistry",
-    linkText: "Explore construction chemistry",
-    tone: "slate",
-  },
-  {
-    id: "ranges-specialty",
-    number: "03",
-    icon: Wrench,
-    imageSrc: null,
-    imageAlt: "",
-    eyebrow: "Specialty products",
-    topBadge: "Problem-specific",
-    bottomPill: "Specialty products",
-    title: "Single-purpose products, each aimed at one problem.",
-    description:
-      "A dedicated line for jobs the main ranges do not cover, from odour control to HVAC coil care.",
-    tags: [
-      { label: "Odour control", tone: "teal" },
-      { label: "HVAC coil cleaning", tone: "teal" },
-      { label: "Rust conversion", tone: "teal" },
-      { label: "Pool & drinking water", tone: "teal" },
-    ],
-    link: "/specialty",
-    linkText: "Explore specialty products",
-    tone: "teal",
-  },
-  {
-    id: "ranges-vklin",
-    number: "04",
-    icon: Leaf,
-    imageSrc: homeStockImages.rangeVklin.activeUrl,
-    imageAlt: homeStockImages.rangeVklin.alt,
-    eyebrow: "V-Klin care",
-    topBadge: "♡ V-Klin care",
-    bottomPill: "V-Klin care",
-    title: "Everyday cleaning for homes, institutions, and facilities.",
-    description: "Cleaning and facility-care products grouped under PolyTreat's V-Klin brand.",
-    tags: [
-      { label: "Floor & surface", tone: "rose" },
-      { label: "Handwash", tone: "cyan" },
-      { label: "Dishwash", tone: "amber" },
-      { label: "Glass & toilet", tone: "purple" },
-    ],
-    link: "/vklin/products",
-    linkText: "Explore the V-Klin range",
-    tone: "green",
-  },
-];
-
-const rangeProductAreaCount = productMapGroups.reduce(
-  (total, group) => total + group.items.length,
-  0,
-);
-
-/* ------------------------------------------------------------------ */
-/* Flagship specialty products: the three documented specialty items. */
-/* Copy comes from `specialtyProducts` (the claim-reviewed source of   */
-/* truth behind /specialty/*); icons, short chip labels and the safety */
-/* notes below stay faithful to that module.                            */
+/* Flagship specialty data (icons, chips, notes)                       */
 /* ------------------------------------------------------------------ */
 
 const flagshipChips: Record<string, string[]> = {
@@ -207,6 +86,121 @@ const vklinPreviewProducts = findVKlinProducts([
   "Dishwash Gel",
 ]);
 
+/* ---------------------------------------------------------------- */
+/* What we make: one card per range, mirroring the /industries map  */
+/* ---------------------------------------------------------------- */
+
+const specialtyAreas = ["Odour control", "HVAC coil cleaning", "Rust conversion", "Pool & drinking water"];
+
+type RangeTag = { label: string; tone: string };
+
+const ranges: {
+  id: string;
+  number: string;
+  icon: typeof Droplets;
+  imageSrc: string | null;
+  imageAlt: string;
+  eyebrow: string;
+  topBadge: string;
+  bottomPill: string;
+  title: string;
+  description: string;
+  tags: RangeTag[];
+  link: string;
+  linkText: string;
+  tone: string;
+}[] = [
+  {
+    id: "ranges-water",
+    number: "01",
+    icon: Droplets,
+    imageSrc: homeStockImages.rangeWater.activeUrl,
+    imageAlt: homeStockImages.rangeWater.alt,
+    eyebrow: "Industrial water & process",
+    topBadge: "Water treatment",
+    bottomPill: "Boiler, cooling, RO, ETP",
+    title: "Industrial water & process",
+    description:
+      "Boiler, cooling, RO and effluent chemistry for plant systems.",
+    tags: [
+      { label: "Boiler water", tone: "cyan" },
+      { label: "Cooling water", tone: "cyan" },
+      { label: "RO & desalination", tone: "cyan" },
+      { label: "Effluent & sewage", tone: "cyan" },
+    ],
+    link: "/solutions/industrial-water",
+    linkText: "Explore water solutions",
+    tone: "blue",
+  },
+  {
+    id: "ranges-construction",
+    number: "02",
+    icon: Factory,
+    imageSrc: homeStockImages.rangeConstruction.activeUrl,
+    imageAlt: homeStockImages.rangeConstruction.alt,
+    eyebrow: "Construction & protection",
+    topBadge: "Surface protection",
+    bottomPill: "Waterproof, repair, seal",
+    title: "Construction & protection",
+    description:
+      "Waterproofing, repair mortars, coatings and joint sealants for buildings and plant.",
+    tags: [
+      { label: "Waterproofing", tone: "amber" },
+      { label: "Repair & bonding", tone: "amber" },
+      { label: "Floor & joint", tone: "amber" },
+      { label: "External coatings", tone: "amber" },
+    ],
+    link: "/solutions/construction-chemistry",
+    linkText: "Explore construction solutions",
+    tone: "amber",
+  },
+  {
+    id: "ranges-specialty",
+    number: "03",
+    icon: Layers3,
+    imageSrc: null,
+    imageAlt: "Specialty products",
+    eyebrow: "Specialty products",
+    topBadge: "Problem-specific",
+    bottomPill: "Odour, rust, HVAC",
+    title: "Specialty products",
+    description:
+      "POLYDOR-WS for odour, COROSIL for rust, POLYKLIN for HVAC coils.",
+    tags: [
+      { label: "Odour control", tone: "purple" },
+      { label: "Rust conversion", tone: "purple" },
+      { label: "HVAC coil cleaning", tone: "purple" },
+      { label: "Pool & drinking water", tone: "purple" },
+    ],
+    link: "/specialty",
+    linkText: "Explore specialty range",
+    tone: "purple",
+  },
+  {
+    id: "ranges-vklin",
+    number: "04",
+    icon: Leaf,
+    imageSrc: homeStockImages.rangeVklin.activeUrl,
+    imageAlt: homeStockImages.rangeVklin.alt,
+    eyebrow: "V-Klin care",
+    topBadge: "Home & facility",
+    bottomPill: "Clean, protect, freshen",
+    title: "V-Klin care",
+    description:
+      "Cleaning and facility-care products for homes and workplaces, organised by task.",
+    tags: [
+      { label: "Floor & surface", tone: "green" },
+      { label: "Hand hygiene", tone: "green" },
+      { label: "Dishwashing", tone: "green" },
+      { label: "Glass & toilet", tone: "green" },
+    ],
+    link: "/vklin/products",
+    linkText: "Explore V-Klin products",
+    tone: "green",
+  },
+];
+
+/* Industry application rows (merged into ranges section) */
 const markets = operatingEnvironments.map(({ id, eyebrow, description }) => ({
   icon: environmentIcons[id],
   eyebrow,
@@ -215,6 +209,7 @@ const markets = operatingEnvironments.map(({ id, eyebrow, description }) => ({
   href: `/industries#${id}`,
 }));
 
+/* PQRS tiles */
 const pqrsTiles = [
   {
     letter: "P",
@@ -264,9 +259,7 @@ export default function Home() {
       <section className="certifications-strip" aria-label="Quality and compliance documents">
         <div className="container certifications-strip-layout">
           <div className="cert-strip-heading">
-            <span className="cert-strip-icon-box"><ShieldCheck size={20} strokeWidth={2} aria-hidden="true" /></span>
             <div>
-              <span className="cert-strip-eyebrow">Quality &amp; compliance</span>
               <strong>Certificates and their scope</strong>
             </div>
           </div>
@@ -295,13 +288,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What we make — one card per range */}
+      {/* What we make — one card per range, with inline application links */}
       <section className="hp-section hp-section-tint hp-ranges-section" id="ranges" aria-labelledby="ranges-title">
-        {/* Subtle decorative aquatic background & mesh lines */}
-        <div className="hp-ranges-bg-decor" aria-hidden="true">
-          <div className="hp-ranges-wave-lines" />
-        </div>
-
         <div className="hp-hero-container">
           <div className="hp-ranges-header hp-reveal">
             <div className="hp-ranges-title-box">
@@ -312,9 +300,8 @@ export default function Home() {
                 </svg>
               </h2>
             </div>
-            <p className="hp-ranges-lead">
-              PolyTreat formulates and produces all four of its product ranges at its own
-              sites, organized around the systems, surfaces, and spaces they serve.
+            <p className="hp-ranges-lead" style={{fontSize: '0.85rem', lineHeight: '1.4', maxWidth: '380px', color: '#4C6579'}}>
+              PolyTreat formulates four product ranges at its own sites for the systems, surfaces, and spaces they serve.
             </p>
           </div>
 
@@ -375,15 +362,12 @@ export default function Home() {
                     </div>
                   )}
 
-                  {/* Top-Left Floating Badge */}
                   <span className={`hp-range-top-badge hp-badge-${tone}`}>
                     {topBadge}
                   </span>
 
-                  {/* Top-Right Number Badge */}
                   <span className="hp-range-number" aria-hidden="true">{number}</span>
 
-                  {/* Bottom-Left Floating Pill */}
                   <span className="hp-range-bottom-pill">
                     <Icon size={13} strokeWidth={2.2} aria-hidden="true" />
                     <span>{bottomPill}</span>
@@ -409,93 +393,10 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="hp-section-foot hp-ranges-foot">
-            <span className="hp-foot-question">Not sure which range fits your requirement?</span>
-            <WhatsAppCta />
-          </div>
-        </div>
-      </section>
-
-      {/* Complete business map */}
-      <section className="hp-section" id="range-map" aria-labelledby="range-map-title">
-        <div className="container">
-          <div className="hp-section-heading">
-            <div>
-              <h2 id="range-map-title">Every product area, at a glance.</h2>
-            </div>
-            <p>
-              {rangeProductAreaCount} product areas across the four ranges, each one
-              documented on its own page, so nothing here is a dead end.
-            </p>
-          </div>
-
-          <div className="hp-map-grid hp-stagger">
-            {productMapGroups.map((group) => (
-              <div className={`hp-map-group hp-map-${group.id}`} key={group.id}>
-                <div className="hp-map-group-head">
-                  <h3>{group.title}</h3>
-                  <span className="hp-map-group-summary">{group.summary}</span>
-                </div>
-                <ul className="hp-map-pills">
-                  {group.items.map((item) => (
-                    <li key={`${group.id}-${item.label}`}>
-                      <Link href={item.href}>
-                        <span>{item.label}</span>
-                        <ArrowUpRight size={13} aria-hidden="true" />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="hp-section-foot hp-section-foot-center">
-            <span>The industries page shows the full map with sector contexts.</span>
-            <Link className="text-link" href="/industries">
-              Open the product map <ArrowRight size={15} aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Applications */}
-      <section className="hp-section hp-section-tint" id="applications" aria-labelledby="applications-title">
-        <div className="container hp-applications-layout">
-          <div className="hp-applications-image">
-            <div className="hp-applications-figure hp-reveal-scale">
-              <Image
-                src={homeStockImages.applicationsImage.activeUrl}
-                alt={homeStockImages.applicationsImage.alt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 44vw"
-                className="hp-applications-img"
-              />
-              <div className="hp-applications-shade" aria-hidden="true" />
-              <div className="hp-applications-caption">
-                <span className="hp-applications-tag">
-                  <Factory size={15} strokeWidth={2} aria-hidden="true" />
-                  Chemistry in working environments
-                </span>
-                <p>
-                  Representative effluent-treatment basins: process-water responsibility,
-                  building surfaces, and shared spaces are all part of the same business.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="hp-applications-list">
-            <div className="hp-section-heading hp-heading-tight hp-reveal">
-<div>
-                <h2 id="applications-title">Where the chemistry goes to work.</h2>
-              </div>
-              <p>
-                The same ranges serve plants, infrastructure projects, and everyday
-                facilities. Start with the environment you operate in.
-              </p>
-            </div>
-
+          {/* Inline application links (merged from separate Applications section) */}
+          <div className="hp-applications-inline hp-reveal">
+            <h3>Where the chemistry goes to work</h3>
+            <p>The same ranges serve plants, infrastructure, and everyday facilities.</p>
             <div className="hp-application-rows hp-stagger">
               {markets.map(({ icon: Icon, description, href }, index) => (
                 <Link className="hp-application-row" href={href} key={markets[index].href}>
@@ -509,6 +410,11 @@ export default function Home() {
                 </Link>
               ))}
             </div>
+          </div>
+
+          <div className="hp-section-foot hp-ranges-foot">
+            <span className="hp-foot-question">Not sure which range fits your requirement?</span>
+            <WhatsAppCta />
           </div>
         </div>
       </section>
@@ -573,9 +479,6 @@ export default function Home() {
 
       {/* V-Klin brand spotlight */}
       <section className="hp-section hp-section-vklin" id="vklin" aria-labelledby="vklin-title">
-        {/* Decorative soft mint wave backdrop */}
-        <div className="hp-vklin-decor" aria-hidden="true" />
-
         <div className="hp-hero-container hp-vklin-layout">
           <div className="hp-vklin-copy hp-reveal">
             <div className="hp-vklin-identity">
@@ -634,7 +537,7 @@ export default function Home() {
               <span className="hp-vklin-panel-mark" aria-hidden="true">
                 <Leaf size={20} strokeWidth={2.2} aria-hidden="true" />
               </span>
-<div className="hp-vklin-head-titles">
+              <div className="hp-vklin-head-titles">
                 <span className="hp-vklin-head-kicker">Institutional & home care</span>
                 <strong className="hp-vklin-head-main">Product range</strong>
               </div>
@@ -757,8 +660,8 @@ export default function Home() {
             <a className="hp-contact-card" href="tel:+919820235995">
               <span className="hp-contact-icon"><Phone size={18} aria-hidden="true" /></span>
               <span className="hp-contact-card-copy">
-                <span>Technical &amp; sales</span>
-                <strong>+91 98202 35995</strong>
+                <span>Technical & sales</span>
+                <strong>{'+'}91 98202 35995</strong>
               </span>
               <ArrowUpRight size={16} aria-hidden="true" />
             </a>
