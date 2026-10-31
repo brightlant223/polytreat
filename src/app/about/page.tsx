@@ -13,9 +13,12 @@ import {
   Leaf,
   Mail,
   MapPin,
+  MessageCircle,
   Phone,
 } from "lucide-react";
 import { locationSites } from "@/data/locations";
+import AboutObserver from "./AboutObserver";
+import "./about.css";
 
 export const metadata: Metadata = {
   title: "About Us | PolyTreat Chemicals Pvt. Ltd.",
@@ -64,30 +67,35 @@ const milestones = [
     title: "Founded in Mumbai",
     description:
       "PolyTreat Chemicals begins as a manufacturer of industrial water-treatment chemistry.",
+    tone: "green",
   },
   {
     era: "Manufacturing",
     title: "Tarapur MIDC unit",
     description:
       "Heavy chemical manufacturing is established at Tarapur MIDC, Palghar district, adding capacity for the industrial water and process chemical ranges.",
+    tone: "blue",
   },
   {
     era: "Quality",
     title: "ISO 9001:2015 certification",
     description:
       "The quality management system is certified to ISO 9001:2015 by SMCS, accredited by AIAO-BAR USA, covering the manufacture of water-treatment and hygiene chemicals.",
+    tone: "purple",
   },
   {
     era: "Care products",
     title: "V-Klin range",
     description:
       "The institutional and home-care cleaning range is developed at the Goregaon (East) green-products division.",
+    tone: "teal",
   },
   {
     era: "Exports",
     title: "Middle East & South Africa",
     description:
       "Specialty formulations begin shipping to industrial buyers in the Middle East and South Africa.",
+    tone: "coral",
   },
 ];
 
@@ -110,7 +118,7 @@ const brands = [
     description:
       "Waterproofing membranes, protective coatings, concrete-repair systems, flooring, and sealants for built structures.",
     categories: ["Waterproofing", "Coatings", "Flooring", "Sealants"],
-    tone: "slate",
+    tone: "orange",
   },
   {
     icon: Leaf,
@@ -130,14 +138,14 @@ const brands = [
     description:
       "Single-problem formulations: odor neutralization, rust conversion, and HVAC coil cleaning.",
     categories: ["Odor control", "Rust converter", "Coil cleaner"],
-    tone: "blue",
+    tone: "purple",
   },
 ];
 
 const facilities = [
-  { icon: Building2, site: locationSites[0], tone: "" },
-  { icon: Leaf, site: locationSites[1], tone: "infra-card-green" },
-  { icon: Factory, site: locationSites[2], tone: "" },
+  { icon: Building2, site: locationSites[0], tone: "blue" },
+  { icon: Leaf, site: locationSites[1], tone: "green" },
+  { icon: Factory, site: locationSites[2], tone: "purple" },
 ];
 
 const rdPoints = [
@@ -150,38 +158,87 @@ const rdPoints = [
 
 export default function AboutPage() {
   return (
-    <main className="about-page">
-      <section className="about-hero" aria-labelledby="about-title">
-        <div className="container about-hero-inner">
-          <div>
-            <span className="eyebrow eyebrow-dark">About PolyTreat</span>
-            <h1 id="about-title">Applied chemistry, manufactured in-house since 1987.</h1>
-            <p className="about-hero-lead">
+    <main className="about-page-redesign">
+      <AboutObserver />
+
+      {/* 1. HERO SECTION */}
+      <section className="ab-hero-section" aria-labelledby="about-title">
+        <div className="ab-container ab-hero-inner">
+          <div className="ab-hero-content">
+            <nav className="ab-breadcrumb" aria-label="Breadcrumb">
+              <ol>
+                <li>
+                  <Link href="/">Home</Link>
+                </li>
+                <li className="ab-breadcrumb-separator" aria-hidden="true">
+                  /
+                </li>
+                <li aria-current="page">About Us</li>
+              </ol>
+            </nav>
+
+            <span className="ab-label">About PolyTreat</span>
+
+            <h1 id="about-title" className="ab-hero-title">
+              <span className="ab-hero-title-line-mask">
+                <span className="ab-hero-title-line ab-hero-title-line-1">
+                  Applied chemistry,
+                </span>
+              </span>
+              <span className="ab-hero-title-line-mask">
+                <span className="ab-hero-title-line ab-hero-title-line-2">
+                  manufactured in-house
+                </span>
+              </span>
+              <span className="ab-hero-title-line-mask">
+                <span className="ab-hero-title-line ab-hero-title-line-3">
+                  <span className="ab-text-blue">since 1987.</span>
+                </span>
+              </span>
+            </h1>
+
+            <p className="ab-hero-lead">
               PolyTreat Chemicals Pvt. Ltd. formulates and produces specialty chemicals for
               industrial water systems, construction projects, and everyday facility care — from
               two manufacturing units in Maharashtra and a corporate office in Mumbai.
             </p>
-            <ul className="about-facts">
-              <li><BadgeCheck size={15} aria-hidden="true" /> ISO 9001:2015 certified</li>
-              <li><Factory size={15} aria-hidden="true" /> 2 production units</li>
-                <li><Droplets size={15} aria-hidden="true" /> Manufacturing since 1987</li>
-              <li><Leaf size={15} aria-hidden="true" /> V-Klin care range</li>
+
+            <ul className="ab-hero-chips" aria-label="Key highlights">
+              <li className="ab-chip">
+                <BadgeCheck size={16} aria-hidden="true" />
+                <span>ISO 9001:2015 certified</span>
+              </li>
+              <li className="ab-chip">
+                <Factory size={16} aria-hidden="true" />
+                <span>2 production units</span>
+              </li>
+              <li className="ab-chip">
+                <Droplets size={16} aria-hidden="true" />
+                <span>Manufacturing since 1987</span>
+              </li>
+              <li className="ab-chip">
+                <Leaf size={16} aria-hidden="true" />
+                <span>V-Klin care range</span>
+              </li>
             </ul>
           </div>
 
-          <aside className="about-glance" aria-label="PolyTreat at a glance">
-            <div className="about-glance-heading">
-              <span className="about-glance-mark"><Building2 size={19} aria-hidden="true" /></span>
+          <aside className="ab-card ab-glance-card" aria-label="PolyTreat at a glance">
+            <div className="ab-glance-header">
+              <div className="ab-glance-icon-badge">
+                <Building2 size={22} strokeWidth={1.8} aria-hidden="true" />
+              </div>
               <div>
                 <span>Company profile</span>
                 <h2>PolyTreat at a glance</h2>
               </div>
             </div>
-            <ul className="about-glance-list">
+
+            <ul className="ab-glance-grid">
               {glance.map(({ label, value }) => (
-                <li key={label}>
-                  <span className="about-glance-label">{label}</span>
-                  <span className="about-glance-value">{value}</span>
+                <li className="ab-glance-item" key={label}>
+                  <span className="ab-glance-label">{label}</span>
+                  <span className="ab-glance-value">{value}</span>
                 </li>
               ))}
             </ul>
@@ -189,24 +246,26 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="trust-proof-bar">
-        <div className="container">
-          <div className="trust-proof-grid">
+      {/* 2. STATS STRIP */}
+      <section className="ab-stats-section" aria-label="Key credentials and stats">
+        <div className="ab-container">
+          <div className="ab-stats-grid ab-stagger">
             {credentials.map(({ value, title, description }) => (
-              <div className="trust-proof-item" key={value}>
-                <span className="trust-proof-value">{value}</span>
-                <h2>{title}</h2>
-                <p>{description}</p>
+              <div className="ab-stats-item" key={value}>
+                <span className="ab-stats-figure">{value}</span>
+                <h3 className="ab-stats-title">{title}</h3>
+                <p className="ab-stats-desc">{description}</p>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      <section className="section about-band" id="story" aria-labelledby="story-title">
-        <div className="container about-story-grid">
-          <div className="company-copy">
-            <span className="eyebrow eyebrow-dark">Our story</span>
+      {/* 3. OUR STORY + TIMELINE */}
+      <section className="ab-section ab-story-section" id="story" aria-labelledby="story-title">
+        <div className="ab-container ab-story-grid">
+          <div className="ab-story-sticky ab-reveal">
+            <span className="ab-label">Our story</span>
             <h2 id="story-title">A manufacturer first, since the beginning.</h2>
             <p>
               PolyTreat Chemicals Pvt. Ltd. — also known as Polytreat Chemical Industries — has
@@ -219,28 +278,42 @@ export default function AboutPage() {
               range is built around performance and value, backed by clear technical
               documentation and a direct conversation with the people who make the products.
             </p>
-            <Link className="text-link" href="/#solutions">
+            <Link className="ab-story-cta" href="/#solutions">
               Explore our solution areas <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
 
-          <ol className="about-timeline">
-            {milestones.map(({ era, title, description }) => (
-              <li key={title}>
-                <span className="about-era">{era}</span>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </li>
-            ))}
-          </ol>
+          <div className="ab-timeline-wrap">
+            <div className="ab-timeline-line-base" aria-hidden="true" />
+            <div className="ab-timeline-line-fill" aria-hidden="true">
+              <span className="ab-timeline-line-head" aria-hidden="true" />
+            </div>
+
+            <ol className="ab-timeline-list">
+              {milestones.map(({ era, title, description, tone }) => (
+                <li className="ab-timeline-item" key={title}>
+                  <div
+                    className={`ab-timeline-dot ab-timeline-dot-${tone}`}
+                    aria-hidden="true"
+                  />
+                  <div className={`ab-card ab-timeline-card ab-timeline-card-${tone}`}>
+                    <span className={`ab-timeline-era ab-era-${tone}`}>{era}</span>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </section>
 
-      <section className="section" id="brands" aria-labelledby="brands-title">
-        <div className="container">
-          <div className="section-heading section-heading-split">
-            <div>
-              <span className="eyebrow eyebrow-dark">Brand architecture</span>
+      {/* 4. BRAND ARCHITECTURE */}
+      <section className="ab-section ab-brands-section" id="brands" aria-labelledby="brands-title">
+        <div className="ab-container">
+          <div className="ab-brands-header ab-reveal">
+            <div className="ab-brands-header-left">
+              <span className="ab-label">Brand architecture</span>
               <h2 id="brands-title">Four ranges, one manufacturer.</h2>
             </div>
             <p>
@@ -249,18 +322,24 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="portfolio-grid">
+          <div className="ab-brands-grid ab-stagger">
             {brands.map(({ icon: Icon, number, eyebrow, title, description, categories, tone }) => (
-              <article className={`portfolio-card portfolio-card-${tone}`} key={title}>
-                <div className={`portfolio-image-placeholder portfolio-image-${tone}`} role="img" aria-label={`${title} range`}>
-                  <span className="portfolio-image-mark"><Icon size={25} strokeWidth={1.6} aria-hidden="true" /></span>
-                  <span className="portfolio-number">{number}</span>
+              <article className={`ab-brand-card ab-brand-${tone}`} key={title}>
+                <div className="ab-brand-top">
+                  <div className="ab-brand-icon-box">
+                    <Icon size={24} strokeWidth={1.8} aria-hidden="true" />
+                  </div>
+                  <span className="ab-brand-number">{number}</span>
                 </div>
-                <span className="portfolio-eyebrow">{eyebrow}</span>
+                <span className="ab-brand-eyebrow">{eyebrow}</span>
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <ul className="portfolio-categories" aria-label={`${title} categories`}>
-                  {categories.map((category) => <li key={category}>{category}</li>)}
+                <ul className="ab-brand-chips" aria-label={`${title} categories`}>
+                  {categories.map((category) => (
+                    <li className="ab-brand-chip" key={category}>
+                      {category}
+                    </li>
+                  ))}
                 </ul>
               </article>
             ))}
@@ -268,90 +347,137 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section about-band-alt" id="infrastructure" aria-labelledby="infra-title">
-        <div className="container">
-          <div className="section-heading section-heading-center">
-            <span className="eyebrow eyebrow-dark">Infrastructure</span>
+      {/* 5. INFRASTRUCTURE */}
+      <section
+        className="ab-section ab-infra-section"
+        id="infrastructure"
+        aria-labelledby="infra-title"
+      >
+        <div className="ab-container">
+          <div className="ab-infra-heading ab-reveal">
+            <span className="ab-label">Infrastructure</span>
             <h2 id="infra-title">Where PolyTreat makes its products.</h2>
             <p>Two manufacturing units and a corporate office, all within Maharashtra.</p>
           </div>
 
-          <div className="infra-grid">
-              {facilities.map(({ icon: Icon, site, tone }) => (
-                <article className={`infra-card ${tone}`} key={site.id}>
-                  <span className="infra-icon"><Icon size={21} strokeWidth={1.7} aria-hidden="true" /></span>
-                  <span className="infra-kind">{site.kind}</span>
-                  <h3>{site.title}</h3>
-                  <address>{site.addressLines.join("\n")}</address>
-                  <span className="infra-note"><MapPin size={14} aria-hidden="true" /> {site.note}</span>
-                </article>
-              ))}
+          <div className="ab-infra-grid ab-stagger">
+            {facilities.map(({ icon: Icon, site, tone }) => (
+              <article
+                className={`ab-card ab-infra-card ab-infra-card-${tone}`}
+                key={site.id}
+              >
+                <div className="ab-infra-top">
+                  <div className="ab-infra-icon-badge">
+                    <Icon size={22} strokeWidth={1.8} aria-hidden="true" />
+                  </div>
+                  <span className="ab-infra-kind">{site.kind}</span>
+                </div>
+                <h3>{site.title}</h3>
+                <address>{site.addressLines.join("\n")}</address>
+                <hr className="ab-infra-divider" />
+                <div className="ab-infra-footnote">
+                  <MapPin size={15} aria-hidden="true" />
+                  <span>{site.note}</span>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="section" id="quality" aria-labelledby="rd-title">
-        <div className="container about-rd-layout">
-          <div className="company-copy">
-            <span className="eyebrow eyebrow-dark">Quality &amp; technical support</span>
+      {/* 6. QUALITY */}
+      <section className="ab-section ab-quality-section" id="quality" aria-labelledby="rd-title">
+        <div className="ab-container ab-quality-inner">
+          <div className="ab-quality-copy ab-reveal">
+            <span className="ab-label">Quality &amp; technical support</span>
             <h2 id="rd-title">Quality control and technical support, in one place.</h2>
             <p>
-              Formulations are assessed in the laboratory, and raw materials and
-              finished batches are inspected as part of a daily quality routine. A
-              quality committee sets the standard for labelling, delivery, and the
-              response to the customer.
+              Formulations are assessed in the laboratory, and raw materials and finished batches
+              are inspected as part of a daily quality routine. A quality committee sets the
+              standard for labelling, delivery, and the response to the customer.
             </p>
             <p>
-              The same discipline carries the ISO 9001:2015 certification, whose
-              scope covers the manufacture of water treatment chemicals and homecare,
-              hygienic and industrial cleaning chemicals. The framework behind it is
-              the PQRS approach of Performance, Quality, Reliability, and Service.
+              The same discipline carries the ISO 9001:2015 certification, whose scope covers the
+              manufacture of water treatment chemicals and homecare, hygienic and industrial
+              cleaning chemicals. The framework behind it is the PQRS approach of Performance,
+              Quality, Reliability, and Service.
             </p>
-            <Link className="text-link" href="/quality#pqrs">
-              Read about the PQRS framework <ArrowRight size={16} aria-hidden="true" />
-            </Link>
+            <div className="ab-quality-actions">
+              <Link className="ab-btn-outline" href="/quality#pqrs">
+                Read about the PQRS framework <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
           </div>
 
-          <div className="about-rd-panel">
-            <div className="vklin-panel-heading">
-              <span className="about-rd-mark"><FlaskConical size={19} aria-hidden="true" /></span>
+          <div className="ab-card ab-quality-panel ab-reveal">
+            <div className="ab-quality-panel-header">
+              <div className="ab-quality-panel-icon">
+                <FlaskConical size={24} strokeWidth={1.8} aria-hidden="true" />
+              </div>
               <div>
                 <span>Quality approach</span>
                 <h3>How quality is maintained</h3>
               </div>
             </div>
-            <ul className="about-rd-list">
-              {rdPoints.map((point) => (
-                <li key={point}><Check size={16} aria-hidden="true" /> {point}</li>
-              ))}
+
+            <ul className="ab-quality-list">
+              {rdPoints.map((point, index) => {
+                const tones = ["green", "blue", "purple", "teal", "amber"];
+                const tone = tones[index % tones.length];
+                return (
+                  <li className={`ab-quality-item ab-quality-item-${tone}`} key={point}>
+                    <span className={`ab-check-icon-circle ab-check-circle-${tone}`}>
+                      <Check size={14} strokeWidth={2.8} aria-hidden="true" />
+                    </span>
+                    <span>{point}</span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
       </section>
 
-      <section className="section about-band" id="certification" aria-labelledby="cert-title">
-        <div className="container cert-layout">
-          <a className="cert-figure" href="/iso-9001-2015-quality-certificate.jpeg" target="_blank" rel="noreferrer">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/iso-9001-2015-quality-certificate.jpeg"
-              alt="PolyTreat Chemicals ISO 9001:2015 quality management certificate"
-            />
-          </a>
-          <div className="company-copy">
-            <span className="eyebrow eyebrow-dark">Certification</span>
+      {/* 7. CERTIFICATION */}
+      <section
+        className="ab-section ab-cert-section"
+        id="certification"
+        aria-labelledby="cert-title"
+      >
+        <div className="ab-container ab-cert-inner">
+          <div className="ab-cert-card-wrap ab-reveal">
+            <a
+              className="ab-cert-card"
+              href="/iso-9001-2015-quality-certificate.jpeg"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="View ISO 9001:2015 Certificate in full resolution (opens in new tab)"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/iso-9001-2015-quality-certificate.jpeg"
+                alt="PolyTreat Chemicals ISO 9001:2015 quality management certificate"
+                className="ab-cert-img"
+              />
+            </a>
+          </div>
+
+          <div className="ab-cert-copy ab-reveal">
+            <span className="ab-label">Certification</span>
             <h2 id="cert-title">ISO 9001:2015, for water treatment and home-care manufacturing.</h2>
             <p>
               Scope: manufacturing of water treatment chemicals and homecare, hygienic &amp;
-              industrial cleaning chemicals. The certificate is issued by SMCS and accredited by
-              AIAO-BAR USA, for the Goregaon (East) site. Select the certificate to view it in
-              full resolution.
+              industrial cleaning chemicals.
             </p>
-            <div className="cert-actions">
-              <Link className="btn btn-primary" href="/certifications">
+            <p>
+              The certificate is issued by SMCS and accredited by AIAO-BAR USA, for the Goregaon
+              (East) site. Select the certificate to view it in full resolution.
+            </p>
+            <div className="ab-cert-actions">
+              <Link className="ab-btn-primary" href="/certifications">
                 View all certifications <ArrowRight size={16} aria-hidden="true" />
               </Link>
-              <Link className="btn btn-outline-dark" href="/contact">
+              <Link className="ab-btn-outline" href="/contact">
                 Request documents <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
@@ -359,30 +485,79 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="contact-section" aria-labelledby="about-contact-title">
-        <div className="container contact-panel">
-          <div className="contact-copy">
-            <span className="eyebrow eyebrow-light">Start a conversation</span>
+      {/* 8. CONTACT CTA */}
+      <section className="ab-contact-section" aria-labelledby="about-contact-title">
+        <div className="ab-container ab-contact-inner">
+          <div className="ab-contact-copy ab-reveal">
+            <span className="ab-label ab-label-light">Start a conversation</span>
             <h2 id="about-contact-title">Let&apos;s talk about your application.</h2>
-            <p>Tell us about your system or facility, and we&apos;ll direct your enquiry to the right team.</p>
+            <p>
+              Tell us about your system or facility, and we&apos;ll direct your enquiry to the
+              right team.
+            </p>
+            <div className="ab-contact-buttons">
+              <Link className="ab-btn-blue" href="/contact">
+                Send an enquiry <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+              <a
+                className="ab-btn-outline-white"
+                href="https://wa.me/919820235995?text=Hi%20PolyTreat%2C%20I%27d%20like%20to%20discuss%20a%20product%20or%20site%20requirement."
+                target="_blank"
+                rel="noreferrer"
+              >
+                Chat on WhatsApp <ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+            </div>
           </div>
-          <div className="contact-actions">
-            <a className="contact-action-card contact-email" href="mailto:polyind2@gmail.com">
-              <span className="contact-action-icon"><Mail size={18} aria-hidden="true" /></span>
-              <span className="contact-action-copy">
+
+          <div className="ab-contact-grid ab-stagger">
+            <a className="ab-contact-tile" href="mailto:polyind2@gmail.com">
+              <div className="ab-contact-tile-icon">
+                <Mail size={18} strokeWidth={2} aria-hidden="true" />
+              </div>
+              <div className="ab-contact-tile-copy">
                 <span>Email enquiries</span>
                 <strong>polyind2@gmail.com</strong>
-              </span>
-              <ArrowUpRight size={17} aria-hidden="true" />
+              </div>
+              <ArrowUpRight size={16} aria-hidden="true" className="ab-contact-tile-arrow" />
             </a>
-            <a className="contact-action-card contact-phone" href="tel:+919820235995">
-              <span className="contact-action-icon"><Phone size={18} aria-hidden="true" /></span>
-              <span className="contact-action-copy">
+
+            <a className="ab-contact-tile" href="tel:+919820235995">
+              <div className="ab-contact-tile-icon">
+                <Phone size={18} strokeWidth={2} aria-hidden="true" />
+              </div>
+              <div className="ab-contact-tile-copy">
                 <span>Technical &amp; sales</span>
                 <strong>+91 98202 35995</strong>
-              </span>
-              <ArrowUpRight size={17} aria-hidden="true" />
+              </div>
+              <ArrowUpRight size={16} aria-hidden="true" className="ab-contact-tile-arrow" />
             </a>
+
+            <a
+              className="ab-contact-tile"
+              href="https://wa.me/919820235995?text=Hi%20PolyTreat%2C%20I%27d%20like%20to%20discuss%20a%20product%20or%20site%20requirement."
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className="ab-contact-tile-icon">
+                <MessageCircle size={18} strokeWidth={2} aria-hidden="true" />
+              </div>
+              <div className="ab-contact-tile-copy">
+                <span>WhatsApp</span>
+                <strong>Chat with the team</strong>
+              </div>
+              <ArrowUpRight size={16} aria-hidden="true" className="ab-contact-tile-arrow" />
+            </a>
+
+            <div className="ab-contact-tile">
+              <div className="ab-contact-tile-icon">
+                <MapPin size={18} strokeWidth={2} aria-hidden="true" />
+              </div>
+              <div className="ab-contact-tile-copy">
+                <span>Corporate office</span>
+                <strong>7-A Topiwala Building, Goregaon (West), Mumbai 400104</strong>
+              </div>
+            </div>
           </div>
         </div>
       </section>

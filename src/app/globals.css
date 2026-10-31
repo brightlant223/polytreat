@@ -804,6 +804,261 @@ code, .font-mono {
   backdrop-filter: blur(16px);
 }
 
+/* Hardware-accelerated zero-delay scroll reading progress bar on navbar */
+.nav-scroll-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #10B981 0%, #00D2FF 35%, #0078F0 70%, #8B5CF6 100%);
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
+  transform-origin: left;
+  transform: scaleX(0);
+  will-change: transform;
+  z-index: 105;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-scroll-progress {
+    display: none !important;
+  }
+}
+
+/* Ensure footer logo is always crisp, white, and fully visible on dark footer */
+.footer-logo {
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.95 !important;
+  transition: opacity 0.2s ease;
+}
+
+.footer-logo:hover {
+  opacity: 1 !important;
+}
+
+/* ==========================================================================
+   GLOBAL DARK MODE - NAVBAR & FOOTER
+   ========================================================================== */
+
+html[data-theme="dark"] .site-header,
+[data-theme="dark"] .site-header {
+  background: rgba(7, 16, 30, 0.95) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Navbar logo in dark mode: pure white & high-contrast */
+html[data-theme="dark"] .navbar-logo img,
+[data-theme="dark"] .navbar-logo img {
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.96 !important;
+}
+
+html[data-theme="dark"] .navbar-brand-copy,
+[data-theme="dark"] .navbar-brand-copy {
+  border-left-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+html[data-theme="dark"] .navbar-brand-copy strong,
+[data-theme="dark"] .navbar-brand-copy strong {
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] .navbar-brand-copy small,
+[data-theme="dark"] .navbar-brand-copy small {
+  color: #94A3B8 !important;
+  opacity: 1 !important;
+}
+
+/* Nav triggers and links: Solid pure white, 100% opacity, high contrast */
+html[data-theme="dark"] .desktop-nav .nav-trigger,
+html[data-theme="dark"] .desktop-nav .nav-direct-link,
+[data-theme="dark"] .desktop-nav .nav-trigger,
+[data-theme="dark"] .desktop-nav .nav-direct-link,
+html[data-theme="dark"] .nav-trigger,
+html[data-theme="dark"] .nav-direct-link,
+[data-theme="dark"] .nav-trigger,
+[data-theme="dark"] .nav-direct-link {
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+html[data-theme="dark"] .nav-trigger svg,
+[data-theme="dark"] .nav-trigger svg {
+  color: #CBD5E1 !important;
+  opacity: 1 !important;
+}
+
+/* Hover and active states */
+html[data-theme="dark"] .nav-trigger:hover,
+html[data-theme="dark"] .nav-direct-link:hover,
+html[data-theme="dark"] .nav-item.is-open .nav-trigger,
+html[data-theme="dark"] .nav-item[data-active="true"] .nav-trigger,
+html[data-theme="dark"] .nav-direct-link[aria-current="page"],
+[data-theme="dark"] .nav-trigger:hover,
+[data-theme="dark"] .nav-direct-link:hover,
+[data-theme="dark"] .nav-item.is-open .nav-trigger,
+[data-theme="dark"] .nav-item[data-active="true"] .nav-trigger,
+[data-theme="dark"] .nav-direct-link[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #38BDF8 !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] .nav-trigger:hover svg,
+html[data-theme="dark"] .nav-direct-link:hover svg,
+html[data-theme="dark"] .nav-item.is-open .nav-trigger svg,
+[data-theme="dark"] .nav-trigger:hover svg,
+[data-theme="dark"] .nav-direct-link:hover svg,
+[data-theme="dark"] .nav-item.is-open .nav-trigger svg {
+  color: #38BDF8 !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] .nav-trigger::after,
+html[data-theme="dark"] .nav-direct-link::after,
+[data-theme="dark"] .nav-trigger::after,
+[data-theme="dark"] .nav-direct-link::after {
+  background: #38BDF8 !important;
+}
+
+/* Dropdown menus */
+html[data-theme="dark"] .nav-dropdown-panel,
+[data-theme="dark"] .nav-dropdown-panel {
+  background: #0B192C !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75) !important;
+}
+
+html[data-theme="dark"] .nav-menu-group h3,
+[data-theme="dark"] .nav-menu-group h3 {
+  color: #94A3B8 !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] .nav-link-item,
+html[data-theme="dark"] .nav-link-item strong,
+[data-theme="dark"] .nav-link-item,
+[data-theme="dark"] .nav-link-item strong {
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] .nav-link-item small,
+[data-theme="dark"] .nav-link-item small {
+  color: #94A3B8 !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] .nav-link-item:hover,
+[data-theme="dark"] .nav-link-item:hover {
+  background: rgba(56, 189, 248, 0.12) !important;
+  color: #38BDF8 !important;
+}
+
+html[data-theme="dark"] .nav-link-item:hover strong,
+[data-theme="dark"] .nav-link-item:hover strong {
+  color: #38BDF8 !important;
+}
+
+html[data-theme="dark"] .nav-promo-card,
+[data-theme="dark"] .nav-promo-card {
+  background: #07101E !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+html[data-theme="dark"] .nav-promo-eyebrow,
+[data-theme="dark"] .nav-promo-eyebrow {
+  color: #38BDF8 !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] .nav-promo-text,
+[data-theme="dark"] .nav-promo-text {
+  color: #E2E8F0 !important;
+  opacity: 1 !important;
+}
+
+/* Mobile navigation drawer */
+html[data-theme="dark"] .mobile-navigation,
+[data-theme="dark"] .mobile-navigation {
+  background: #07101E !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+html[data-theme="dark"] .mobile-menu-btn,
+[data-theme="dark"] .mobile-menu-btn {
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+html[data-theme="dark"] .mobile-direct-link,
+html[data-theme="dark"] .mobile-nav-group button,
+[data-theme="dark"] .mobile-direct-link,
+[data-theme="dark"] .mobile-nav-group button {
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html[data-theme="dark"] .mobile-nav-panel,
+[data-theme="dark"] .mobile-nav-panel {
+  background: #0B192C !important;
+}
+
+/* Dark Mode Footer */
+html[data-theme="dark"] .site-footer,
+[data-theme="dark"] .site-footer {
+  background: #040A14 !important;
+  border-top: 1px solid rgba(56, 189, 248, 0.18) !important;
+  color: #94A3B8 !important;
+}
+
+html[data-theme="dark"] .footer-logo,
+[data-theme="dark"] .footer-logo {
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.95 !important;
+}
+
+html[data-theme="dark"] .footer-brand p,
+[data-theme="dark"] .footer-brand p {
+  color: #94A3B8 !important;
+}
+
+html[data-theme="dark"] .footer-column h2,
+[data-theme="dark"] .footer-column h2 {
+  color: #FFFFFF !important;
+}
+
+html[data-theme="dark"] .footer-column a,
+[data-theme="dark"] .footer-column a {
+  color: #CBD5E1 !important;
+}
+
+html[data-theme="dark"] .footer-column a:hover,
+[data-theme="dark"] .footer-column a:hover {
+  color: #38BDF8 !important;
+}
+
+html[data-theme="dark"] .footer-column span,
+[data-theme="dark"] .footer-column span {
+  color: #94A3B8 !important;
+}
+
+html[data-theme="dark"] .footer-bottom,
+[data-theme="dark"] .footer-bottom {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+  color: #64748B !important;
+}
+
+html[data-theme="dark"] .footer-credit a,
+[data-theme="dark"] .footer-credit a {
+  color: #38BDF8 !important;
+}
+
 .navbar-inner {
   display: flex;
   width: 100%;
