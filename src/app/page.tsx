@@ -580,58 +580,85 @@ export default function Home() {
 
       {/* V-Klin brand spotlight */}
       <section className="hp-section hp-section-vklin" id="vklin" aria-labelledby="vklin-title">
-        <div className="container hp-vklin-layout">
+        {/* Decorative soft mint wave backdrop */}
+        <div className="hp-vklin-decor" aria-hidden="true" />
+
+        <div className="hp-hero-container hp-vklin-layout">
           <div className="hp-vklin-copy hp-reveal">
             <div className="hp-vklin-identity">
-              <Image
-                src="/vklin-logo.webp"
-                alt="V-Klin brand logo"
-                width={140}
-                height={48}
-                className="hp-vklin-logo"
-              />
-              <span className="eyebrow eyebrow-green"><Leaf size={14} aria-hidden="true" /> A PolyTreat brand</span>
+              <span className="hp-vklin-logo-pill">
+                <Image
+                  src="/vklin-logo.webp"
+                  alt="V-Klin brand logo"
+                  width={110}
+                  height={38}
+                  className="hp-vklin-logo"
+                />
+              </span>
+              <span className="eyebrow eyebrow-green hp-vklin-eyebrow">
+                <Leaf size={15} strokeWidth={2.4} aria-hidden="true" />
+                <span>A POLYTREAT BRAND</span>
+              </span>
             </div>
-            <h2 id="vklin-title">Meet V-Klin. Care for everyday spaces.</h2>
-            <p>
+
+            <h2 id="vklin-title" className="hp-vklin-title">
+              Meet V-Klin. Care<br />
+              for everyday spaces.
+            </h2>
+
+            <p className="hp-vklin-lead">
               V-Klin brings PolyTreat&apos;s formulated cleaning range to homes, workplaces,
               and shared facilities, organized by the task each product handles.
             </p>
-            <ul className="hp-vklin-cats" aria-label="V-Klin categories">
+
+            <ul className="hp-vklin-cats-grid" aria-label="V-Klin categories">
               {vklinProductGroups.map(({ id, title }) => (
-                <li key={id}><Check size={15} aria-hidden="true" /> <Link href={`/vklin/products#${id}`}>{title}</Link></li>
+                <li key={id} className="hp-vklin-cat-item">
+                  <span className="hp-cat-check" aria-hidden="true">
+                    <Check size={13} strokeWidth={2.8} />
+                  </span>
+                  <Link href={`/vklin/products#${id}`} className="hp-cat-link">
+                    {title}
+                  </Link>
+                </li>
               ))}
             </ul>
+
             <div className="hp-vklin-actions">
-              <Link className="btn btn-vklin" href="/vklin">
-                Explore V-Klin <ArrowRight size={16} aria-hidden="true" />
+              <Link className="hp-btn-vklin-primary" href="/vklin">
+                <span>Explore V-Klin</span>
+                <ArrowRight size={17} strokeWidth={2.2} aria-hidden="true" />
               </Link>
-              <Link className="text-link" href="/vklin/products">
-                See all {vklinProductCount} products <ArrowRight size={15} aria-hidden="true" />
+              <Link className="hp-vklin-link-secondary" href="/vklin/products">
+                <span>See all {vklinProductCount} products</span>
+                <ArrowRight size={15} strokeWidth={2.2} aria-hidden="true" />
               </Link>
             </div>
           </div>
 
           <div className="hp-vklin-panel hp-reveal-scale">
             <div className="hp-vklin-panel-head">
-              <span className="hp-vklin-panel-mark" aria-hidden="true"><Leaf size={18} aria-hidden="true" /></span>
-              <div>
-                <span>Institutional &amp; home care</span>
-                <strong>Product range</strong>
+              <span className="hp-vklin-panel-mark" aria-hidden="true">
+                <Leaf size={20} strokeWidth={2.2} aria-hidden="true" />
+              </span>
+              <div className="hp-vklin-head-titles">
+                <span className="hp-vklin-head-kicker">INSTITUTIONAL &amp; HOME CARE</span>
+                <strong className="hp-vklin-head-main">Product range</strong>
               </div>
             </div>
+
             <div className="hp-vklin-products">
               {vklinPreviewProducts.map((product) => (
-                <Link href={product.href} className="hp-vklin-product" key={product.href}>
-                  <span className="hp-vklin-product-imgbox">
+                <Link href={product.href} className="hp-vklin-product-card" key={product.href}>
+                  <div className="hp-vklin-product-imgbox">
                     <Image
                       src={`/vklin-products/${product.image}`}
                       alt={`V-Klin ${product.name}`}
                       fill
-                      sizes="(max-width: 760px) 30vw, 150px"
+                      sizes="(max-width: 760px) 45vw, 240px"
                       className="hp-vklin-product-img"
                     />
-                  </span>
+                  </div>
                   <span className="hp-vklin-product-name">{product.shortName}</span>
                 </Link>
               ))}

@@ -18841,3 +18841,284 @@ a.hp-contact-card:hover svg:last-child {
     align-items: flex-start !important;
   }
 }
+
+
+/* ================================================================== */
+/* V-KLIN BRAND SPOTLIGHT SECTION — ENLARGED & PREMIUM UPGRADE        */
+/* ================================================================== */
+
+.hp-section-vklin {
+  position: relative !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(167, 243, 208, 0.35), transparent 45%),
+    radial-gradient(ellipse at 15% 85%, rgba(110, 231, 183, 0.22), transparent 45%),
+    linear-gradient(135deg, #F0FDF4 0%, #F5FBF7 45%, #EAF7EE 100%) !important;
+  padding-top: clamp(3.8rem, 6.5vw, 5.5rem) !important;
+  padding-bottom: clamp(3.8rem, 6.5vw, 5.5rem) !important;
+}
+
+.hp-vklin-layout {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(460px, 1fr) !important;
+  align-items: center !important;
+  gap: clamp(2.5rem, 5vw, 4.8rem) !important;
+}
+
+.hp-vklin-identity {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.9rem !important;
+  margin-bottom: 1.15rem !important;
+}
+
+.hp-vklin-logo-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.35rem 0.95rem !important;
+  border-radius: 999px !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(16, 185, 129, 0.28) !important;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.08) !important;
+}
+
+.hp-vklin-eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  color: #059669 !important;
+  font-size: 0.78rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+}
+
+.hp-vklin-title {
+  font-size: clamp(2.4rem, 4vw, 3.5rem) !important;
+  font-weight: 850 !important;
+  color: #0B192C !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.04em !important;
+  margin: 0 0 1.1rem !important;
+}
+
+.hp-vklin-lead {
+  font-size: 1.04rem !important;
+  line-height: 1.6 !important;
+  color: #475569 !important;
+  max-width: 560px !important;
+  margin: 0 0 1.85rem !important;
+}
+
+.hp-vklin-cats-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0.85rem 1.8rem !important;
+  margin: 0 0 2.2rem !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.hp-vklin-cat-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+}
+
+.hp-cat-check {
+  width: 22px !important;
+  height: 22px !important;
+  flex: 0 0 22px !important;
+  border-radius: 50% !important;
+  background: #DCFCE7 !important;
+  color: #059669 !important;
+  display: grid !important;
+  place-items: center !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+}
+
+.hp-cat-link {
+  color: #1E293B !important;
+  font-size: 0.95rem !important;
+  font-weight: 650 !important;
+  text-decoration: none !important;
+  transition: color 180ms ease !important;
+}
+
+.hp-cat-link:hover {
+  color: #059669 !important;
+}
+
+.hp-vklin-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.4rem !important;
+  flex-wrap: wrap !important;
+}
+
+.hp-btn-vklin-primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+  min-height: 50px !important;
+  padding: 0.75rem 1.65rem !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+  color: #FFFFFF !important;
+  font-size: 0.96rem !important;
+  font-weight: 750 !important;
+  text-decoration: none !important;
+  box-shadow: 0 8px 24px rgba(5, 150, 105, 0.32) !important;
+  transition: transform 180ms ease, box-shadow 180ms ease !important;
+}
+
+.hp-btn-vklin-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 28px rgba(5, 150, 105, 0.42) !important;
+}
+
+.hp-vklin-link-secondary {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  color: #059669 !important;
+  font-size: 0.94rem !important;
+  font-weight: 750 !important;
+  text-decoration: none !important;
+  transition: transform 180ms ease !important;
+}
+
+.hp-vklin-link-secondary:hover {
+  transform: translateX(3px) !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* Large Product Range Showcase Card                                 */
+/* ------------------------------------------------------------------ */
+
+.hp-vklin-panel {
+  width: 100% !important;
+  max-width: 680px !important;
+  margin-left: auto !important;
+  padding: 2rem 2.2rem 2.2rem !important;
+  border-radius: 28px !important;
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(167, 243, 208, 0.9) !important;
+  box-shadow:
+    0 24px 60px -15px rgba(16, 91, 65, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.95) !important;
+}
+
+.hp-vklin-panel-head {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.85rem !important;
+  margin-bottom: 1.6rem !important;
+}
+
+.hp-vklin-panel-mark {
+  width: 44px !important;
+  height: 44px !important;
+  flex: 0 0 44px !important;
+  border-radius: 14px !important;
+  background: #DCFCE7 !important;
+  color: #059669 !important;
+  display: grid !important;
+  place-items: center !important;
+  border: 1px solid rgba(5, 150, 105, 0.2) !important;
+}
+
+.hp-vklin-head-kicker {
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  color: #059669 !important;
+  text-transform: uppercase !important;
+  display: block !important;
+}
+
+.hp-vklin-head-main {
+  font-size: 1.25rem !important;
+  font-weight: 850 !important;
+  color: #0F172A !important;
+  display: block !important;
+}
+
+.hp-vklin-products {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.15rem !important;
+}
+
+.hp-vklin-product-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 1.15rem 0.95rem !important;
+  border: 1.5px solid rgba(220, 240, 230, 0.95) !important;
+  border-radius: 20px !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 6px 18px rgba(16, 91, 65, 0.05) !important;
+  text-decoration: none !important;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), border-color 260ms ease, box-shadow 260ms ease !important;
+}
+
+.hp-vklin-product-card:hover {
+  transform: translateY(-6px) !important;
+  border-color: #059669 !important;
+  box-shadow: 0 18px 38px -8px rgba(5, 150, 105, 0.22) !important;
+}
+
+.hp-vklin-product-imgbox {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 250px !important;
+  aspect-ratio: 1 / 1.15 !important;
+  border-radius: 14px !important;
+  background: linear-gradient(180deg, #FAFCFA 0%, #F0FDF4 100%) !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(16, 185, 129, 0.12) !important;
+}
+
+.hp-vklin-product-img {
+  object-fit: contain !important;
+  padding: 0.65rem !important;
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hp-vklin-product-card:hover .hp-vklin-product-img {
+  transform: scale(1.08) !important;
+}
+
+.hp-vklin-product-name {
+  margin-top: 1.05rem !important;
+  font-size: 1.02rem !important;
+  font-weight: 800 !important;
+  color: #0F172A !important;
+  text-align: center !important;
+  line-height: 1.25 !important;
+}
+
+@media (max-width: 1024px) {
+  .hp-vklin-layout {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  .hp-vklin-panel {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hp-vklin-products {
+    grid-template-columns: 1fr !important;
+  }
+  .hp-vklin-product-imgbox {
+    min-height: 220px !important;
+  }
+  .hp-vklin-cats-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
