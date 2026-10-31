@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Building2, FlaskConical, Mail, MapPin, Phone, Sparkles } from "lucide-react";
 
 const exploreLinks = [
   { label: "Solutions", href: "/#solutions" },
@@ -30,6 +30,7 @@ const solutionLinks = [
 export default function SiteFooter() {
   return (
     <footer className="site-footer">
+      <div className="site-footer-waves" aria-hidden="true" />
       <div className="container">
         <div className="footer-main">
           <div className="footer-brand">
@@ -43,6 +44,22 @@ export default function SiteFooter() {
               />
             </Link>
             <p>Applied chemistry for industrial water, construction, and everyday facility care.</p>
+            
+            {/* Visual pillars shown on Contact page design reference */}
+            <div className="footer-pillars" aria-hidden="true">
+              <div className="footer-pillar">
+                <span className="footer-pillar-hex"><FlaskConical size={18} /></span>
+                <span className="footer-pillar-title">Industrial<br />Water Treatment</span>
+              </div>
+              <div className="footer-pillar footer-pillar-offset">
+                <span className="footer-pillar-hex"><Building2 size={18} /></span>
+                <span className="footer-pillar-title">Construction<br />Chemistry</span>
+              </div>
+              <div className="footer-pillar">
+                <span className="footer-pillar-hex"><Sparkles size={18} /></span>
+                <span className="footer-pillar-title">V-Klin<br /><small>Cleaning &amp; Facility Care</small></span>
+              </div>
+            </div>
           </div>
           <nav className="footer-column" aria-label="Explore">
             <h2>Explore</h2>

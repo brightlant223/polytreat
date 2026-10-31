@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Building2, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, Building2, FileText, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import LocationMap from "@/components/LocationMap";
 import { locationSites } from "@/data/locations";
@@ -21,18 +21,38 @@ export default function ContactPage() {
   return (
     <main className="contact-page contact-reference-layout">
       <section className="contact-reference-hero" aria-labelledby="contact-title">
-        <div className="contact-reference-orbit contact-reference-orbit-one" aria-hidden="true" />
-        <div className="contact-reference-orbit contact-reference-orbit-two" aria-hidden="true" />
+        {/* Background ambient light & foliage on left */}
+        <div className="contact-hero-left-decor" aria-hidden="true" />
+        <div className="contact-hero-bg-glow" aria-hidden="true" />
+
         <div className="container contact-reference-hero-inner">
-          <span className="contact-reference-eyebrow">Contact PolyTreat</span>
-          <h1 id="contact-title">Let’s talk about your requirement.</h1>
-          <p>
-            Get in touch about industrial water treatment, construction chemistry, or V-Klin
-            cleaning and facility care.
-          </p>
-          <a href="#contact-form" className="contact-reference-hero-link">
-            Send an enquiry <MessageCircle size={16} aria-hidden="true" />
-          </a>
+          <div className="contact-hero-content">
+            <span className="contact-reference-eyebrow">Contact PolyTreat</span>
+            <h1 id="contact-title">
+              Let’s talk about{" "}
+              <span className="contact-hero-highlight">your requirement.</span>
+            </h1>
+            <p>
+              Get in touch about industrial water treatment, construction chemistry, or V-Klin
+              cleaning and facility care.
+            </p>
+            <a href="#contact-form" className="contact-reference-hero-link">
+              <span>Send an enquiry</span>
+              <MessageCircle size={17} aria-hidden="true" />
+              <span className="contact-hero-btn-arrow" aria-hidden="true">
+                <ArrowRight size={13} />
+              </span>
+            </a>
+          </div>
+        </div>
+
+        {/* Industrial water treatment facility photo inside circular glass portal */}
+        <div className="contact-hero-visual" aria-hidden="true">
+          <img
+            src="/images/contact/hero-portal.png"
+            alt="Industrial water treatment plant with storage tanks, piping and water clarifier pool"
+            className="contact-hero-portal-img"
+          />
         </div>
       </section>
 
@@ -90,9 +110,14 @@ export default function ContactPage() {
 
           <div className="contact-reference-form-wrap" id="contact-form">
             <div className="contact-reference-form-heading">
-              <span className="contact-reference-eyebrow">Send an enquiry</span>
-              <h2>Leave a message</h2>
-              <p>Include the product area, system, or documents you’re enquiring about.</p>
+              <div className="contact-reference-form-heading-text">
+                <span className="contact-reference-eyebrow">Send an enquiry</span>
+                <h2>Leave a message</h2>
+                <p>Include the product area, system, or documents you’re enquiring about.</p>
+              </div>
+              <span className="contact-reference-form-badge" aria-hidden="true">
+                <FileText size={20} />
+              </span>
             </div>
             <ContactForm />
           </div>
