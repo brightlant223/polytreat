@@ -66,7 +66,7 @@ const industrialSlides = [
     label: "Effluent Treatment Plants & Clarifiers",
     captionTitle: "Aeration, Coagulation, Zero Discharge",
     chipBadge: "Effluent Treatment Plant",
-    image: "/images/home/hero-effluent-etp.jpg",
+    image: "/images/home/hero-effluent-etp.jpg",  
     alt: "Realistic industrial effluent treatment plant with circular clarifier basin, mechanical scraper bridge, and aeration tanks",
     lead: "Coagulant, flocculant, and heavy metal precipitation solutions engineered to meet zero-discharge standards.",
     poster: "/images/home/hero-effluent-etp.jpg",
