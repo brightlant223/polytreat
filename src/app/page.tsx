@@ -280,7 +280,7 @@ export default function Home() {
 
           <div className="hp-applications-list">
             <div className="hp-section-heading hp-heading-tight hp-reveal">
-<div>
+              <div>
                 <h2 id="applications-title">Where the chemistry goes to work.</h2>
               </div>
               <p>
