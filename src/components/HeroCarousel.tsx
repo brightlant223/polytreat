@@ -66,7 +66,7 @@ const industrialSlides = [
     label: "Effluent Treatment Plants & Clarifiers",
     captionTitle: "Aeration, Coagulation, Zero Discharge",
     chipBadge: "Effluent Treatment Plant",
-    image: "/images/home/hero-effluent-etp.jpg",  
+    image: "/images/home/hero-effluent-etp.jpg",
     alt: "Realistic industrial effluent treatment plant with circular clarifier basin, mechanical scraper bridge, and aeration tanks",
     lead: "Coagulant, flocculant, and heavy metal precipitation solutions engineered to meet zero-discharge standards.",
     poster: "/images/home/hero-effluent-etp.jpg",
@@ -114,62 +114,29 @@ export default function HeroCarousel() {
   const [progress, setProgress] = useState(0);
 
   const isTransitioningRef = useRef(false);
-  const touchStartXRef = useRef<number | null>(null);
-  const touchStartYRef = useRef<number | null>(null);
-  const tabListRef = useRef<HTMLDivElement>(null);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartXRef.current = e.touches[0].clientX;
-    touchStartYRef.current = e.touches[0].clientY;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartXRef.current === null || touchStartYRef.current === null) return;
-    const diffX = e.changedTouches[0].clientX - touchStartXRef.current;
-    const diffY = e.changedTouches[0].clientY - touchStartYRef.current;
-
-    // Trigger horizontal swipe navigation
-    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 36) {
-      if (diffX < 0) {
-        advanceToNext();
-      } else {
-        advanceToPrev();
-      }
-    }
-
-    touchStartXRef.current = null;
-    touchStartYRef.current = null;
-  };
-
-  /* Smoothly scroll active tab into view on mobile/tablet */
-  useEffect(() => {
-    if (!tabListRef.current) return;
-    const activeTab = tabListRef.current.children[activeIndex] as HTMLElement | undefined;
-    if (activeTab && typeof activeTab.scrollIntoView === "function") {
-      activeTab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-    }
-  }, [activeIndex]);
+  const tabsContainerRef = useRef<HTMLDivElement>(null);
+  const tabButtonRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const totalSlides = industrialSlides.length;
   const activeSlide = industrialSlides[activeIndex];
+  const ActiveIcon = activeSlide.icon;
+
+  /* Smooth scroll category tab into view on mobile when slide changes */
+  useEffect(() => {
+    const activeBtn = tabButtonRefs.current[activeIndex];
+    const container = tabsContainerRef.current;
+    if (activeBtn && container && container.scrollWidth > container.clientWidth) {
+      activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }, [activeIndex]);
 
   /* ------------------------------------------------------------------ */
   /* Entrance animation trigger: cards slide in one by one from left    */
   /* ------------------------------------------------------------------ */
-  const replayEntrance = useCallback(() => {
+  const triggerEntrance = useCallback(() => {
     setHasEntered(false);
     setIsFullyGathered(false);
     setProgress(0);
 
-    setTimeout(() => {
-      setHasEntered(true);
-    }, 60);
-
-    setTimeout(() => {
-      setIsFullyGathered(true);
-    }, 1800);
-  }, []);
-
-  useEffect(() => {
     const timer1 = setTimeout(() => {
       setHasEntered(true);
     }, 60);
@@ -183,6 +150,11 @@ export default function HeroCarousel() {
       clearTimeout(timer2);
     };
   }, []);
+
+  useEffect(() => {
+    const cleanup = triggerEntrance();
+    return cleanup;
+  }, [triggerEntrance]);
 
   /* ------------------------------------------------------------------ */
   /* Slide transition: Move active card to back, bring next to front    */
@@ -259,9 +231,9 @@ export default function HeroCarousel() {
     if (!hasEntered) {
       return {
         ...baseStyle,
-        transform: `translate3d(-150%, ${20 + index * 10}px, 0px) scale(0.72) rotate(-14deg)`,
+        transform: `translate3d(-120%, ${12 + index * 6}px, 0px) scale(0.78) rotate(-8deg)`,
         opacity: 0,
-        filter: "blur(8px)",
+        filter: "blur(6px)",
         zIndex: totalSlides - index,
         transition: "none",
       };
@@ -270,20 +242,17 @@ export default function HeroCarousel() {
     // 2. Entrance sequence: Cards fly in with staggered delay from left side
     if (!isFullyGathered) {
       const staggerDelay = index * 180;
-      const stackTransforms = [
-        "translate3d(0px, 0px, 0px) scale(1) rotate(0deg)",
-        "translate3d(var(--stack-x-1, 24px), var(--stack-y-1, -10px), -30px) scale(0.95) rotate(var(--stack-r-1, 1.8deg))",
-        "translate3d(var(--stack-x-2, 46px), var(--stack-y-2, -18px), -60px) scale(0.9) rotate(var(--stack-r-2, 3.4deg))",
-        "translate3d(var(--stack-x-3, 66px), var(--stack-y-3, -25px), -90px) scale(0.85) rotate(var(--stack-r-3, 4.8deg))",
-        "translate3d(var(--stack-x-4, 82px), var(--stack-y-4, -31px), -120px) scale(0.8) rotate(var(--stack-r-4, 6deg))",
-      ];
-      const targetTransform = stackTransforms[relIndex] || stackTransforms[4];
-      const targetOpacity = [1, 0.88, 0.68, 0.45, 0.25][relIndex] ?? 0.25;
+      const targetX = relIndex === 0 ? "0px" : `var(--stack-x-${relIndex}, 24px)`;
+      const targetY = relIndex === 0 ? "0px" : `var(--stack-y-${relIndex}, -10px)`;
+      const targetR = relIndex === 0 ? "0deg" : `var(--stack-r-${relIndex}, 2deg)`;
+      const scales = [1, 0.955, 0.91, 0.865, 0.82];
+      const opacities = [1, 0.9, 0.7, 0.45, 0.25];
+      const zOffsets = [0, -30, -60, -90, -120];
 
       return {
         ...baseStyle,
-        transform: targetTransform,
-        opacity: targetOpacity,
+        transform: `translate3d(${targetX}, ${targetY}, ${zOffsets[relIndex] || -120}px) scale(${scales[relIndex] || 0.82}) rotate(${targetR})`,
+        opacity: opacities[relIndex] ?? 0.25,
         filter: "blur(0px)",
         zIndex: 10 - relIndex,
         transition: `transform 900ms cubic-bezier(0.16, 1, 0.3, 1) ${staggerDelay}ms, opacity 750ms ease ${staggerDelay}ms, filter 650ms ease ${staggerDelay}ms`,
@@ -294,7 +263,7 @@ export default function HeroCarousel() {
     if (isExiting) {
       return {
         ...baseStyle,
-        transform: "translate3d(-114%, -18px, 40px) scale(0.92) rotate(-8deg)",
+        transform: "translate3d(-110%, -12px, 30px) scale(0.94) rotate(-6deg)",
         opacity: 0,
         filter: "blur(2px)",
         zIndex: 15,
@@ -303,8 +272,6 @@ export default function HeroCarousel() {
     }
 
     // 4. Standard Stacked Card Layout:
-    // relIndex === 0 is the main large card
-    // relIndex 1, 2, 3, 4 are layered cards stacked behind to the right
     switch (relIndex) {
       case 0:
         return {
@@ -347,7 +314,6 @@ export default function HeroCarousel() {
           transition: "transform 600ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease, filter 500ms ease",
         };
       default:
-        // Deepest card at the end of the stack
         return {
           ...baseStyle,
           transform: "translate3d(var(--stack-x-4, 82px), var(--stack-y-4, -31px), -120px) scale(0.82) rotate(var(--stack-r-4, 6deg))",
@@ -489,8 +455,6 @@ export default function HeroCarousel() {
             aria-label="Industrial chemistry applications 3D card carousel"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
           >
             {/* 3D Stack of Cards */}
             <div className="hp-stack-deck">
@@ -574,7 +538,7 @@ export default function HeroCarousel() {
                           <button
                             type="button"
                             className="hp-card-ctrl-btn"
-                            onClick={replayEntrance}
+                            onClick={triggerEntrance}
                             title="Replay entrance animation"
                             aria-label="Replay entrance animation"
                           >
@@ -603,14 +567,17 @@ export default function HeroCarousel() {
           </div>
 
           {/* Interactive Navigation Tabs Below Carousel (Matching reference) */}
-          <div ref={tabListRef} className="hp-hero-tabs hp-hero-tabs-5" role="tablist" aria-label="Industrial chemistry topics">
+          <div ref={tabsContainerRef} className="hp-hero-tabs hp-hero-tabs-5" role="tablist" aria-label="Industrial chemistry topics">
             {industrialSlides.map((slide, index) => {
               const isActive = index === activeIndex;
               const TabIcon = slide.icon;
               return (
                 <button
-                  className={`hp-hero-tab${isActive ? " is-active" : ""}`}
                   key={slide.id}
+                  ref={(el) => {
+                    tabButtonRefs.current[index] = el;
+                  }}
+                  className={`hp-hero-tab${isActive ? " is-active" : ""}`}
                   type="button"
                   role="tab"
                   aria-selected={isActive}

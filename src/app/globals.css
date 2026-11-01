@@ -18276,10 +18276,14 @@ a.hp-contact-card:hover svg:last-child {
   padding-right: clamp(1.25rem, 3.5vw, 3.25rem) !important;
 }
 
-.hp-hero-grid {
-  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 1fr) !important;
-  gap: clamp(2.2rem, 5vw, 4.5rem) !important;
-  min-height: 590px !important;
+@media (min-width: 1025px) {
+  .hp-hero-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 1fr) !important;
+    gap: clamp(2.2rem, 5vw, 4.5rem) !important;
+    min-height: 590px !important;
+    align-items: center !important;
+  }
 }
 
 .hp-hero-copy {
@@ -19429,174 +19433,332 @@ a.hp-contact-card:hover svg:last-child {
 /* Responsive Breakpoints for Hero 3D Deck, Controls & Tabs           */
 /* ------------------------------------------------------------------ */
 
-@media (max-width: 960px) {
+/* ================================================================== */
+/* FULLY RESPONSIVE HERO SECTION (DESKTOP, TABLET, MOBILE)            */
+/* ================================================================== */
+
+/* 1. Global hero container containment & anti-overflow */
+.hp-hero {
+  position: relative !important;
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}
+
+.hp-hero-container {
+  width: 100% !important;
+  max-width: 1480px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. Tablet Breakpoint (769px to 1024px) */
+@media (max-width: 1024px) {
+  .hp-hero-watermark {
+    display: none !important;
+  }
+
+  .hp-hero-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    gap: 2.5rem !important;
+    padding-top: 2.2rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .hp-hero-copy {
+    width: 100% !important;
+    max-width: 740px !important;
+    margin: 0 auto !important;
+  }
+
   .hp-hero-visual {
-    width: min(100%, 580px);
-    margin: 0 auto;
+    width: 100% !important;
+    max-width: 660px !important;
+    margin: 0 auto !important;
   }
 
   .hp-stack-container {
-    --stack-offset-w: 48px;
-    --stack-x-1: 16px;
-    --stack-y-1: -7px;
-    --stack-r-1: 1.4deg;
-    --stack-x-2: 30px;
-    --stack-y-2: -13px;
-    --stack-r-2: 2.6deg;
-    --stack-x-3: 42px;
-    --stack-y-3: -18px;
-    --stack-r-3: 3.6deg;
-    --stack-x-4: 52px;
-    --stack-y-4: -22px;
-    --stack-r-4: 4.4deg;
-    min-height: 320px;
+    --stack-offset-w: 48px !important;
+    --stack-x-1: 16px !important;
+    --stack-y-1: -7px !important;
+    --stack-r-1: 1.4deg !important;
+    --stack-x-2: 30px !important;
+    --stack-y-2: -13px !important;
+    --stack-r-2: 2.6deg !important;
+    --stack-x-3: 42px !important;
+    --stack-y-3: -18px !important;
+    --stack-r-3: 3.6deg !important;
+    --stack-x-4: 52px !important;
+    --stack-y-4: -22px !important;
+    --stack-r-4: 4.4deg !important;
+    min-height: 320px !important;
+    aspect-ratio: 16 / 11 !important;
   }
-}
 
-@media (max-width: 860px) {
   .hp-hero-tabs-5 {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 0.45rem;
-    padding: 0.2rem 0.2rem 0.5rem;
-    margin-top: 0.85rem;
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 0.45rem !important;
+    padding: 0.25rem 0.2rem 0.5rem !important;
+    margin-top: 1rem !important;
   }
 
   .hp-hero-tabs-5::-webkit-scrollbar {
-    display: none;
+    display: none !important;
   }
 
   .hp-hero-tabs-5 .hp-hero-tab {
-    flex: 0 0 auto;
-    min-width: 128px;
-    scroll-snap-align: center;
-    font-size: 0.68rem;
-    padding: 0.48rem 0.72rem 0.62rem;
+    flex: 1 1 0% !important;
+    min-width: 130px !important;
+    min-height: 44px !important;
+    font-size: 0.7rem !important;
+    scroll-snap-align: center !important;
   }
 }
 
-@media (max-width: 640px) {
+/* 3. Mobile Breakpoint (<= 768px): Vertical Stack & Clean Hierarchy */
+@media (max-width: 768px) {
   .hp-hero {
-    overflow-x: clip;
+    overflow-x: clip !important;
   }
 
-  .hp-stack-container {
-    --stack-offset-w: 32px;
-    --stack-x-1: 10px;
-    --stack-y-1: -5px;
-    --stack-r-1: 1deg;
-    --stack-x-2: 19px;
-    --stack-y-2: -9px;
-    --stack-r-2: 1.8deg;
-    --stack-x-3: 27px;
-    --stack-y-3: -12px;
-    --stack-r-3: 2.4deg;
-    --stack-x-4: 34px;
-    --stack-y-4: -15px;
-    --stack-r-4: 3deg;
-    aspect-ratio: 16 / 12;
-    min-height: 250px;
+  .hp-hero-container {
+    padding-left: clamp(1rem, 4vw, 1.4rem) !important;
+    padding-right: clamp(1rem, 4vw, 1.4rem) !important;
   }
 
-  .hp-stack-card {
-    border-radius: 18px;
-    box-shadow: 0 10px 24px -4px rgba(11, 25, 44, 0.16);
+  .hp-water-splash {
+    opacity: 0.35 !important;
+    pointer-events: none !important;
+    max-width: 50vw !important;
   }
 
-  .hp-card-glass-badge {
-    bottom: 12px;
-    left: 12px;
-    max-width: calc(100% - 24px);
-    padding: 0.45rem 0.65rem;
-    border-radius: 14px;
-    gap: 0.55rem;
+  .hp-hero-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    gap: 1.85rem !important;
+    padding-top: 1.35rem !important;
+    padding-bottom: 2rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
-  .hp-card-icon-box {
-    width: 32px;
-    height: 32px;
-    flex: 0 0 32px;
-    border-radius: 9px;
+  /* Left Column: Top aligned on mobile */
+  .hp-hero-copy {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
   }
 
-  .hp-card-badge-title {
-    font-size: 0.78rem;
+  .hp-hero-eyebrow-wrapper {
+    margin-bottom: 0.45rem !important;
   }
 
-  .hp-card-badge-subtitle {
-    font-size: 0.66rem;
+  .hp-hero-title {
+    font-size: clamp(1.85rem, 7.8vw, 2.45rem) !important;
+    line-height: 1.14 !important;
+    letter-spacing: -0.035em !important;
+    margin: 0.4rem 0 0.85rem !important;
+    word-break: break-word !important;
   }
 
-  .hp-card-top-controls {
-    top: 10px;
-    right: 10px;
-    gap: 0.35rem;
+  .hp-hero-rotating-phrase {
+    display: inline !important;
   }
 
-  .hp-card-ctrl-btn {
-    width: 30px;
-    height: 30px;
+  .hp-hero-lead {
+    font-size: 0.94rem !important;
+    line-height: 1.55 !important;
+    color: #475569 !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    margin: 0 0 1.25rem !important;
   }
 
-  .hp-card-index-pill {
-    font-size: 0.66rem;
-    padding: 0.22rem 0.5rem;
-  }
-
+  /* Proof Badges List */
   .hp-hero-proof {
-    gap: 0.35rem;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.45rem !important;
+    margin: 0 0 1.35rem !important;
+    width: 100% !important;
   }
 
-  .hp-hero-proof li {
-    padding: 0.32rem 0.58rem;
-    font-size: 0.72rem;
-  }
-}
-
-@media (max-width: 440px) {
-  .hp-stack-container {
-    --stack-offset-w: 22px;
-    --stack-x-1: 7px;
-    --stack-y-1: -3.5px;
-    --stack-r-1: 0.8deg;
-    --stack-x-2: 13px;
-    --stack-y-2: -6.5px;
-    --stack-r-2: 1.4deg;
-    --stack-x-3: 18px;
-    --stack-y-3: -9px;
-    --stack-r-3: 1.9deg;
-    --stack-x-4: 23px;
-    --stack-y-4: -11px;
-    --stack-r-4: 2.3deg;
-    aspect-ratio: 4 / 3;
-    min-height: 220px;
+  .hp-hero-proof-item {
+    font-size: 0.72rem !important;
+    padding: 0.35rem 0.65rem !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
   }
 
-  .hp-stack-card {
-    border-radius: 15px;
-  }
-
-  .hp-hero-copy h1 {
-    font-size: clamp(1.75rem, 8vw, 2.15rem);
-    line-height: 1.14;
-  }
-
+  /* Action Buttons */
   .hp-hero-actions {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 0.55rem;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+    margin-bottom: 0.5rem !important;
   }
 
   .hp-hero-actions .hp-btn-primary,
   .hp-hero-actions .hp-btn-secondary {
-    width: 100%;
-    justify-content: center;
-    min-height: 46px;
-    font-size: 0.85rem;
+    flex: 1 1 140px !important;
+    min-height: 46px !important;
+    padding: 0.65rem 1.1rem !important;
+    font-size: 0.88rem !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* Right Column: Carousel below on mobile */
+  .hp-hero-visual {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  .hp-stack-container {
+    --stack-offset-w: 24px !important;
+    --stack-x-1: 8px !important;
+    --stack-y-1: -4px !important;
+    --stack-r-1: 1deg !important;
+    --stack-x-2: 15px !important;
+    --stack-y-2: -8px !important;
+    --stack-r-2: 1.8deg !important;
+    --stack-x-3: 21px !important;
+    --stack-y-3: -11px !important;
+    --stack-r-3: 2.4deg !important;
+    --stack-x-4: 26px !important;
+    --stack-y-4: -14px !important;
+    --stack-r-4: 3deg !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: 16 / 10.5 !important;
+    min-height: 240px !important;
+  }
+
+  .hp-stack-card {
+    border-radius: 18px !important;
+    box-shadow: 0 10px 24px -4px rgba(11, 25, 44, 0.16) !important;
+  }
+
+  .hp-card-top-controls {
+    top: 10px !important;
+    right: 10px !important;
+    gap: 0.3rem !important;
+  }
+
+  .hp-card-ctrl-btn {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .hp-card-index-pill {
+    font-size: 0.65rem !important;
+    padding: 0.2rem 0.48rem !important;
+  }
+
+  .hp-card-glass-badge {
+    bottom: 10px !important;
+    left: 10px !important;
+    max-width: calc(100% - 20px) !important;
+    padding: 0.45rem 0.65rem !important;
+    border-radius: 12px !important;
+    gap: 0.5rem !important;
+  }
+
+  .hp-card-icon-box {
+    width: 32px !important;
+    height: 32px !important;
+    flex: 0 0 32px !important;
+    border-radius: 9px !important;
+  }
+
+  .hp-card-badge-title {
+    font-size: 0.76rem !important;
+    font-weight: 800 !important;
+  }
+
+  .hp-card-badge-subtitle {
+    font-size: 0.65rem !important;
+  }
+
+  /* Category Navigation Tabs Below Carousel */
+  .hp-hero-tabs-5 {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 0.45rem !important;
+    padding: 0.3rem 0.15rem 0.6rem !important;
+    margin-top: 0.85rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .hp-hero-tabs-5::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .hp-hero-tabs-5 .hp-hero-tab {
+    flex: 0 0 auto !important;
+    min-width: 128px !important;
+    min-height: 42px !important;
+    padding: 0.45rem 0.75rem !important;
+    scroll-snap-align: start !important;
+    border-radius: 10px !important;
+    font-size: 0.68rem !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* 4. Small Mobile Breakpoint (<= 440px) */
+@media (max-width: 440px) {
+  .hp-hero-actions {
+    flex-direction: column !important;
+  }
+
+  .hp-hero-actions .hp-btn-primary,
+  .hp-hero-actions .hp-btn-secondary {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+
+  .hp-stack-container {
+    --stack-offset-w: 18px !important;
+    --stack-x-1: 6px !important;
+    --stack-y-1: -3px !important;
+    --stack-r-1: 0.8deg !important;
+    --stack-x-2: 11px !important;
+    --stack-y-2: -6px !important;
+    --stack-r-2: 1.4deg !important;
+    --stack-x-3: 15px !important;
+    --stack-y-3: -8px !important;
+    --stack-r-3: 2deg !important;
+    --stack-x-4: 18px !important;
+    --stack-y-4: -10px !important;
+    --stack-r-4: 2.4deg !important;
+    min-height: 220px !important;
+    aspect-ratio: 16 / 11 !important;
+  }
+
+  .hp-hero-title {
+    font-size: clamp(1.75rem, 8.2vw, 2.15rem) !important;
   }
 }
 
