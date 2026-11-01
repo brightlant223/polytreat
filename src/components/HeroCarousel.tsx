@@ -120,12 +120,24 @@ export default function HeroCarousel() {
   const activeSlide = industrialSlides[activeIndex];
   const ActiveIcon = activeSlide.icon;
 
-  /* Smooth scroll category tab into view on mobile when slide changes */
+  /* Smooth scroll category tab horizontally within the container on mobile when slide changes (does not scroll window) */
   useEffect(() => {
     const activeBtn = tabButtonRefs.current[activeIndex];
     const container = tabsContainerRef.current;
     if (activeBtn && container && container.scrollWidth > container.clientWidth) {
-      activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      const containerRect = container.getBoundingClientRect();
+      const btnRect = activeBtn.getBoundingClientRect();
+      const currentScrollLeft = container.scrollLeft;
+      const targetScrollLeft =
+        currentScrollLeft +
+        (btnRect.left - containerRect.left) -
+        container.clientWidth / 2 +
+        btnRect.width / 2;
+
+      container.scrollTo({
+        left: targetScrollLeft,
+        behavior: 'smooth',
+      });
     }
   }, [activeIndex]);
 
