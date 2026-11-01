@@ -33,6 +33,7 @@ import {
   Gauge,
   Headset,
   Info,
+  Layers,
   Layers3,
   Leaf,
   Mail,
@@ -74,7 +75,28 @@ const rangeProductAreaCount = productMapGroups.reduce(
 const flagshipChips: Record<string, string[]> = {
   corosil: ["Structural steel", "Railings & grills", "Pipelines & sheet metal", "Rolling shutters"],
   "polydor-ws": ["Waste & wastewater", "Food & animal processing", "Exhaust scrubbers", "Facilities"],
-  polyklin: ["Evaporator coils", "Condenser coils", "AHU & FCU", "Window & split units"],
+  polyklin: ["Evaporator coils", "Condenser coils", "Window & split units", "AHU & FCU"],
+};
+
+const flagshipMedia: Record<
+  string,
+  { src: string; alt: string; categoryBadge: string }
+> = {
+  corosil: {
+    src: "/images/specialty/corosil-rust-treatment.jpg",
+    alt: "Applying COROSIL rust inhibitor and converter primer on steel beam with brush",
+    categoryBadge: "CORROSION CONTROL",
+  },
+  "polydor-ws": {
+    src: "/images/specialty/polydor-odour-control.jpg",
+    alt: "Industrial wastewater aeration clarifier basin for POLYDOR-WS odour control",
+    categoryBadge: "ODOUR CONTROL",
+  },
+  polyklin: {
+    src: "/images/specialty/polyklin-hvac-coils.jpg",
+    alt: "Commercial outdoor HVAC condenser chiller coils for POLYKLIN cleaning",
+    categoryBadge: "HVAC COIL CARE",
+  },
 };
 
 const flagshipIcons: Record<string, typeof Paintbrush> = {
@@ -292,39 +314,110 @@ export default function Home() {
       {/* Flagship specialty products */}
       <section className="hp-section hp-section-flagship" id="flagship" aria-labelledby="flagship-title">
         <div className="container">
-          <div className="hp-section-heading">
-            <div>
-              <h2 id="flagship-title">Specialty products, in detail.</h2>
+          {/* Reference Image 2 Modern Section Header */}
+          <div className="hp-specialty-header">
+            <div className="hp-specialty-header-left">
+              <h2 id="flagship-title" className="hp-specialty-title">
+                Specialty products,{" "}
+                <span className="hp-specialty-title-accent">
+                  in detail.
+                  <svg
+                    className="hp-specialty-brush-curve"
+                    viewBox="0 0 170 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M3 10C45 4 118 3 167 7C125 12 52 13 3 10Z"
+                      fill="#0284C7"
+                    />
+                  </svg>
+                </span>
+              </h2>
             </div>
-            <p>
-              POLYDOR-WS, COROSIL and POLYKLIN each solve one specific problem.
-              Their full pages carry the product literature, application lists,
-              and document requests.
-            </p>
+
+            <div className="hp-specialty-header-right">
+              <div className="hp-specialty-header-divider" aria-hidden="true" />
+              <div className="hp-specialty-icon-box" aria-hidden="true">
+                <Layers size={24} strokeWidth={1.8} className="hp-specialty-icon" />
+              </div>
+              <p className="hp-specialty-lead">
+                POLYDOR-WS, COROSIL and POLYKLIN each solve one specific problem.
+                Their full pages carry the product literature, application lists,
+                and document requests.
+              </p>
+            </div>
           </div>
 
-          <div className="hp-flag-grid hp-stagger">
+          <div className="hp-specialty-grid">
             {flagshipProducts.map((product) => {
-              const Icon = flagshipIcons[product.slug];
+              const media = flagshipMedia[product.slug];
               return (
-                <article className="hp-flag-card" key={product.slug}>
-                  <div className="hp-flag-head">
-                    <span className="hp-flag-icon"><Icon size={20} strokeWidth={1.8} aria-hidden="true" /></span>
-                    <span className="hp-flag-cat">{product.category}</span>
+                <article className="hp-spec-card" key={product.slug}>
+                  {/* Top media banner with category pill (1:1 square ratio) */}
+                  <div className="hp-spec-media-wrap">
+                    {media && (
+                      <Image
+                        src={media.src}
+                        alt={media.alt}
+                        width={600}
+                        height={600}
+                        className="hp-spec-media-img"
+                        priority={product.slug === "corosil"}
+                      />
+                    )}
+                    <span className="hp-spec-category-pill">
+                      {media?.categoryBadge || product.category.toUpperCase()}
+                    </span>
+                    <svg
+                      className="hp-spec-wave-svg"
+                      viewBox="0 0 500 32"
+                      preserveAspectRatio="none"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M0 16C120 32 360 4 500 20V32H0V16Z"
+                        fill="#FFFFFF"
+                      />
+                    </svg>
                   </div>
-                  <h3>{product.name}</h3>
-                  <p className="hp-flag-tagline">{product.headline}</p>
-                  <p className="hp-flag-summary">{product.summary}</p>
-                  <ul className="hp-tags" aria-label={`${product.name} application areas`}>
-                    {flagshipChips[product.slug]?.map((chip) => <li key={chip}>{chip}</li>)}
-                  </ul>
-                  <p className="hp-flag-note">
-                    <Info size={13} aria-hidden="true" />
-                    <span>{flagshipNotes[product.slug]}</span>
-                  </p>
-                  <Link className="text-link hp-flag-link" href={`/specialty/${product.slug}`}>
-                    Explore {product.name} <ArrowRight size={15} aria-hidden="true" />
-                  </Link>
+
+                  {/* Card Content */}
+                  <div className="hp-spec-body">
+                    <h3 className="hp-spec-name">{product.name}</h3>
+                    <p className="hp-spec-tagline">{product.headline}</p>
+                    <p className="hp-spec-summary">{product.summary}</p>
+
+                    {/* Checkmark Tag Chips */}
+                    <div className="hp-spec-tags-wrap" aria-label={`${product.name} application areas`}>
+                      {flagshipChips[product.slug]?.map((chip) => (
+                        <span className="hp-spec-tag-item" key={chip}>
+                          <span className="hp-spec-tag-check-circle" aria-hidden="true">
+                            <Check size={9} strokeWidth={3.5} />
+                          </span>
+                          <span>{chip}</span>
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Information Note Box */}
+                    <div className="hp-spec-note-box">
+                      <span className="hp-spec-note-icon" aria-hidden="true">
+                        <Info size={14} strokeWidth={2.2} />
+                      </span>
+                      <p className="hp-spec-note-text">{flagshipNotes[product.slug]}</p>
+                    </div>
+
+                    {/* Full-width Explore Capsule Button */}
+                    <Link className="hp-spec-explore-btn" href={`/specialty/${product.slug}`}>
+                      <span>Explore {product.name}</span>
+                      <ArrowRight size={15} strokeWidth={2.4} className="hp-spec-btn-arrow" aria-hidden="true" />
+                    </Link>
+                  </div>
                 </article>
               );
             })}
@@ -348,7 +441,7 @@ export default function Home() {
       </section>
 
       {/* V-Klin brand spotlight */}
-      <section className="hp-section hp-section-vklin" id="vklin" aria-labelledby="vklin-title">
+      <section className="hp-section hp-section-vklin hp-reveal-section" id="vklin" aria-labelledby="vklin-title">
         {/* Decorative soft mint wave backdrop */}
         <div className="hp-vklin-decor" aria-hidden="true" />
 

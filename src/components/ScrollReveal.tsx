@@ -18,7 +18,7 @@ export default function ScrollReveal() {
     if (prefersReducedMotion) {
       // Immediately show everything
       document
-        .querySelectorAll(".hp-reveal, .hp-reveal-scale, .hp-stagger")
+        .querySelectorAll(".hp-reveal, .hp-reveal-scale, .hp-stagger, .hp-reveal-section")
         .forEach((el) => el.classList.add("is-visible"));
       return;
     }
@@ -36,7 +36,7 @@ export default function ScrollReveal() {
     );
 
     document
-      .querySelectorAll(".hp-reveal, .hp-reveal-scale, .hp-stagger")
+      .querySelectorAll(".hp-reveal, .hp-reveal-scale, .hp-stagger, .hp-reveal-section")
       .forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
