@@ -116,16 +116,25 @@ export default function HeroCarousel() {
   const isTransitioningRef = useRef(false);
   const totalSlides = industrialSlides.length;
   const activeSlide = industrialSlides[activeIndex];
-  const ActiveIcon = activeSlide.icon;
 
   /* ------------------------------------------------------------------ */
   /* Entrance animation trigger: cards slide in one by one from left    */
   /* ------------------------------------------------------------------ */
-  const triggerEntrance = useCallback(() => {
+  const replayEntrance = useCallback(() => {
     setHasEntered(false);
     setIsFullyGathered(false);
     setProgress(0);
 
+    setTimeout(() => {
+      setHasEntered(true);
+    }, 60);
+
+    setTimeout(() => {
+      setIsFullyGathered(true);
+    }, 1800);
+  }, []);
+
+  useEffect(() => {
     const timer1 = setTimeout(() => {
       setHasEntered(true);
     }, 60);
@@ -139,11 +148,6 @@ export default function HeroCarousel() {
       clearTimeout(timer2);
     };
   }, []);
-
-  useEffect(() => {
-    const cleanup = triggerEntrance();
-    return cleanup;
-  }, [triggerEntrance]);
 
   /* ------------------------------------------------------------------ */
   /* Slide transition: Move active card to back, bring next to front    */
@@ -532,7 +536,7 @@ export default function HeroCarousel() {
                           <button
                             type="button"
                             className="hp-card-ctrl-btn"
-                            onClick={triggerEntrance}
+                            onClick={replayEntrance}
                             title="Replay entrance animation"
                             aria-label="Replay entrance animation"
                           >
