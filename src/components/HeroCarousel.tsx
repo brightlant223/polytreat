@@ -114,6 +114,41 @@ export default function HeroCarousel() {
   const [progress, setProgress] = useState(0);
 
   const isTransitioningRef = useRef(false);
+  const touchStartXRef = useRef<number | null>(null);
+  const touchStartYRef = useRef<number | null>(null);
+  const tabListRef = useRef<HTMLDivElement>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX;
+    touchStartYRef.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartXRef.current === null || touchStartYRef.current === null) return;
+    const diffX = e.changedTouches[0].clientX - touchStartXRef.current;
+    const diffY = e.changedTouches[0].clientY - touchStartYRef.current;
+
+    // Trigger horizontal swipe navigation
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 36) {
+      if (diffX < 0) {
+        advanceToNext();
+      } else {
+        advanceToPrev();
+      }
+    }
+
+    touchStartXRef.current = null;
+    touchStartYRef.current = null;
+  };
+
+  /* Smoothly scroll active tab into view on mobile/tablet */
+  useEffect(() => {
+    if (!tabListRef.current) return;
+    const activeTab = tabListRef.current.children[activeIndex] as HTMLElement | undefined;
+    if (activeTab && typeof activeTab.scrollIntoView === "function") {
+      activeTab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }
+  }, [activeIndex]);
   const totalSlides = industrialSlides.length;
   const activeSlide = industrialSlides[activeIndex];
 
@@ -216,7 +251,7 @@ export default function HeroCarousel() {
       position: "absolute",
       top: 0,
       left: 0,
-      width: "calc(100% - 66px)",
+      width: "calc(100% - var(--stack-offset-w, 66px))",
       height: "100%",
     };
 
@@ -235,19 +270,20 @@ export default function HeroCarousel() {
     // 2. Entrance sequence: Cards fly in with staggered delay from left side
     if (!isFullyGathered) {
       const staggerDelay = index * 180;
-      const stackOffsets = [
-        { x: 0, y: 0, z: 0, scale: 1, rot: 0, opacity: 1 },
-        { x: 24, y: -9, z: -30, scale: 0.95, rot: 1.8, opacity: 0.88 },
-        { x: 46, y: -17, z: -60, scale: 0.9, rot: 3.4, opacity: 0.68 },
-        { x: 66, y: -24, z: -90, scale: 0.85, rot: 4.8, opacity: 0.45 },
-        { x: 82, y: -30, z: -120, scale: 0.8, rot: 6, opacity: 0.25 },
+      const stackTransforms = [
+        "translate3d(0px, 0px, 0px) scale(1) rotate(0deg)",
+        "translate3d(var(--stack-x-1, 24px), var(--stack-y-1, -10px), -30px) scale(0.95) rotate(var(--stack-r-1, 1.8deg))",
+        "translate3d(var(--stack-x-2, 46px), var(--stack-y-2, -18px), -60px) scale(0.9) rotate(var(--stack-r-2, 3.4deg))",
+        "translate3d(var(--stack-x-3, 66px), var(--stack-y-3, -25px), -90px) scale(0.85) rotate(var(--stack-r-3, 4.8deg))",
+        "translate3d(var(--stack-x-4, 82px), var(--stack-y-4, -31px), -120px) scale(0.8) rotate(var(--stack-r-4, 6deg))",
       ];
-      const target = stackOffsets[relIndex] || stackOffsets[4];
+      const targetTransform = stackTransforms[relIndex] || stackTransforms[4];
+      const targetOpacity = [1, 0.88, 0.68, 0.45, 0.25][relIndex] ?? 0.25;
 
       return {
         ...baseStyle,
-        transform: `translate3d(${target.x}px, ${target.y}px, ${target.z}px) scale(${target.scale}) rotate(${target.rot}deg)`,
-        opacity: target.opacity,
+        transform: targetTransform,
+        opacity: targetOpacity,
         filter: "blur(0px)",
         zIndex: 10 - relIndex,
         transition: `transform 900ms cubic-bezier(0.16, 1, 0.3, 1) ${staggerDelay}ms, opacity 750ms ease ${staggerDelay}ms, filter 650ms ease ${staggerDelay}ms`,
@@ -283,7 +319,7 @@ export default function HeroCarousel() {
       case 1:
         return {
           ...baseStyle,
-          transform: "translate3d(24px, -10px, -30px) scale(0.955) rotate(1.8deg)",
+          transform: "translate3d(var(--stack-x-1, 24px), var(--stack-y-1, -10px), -30px) scale(0.955) rotate(var(--stack-r-1, 1.8deg))",
           opacity: 0.9,
           filter: "brightness(0.94)",
           zIndex: 9,
@@ -293,7 +329,7 @@ export default function HeroCarousel() {
       case 2:
         return {
           ...baseStyle,
-          transform: "translate3d(46px, -18px, -60px) scale(0.91) rotate(3.4deg)",
+          transform: "translate3d(var(--stack-x-2, 46px), var(--stack-y-2, -18px), -60px) scale(0.91) rotate(var(--stack-r-2, 3.4deg))",
           opacity: 0.7,
           filter: "brightness(0.88)",
           zIndex: 8,
@@ -303,7 +339,7 @@ export default function HeroCarousel() {
       case 3:
         return {
           ...baseStyle,
-          transform: "translate3d(66px, -25px, -90px) scale(0.865) rotate(4.8deg)",
+          transform: "translate3d(var(--stack-x-3, 66px), var(--stack-y-3, -25px), -90px) scale(0.865) rotate(var(--stack-r-3, 4.8deg))",
           opacity: 0.45,
           filter: "brightness(0.82)",
           zIndex: 7,
@@ -314,7 +350,7 @@ export default function HeroCarousel() {
         // Deepest card at the end of the stack
         return {
           ...baseStyle,
-          transform: "translate3d(82px, -31px, -120px) scale(0.82) rotate(6deg)",
+          transform: "translate3d(var(--stack-x-4, 82px), var(--stack-y-4, -31px), -120px) scale(0.82) rotate(var(--stack-r-4, 6deg))",
           opacity: 0.25,
           filter: "brightness(0.76)",
           zIndex: 6,
@@ -453,6 +489,8 @@ export default function HeroCarousel() {
             aria-label="Industrial chemistry applications 3D card carousel"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
             {/* 3D Stack of Cards */}
             <div className="hp-stack-deck">
@@ -565,7 +603,7 @@ export default function HeroCarousel() {
           </div>
 
           {/* Interactive Navigation Tabs Below Carousel (Matching reference) */}
-          <div className="hp-hero-tabs hp-hero-tabs-5" role="tablist" aria-label="Industrial chemistry topics">
+          <div ref={tabListRef} className="hp-hero-tabs hp-hero-tabs-5" role="tablist" aria-label="Industrial chemistry topics">
             {industrialSlides.map((slide, index) => {
               const isActive = index === activeIndex;
               const TabIcon = slide.icon;

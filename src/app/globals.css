@@ -19133,13 +19133,31 @@ a.hp-contact-card:hover svg:last-child {
 }
 
 .hp-stack-container {
+  --stack-offset-w: 66px;
+  --stack-x-1: 24px;
+  --stack-y-1: -10px;
+  --stack-r-1: 1.8deg;
+
+  --stack-x-2: 46px;
+  --stack-y-2: -18px;
+  --stack-r-2: 3.4deg;
+
+  --stack-x-3: 66px;
+  --stack-y-3: -25px;
+  --stack-r-3: 4.8deg;
+
+  --stack-x-4: 82px;
+  --stack-y-4: -31px;
+  --stack-r-4: 6deg;
+
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 11;
-  min-height: 380px;
+  min-height: clamp(240px, 46vw, 380px);
   perspective: 1200px;
   perspective-origin: 72% 50%;
   user-select: none;
+  touch-action: pan-y;
 }
 
 .hp-stack-deck {
@@ -19153,7 +19171,7 @@ a.hp-contact-card:hover svg:last-child {
   position: absolute;
   top: 0;
   left: 0;
-  width: calc(100% - 66px);
+  width: calc(100% - var(--stack-offset-w, 66px));
   height: 100%;
   border-radius: 24px;
   overflow: hidden;
@@ -19240,6 +19258,7 @@ a.hp-contact-card:hover svg:last-child {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  min-width: 0;
 }
 
 .hp-card-badge-title {
@@ -19247,6 +19266,9 @@ a.hp-contact-card:hover svg:last-child {
   font-size: 0.86rem;
   font-weight: 800;
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .hp-card-badge-subtitle {
@@ -19254,6 +19276,9 @@ a.hp-contact-card:hover svg:last-child {
   font-size: 0.72rem;
   font-weight: 600;
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Top-Right Control Bar on Active Card */
@@ -19400,10 +19425,35 @@ a.hp-contact-card:hover svg:last-child {
   background: #0284C7;
 }
 
-@media (max-width: 640px) {
-  .hp-stack-card {
-    width: calc(100% - 36px);
+/* ------------------------------------------------------------------ */
+/* Responsive Breakpoints for Hero 3D Deck, Controls & Tabs           */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 960px) {
+  .hp-hero-visual {
+    width: min(100%, 580px);
+    margin: 0 auto;
   }
+
+  .hp-stack-container {
+    --stack-offset-w: 48px;
+    --stack-x-1: 16px;
+    --stack-y-1: -7px;
+    --stack-r-1: 1.4deg;
+    --stack-x-2: 30px;
+    --stack-y-2: -13px;
+    --stack-r-2: 2.6deg;
+    --stack-x-3: 42px;
+    --stack-y-3: -18px;
+    --stack-r-3: 3.6deg;
+    --stack-x-4: 52px;
+    --stack-y-4: -22px;
+    --stack-r-4: 4.4deg;
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 860px) {
   .hp-hero-tabs-5 {
     display: flex;
     overflow-x: auto;
@@ -19411,17 +19461,142 @@ a.hp-contact-card:hover svg:last-child {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     gap: 0.45rem;
-    padding-bottom: 4px;
+    padding: 0.2rem 0.2rem 0.5rem;
+    margin-top: 0.85rem;
   }
+
   .hp-hero-tabs-5::-webkit-scrollbar {
     display: none;
   }
+
   .hp-hero-tabs-5 .hp-hero-tab {
     flex: 0 0 auto;
-    min-width: 120px;
-    scroll-snap-align: start;
+    min-width: 128px;
+    scroll-snap-align: center;
     font-size: 0.68rem;
-    padding: 0.45rem 0.65rem 0.65rem;
+    padding: 0.48rem 0.72rem 0.62rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hp-hero {
+    overflow-x: clip;
+  }
+
+  .hp-stack-container {
+    --stack-offset-w: 32px;
+    --stack-x-1: 10px;
+    --stack-y-1: -5px;
+    --stack-r-1: 1deg;
+    --stack-x-2: 19px;
+    --stack-y-2: -9px;
+    --stack-r-2: 1.8deg;
+    --stack-x-3: 27px;
+    --stack-y-3: -12px;
+    --stack-r-3: 2.4deg;
+    --stack-x-4: 34px;
+    --stack-y-4: -15px;
+    --stack-r-4: 3deg;
+    aspect-ratio: 16 / 12;
+    min-height: 250px;
+  }
+
+  .hp-stack-card {
+    border-radius: 18px;
+    box-shadow: 0 10px 24px -4px rgba(11, 25, 44, 0.16);
+  }
+
+  .hp-card-glass-badge {
+    bottom: 12px;
+    left: 12px;
+    max-width: calc(100% - 24px);
+    padding: 0.45rem 0.65rem;
+    border-radius: 14px;
+    gap: 0.55rem;
+  }
+
+  .hp-card-icon-box {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    border-radius: 9px;
+  }
+
+  .hp-card-badge-title {
+    font-size: 0.78rem;
+  }
+
+  .hp-card-badge-subtitle {
+    font-size: 0.66rem;
+  }
+
+  .hp-card-top-controls {
+    top: 10px;
+    right: 10px;
+    gap: 0.35rem;
+  }
+
+  .hp-card-ctrl-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hp-card-index-pill {
+    font-size: 0.66rem;
+    padding: 0.22rem 0.5rem;
+  }
+
+  .hp-hero-proof {
+    gap: 0.35rem;
+  }
+
+  .hp-hero-proof li {
+    padding: 0.32rem 0.58rem;
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 440px) {
+  .hp-stack-container {
+    --stack-offset-w: 22px;
+    --stack-x-1: 7px;
+    --stack-y-1: -3.5px;
+    --stack-r-1: 0.8deg;
+    --stack-x-2: 13px;
+    --stack-y-2: -6.5px;
+    --stack-r-2: 1.4deg;
+    --stack-x-3: 18px;
+    --stack-y-3: -9px;
+    --stack-r-3: 1.9deg;
+    --stack-x-4: 23px;
+    --stack-y-4: -11px;
+    --stack-r-4: 2.3deg;
+    aspect-ratio: 4 / 3;
+    min-height: 220px;
+  }
+
+  .hp-stack-card {
+    border-radius: 15px;
+  }
+
+  .hp-hero-copy h1 {
+    font-size: clamp(1.75rem, 8vw, 2.15rem);
+    line-height: 1.14;
+  }
+
+  .hp-hero-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.55rem;
+  }
+
+  .hp-hero-actions .hp-btn-primary,
+  .hp-hero-actions .hp-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+    font-size: 0.85rem;
   }
 }
 
