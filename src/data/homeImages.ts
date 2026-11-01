@@ -137,8 +137,8 @@ export const homeStockImages = {
   applicationsImage: {
     key: "applicationsImage",
     label: "Effluent Treatment Plant",
-    activeUrl: "/images/home/solution-water-effluent-clarifier.webp",
-    alt: "Industrial effluent treatment plant with clarifier basins and aeration tanks",
+    activeUrl: "/images/home/applications-effluent-clarifier-basin.jpg",
+    alt: "Industrial effluent treatment plant with circular aeration clarifier basin and processing tanks",
     options: [
       {
         label: "Effluent Clarifier Basins and Aeration Plant (Recommended)",

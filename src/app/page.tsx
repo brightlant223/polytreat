@@ -4,9 +4,9 @@ import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import InteractiveRangesSection from "@/components/InteractiveRangesSection";
 import ScrollReveal from "@/components/ScrollReveal";
+import VKlinVideoPlayer from "@/components/VKlinVideoPlayer";
 import { homeStockImages } from "@/data/homeImages";
 import {
-  findVKlinProducts,
   vklinProductCount,
   vklinProductGroups,
 } from "@/data/vklinProducts";
@@ -118,11 +118,6 @@ const flagshipProducts = specialtyProducts.filter(
   (product) => product.slug in flagshipIcons,
 );
 
-const vklinPreviewProducts = findVKlinProducts([
-  "Surface Cleaner",
-  "Floor Cleaner",
-  "Dishwash Gel",
-]);
 
 const markets = operatingEnvironments.map(({ id, eyebrow, description }) => ({
   icon: environmentIcons[id],
@@ -445,7 +440,7 @@ export default function Home() {
         {/* Decorative soft mint wave backdrop */}
         <div className="hp-vklin-decor" aria-hidden="true" />
 
-        <div className="hp-hero-container hp-vklin-layout">
+        <div className="container hp-vklin-layout">
           <div className="hp-vklin-copy hp-reveal">
             <div className="hp-vklin-identity">
               <span className="hp-vklin-logo-pill">
@@ -498,34 +493,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hp-vklin-panel hp-reveal-scale">
-            <div className="hp-vklin-panel-head">
-              <span className="hp-vklin-panel-mark" aria-hidden="true">
-                <Leaf size={20} strokeWidth={2.2} aria-hidden="true" />
-              </span>
-<div className="hp-vklin-head-titles">
-                <span className="hp-vklin-head-kicker">Institutional & home care</span>
-                <strong className="hp-vklin-head-main">Product range</strong>
-              </div>
-            </div>
-
-            <div className="hp-vklin-products">
-              {vklinPreviewProducts.map((product) => (
-                <Link href={product.href} className="hp-vklin-product-card" key={product.href}>
-                  <div className="hp-vklin-product-imgbox">
-                    <Image
-                      src={`/vklin-products/${product.image}`}
-                      alt={`V-Klin ${product.name}`}
-                      fill
-                      sizes="(max-width: 760px) 45vw, 240px"
-                      className="hp-vklin-product-img"
-                    />
-                  </div>
-                  <span className="hp-vklin-product-name">{product.shortName}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
+          <VKlinVideoPlayer />
         </div>
       </section>
 
