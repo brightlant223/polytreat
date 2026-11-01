@@ -578,6 +578,7 @@ export default function HeroCarousel() {
                     tabButtonRefs.current[index] = el;
                   }}
                   className={`hp-hero-tab${isActive ? " is-active" : ""}`}
+
                   type="button"
                   role="tab"
                   aria-selected={isActive}
