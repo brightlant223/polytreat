@@ -849,10 +849,9 @@ code,
   height: 3px;
   background: linear-gradient(90deg,
       #10B981 0%,
-      #00D2FF 25%,
-      #0078F0 50%,
-      #8B5CF6 75%,
-      #F59E0B 100%);
+      #0284C7 33%,
+      #8B5CF6 66%,
+      #F97316 100%);
   box-shadow: 0 1px 3px rgba(11, 27, 58, 0.12);
   transform-origin: left;
   transform: scaleX(0);

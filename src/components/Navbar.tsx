@@ -463,6 +463,26 @@ export default function Navbar() {
       }
     }
 
+    const bar = progressBarRef.current;
+    if (bar) {
+      bar.style.transition = "transform 0.85s cubic-bezier(0.16, 1, 0.3, 1)";
+      bar.style.transform = "scaleX(1)";
+      const timer = setTimeout(() => {
+        if (bar) {
+          bar.style.transition = "";
+          update();
+        }
+      }, 850);
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll, { passive: true });
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener("scroll", onScroll);
+        window.removeEventListener("resize", onScroll);
+      };
+    }
+
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
     update();
