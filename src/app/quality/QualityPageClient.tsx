@@ -112,45 +112,6 @@ function CountUpNumber({
   );
 }
 
-// Pillar Card Image with Fallback Placeholder
-function PillarImage({
-  src,
-  alt,
-  label,
-  pillarNumber,
-  icon: Icon,
-}: {
-  src: string;
-  alt: string;
-  label: string;
-  pillarNumber: string;
-  icon: typeof FlaskConical;
-}) {
-  const [hasError, setHasError] = useState(false);
-
-  return (
-    <div className="qp-pillar-img-box">
-      <span className="qp-pillar-number-tag">PILLAR {pillarNumber}</span>
-      {hasError ? (
-        <div className="qp-pillar-placeholder" aria-label={alt}>
-          <Icon size={32} strokeWidth={1.8} aria-hidden="true" />
-          <span>{label}</span>
-        </div>
-      ) : (
-        <img
-          src={src}
-          alt={alt}
-          className="qp-pillar-img"
-          loading="lazy"
-          width={380}
-          height={180}
-          onError={() => setHasError(true)}
-        />
-      )}
-    </div>
-  );
-}
-
 export default function QualityPageClient() {
   // PQRS Accordion state & auto-cycling
   const [activePqrs, setActivePqrs] = useState<number>(0);
@@ -674,7 +635,7 @@ export default function QualityPageClient() {
       </section>
 
       {/* ===================================================================
-          5. THREE PILLARS (SYMMETRICAL, HIGH-GRADE ALIGNED ARCHITECTURE)
+          5. THREE PILLARS (CONNECTED SPLIT ROWS ARCHITECTURE)
           =================================================================== */}
       <section className="qp-section qp-pillars-section" id="pillars" aria-labelledby="pillars-title">
         <div className="qp-container">
@@ -687,70 +648,150 @@ export default function QualityPageClient() {
             </p>
           </header>
 
-          <div className="qp-pillars-grid">
+          {/* Connected Split Rows */}
+          <div className="qp-pillars-timeline">
             {qualityPillars.map((pillar, idx) => {
               const Icon = pillarIconMap[idx] || FlaskConical;
               const isExpanded = !!expandedPillars[pillar.id];
+              const isEven = idx % 2 === 1;
 
               return (
-                <article className="qp-pillar-card" key={pillar.id}>
-                  {/* Top Image (180px with floating badge) */}
-                  <PillarImage
-                    src={pillar.image}
-                    alt={pillar.imageAlt}
-                    label={pillar.placeholderLabel}
-                    pillarNumber={pillar.number}
-                    icon={Icon}
+                <article
+                  key={pillar.id}
+                  className="qp-pillars-row"
+                >
+                  {/* Decorative Connector Line (Starts at Node 1, ends at Node 3) */}
+                  <div
+                    className={`qp-pillars-connector-line ${
+                      idx === 0
+                        ? "qp-pillars-line-first"
+                        : idx === 1
+                        ? "qp-pillars-line-mid"
+                        : "qp-pillars-line-last"
+                    }`}
+                    aria-hidden="true"
                   />
 
-                  <div className="qp-pillar-body">
-                    <h3 className="qp-pillar-title">{pillar.title}</h3>
-                    <div className="qp-pillar-summary">{pillar.subtitle}</div>
-                    <p className="qp-pillar-desc">{pillar.description}</p>
+                  {/* Circular Numbered Node (34px mobile, 44px tablet/desktop) */}
+                  <div
+                    className="qp-pillars-node"
+                    aria-hidden="true"
+                  >
+                    <span className="qp-pillars-node-number">
+                      {pillar.number}
+                    </span>
+                  </div>
 
-                    {/* Standardized Core 4 Points */}
-                    <ul className="qp-pillar-bullets">
-                      {pillar.corePoints.map((pt) => (
-                        <li key={pt}>
-                          <CheckCircle2 size={15} strokeWidth={2} aria-hidden="true" />
-                          <span>{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Expandable in-depth validation points */}
-                    {isExpanded && (
-                      <div className="qp-pillar-expanded-points">
-                        {pillar.deepPoints.map((pt) => (
-                          <div key={pt} style={{ display: "flex", gap: "0.5rem", fontSize: "0.8125rem", color: "#334155", lineHeight: "1.4" }}>
-                            <Check size={14} strokeWidth={2.5} color="#0284C7" style={{ flexShrink: 0, marginTop: "2px" }} aria-hidden="true" />
-                            <span>{pt}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    <button
-                      type="button"
-                      className="qp-pillar-toggle-btn"
-                      onClick={() => togglePillar(pillar.id)}
-                      aria-expanded={isExpanded}
+                  {/* Split Content: left-edge indented on mobile/tablet, 2-col grid on desktop */}
+                  <div className="qp-pillars-split-grid">
+                    {/* Text Side */}
+                    <div
+                      className={`qp-pillars-text-col ${
+                        isEven ? "qp-pillars-text-col-even" : ""
+                      }`}
                     >
-                      {isExpanded ? (
-                        <>
-                          Hide details <ChevronUp size={14} aria-hidden="true" />
-                        </>
-                      ) : (
-                        <>
-                          View in-depth validation ({pillar.deepPoints.length} more) <ChevronDown size={14} aria-hidden="true" />
-                        </>
-                      )}
-                    </button>
+                      {/* Big Decorative Number */}
+                      <div
+                        className="qp-pillars-deco-num"
+                        aria-hidden="true"
+                      >
+                        {pillar.number}
+                      </div>
 
-                    {/* Symmetrical Bottom Capability Footer */}
-                    <div className="qp-pillar-footer-strip">
-                      <BadgeCheck size={15} color="#0284C7" aria-hidden="true" />
-                      <span>{pillar.badgeMetric}</span>
+                      {/* Tag & Icon Label Row */}
+                      <div className="qp-pillars-meta-row">
+                        <span className="qp-pillars-tag">
+                          PILLAR {pillar.number}
+                        </span>
+                        <div className="qp-pillars-icon-badge">
+                          <Icon size={15} aria-hidden="true" />
+                          <span>{pillar.placeholderLabel}</span>
+                        </div>
+                      </div>
+
+                      {/* Title (h3) */}
+                      <h3 className="qp-pillars-title">
+                        {pillar.title}
+                      </h3>
+
+                      {/* Blue Subtitle */}
+                      <div className="qp-pillars-subtitle">
+                        {pillar.subtitle}
+                      </div>
+
+                      {/* Description Paragraph */}
+                      <p className="qp-pillars-desc">
+                        {pillar.description}
+                      </p>
+                    </div>
+
+                    {/* Panel Side */}
+                    <div
+                      className={`qp-pillars-panel-col ${
+                        isEven ? "qp-pillars-panel-col-even" : ""
+                      }`}
+                    >
+                      <div className="qp-pillars-panel">
+                        {/* Checklist */}
+                        <ul className="qp-pillars-checklist" role="list">
+                          {pillar.corePoints.map((pt) => (
+                            <li key={pt}>
+                              <CheckCircle2
+                                size={18}
+                                aria-hidden="true"
+                              />
+                              <span>{pt}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        {/* Expandable in-depth validation points */}
+                        {isExpanded && (
+                          <div className="qp-pillars-expanded-points">
+                            {pillar.deepPoints.map((pt) => (
+                              <div
+                                key={pt}
+                                className="qp-pillars-deep-item"
+                              >
+                                <Check
+                                  size={16}
+                                  strokeWidth={2.5}
+                                  aria-hidden="true"
+                                />
+                                <span>{pt}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* Expander Button */}
+                        <button
+                          type="button"
+                          className="qp-pillars-toggle-btn"
+                          onClick={() => togglePillar(pillar.id)}
+                          aria-expanded={isExpanded}
+                        >
+                          {isExpanded ? (
+                            <>
+                              Hide details <ChevronUp size={15} aria-hidden="true" />
+                            </>
+                          ) : (
+                            <>
+                              View in-depth validation ({pillar.deepPoints.length} more){" "}
+                              <ChevronDown size={15} aria-hidden="true" />
+                            </>
+                          )}
+                        </button>
+
+                        {/* Divider */}
+                        <div className="qp-pillars-divider" aria-hidden="true" />
+
+                        {/* Bottom Badge Metric */}
+                        <div className="qp-pillars-footer-strip">
+                          <BadgeCheck size={18} aria-hidden="true" />
+                          <span>{pillar.badgeMetric}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </article>
