@@ -802,29 +802,90 @@ export default function QualityPageClient() {
       </section>
 
       {/* ===================================================================
-          6. COMPANY MANUFACTURING PROFILE & INFRASTRUCTURE
+          6. COMPANY MANUFACTURING PROFILE & INFRASTRUCTURE (BENTO GRID REDESIGN)
           =================================================================== */}
-      <section className="qp-section qp-profile-section" id="profile" aria-labelledby="profile-title">
-        <div className="qp-container">
-          <header className="qp-section-header">
-            <span className="qp-label">{companyQualityProfile.eyebrow}</span>
-            <h2 id="profile-title">{companyQualityProfile.title}</h2>
-            <p>{companyQualityProfile.lead}</p>
+      <section className="cp-profile-section" id="profile" aria-labelledby="profile-title">
+        <div className="cp-profile-glow" aria-hidden="true" />
+        <div className="cp-profile-container">
+          <header className="cp-profile-header">
+            <span className="cp-profile-eyebrow">{companyQualityProfile.eyebrow}</span>
+            <h2 id="profile-title" className="cp-profile-title">{companyQualityProfile.title}</h2>
+            <p className="cp-profile-intro">{companyQualityProfile.lead}</p>
           </header>
 
-          <div className="qp-profile-grid">
-            {companyQualityProfile.highlights.map((item, idx) => {
-              const Icon = profileIconMap[idx] || Factory;
-              return (
-                <article className="qp-profile-card" key={item.title}>
-                  <div className="qp-profile-card-icon">
-                    <Icon size={22} strokeWidth={2} aria-hidden="true" />
+          <div className="cp-profile-grid">
+            {/* Card 1: Featured Card (Manufacturing in Tarapur & Goregaon) */}
+            <article className="cp-profile-card cp-profile-card-featured cp-profile-card-1">
+              <div className="cp-profile-watermark" aria-hidden="true">
+                <Factory size={160} strokeWidth={1.2} />
+              </div>
+              <div className="cp-profile-card-inner">
+                <div className="cp-profile-icon-tile cp-profile-icon-tile-lg" aria-hidden="true">
+                  <Factory size={32} strokeWidth={2} />
+                </div>
+                <h3 className="cp-profile-card-title cp-profile-card-title-lg">
+                  {companyQualityProfile.highlights[0].title}
+                </h3>
+                <div className="cp-profile-accent-line" aria-hidden="true" />
+                <p className="cp-profile-card-desc cp-profile-card-desc-lg">
+                  {companyQualityProfile.highlights[0].description}
+                </p>
+              </div>
+            </article>
+
+            {/* Right Column (Cards 2, 3, 4) */}
+            <div className="cp-profile-col-right">
+              {/* Card 2: Active Quality Committee (Wide Card) */}
+              <article className="cp-profile-card cp-profile-card-wide cp-profile-card-2">
+                <div className="cp-profile-icon-tile" aria-hidden="true">
+                  <Award size={24} strokeWidth={2} />
+                </div>
+                <div className="cp-profile-card-content">
+                  <h3 className="cp-profile-card-title">
+                    {companyQualityProfile.highlights[1].title}
+                  </h3>
+                  <div className="cp-profile-accent-line" aria-hidden="true" />
+                  <p className="cp-profile-card-desc">
+                    {companyQualityProfile.highlights[1].description}
+                  </p>
+                </div>
+              </article>
+
+              {/* Bottom Row: Cards 3 & 4 Side by Side */}
+              <div className="cp-profile-bottom-row">
+                {/* Card 3: Technical Consulting Network */}
+                <article className="cp-profile-card cp-profile-card-compact cp-profile-card-3">
+                  <div className="cp-profile-icon-tile" aria-hidden="true">
+                    <Users size={24} strokeWidth={2} />
                   </div>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+                  <div className="cp-profile-card-content">
+                    <h3 className="cp-profile-card-title">
+                      {companyQualityProfile.highlights[2].title}
+                    </h3>
+                    <div className="cp-profile-accent-line" aria-hidden="true" />
+                    <p className="cp-profile-card-desc">
+                      {companyQualityProfile.highlights[2].description}
+                    </p>
+                  </div>
                 </article>
-              );
-            })}
+
+                {/* Card 4: Eco-Friendly & Biodegradable Dedication */}
+                <article className="cp-profile-card cp-profile-card-compact cp-profile-card-4">
+                  <div className="cp-profile-icon-tile" aria-hidden="true">
+                    <Leaf size={24} strokeWidth={2} />
+                  </div>
+                  <div className="cp-profile-card-content">
+                    <h3 className="cp-profile-card-title">
+                      {companyQualityProfile.highlights[3].title}
+                    </h3>
+                    <div className="cp-profile-accent-line" aria-hidden="true" />
+                    <p className="cp-profile-card-desc">
+                      {companyQualityProfile.highlights[3].description}
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
           </div>
         </div>
       </section>
