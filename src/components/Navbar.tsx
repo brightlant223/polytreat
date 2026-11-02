@@ -32,7 +32,7 @@ const productGroups: MenuGroup[] = [
   {
     title: "Construction & surface protection",
     links: [
-      { label: "Construction chemistry overview", href: "/solutions/construction-chemistry" },
+      { label: "Construction & surface protection", href: "/solutions/construction-chemistry" },
       { label: "Waterproofing, repair & coatings", href: "/solutions/waterproofing-repair-coatings" },
       { label: "Flooring & joint sealing", href: "/solutions/flooring-joint-sealing" },
     ],
@@ -122,7 +122,7 @@ const menuLabels: Record<MenuKey, string> = {
 const menuPromos: Record<MenuKey, MenuPromo> = {
   products: {
     eyebrow: "Not sure where to start",
-    text: "Tell us about the plant and the system you need to protect. We will point you to the right chemistry.",
+    text: "Tell us about the plant and the system you need to protect. We will point you to the right solution.",
     cta: "Request a quote",
     href: "/contact#contact-form",
   },
@@ -485,7 +485,7 @@ export default function Navbar() {
           <span className="navbar-logo"><Image src="/logo.png" alt="" fill priority sizes="(max-width: 430px) 132px, (max-width: 1023px) 126px, 118px" /></span>
           <span className="navbar-brand-copy">
             <strong>PolyTreat Chemicals</strong>
-            <small>Water Treatment &amp; Specialty Chemistry</small>
+            <small>Water Treatment &amp; Specialty Formulations</small>
           </span>
         </Link>
 

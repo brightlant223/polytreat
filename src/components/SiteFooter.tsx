@@ -17,7 +17,7 @@ const solutionLinks = [
   { label: "Industrial water treatment", href: "/solutions/industrial-water" },
   { label: "Boiler & cooling water", href: "/solutions/boiler-cooling-water" },
   { label: "RO & effluent", href: "/solutions/ro-effluent" },
-  { label: "Construction chemistry", href: "/solutions/construction-chemistry" },
+  { label: "Construction & protection", href: "/solutions/construction-chemistry" },
   { label: "Waterproofing, repair & coatings", href: "/solutions/waterproofing-repair-coatings" },
   { label: "Flooring & joint sealing", href: "/solutions/flooring-joint-sealing" },
   { label: "Paint preservatives", href: "/solutions/paint-preservatives" },
@@ -43,7 +43,7 @@ export default function SiteFooter() {
                 alt="PolyTreat Chemicals"
               />
             </Link>
-            <p>Applied chemistry for industrial water, construction, and everyday facility care.</p>
+            <p>Proven solutions for industrial water, surface protection, and everyday facility care.</p>
             
             {/* Visual pillars shown on Contact page design reference */}
             <div className="footer-pillars" aria-hidden="true">
@@ -53,7 +53,7 @@ export default function SiteFooter() {
               </div>
               <div className="footer-pillar footer-pillar-offset">
                 <span className="footer-pillar-hex"><Building2 size={18} /></span>
-                <span className="footer-pillar-title">Construction<br />Chemistry</span>
+                <span className="footer-pillar-title">Construction &amp;<br />Protection</span>
               </div>
               <div className="footer-pillar">
                 <span className="footer-pillar-hex"><Sparkles size={18} /></span>
