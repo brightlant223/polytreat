@@ -5,6 +5,7 @@ import {
   ArrowUpRight,
   BadgeCheck,
   Building2,
+  CalendarClock,
   Check,
   Droplets,
   Factory,
@@ -41,7 +42,7 @@ const credentials = [
   {
     value: "Since 1987",
     title: "Manufacturing since 1987",
-    description: "Specialty chemistry formulated and produced in our own plants.",
+    description: "Specialty chemicals formulated and produced in our own plants.",
   },
   {
     value: "ISO 9001:2015",
@@ -66,7 +67,7 @@ const milestones = [
     era: "1987",
     title: "Founded in Mumbai",
     description:
-      "PolyTreat Chemicals begins as a manufacturer of industrial water-treatment chemistry.",
+      "PolyTreat Chemicals begins as a manufacturer of industrial water-treatment solutions.",
     tone: "green",
   },
   {
@@ -113,7 +114,7 @@ const brands = [
   {
     icon: Layers3,
     number: "02",
-    eyebrow: "Construction chemistry",
+    eyebrow: "Construction chemicals",
     title: "Polyproof, Polybond, Polyroof & Polygard",
     description:
       "Waterproofing membranes, protective coatings, concrete-repair systems, flooring, and sealants for built structures.",
@@ -134,7 +135,7 @@ const brands = [
     icon: FlaskConical,
     number: "04",
     eyebrow: "Flagship specialty",
-    title: "Polydor-WS · Corosil · Polyklin",
+    title: "Polydor-WS\u00A0\u00B7 Corosil\u00A0\u00B7 Polyklin",
     description:
       "Single-problem formulations: odor neutralization, rust conversion, and HVAC coil cleaning.",
     categories: ["Odor control", "Rust converter", "Coil cleaner"],
@@ -163,6 +164,72 @@ export default function AboutPage() {
 
       {/* 1. HERO SECTION */}
       <section className="ab-hero-section" aria-labelledby="about-title">
+        {/* Decorative water splash background graphics & rotating circle motion (Matching Home Hero) */}
+        <div className="hp-hero-water-bg" aria-hidden="true">
+          <div className="hp-water-splash hp-water-splash-top-right">
+            <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M120 0C170 50 160 110 220 140C290 175 360 110 420 160C470 200 480 300 500 360V0H120Z"
+                fill="url(#abWaterGlow1)"
+                opacity="0.65"
+              />
+              <path
+                d="M260 0C300 45 350 70 410 75C460 79 490 120 500 150V0H260Z"
+                fill="url(#abWaterGlow2)"
+                opacity="0.8"
+              />
+              <circle cx="190" cy="180" r="14" fill="#38BDF8" opacity="0.35" />
+              <circle cx="193" cy="177" r="4" fill="#FFFFFF" opacity="0.8" />
+              <circle cx="140" cy="220" r="8" fill="#0EA5E9" opacity="0.3" />
+              <circle cx="142" cy="218" r="2.5" fill="#FFFFFF" opacity="0.75" />
+              <circle cx="280" cy="250" r="20" fill="#0284C7" opacity="0.18" />
+              <circle cx="284" cy="246" r="6" fill="#FFFFFF" opacity="0.7" />
+              <defs>
+                <linearGradient id="abWaterGlow1" x1="500" y1="0" x2="160" y2="300" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#38BDF8" stopOpacity="0.5" />
+                  <stop offset="0.6" stopColor="#0EA5E9" stopOpacity="0.2" />
+                  <stop offset="1" stopColor="#BAE6FD" stopOpacity="0" />
+                </linearGradient>
+                <linearGradient id="abWaterGlow2" x1="500" y1="0" x2="300" y2="150" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#7DD3FC" stopOpacity="0.6" />
+                  <stop offset="1" stopColor="#38BDF8" stopOpacity="0.1" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <div className="hp-water-splash hp-water-splash-bottom-left">
+            <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M0 400C50 330 30 260 90 220C160 170 230 230 300 180C360 135 370 40 420 0H0V400Z"
+                fill="url(#abWaterGlow3)"
+                opacity="0.45"
+              />
+              <circle cx="180" cy="140" r="12" fill="#0284C7" opacity="0.22" />
+              <circle cx="183" cy="138" r="3.5" fill="#FFFFFF" opacity="0.75" />
+              <circle cx="320" cy="100" r="16" fill="#38BDF8" opacity="0.25" />
+              <circle cx="324" cy="97" r="5" fill="#FFFFFF" opacity="0.7" />
+              <circle cx="90" cy="160" r="7" fill="#0EA5E9" opacity="0.3" />
+              <defs>
+                <linearGradient id="abWaterGlow3" x1="0" y1="400" x2="350" y2="100" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#38BDF8" stopOpacity="0.4" />
+                  <stop offset="0.7" stopColor="#0284C7" stopOpacity="0.15" />
+                  <stop offset="1" stopColor="#E0F2FE" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <div className="hp-hero-watermark ab-hero-watermark" aria-hidden="true">
+            <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="200" cy="200" r="170" stroke="#0284C7" strokeWidth="2.5" strokeDasharray="8 8" opacity="0.14" />
+              <circle cx="200" cy="200" r="130" stroke="#0EA5E9" strokeWidth="1.5" opacity="0.1" />
+              <circle cx="200" cy="200" r="90" stroke="#38BDF8" strokeWidth="2" strokeDasharray="16 12" opacity="0.18" />
+              <circle cx="200" cy="200" r="40" stroke="#0284C7" strokeWidth="1.5" opacity="0.12" />
+            </svg>
+          </div>
+        </div>
+
         <div className="ab-container ab-hero-inner">
           <div className="ab-hero-content">
             <nav className="ab-breadcrumb" aria-label="Breadcrumb">
@@ -182,7 +249,7 @@ export default function AboutPage() {
             <h1 id="about-title" className="ab-hero-title">
               <span className="ab-hero-title-line-mask">
                 <span className="ab-hero-title-line ab-hero-title-line-1">
-                  Applied chemistry,
+                  Chemical solutions,
                 </span>
               </span>
               <span className="ab-hero-title-line-mask">
@@ -205,19 +272,27 @@ export default function AboutPage() {
 
             <ul className="ab-hero-chips" aria-label="Key highlights">
               <li className="ab-chip">
-                <BadgeCheck size={16} aria-hidden="true" />
+                <span className="ab-chip-icon-wrap">
+                  <BadgeCheck size={15} strokeWidth={2.2} aria-hidden="true" />
+                </span>
                 <span>ISO 9001:2015 certified</span>
               </li>
               <li className="ab-chip">
-                <Factory size={16} aria-hidden="true" />
+                <span className="ab-chip-icon-wrap">
+                  <Factory size={15} strokeWidth={2.2} aria-hidden="true" />
+                </span>
                 <span>2 production units</span>
               </li>
               <li className="ab-chip">
-                <Droplets size={16} aria-hidden="true" />
+                <span className="ab-chip-icon-wrap">
+                  <CalendarClock size={15} strokeWidth={2.2} aria-hidden="true" />
+                </span>
                 <span>Manufacturing since 1987</span>
               </li>
               <li className="ab-chip">
-                <Leaf size={16} aria-hidden="true" />
+                <span className="ab-chip-icon-wrap">
+                  <Leaf size={15} strokeWidth={2.2} aria-hidden="true" />
+                </span>
                 <span>V-Klin care range</span>
               </li>
             </ul>
@@ -269,7 +344,7 @@ export default function AboutPage() {
             <h2 id="story-title">A manufacturer first, since the beginning.</h2>
             <p>
               PolyTreat Chemicals Pvt. Ltd. — also known as Polytreat Chemical Industries — has
-              manufactured specialty chemistry from Mumbai since 1987. Two divisions run under a
+              manufactured specialty formulations from Mumbai since 1987. Two divisions run under a
               single quality system: heavy industrial water and process chemicals, and the V-Klin
               range of institutional and home-care products.
             </p>
@@ -317,7 +392,7 @@ export default function AboutPage() {
               <h2 id="brands-title">Four ranges, one manufacturer.</h2>
             </div>
             <p>
-              PolyTreat&apos;s product names map to the work they do — industrial water chemistry,
+              PolyTreat&apos;s product names map to the work they do — industrial water treatment,
               construction protection, everyday care, and single-problem specialty formats.
             </p>
           </div>
@@ -549,7 +624,7 @@ export default function AboutPage() {
               <ArrowUpRight size={16} aria-hidden="true" className="ab-contact-tile-arrow" />
             </a>
 
-            <div className="ab-contact-tile">
+            <div className="ab-contact-tile ab-contact-tile-address">
               <div className="ab-contact-tile-icon">
                 <MapPin size={18} strokeWidth={2} aria-hidden="true" />
               </div>
