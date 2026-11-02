@@ -17,7 +17,7 @@ const solutionLinks = [
   { label: "Industrial water treatment", href: "/solutions/industrial-water" },
   { label: "Boiler & cooling water", href: "/solutions/boiler-cooling-water" },
   { label: "RO & effluent", href: "/solutions/ro-effluent" },
-  { label: "Construction chemistry", href: "/solutions/construction-chemistry" },
+  { label: "Construction & protection", href: "/solutions/construction-chemistry" },
   { label: "Waterproofing, repair & coatings", href: "/solutions/waterproofing-repair-coatings" },
   { label: "Flooring & joint sealing", href: "/solutions/flooring-joint-sealing" },
   { label: "Paint preservatives", href: "/solutions/paint-preservatives" },

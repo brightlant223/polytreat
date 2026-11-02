@@ -21093,12 +21093,20 @@ a.hp-contact-card:hover svg:last-child {
   overflow: hidden;
   cursor: pointer;
   box-sizing: border-box;
-  transition: flex 600ms cubic-bezier(0.22, 1, 0.36, 1),
-    background 450ms ease,
-    border-color 450ms ease,
-    box-shadow 450ms ease,
-    transform 450ms ease;
-  will-change: flex, transform;
+  flex: 1 1 0%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+  min-width: 0;
+  transition: flex-grow 520ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 280ms ease,
+    border-color 280ms ease,
+    box-shadow 320ms ease,
+    transform 320ms ease;
+  will-change: flex-grow;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: layout style;
 }
 
 /* Watermark Circles Background (matches reference image abstract bubbles) */
@@ -21135,28 +21143,42 @@ a.hp-contact-card:hover svg:last-child {
 /* ------------------------------------------------------------------ */
 
 .hp-accordion-card.is-compact {
-  flex: 1 1 0%;
+  flex-grow: 1;
   background: #F3F9FD;
   border: 1.5px solid rgba(195, 222, 238, 0.85);
   box-shadow: 0 6px 20px rgba(11, 25, 44, 0.04);
-  padding: 1.5rem 1.15rem;
 }
 
 .hp-accordion-card.is-compact:hover {
   background: #EDF6FC;
   border-color: #38BDF8;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(2, 132, 199, 0.08);
 }
 
 .hp-compact-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  padding: 1.5rem 1.15rem;
   gap: 1rem;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 220ms ease, visibility 220ms ease;
+  transform: translateZ(0);
+}
+
+.hp-accordion-card.is-expanded .hp-compact-content {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 150ms ease, visibility 150ms ease;
 }
 
 .hp-compact-header-row {
@@ -21263,19 +21285,34 @@ a.hp-contact-card:hover svg:last-child {
 /* ------------------------------------------------------------------ */
 
 .hp-accordion-card.is-expanded {
-  flex: 3.2 1 0%;
+  flex-grow: 3.5;
   background: #FFFFFF;
   border: 1.5px solid #0EA5E9;
-  box-shadow: 0 24px 60px -12px rgba(2, 132, 199, 0.2), 0 10px 24px -6px rgba(11, 25, 44, 0.07);
+  box-shadow: 0 20px 50px -10px rgba(2, 132, 199, 0.18), 0 8px 20px -4px rgba(11, 25, 44, 0.06);
   cursor: default;
 }
 
 .hp-expanded-content {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1.15fr 0.95fr;
   height: 100%;
+  min-width: 540px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 180ms ease, visibility 180ms ease;
+  transform: translateZ(0);
+}
+
+.hp-accordion-card.is-expanded .hp-expanded-content {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 320ms cubic-bezier(0.16, 1, 0.3, 1) 100ms, visibility 320ms cubic-bezier(0.16, 1, 0.3, 1) 100ms;
 }
 
 .hp-expanded-left {
@@ -21452,47 +21489,68 @@ a.hp-contact-card:hover svg:last-child {
   }
 
   .hp-accordion-card.is-compact {
-    flex: none;
-    width: 100%;
-    min-height: 72px;
-    padding: 1rem 1.25rem;
+    flex: none !important;
+    width: 100% !important;
+    min-height: 72px !important;
   }
 
   .hp-accordion-card.is-compact .hp-compact-content {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    display: flex !important;
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 1rem 1.25rem !important;
   }
 
   .hp-accordion-card.is-compact .hp-compact-image-preview {
-    display: none;
+    display: none !important;
   }
 
   .hp-accordion-card.is-compact .hp-compact-header-row {
-    margin-bottom: 0;
-    gap: 0.75rem;
+    margin-bottom: 0 !important;
+    gap: 0.75rem !important;
   }
 
   .hp-accordion-card.is-compact .hp-compact-preview-title {
-    display: none;
+    display: none !important;
+  }
+
+  .hp-accordion-card.is-compact .hp-expanded-content {
+    display: none !important;
   }
 
   .hp-accordion-card.is-expanded {
-    flex: none;
-    width: 100%;
+    flex: none !important;
+    width: 100% !important;
   }
 
-  .hp-expanded-content {
-    grid-template-columns: 1fr;
+  .hp-accordion-card.is-expanded .hp-compact-content {
+    display: none !important;
+  }
+
+  .hp-accordion-card.is-expanded .hp-expanded-content {
+    display: grid !important;
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    grid-template-columns: 1fr !important;
   }
 
   .hp-expanded-right {
-    min-height: auto;
-    padding: 0 1.5rem 1.5rem;
+    min-height: auto !important;
+    padding: 0 1.5rem 1.5rem !important;
   }
 
   .hp-expanded-media-box {
-    min-height: 230px;
+    min-height: 230px !important;
   }
 }
 
@@ -22472,5 +22530,248 @@ main {
   .hp-applications-caption p {
     font-size: 0.68rem !important;
     line-height: 1.34 !important;
+  }
+}
+/* ------------------------------------------------------------------ */
+/* POLYDOR REAL-WORLD WORK APPLICATION GRID                           */
+/* ------------------------------------------------------------------ */
+
+.hp-polydor-work-box {
+  margin-top: 3.5rem;
+  background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+  border: 1.5px solid #BAE6FD;
+  border-radius: 24px;
+  padding: 2.2rem;
+  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.06);
+}
+
+.hp-polydor-work-head {
+  max-width: 700px;
+  margin-bottom: 2rem;
+}
+
+.hp-polydor-work-title {
+  font-size: 1.5rem;
+  font-weight: 850;
+  color: #0F172A;
+  margin: 0.5rem 0 0.6rem;
+  line-height: 1.25;
+}
+
+.hp-polydor-work-desc {
+  font-size: 0.94rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.hp-polydor-work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.hp-polydor-work-card {
+  background: #FFFFFF;
+  border: 1.5px solid rgba(186, 230, 253, 0.8);
+  border-radius: 18px;
+  padding: 1.35rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+}
+
+.hp-polydor-work-card:hover {
+  transform: translateY(-3px);
+  border-color: #0284C7;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.12);
+}
+
+.hp-polydor-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #0369A1;
+  background: #E0F2FE;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  margin-bottom: 0.65rem;
+  letter-spacing: 0.04em;
+}
+
+.hp-polydor-tag-green {
+  color: #15803D;
+  background: #DCFCE7;
+}
+
+.hp-polydor-work-card h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0B192C;
+  margin: 0 0 0.45rem;
+}
+
+.hp-polydor-work-card p {
+  font-size: 0.85rem;
+  color: #64748B;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.hp-polydor-card-highlight {
+  border-color: #86EFAC;
+  background: #F0FDF4;
+}
+
+.hp-polydor-card-highlight:hover {
+  border-color: #22C55E;
+}
+
+/* ------------------------------------------------------------------ */
+/* V-KLIN POPULAR EVERYDAY PRODUCTS SHELF                             */
+/* ------------------------------------------------------------------ */
+
+.hp-vklin-shelf-container {
+  margin-top: 3rem;
+}
+
+.hp-vklin-products-showcase {
+  background: #FFFFFF;
+  border: 1.5px solid #BBF7D0;
+  border-radius: 26px;
+  padding: 2.2rem;
+  box-shadow: 0 12px 35px rgba(22, 101, 52, 0.05);
+}
+
+.hp-vklin-showcase-head {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 2rem;
+}
+
+.hp-vklin-showcase-head h3 {
+  font-size: 1.5rem;
+  font-weight: 850;
+  color: #14532D;
+  margin: 0 0 0.4rem;
+}
+
+.hp-vklin-showcase-head p {
+  font-size: 0.94rem;
+  color: #475569;
+  margin: 0;
+}
+
+.hp-vklin-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.hp-vklin-item-card {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+}
+
+.hp-vklin-item-card:hover {
+  transform: translateY(-4px);
+  border-color: #22C55E;
+  background: #FFFFFF;
+  box-shadow: 0 10px 28px rgba(34, 197, 94, 0.12);
+}
+
+.hp-vklin-thumb-box {
+  width: 140px;
+  height: 140px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 0.85rem;
+}
+
+.hp-vklin-thumb {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 300ms ease;
+}
+
+.hp-vklin-item-card:hover .hp-vklin-thumb {
+  transform: scale(1.08);
+}
+
+.hp-vklin-item-card h4 {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 0.35rem;
+}
+
+.hp-vklin-item-card p {
+  font-size: 0.8rem;
+  color: #64748B;
+  line-height: 1.4;
+  margin: 0 0 0.85rem;
+  flex-grow: 1;
+}
+
+.hp-vklin-card-link {
+  font-size: 0.78rem;
+  font-weight: 750;
+  color: #16A34A;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 200ms ease;
+}
+
+.hp-vklin-card-link:hover {
+  color: #15803D;
+  text-decoration: underline;
+}
+
+.hp-vklin-item-highlight {
+  border-color: #86EFAC;
+  background: #F0FDF4;
+}
+
+.hp-vklin-botanical-pill {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #15803D;
+  background: #DCFCE7;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+@media (max-width: 768px) {
+  .hp-polydor-work-box {
+    padding: 1.5rem 1.15rem;
+    margin-top: 2rem;
+  }
+  .hp-polydor-work-title {
+    font-size: 1.25rem;
+  }
+  .hp-vklin-shelf-container {
+    margin-top: 2rem;
+  }
+  .hp-vklin-products-showcase {
+    padding: 1.5rem 1.15rem;
+  }
+  .hp-vklin-showcase-head h3 {
+    font-size: 1.25rem;
   }
 }

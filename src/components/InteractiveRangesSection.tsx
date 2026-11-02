@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -44,7 +44,7 @@ const rangesData: RangeItem[] = [
     bottomPill: "Industrial water & process",
     title: "Treatment for the systems that keep your plant running.",
     description:
-      "Water-treatment chemistry for boiler, cooling-water, reverse-osmosis, and effluent systems.",
+      "Water-treatment formulations for boiler, cooling-water, reverse-osmosis, and effluent systems.",
     tags: [
       { label: "Boilers", tone: "blue" },
       { label: "Cooling towers", tone: "blue" },
@@ -74,7 +74,7 @@ const rangesData: RangeItem[] = [
       { label: "Rust treatment", tone: "slate" },
     ],
     link: "/solutions/construction-chemistry",
-    linkText: "Explore construction chemistry",
+    linkText: "Explore surface protection",
     tone: "slate",
   },
   {
@@ -103,8 +103,8 @@ const rangesData: RangeItem[] = [
     id: "ranges-vklin",
     number: "04",
     icon: Leaf,
-    imageSrc: "/images/home/V-Klin-care.jpg",
-    imageAlt: "V-Klin product lineup of floor-cleaning and facility-care bottles",
+    imageSrc: "/images/home/vklin-og-lineup.webp",
+    imageAlt: "Official V-Klin formulated product lineup of floor-cleaning, glass-care, and facility hygiene bottles",
     eyebrow: "V-Klin care",
     topBadge: "♡ V-Klin care",
     bottomPill: "V-Klin care",
@@ -125,6 +125,34 @@ const rangesData: RangeItem[] = [
 
 export default function InteractiveRangesSection() {
   const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const hoverTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = (index: number) => {
+    if (activeCardIndex === index) return;
+    if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
+    // 50ms intent delay prevents accidental sweep jitter across adjacent cards
+    hoverTimerRef.current = setTimeout(() => {
+      setActiveCardIndex(index);
+    }, 50);
+  };
+
+  const handleMouseLeave = () => {
+    if (hoverTimerRef.current) {
+      clearTimeout(hoverTimerRef.current);
+      hoverTimerRef.current = null;
+    }
+  };
+
+  const handleCardClick = (index: number) => {
+    if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
+    setActiveCardIndex(index);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
+    };
+  }, []);
 
   return (
     <section
@@ -175,6 +203,7 @@ export default function InteractiveRangesSection() {
           className="hp-interactive-accordion-track"
           role="region"
           aria-label="Interactive product ranges carousel"
+          onMouseLeave={handleMouseLeave}
         >
           {rangesData.map((range, index) => {
             const isExpanded = activeCardIndex === index;
@@ -183,9 +212,15 @@ export default function InteractiveRangesSection() {
             return (
               <div
                 key={range.id}
-                className={`hp-accordion-card${isExpanded ? " is-expanded" : " is-compact"}`}
-                onMouseEnter={() => setActiveCardIndex(index)}
-                onClick={() => setActiveCardIndex(index)}
+                className={`hp-accordion-card ${isExpanded ? "is-expanded" : "is-compact"}`}
+                onMouseEnter={() => handleMouseEnter(index)}
+                onClick={() => handleCardClick(index)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    handleCardClick(index);
+                  }
+                }}
                 tabIndex={0}
                 role="button"
                 aria-expanded={isExpanded}
@@ -198,99 +233,104 @@ export default function InteractiveRangesSection() {
                 </div>
 
                 {/* ==================================================== */}
-                {/* EXPANDED STATE VIEW                                  */}
+                {/* COMPACT / COLLAPSED STATE VIEW                       */}
+                {/* Pre-rendered in DOM for instant 0ms response         */}
                 {/* ==================================================== */}
-                {isExpanded ? (
-                  <div className="hp-expanded-content">
-                    {/* Left Column: Details & CTA */}
-                    <div className="hp-expanded-left">
-                      <div className="hp-expanded-top">
-                        <div className="hp-expanded-eyebrow-row">
-                          <span className="hp-expanded-num-badge">{range.number}</span>
-                          <span className="hp-expanded-category-badge">
-                            <RangeIcon size={13} strokeWidth={2.4} aria-hidden="true" />
-                            <span>{range.topBadge}</span>
-                          </span>
-                        </div>
-
-                        <h3 className="hp-expanded-title">{range.title}</h3>
-
-                        <p className="hp-expanded-description">{range.description}</p>
-
-                        <div className="hp-expanded-tags" aria-label="Product areas">
-                          {range.tags.map((tag) => (
-                            <span key={tag.label} className={`hp-tag-${tag.tone}`}>
-                              {tag.label}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="hp-expanded-bottom">
-                        <Link href={range.link} className="hp-expanded-cta-link">
-                          <span className="hp-cta-label">{range.linkText}</span>
-                          <span className="hp-cta-arrow-circle">
-                            <ArrowUpRight size={18} strokeWidth={2.4} aria-hidden="true" />
-                          </span>
-                        </Link>
-                      </div>
+                <div className="hp-compact-content" aria-hidden={isExpanded}>
+                  <div className="hp-compact-top">
+                    <div className="hp-compact-header-row">
+                      <span className="hp-compact-num">{range.number}</span>
+                      <span className="hp-compact-icon-box">
+                        <RangeIcon size={15} strokeWidth={2.2} aria-hidden="true" />
+                      </span>
                     </div>
 
-                    {/* Right Column: Industrial Photograph with Zoom */}
-                    <div className="hp-expanded-right">
-                      <div className="hp-expanded-media-box">
-                        <Image
-                          src={range.imageSrc}
-                          alt={range.imageAlt}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 420px"
-                          className="hp-expanded-image"
-                        />
-                        <div className="hp-expanded-image-shade" aria-hidden="true" />
-
-                        <div className="hp-expanded-image-pill">
-                          <RangeIcon size={14} strokeWidth={2.2} aria-hidden="true" />
-                          <span>{range.bottomPill}</span>
-                        </div>
-                      </div>
-                    </div>
+                    <h3 className="hp-compact-title">{range.eyebrow}</h3>
+                    <p className="hp-compact-preview-title">{range.title}</p>
                   </div>
-                ) : (
-                  /* ==================================================== */
-                  /* COMPACT / COLLAPSED STATE VIEW                       */
-                  /* ==================================================== */
-                  <div className="hp-compact-content">
-                    <div className="hp-compact-top">
-                      <div className="hp-compact-header-row">
-                        <span className="hp-compact-num">{range.number}</span>
-                        <span className="hp-compact-icon-box">
-                          <RangeIcon size={15} strokeWidth={2.2} aria-hidden="true" />
+
+                  {/* Compact Image Thumbnail Preview */}
+                  <div className="hp-compact-image-preview">
+                    <Image
+                      src={range.imageSrc}
+                      alt=""
+                      fill
+                      sizes="180px"
+                      className="hp-compact-thumb-img"
+                    />
+                  </div>
+
+                  <div className="hp-compact-bottom">
+                    <span className="hp-compact-read-label">Explore</span>
+                    <span className="hp-compact-arrow-btn" aria-hidden="true">
+                      <ArrowUpRight size={15} strokeWidth={2.4} />
+                    </span>
+                  </div>
+                </div>
+
+                {/* ==================================================== */}
+                {/* EXPANDED STATE VIEW                                  */}
+                {/* Pre-rendered in DOM for zero-lag hardware animation  */}
+                {/* ==================================================== */}
+                <div className="hp-expanded-content" aria-hidden={!isExpanded}>
+                  {/* Left Column: Details & CTA */}
+                  <div className="hp-expanded-left">
+                    <div className="hp-expanded-top">
+                      <div className="hp-expanded-eyebrow-row">
+                        <span className="hp-expanded-num-badge">{range.number}</span>
+                        <span className="hp-expanded-category-badge">
+                          <RangeIcon size={13} strokeWidth={2.4} aria-hidden="true" />
+                          <span>{range.topBadge}</span>
                         </span>
                       </div>
 
-                      <h3 className="hp-compact-title">{range.eyebrow}</h3>
-                      <p className="hp-compact-preview-title">{range.title}</p>
+                      <h3 className="hp-expanded-title">{range.title}</h3>
+
+                      <p className="hp-expanded-description">{range.description}</p>
+
+                      <div className="hp-expanded-tags" aria-label="Product areas">
+                        {range.tags.map((tag) => (
+                          <span key={tag.label} className={`hp-tag-${tag.tone}`}>
+                            {tag.label}
+                          </span>
+                        ))}
+                      </div>
                     </div>
 
-                    {/* Compact Image Thumbnail Preview */}
-                    <div className="hp-compact-image-preview">
-                      <Image
-                        src={range.imageSrc}
-                        alt=""
-                        fill
-                        sizes="180px"
-                        className="hp-compact-thumb-img"
-                      />
-                    </div>
-
-                    <div className="hp-compact-bottom">
-                      <span className="hp-compact-read-label">Explore</span>
-                      <span className="hp-compact-arrow-btn" aria-hidden="true">
-                        <ArrowUpRight size={15} strokeWidth={2.4} />
-                      </span>
+                    <div className="hp-expanded-bottom">
+                      <Link
+                        href={range.link}
+                        className="hp-expanded-cta-link"
+                        tabIndex={isExpanded ? 0 : -1}
+                      >
+                        <span className="hp-cta-label">{range.linkText}</span>
+                        <span className="hp-cta-arrow-circle">
+                          <ArrowUpRight size={18} strokeWidth={2.4} aria-hidden="true" />
+                        </span>
+                      </Link>
                     </div>
                   </div>
-                )}
+
+                  {/* Right Column: Industrial Photograph with Zoom */}
+                  <div className="hp-expanded-right">
+                    <div className="hp-expanded-media-box">
+                      <Image
+                        src={range.imageSrc}
+                        alt={range.imageAlt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 420px"
+                        className="hp-expanded-image"
+                        priority
+                      />
+                      <div className="hp-expanded-image-shade" aria-hidden="true" />
+
+                      <div className="hp-expanded-image-pill">
+                        <RangeIcon size={14} strokeWidth={2.2} aria-hidden="true" />
+                        <span>{range.bottomPill}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             );
           })}
@@ -314,4 +354,3 @@ export default function InteractiveRangesSection() {
     </section>
   );
 }
-

@@ -49,16 +49,16 @@ const industrialSlides = [
     icon: Fan,
   },
   {
-    id: "laboratory",
-    tabLabel: "LABORATORY",
-    label: "70,000+ Sq.ft Laboratory & QC",
-    captionTitle: "In-House R&D, ISO-Certified QC",
-    chipBadge: "Certified Testing & Formulation",
-    image: "/images/home/laboratory-qc-testing.jpg",
-    alt: "Quality control chemical research laboratory with researcher analyzing water treatment formulations under microscope",
-    lead: "Advanced chemical synthesis, quality control, titration, and certified formulation testing.",
-    poster: "/images/home/laboratory-qc-testing.jpg",
-    icon: FlaskConical,
+    id: "manufacturing",
+    tabLabel: "MANUFACTURING",
+    label: "Advanced Formulation & Bulk Production",
+    captionTitle: "Tarapur MIDC & Mumbai Plants",
+    chipBadge: "Production Infrastructure",
+    image: "/images/home/Construction-protection.jpg",
+    alt: "PolyTreat modern production facilities, specialized formulation blending, and direct dispatch",
+    lead: "High-capacity production plants in Tarapur MIDC and Mumbai formulated for direct bulk dispatch across India.",
+    poster: "/images/home/Construction-protection.jpg",
+    icon: Factory,
   },
   {
     id: "effluent",
@@ -91,16 +91,16 @@ const industrialSlides = [
 /* ------------------------------------------------------------------ */
 const headlinePhrases = [
   "for water, structures, and everyday care.",
-  "for industrial boilers, cooling & RO plants.",
-  "for certified chemical testing & QC labs.",
-  "for concrete protection & waterproofing.",
+  "for industrial boilers, cooling & RO systems.",
+  "for odour control, dump yards & ETP facilities.",
+  "for surface protection & waterproofing.",
   "for everyday hygiene & facility care.",
 ];
 
 const proofChips = [
   { icon: CalendarClock, text: "Manufacturing since 1987" },
   { icon: MapPin, text: "Active clients in Maharashtra" },
-  { icon: FlaskConical, text: "70,000+ Sq.ft Laboratory" },
+  { icon: ShieldCheck, text: "ISO 9001 & GMP Certified" },
 ];
 
 export default function HeroCarousel() {
@@ -416,7 +416,7 @@ export default function HeroCarousel() {
         {/* ========================================================== */}
         <div className="hp-hero-copy">
           <h1 id="hero-title" className="hp-hero-title">
-            Applied chemistry{" "}
+            Proven solutions{" "}
             <span
               className="hp-hero-highlight hp-hero-rotating-phrase"
               key={headlineIndex}
@@ -464,7 +464,7 @@ export default function HeroCarousel() {
           <div
             className="hp-stack-container"
             role="region"
-            aria-label="Industrial chemistry applications 3D card carousel"
+            aria-label="PolyTreat product applications 3D card carousel"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
@@ -579,7 +579,7 @@ export default function HeroCarousel() {
           </div>
 
           {/* Interactive Navigation Tabs Below Carousel (Matching reference) */}
-          <div ref={tabsContainerRef} className="hp-hero-tabs hp-hero-tabs-5" role="tablist" aria-label="Industrial chemistry topics">
+          <div ref={tabsContainerRef} className="hp-hero-tabs hp-hero-tabs-5" role="tablist" aria-label="PolyTreat product solutions">
             {industrialSlides.map((slide, index) => {
               const isActive = index === activeIndex;
               const TabIcon = slide.icon;

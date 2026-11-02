@@ -48,9 +48,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "PolyTreat Chemicals Pvt. Ltd. | Water Treatment, Construction Chemistry & V-Klin Care",
+  title: "PolyTreat Pvt. Ltd. | Water Treatment, Surface Protection, Polydor & V-Klin Care",
   description:
-    "Mumbai manufacturer since 1987 of industrial water-treatment, construction and surface-protection, specialty, and V-Klin home and facility-care chemistry. Explore 28 product areas across four ranges.",
+    "Mumbai manufacturer since 1987 of industrial water-treatment, construction & surface protection, Polydor odour neutraliser, and V-Klin home & facility hygiene products. Explore 28 product areas across four ranges.",
 };
 
 /* ------------------------------------------------------------------ */
@@ -74,7 +74,7 @@ const rangeProductAreaCount = productMapGroups.reduce(
 
 const flagshipChips: Record<string, string[]> = {
   corosil: ["Structural steel", "Railings & grills", "Pipelines & sheet metal", "Rolling shutters"],
-  "polydor-ws": ["Waste & wastewater", "Food & animal processing", "Exhaust scrubbers", "Facilities"],
+  "polydor-ws": ["Landfills & ETP Sludge", "Sugar & Breweries", "Poultry & Slaughterhouses", "Commercial Scrubbers"],
   polyklin: ["Evaporator coils", "Condenser coils", "Window & split units", "AHU & FCU"],
 };
 
@@ -109,7 +109,7 @@ const flagshipNotes: Record<string, string> = {
   corosil:
     "A treatment and primer step; a compatible paint system is still required over it.",
   "polydor-ws":
-    "Odour control only, not a disinfectant, sanitiser or insecticide.",
+    "Chemically transforms odour molecules (amines, sulphides, H₂S). Also formulated as POLYDOR-D MOS botanical repellent.",
   polyklin:
     "Directions are as published in our product literature; ask for the current sheet.",
 };
@@ -268,7 +268,7 @@ export default function Home() {
               <div className="hp-applications-caption">
                 <span className="hp-applications-tag">
                   <Factory size={15} strokeWidth={2} aria-hidden="true" />
-                  Chemistry in working environments
+                  Proven solutions in working environments
                 </span>
                 <p>
                   Representative effluent-treatment basins: process-water responsibility,
@@ -281,7 +281,7 @@ export default function Home() {
           <div className="hp-applications-list">
             <div className="hp-section-heading hp-heading-tight hp-reveal">
               <div>
-                <h2 id="applications-title">Where the chemistry goes to work.</h2>
+                <h2 id="applications-title">Where our products go to work.</h2>
               </div>
               <p>
                 The same ranges serve plants, infrastructure projects, and everyday
@@ -418,6 +418,56 @@ export default function Home() {
             })}
           </div>
 
+          
+          {/* Real-World Work Showcase for POLYDOR (From Technical Brochures) */}
+          <div className="hp-polydor-work-box hp-reveal">
+            <div className="hp-polydor-work-head">
+              <span className="eyebrow eyebrow-teal">Real-world applications</span>
+              <h3 className="hp-polydor-work-title">Where POLYDOR solves tough odour & pest problems.</h3>
+              <p className="hp-polydor-work-desc">
+                From municipal solid waste landfills and sugar mills to poultry farms and commercial kitchens, POLYDOR-WS permanently alters odoriferous molecules into non-odorous compounds.
+              </p>
+            </div>
+
+            <div className="hp-polydor-work-grid">
+              <div className="hp-polydor-work-card">
+                <span className="hp-polydor-tag">MUNICIPAL & WASTE</span>
+                <h4>City Garbage Dump Yards</h4>
+                <p>Neutralises large-scale decomposition odours over landfill sites. Proven dosage: 3 tons per 1.5–2 acres.</p>
+              </div>
+
+              <div className="hp-polydor-work-card">
+                <span className="hp-polydor-tag">AGRO & BREWERIES</span>
+                <h4>Sugar Mills & Breweries</h4>
+                <p>Dosed directly into effluent wastewater ponds and sludge basins; eliminates foul odors within 2–3 hours.</p>
+              </div>
+
+              <div className="hp-polydor-work-card">
+                <span className="hp-polydor-tag">FOOD & LIVESTOCK</span>
+                <h4>Slaughterhouses & Poultry</h4>
+                <p>Breaks down stubborn animal fatty acid gases, meat processing scraps, and grease pits (1:30 dilution).</p>
+              </div>
+
+              <div className="hp-polydor-work-card">
+                <span className="hp-polydor-tag">COMMERCIAL RESTAURANTS</span>
+                <h4>Kitchen Air Scrubbers</h4>
+                <p>Installed in exhaust scrubbers of commercial kitchens and restaurants to deodorise discharge fumes.</p>
+              </div>
+
+              <div className="hp-polydor-work-card">
+                <span className="hp-polydor-tag">FISHERIES & LOGISTICS</span>
+                <h4>Seafood Containers & Nets</h4>
+                <p>Eliminates deep-set fish, barnacle, and seaweed smells from crates, holding tanks, and fishing nets.</p>
+              </div>
+
+              <div className="hp-polydor-work-card hp-polydor-card-highlight">
+                <span className="hp-polydor-tag hp-polydor-tag-green">BOTANICAL REPELLENT</span>
+                <h4>POLYDOR-D MOS (Herbal)</h4>
+                <p>Pure plant extracts with Neem & Citronella oil. 100% biodegradable, DEET-free, and safe for children & pets.</p>
+              </div>
+            </div>
+          </div>
+
           <div className="hp-section-foot">
             <span className="hp-flag-more">
               Also in the specialty range:{" "}
@@ -495,6 +545,105 @@ export default function Home() {
 
           <VKlinVideoPlayer />
         </div>
+        <div className="container hp-vklin-shelf-container">
+          
+        {/* V-Klin Popular Everyday Products Shelf (Real Bottles & Real Tasks) */}
+        <div className="hp-vklin-products-showcase hp-reveal">
+          <div className="hp-vklin-showcase-head">
+            <h3>Popular V-Klin Formulations in Daily Use</h3>
+            <p>Everyday cleaning solutions formulated for homes, institutions, and facilities.</p>
+          </div>
+
+          <div className="hp-vklin-cards-grid">
+            <div className="hp-vklin-item-card">
+              <div className="hp-vklin-thumb-box">
+                <Image
+                  src="/vklin-products/vklin-multipurpose-surface-cleaner.webp"
+                  alt="V-Klin Multipurpose Surface Cleaner"
+                  width={180}
+                  height={180}
+                  className="hp-vklin-thumb"
+                />
+              </div>
+              <h4>Multipurpose Cleaner</h4>
+              <p>3-in-1 action for tiles, kitchen counters, sinks & grease removal.</p>
+              <Link href="/vklin/products/multipurpose-surface-cleaner" className="hp-vklin-card-link">
+                View product &rarr;
+              </Link>
+            </div>
+
+            <div className="hp-vklin-item-card">
+              <div className="hp-vklin-thumb-box">
+                <Image
+                  src="/vklin-products/vklin-golden-floor-cleaner.webp"
+                  alt="V-Klin Golden Floor Cleaner"
+                  width={180}
+                  height={180}
+                  className="hp-vklin-thumb"
+                />
+              </div>
+              <h4>Golden Floor Deodoriser</h4>
+              <p>Sparkling clean floors with long-lasting residual fragrance for homes & offices.</p>
+              <Link href="/vklin/products/golden-floor-cleaner" className="hp-vklin-card-link">
+                View product &rarr;
+              </Link>
+            </div>
+
+            <div className="hp-vklin-item-card">
+              <div className="hp-vklin-thumb-box">
+                <Image
+                  src="/vklin-products/vklin-dishwash-liquid-gel-lemon.webp"
+                  alt="V-Klin Dishwash Liquid Gel Lemon"
+                  width={180}
+                  height={180}
+                  className="hp-vklin-thumb"
+                />
+              </div>
+              <h4>Dishwash Liquid Gel</h4>
+              <p>Lemon grease-cutting enzymes for spotless utensils, gentle on hands.</p>
+              <Link href="/vklin/products/dishwash-liquid-gel-lemon" className="hp-vklin-card-link">
+                View product &rarr;
+              </Link>
+            </div>
+
+            <div className="hp-vklin-item-card">
+              <div className="hp-vklin-thumb-box">
+                <Image
+                  src="/vklin-products/vklin-streak-free-glass-cleaner.webp"
+                  alt="V-Klin Streak-Free Glass Cleaner"
+                  width={180}
+                  height={180}
+                  className="hp-vklin-thumb"
+                />
+              </div>
+              <h4>Streak-Free Glass Cleaner</h4>
+              <p>Crystal clear shine on windows, mirrors, display counters & windshields.</p>
+              <Link href="/vklin/products/glass-cleaner" className="hp-vklin-card-link">
+                View product &rarr;
+              </Link>
+            </div>
+
+            <div className="hp-vklin-item-card hp-vklin-item-highlight">
+              <div className="hp-vklin-thumb-box">
+                <Image
+                  src="/vklin-products/vklin-herbal-mosquito-repellent.webp"
+                  alt="V-Klin Herbal Mosquito Repellent"
+                  width={180}
+                  height={180}
+                  className="hp-vklin-thumb"
+                />
+              </div>
+              <span className="hp-vklin-botanical-pill">100% Herbal</span>
+              <h4>Herbal Mosquito Repellent</h4>
+              <p>Natural Neem & Citronella oil formula without toxic fumes or irritation.</p>
+              <Link href="/vklin/products/herbal-mosquito-repellent" className="hp-vklin-card-link">
+                View product &rarr;
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        </div>
       </section>
 
       {/* Since 1987 — company story + PQRS */}
@@ -505,14 +654,14 @@ export default function Home() {
               <h2 id="story-title">A manufacturer first, since 1987.</h2>
               <p>
                 PolyTreat Chemicals Pvt. Ltd. formulates and produces its ranges at its own
-                plants, with an in-house laboratory monitoring quality daily, and a direct
+                plants, with rigorous quality control monitoring every batch daily, and a direct
                 technical conversation behind every enquiry.
               </p>
 
               <ul className="hp-story-facts" aria-label="Company facts">
                 <li>
                   <BadgeCheck size={16} aria-hidden="true" />
-                  <span><strong>In-house QC laboratory</strong> with daily product monitoring</span>
+                  <span><strong>Consistent batch quality</strong> with daily production standards & ISO compliance</span>
                 </li>
                 <li>
                   <Building2 size={16} aria-hidden="true" />
