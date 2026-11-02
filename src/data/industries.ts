@@ -58,7 +58,7 @@ export const operatingEnvironments: OperatingEnvironment[] = [
     title: "Water systems within plant operations.",
     description:
       "Industrial water-treatment categories cover boiler, cooling-water, reverse-osmosis, and effluent systems used across process operations.",
-    contexts: ["Boiler systems", "Cooling water", "RO systems", "Effluent treatment"],
+    contexts: ["Boiler system", "Cooling water", "RO system", "Effluent treatment"],
     link: "/solutions/industrial-water",
     linkLabel: "Browse industrial water",
   },
@@ -69,7 +69,7 @@ export const operatingEnvironments: OperatingEnvironment[] = [
     title: "Water services and built environments.",
     description:
       "Water and building services sit alongside construction applications such as waterproofing, concrete repair, protective coatings, flooring, and joints.",
-    contexts: ["Building water services", "Waterproofing", "Concrete repair", "Protective surfaces"],
+    contexts: ["Building water services", "Waterproofing", "Protective surface", "Concrete repair"],
     link: "/solutions/construction-chemistry",
     linkLabel: "Browse construction chemistry",
   },
@@ -80,7 +80,7 @@ export const operatingEnvironments: OperatingEnvironment[] = [
     title: "Cleaning for shared and everyday spaces.",
     description:
       "The V-Klin range brings home and facility-care cleaning categories together for workplaces, institutions, and other shared spaces.",
-    contexts: ["Workplaces", "Institutions", "Shared facilities", "Homes"],
+    contexts: ["Workplaces", "Institutions", "Shared facilities", "Floors", "F&S"],
     link: "/vklin/products",
     linkLabel: "Browse the V-Klin range",
   },
