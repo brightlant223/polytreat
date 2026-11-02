@@ -1,6 +1,24 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUp, ArrowUpRight, ChevronRight, Mail, MapPin, Phone } from "lucide-react";
+import {
+  ArrowUp,
+  ArrowUpRight,
+  Boxes,
+  Car,
+  ChevronRight,
+  Droplets,
+  Flame,
+  FlaskConical,
+  Gauge,
+  Layers,
+  Mail,
+  MapPin,
+  Paintbrush,
+  Phone,
+  ShieldCheck,
+  Sparkles,
+  Waves,
+} from "lucide-react";
 
 const exploreLinks = [
   { label: "Solutions", href: "/#solutions" },
@@ -14,17 +32,17 @@ const exploreLinks = [
 ];
 
 const solutionLinks = [
-  { label: "Industrial water treatment", href: "/solutions/industrial-water" },
-  { label: "Boiler & cooling water", href: "/solutions/boiler-cooling-water" },
-  { label: "RO & effluent", href: "/solutions/ro-effluent" },
-  { label: "Construction & protection", href: "/solutions/construction-chemistry" },
-  { label: "Waterproofing, repair & coatings", href: "/solutions/waterproofing-repair-coatings" },
-  { label: "Flooring & joint sealing", href: "/solutions/flooring-joint-sealing" },
-  { label: "Paint preservatives", href: "/solutions/paint-preservatives" },
-  { label: "Sugar-process chemicals", href: "/solutions/sugar-process-chemicals" },
-  { label: "Fireside treatment", href: "/solutions/fireside-treatment" },
-  { label: "Automotive chemicals", href: "/solutions/automotive-chemicals" },
-  { label: "Specialty products", href: "/specialty" },
+  { label: "Industrial water treatment", href: "/solutions/industrial-water", icon: Droplets },
+  { label: "Boiler & cooling water", href: "/solutions/boiler-cooling-water", icon: Gauge },
+  { label: "RO & effluent", href: "/solutions/ro-effluent", icon: Waves },
+  { label: "Construction & protection", href: "/solutions/construction-chemistry", icon: ShieldCheck },
+  { label: "Waterproofing, repair & coatings", href: "/solutions/waterproofing-repair-coatings", icon: Paintbrush },
+  { label: "Flooring & joint sealing", href: "/solutions/flooring-joint-sealing", icon: Layers },
+  { label: "Paint preservatives", href: "/solutions/paint-preservatives", icon: FlaskConical },
+  { label: "Sugar-process chemicals", href: "/solutions/sugar-process-chemicals", icon: Sparkles },
+  { label: "Fireside treatment", href: "/solutions/fireside-treatment", icon: Flame },
+  { label: "Automotive chemicals", href: "/solutions/automotive-chemicals", icon: Car },
+  { label: "Specialty products", href: "/specialty", icon: Boxes },
 ];
 
 export default function SiteFooter() {
@@ -85,15 +103,45 @@ export default function SiteFooter() {
           <span className="pt-bubble pt-bubble-4" />
         </div>
 
-        {/* 6. Masked Outlined POLYTREAT Watermark (Fades out toward bottom bar) */}
-        <div className="pt-brand-watermark" aria-hidden="true">
-          POLYTREAT
+        {/* 1. Bright & Clearly Visible POLYTREAT Watermark with 1.5px Gradient Stroke & Faint Fill */}
+        <div className="pt-brand-watermark-wrap" aria-hidden="true">
+          <svg
+            className="pt-brand-watermark-svg"
+            viewBox="0 0 1400 160"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <linearGradient id="pt-wm-stroke" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#0284c7" stopOpacity="0.35" />
+                <stop offset="100%" stopColor="#0d9488" stopOpacity="0.35" />
+              </linearGradient>
+              <linearGradient id="pt-wm-fill" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#0284c7" stopOpacity="0.07" />
+                <stop offset="100%" stopColor="#0d9488" stopOpacity="0.07" />
+              </linearGradient>
+            </defs>
+            <text
+              x="50%"
+              y="55%"
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fill="url(#pt-wm-fill)"
+              stroke="url(#pt-wm-stroke)"
+              strokeWidth="1.5"
+              letterSpacing="0.14em"
+              fontWeight="900"
+              className="pt-wm-svg-text"
+            >
+              POLYTREAT
+            </text>
+          </svg>
         </div>
 
         <div className="container pt-panel-inner">
           {/* Equal-Height 4-Column Balanced Grid */}
           <div className="footer-main pt-main-grid">
-            {/* 1 & 2. Brand Column (Top-aligned Logo, Tagline Below, Drop at Bottom-Right) */}
+            {/* Brand Column (Top-aligned Logo, Tagline Below, Drop at Bottom-Right) */}
             <div className="footer-brand pt-brand-column">
               <div className="pt-brand-content">
                 <Link href="/" className="footer-logo-link pt-brand-logo-link" aria-label="PolyTreat home">
@@ -110,7 +158,7 @@ export default function SiteFooter() {
                 </p>
               </div>
 
-              {/* 2. Low-opacity Water Drop at bottom-right of brand column */}
+              {/* Water Drop at bottom-right of brand column */}
               <div className="pt-brand-drop-bg" aria-hidden="true">
                 <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -129,7 +177,7 @@ export default function SiteFooter() {
               </div>
             </div>
 
-            {/* 4. Explore Column (Card with Left Indicator Line, "Industries & applications" Fits on One Line) */}
+            {/* Explore Column (Card with Left Indicator Line, "Industries & applications" Fits on One Line) */}
             <nav className="footer-column pt-col-card pt-explore-card" aria-label="Explore">
               <h2 className="pt-col-heading">
                 Explore
@@ -147,26 +195,27 @@ export default function SiteFooter() {
               </div>
             </nav>
 
-            {/* 5 & 8. Our Work Column (Card with Inner Highlight on Alternating Chips) */}
+            {/* Our Work Column (2-Column Equal-Height Tile Grid with Icons) */}
             <nav className="footer-column pt-col-card pt-work-card" aria-label="Our work">
               <h2 className="pt-col-heading">
                 Our work
                 <span className="pt-heading-line" aria-hidden="true" />
               </h2>
-              <div className="pt-work-chips-wrap">
-                {solutionLinks.map(({ label, href }, index) => (
+              <div className="pt-work-tiles-grid">
+                {solutionLinks.map(({ label, href, icon: Icon }, index) => (
                   <Link
                     href={href}
                     key={href}
-                    className={`pt-pill-chip ${index % 2 === 0 ? "pt-chip-blue" : "pt-chip-teal"}`}
+                    className={`pt-work-tile ${index === 10 ? "pt-work-tile-span-2" : ""}`}
                   >
-                    {label}
+                    <Icon size={18} strokeWidth={1.75} className="pt-work-tile-icon" aria-hidden="true" />
+                    <span className="pt-work-tile-label">{label}</span>
                   </Link>
                 ))}
               </div>
             </nav>
 
-            {/* 3 & 5. Contact Column (Light Card, 4px Top Strip, Dark Navy 15px Text, Full-Divided Even Rows) */}
+            {/* Contact Column (Light Card, 4px Top Strip, Colorless 40px Icons, Dark Navy Text, Persistent Arrow) */}
             <div className="footer-column footer-contact-column pt-col-card pt-contact-card-refined">
               {/* 4px top gradient strip */}
               <div className="pt-contact-top-strip" aria-hidden="true" />
@@ -179,7 +228,7 @@ export default function SiteFooter() {
               <div className="pt-contact-buttons-list">
                 <a href="mailto:polyind2@gmail.com" className="pt-contact-row-refined">
                   <span className="pt-contact-icon-bubble-refined">
-                    <Mail size={18} strokeWidth={2.2} aria-hidden="true" />
+                    <Mail size={18} strokeWidth={1.75} aria-hidden="true" />
                   </span>
                   <span className="pt-contact-text-refined">polyind2@gmail.com</span>
                   <ArrowUpRight size={16} className="pt-contact-arrow-refined" aria-hidden="true" />
@@ -187,26 +236,25 @@ export default function SiteFooter() {
 
                 <a href="tel:+919820235995" className="pt-contact-row-refined">
                   <span className="pt-contact-icon-bubble-refined">
-                    <Phone size={18} strokeWidth={2.2} aria-hidden="true" />
+                    <Phone size={18} strokeWidth={1.75} aria-hidden="true" />
                   </span>
                   <span className="pt-contact-text-refined">+91 98202 35995</span>
                   <ArrowUpRight size={16} className="pt-contact-arrow-refined" aria-hidden="true" />
                 </a>
 
-                <span className="pt-contact-row-refined pt-contact-static-row-refined">
+                <div className="pt-contact-row-refined pt-contact-static-row-refined">
                   <span className="pt-contact-icon-bubble-refined">
-                    <MapPin size={18} strokeWidth={2.2} aria-hidden="true" />
+                    <MapPin size={18} strokeWidth={1.75} aria-hidden="true" />
                   </span>
                   <span className="pt-contact-text-refined">Goregaon (West), Mumbai</span>
-                  <span className="pt-contact-arrow-placeholder" aria-hidden="true" />
-                </span>
+                  <ArrowUpRight size={16} className="pt-contact-arrow-refined" aria-hidden="true" />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* 6 & 8 & 9. Bottom Section with Elevated Divider and Polished Back-To-Top Button */}
+          {/* Bottom Section with Frosted Glass Backdrop-Blur Strip */}
           <div className="pt-bottom-section">
-            <div className="pt-bottom-gradient-divider" aria-hidden="true" />
             <div className="footer-bottom pt-bottom-content">
               <span className="footer-copyright pt-bottom-text">
                 © 2026 PolyTreat Chemicals Pvt. Ltd.
@@ -289,29 +337,37 @@ export default function SiteFooter() {
           position: relative;
           z-index: 3;
           padding-top: 1.75rem;
-          padding-bottom: 0.5rem;
+          padding-bottom: 0.75rem;
         }
 
-        /* 6. Outlined POLYTREAT Watermark with Mask Linear Gradient */
-        .pt-brand-watermark {
+        /* 1. Bright & Clear Watermark along Bottom */
+        .pt-brand-watermark-wrap {
           position: absolute;
-          bottom: 35px;
-          left: 50%;
-          transform: translateX(-50%);
-          font-family: var(--font-heading, system-ui, -apple-system, sans-serif);
-          font-size: clamp(4.5rem, 14vw, 11rem);
-          font-weight: 900;
-          letter-spacing: 0.18em;
-          color: transparent;
-          -webkit-text-stroke: 1.5px rgba(2, 132, 199, 0.05);
-          white-space: nowrap;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          pointer-events: none;
           user-select: none;
           -webkit-user-select: none;
-          pointer-events: none;
           z-index: 0;
-          line-height: 0.75;
-          mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.35) 45%, transparent 85%);
-          -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.35) 45%, transparent 85%);
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          overflow: hidden;
+          line-height: 0;
+        }
+
+        .pt-brand-watermark-svg {
+          width: 100%;
+          height: auto;
+          display: block;
+          max-height: 220px;
+        }
+
+        .pt-wm-svg-text {
+          font-family: var(--font-heading, system-ui, -apple-system, sans-serif);
+          font-size: 148px;
         }
 
         /* Ambient Bubbles in Empty Corners Only */
@@ -377,7 +433,7 @@ export default function SiteFooter() {
           50% { transform: translateY(-16px) translateX(12px); }
         }
 
-        /* 7. Staggered Column Entrance */
+        /* Staggered Column Entrance */
         .pt-main-grid > *:nth-child(1) {
           animation: ptStaggerFadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) 0ms both;
         }
@@ -411,23 +467,23 @@ export default function SiteFooter() {
           }
           .pt-col-card,
           .pt-back-to-top-btn,
-          .pt-pill-chip,
+          .pt-work-tile,
           .pt-explore-item,
           .pt-contact-row-refined {
             transition: none !important;
           }
         }
 
-        /* 3 & 4. Equal-Height 4-Column Desktop Grid */
+        /* Equal-Height 4-Column Desktop Grid */
         .pt-main-grid {
           display: grid !important;
-          grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.98fr) minmax(0, 1.25fr) minmax(0, 1.05fr) !important;
-          gap: clamp(1.25rem, 2vw, 2rem) !important;
+          grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.88fr) minmax(0, 1.52fr) minmax(0, 1.05fr) !important;
+          gap: clamp(1rem, 1.75vw, 1.75rem) !important;
           align-items: stretch !important;
-          padding: 0.5rem 0 1.75rem !important;
+          padding: 0.5rem 0 1.5rem !important;
         }
 
-        /* 1 & 2. Brand Column Alignment */
+        /* Brand Column Alignment */
         .pt-brand-column {
           position: relative;
           display: flex;
@@ -505,11 +561,11 @@ export default function SiteFooter() {
           background: linear-gradient(90deg, #0284c7 0%, #0d9488 100%);
         }
 
-        /* 5. Card Depth, Hover Lift & 1px Gradient Border Effect */
+        /* Translucent Cards with Depth, Hover Lift & 1px Gradient Border Effect */
         .pt-col-card {
           position: relative;
           border-radius: 1.25rem !important;
-          padding: 1.35rem 1.25rem !important;
+          padding: 1.25rem 1.15rem !important;
           box-sizing: border-box;
           display: flex !important;
           flex-direction: column !important;
@@ -542,16 +598,17 @@ export default function SiteFooter() {
           opacity: 1;
         }
 
+        /* Translucent Explore & Our Work Cards (Letters faintly visible through) */
         .pt-explore-card,
         .pt-work-card {
-          background: rgba(255, 255, 255, 0.75);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
+          background: rgba(255, 255, 255, 0.70) !important;
+          backdrop-filter: blur(12px) !important;
+          -webkit-backdrop-filter: blur(12px) !important;
           border: 1px solid rgba(186, 230, 253, 0.65);
           box-shadow: 0 8px 24px -6px rgba(2, 132, 199, 0.06);
         }
 
-        /* 4. Explore Links (Industries & applications fits on one line on desktop) */
+        /* Explore Links */
         .pt-explore-line-wrap {
           border-left: 2px solid rgba(186, 230, 253, 0.75);
           padding-left: 0.85rem;
@@ -573,7 +630,7 @@ export default function SiteFooter() {
           align-items: center;
           gap: 0.45rem;
           color: #334155 !important;
-          font-size: 0.815rem;
+          font-size: 0.8125rem;
           font-weight: 500;
           line-height: 1.45;
           text-decoration: none;
@@ -621,54 +678,83 @@ export default function SiteFooter() {
           transform: translateY(-50%) scale(1);
         }
 
-        /* 8. Our Work Chips (Inner Highlight & Alternating Tints) */
-        .pt-work-chips-wrap {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.48rem;
-          align-content: flex-start;
+        /* 3. Our Work Equal-Height Tile Grid */
+        .pt-work-tiles-grid {
+          display: grid !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          gap: 0.65rem !important;
+          align-content: stretch;
           flex: 1;
         }
 
-        .pt-pill-chip {
-          display: inline-flex;
-          align-items: center;
-          padding: 0.38rem 0.78rem;
-          border-radius: 9999px;
-          font-size: 0.77rem;
-          font-weight: 550;
-          line-height: 1.3;
-          text-decoration: none;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
-          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        .pt-work-tile {
+          display: flex !important;
+          align-items: center !important;
+          gap: 0.55rem !important;
+          padding: 0.65rem 0.75rem !important;
+          min-height: 44px;
+          border-radius: 0.75rem !important;
+          border: 1px solid rgba(226, 232, 240, 0.75) !important;
+          background: rgba(255, 255, 255, 0.82) !important;
+          color: #081A2C !important;
+          font-size: 0.8125rem !important;
+          font-weight: 500 !important;
+          line-height: 1.35 !important;
+          text-decoration: none !important;
+          box-sizing: border-box;
+          transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+                      background 200ms ease,
+                      border-color 200ms ease,
+                      box-shadow 200ms ease,
+                      color 200ms ease !important;
+          box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
         }
 
-        .pt-chip-blue {
-          background: rgba(240, 249, 255, 0.95);
-          border: 1px solid #bae6fd;
-          color: #0369a1 !important;
+        .pt-work-tile-span-2 {
+          grid-column: span 2 !important;
         }
 
-        .pt-chip-teal {
-          background: rgba(240, 253, 250, 0.95);
-          border: 1px solid #99f6e4;
-          color: #0f766e !important;
+        .pt-work-tile-icon {
+          flex-shrink: 0;
+          color: #64748b !important;
+          transition: color 200ms ease, transform 200ms ease;
         }
 
-        .pt-pill-chip:hover {
+        .pt-work-tile-label {
+          flex: 1;
+          transition: color 200ms ease;
+        }
+
+        .pt-work-tile:hover,
+        .pt-work-tile:focus-visible {
           background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%) !important;
           border-color: transparent !important;
           color: #ffffff !important;
-          transform: scale(1.03);
-          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+          transform: translateY(-2px) !important;
+          box-shadow: 0 6px 18px rgba(2, 132, 199, 0.28) !important;
         }
 
-        /* 3 & 5. Contact Column - Light Frosted Card with Dark Navy 15px Text & Divided Rows */
+        .pt-work-tile:hover .pt-work-tile-icon,
+        .pt-work-tile:focus-visible .pt-work-tile-icon {
+          color: #ffffff !important;
+          transform: scale(1.05);
+        }
+
+        .pt-work-tile:hover .pt-work-tile-label,
+        .pt-work-tile:focus-visible .pt-work-tile-label {
+          color: #ffffff !important;
+        }
+
+        .pt-work-tile:active {
+          transform: scale(0.98) !important;
+        }
+
+        /* 2. Contact Column with Colorless 40px Icons, Dark Navy Text & Equal Divided Rows */
         .pt-contact-card-refined {
           overflow: hidden;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 249, 255, 0.85) 50%, rgba(240, 253, 250, 0.9) 100%) !important;
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(240, 249, 255, 0.70) 50%, rgba(240, 253, 250, 0.70) 100%) !important;
+          backdrop-filter: blur(12px) !important;
+          -webkit-backdrop-filter: blur(12px) !important;
           border: 1px solid rgba(186, 230, 253, 0.65) !important;
           box-shadow: 0 8px 24px -6px rgba(2, 132, 199, 0.08) !important;
         }
@@ -694,14 +780,16 @@ export default function SiteFooter() {
         .pt-contact-row-refined {
           display: flex !important;
           align-items: center !important;
-          gap: 0.85rem !important;
-          min-height: 44px;
-          padding: 0.6rem 0.25rem !important;
+          gap: 0.75rem !important;
+          flex: 1 !important;
+          min-height: 48px;
+          padding: 0.65rem 0.25rem !important;
           background: transparent;
-          border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+          border-bottom: 1px solid rgba(226, 232, 240, 0.85) !important;
           color: #081A2C !important;
           text-decoration: none;
-          transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+                      color 220ms ease;
           box-sizing: border-box;
         }
 
@@ -712,69 +800,75 @@ export default function SiteFooter() {
           height: 40px;
           flex-shrink: 0;
           border-radius: 9999px;
-          background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
-          color: #ffffff;
-          transition: all 0.22s ease;
-          box-shadow: 0 2px 8px rgba(2, 132, 199, 0.18);
+          background: transparent;
+          border: 1px solid #cbd5e1;
+          color: #64748b;
+          transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: none;
         }
 
         .pt-contact-text-refined {
-          font-size: 0.95rem;
+          font-size: 0.875rem;
           font-weight: 500;
           color: #081A2C;
           line-height: 1.4;
-          word-break: break-word;
           flex: 1;
           transition: color 0.2s ease;
         }
 
+        @media (min-width: 1081px) {
+          .pt-contact-text-refined {
+            white-space: nowrap;
+          }
+        }
+
         .pt-contact-arrow-refined {
-          color: #0284c7;
-          opacity: 0;
-          transform: translateX(-4px);
-          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+          color: #94a3b8;
+          opacity: 1 !important;
+          transform: translateX(0);
+          transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
           flex-shrink: 0;
         }
 
-        .pt-contact-arrow-placeholder {
-          width: 16px;
-          flex-shrink: 0;
-        }
-
-        a.pt-contact-row-refined:hover {
+        .pt-contact-row-refined:hover {
           transform: translateX(4px);
         }
 
-        a.pt-contact-row-refined:hover .pt-contact-text-refined {
+        .pt-contact-row-refined:hover .pt-contact-text-refined {
           color: #0284c7;
         }
 
-        a.pt-contact-row-refined:hover .pt-contact-icon-bubble-refined {
-          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
-          transform: scale(1.05);
+        .pt-contact-row-refined:hover .pt-contact-icon-bubble-refined,
+        .pt-contact-row-refined:focus-visible .pt-contact-icon-bubble-refined {
+          background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%) !important;
+          border-color: transparent !important;
+          color: #ffffff !important;
+          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35) !important;
+          transform: scale(1.04);
         }
 
-        a.pt-contact-row-refined:hover .pt-contact-arrow-refined {
-          opacity: 1;
-          transform: translateX(0);
+        .pt-contact-row-refined:hover .pt-contact-arrow-refined,
+        .pt-contact-row-refined:focus-visible .pt-contact-arrow-refined {
+          color: #0284c7 !important;
+          transform: translateX(4px) !important;
         }
 
         .pt-contact-static-row-refined {
           cursor: default;
         }
 
-        /* 6. Elevated Bottom Section Above Fade Zone */
+        /* 1. Frosted Glass Bottom Section with Backdrop-Blur Strip */
         .pt-bottom-section {
-          margin-top: 0.85rem;
+          margin-top: 1.25rem;
           position: relative;
           z-index: 3;
-        }
-
-        .pt-bottom-gradient-divider {
-          height: 1px;
-          width: 100%;
-          background: linear-gradient(90deg, transparent 0%, rgba(2, 132, 199, 0.25) 30%, rgba(13, 148, 136, 0.25) 70%, transparent 100%);
-          margin-bottom: 0.75rem;
+          background: rgba(255, 255, 255, 0.60);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border-radius: 1rem;
+          border: 1px solid rgba(255, 255, 255, 0.85);
+          box-shadow: 0 4px 16px -4px rgba(2, 132, 199, 0.06);
+          padding: 0 1.25rem;
         }
 
         .pt-bottom-content {
@@ -782,7 +876,7 @@ export default function SiteFooter() {
           align-items: center !important;
           justify-content: space-between !important;
           gap: 1rem !important;
-          padding: 0.5rem 0 0.85rem !important;
+          padding: 0.65rem 0 !important;
           min-height: 52px;
           border-top: none !important;
         }
@@ -833,7 +927,7 @@ export default function SiteFooter() {
           filter: brightness(1.1);
         }
 
-        /* 8. Back to Top Button Polish */
+        /* Back to Top Button */
         .pt-back-to-top-btn {
           display: grid;
           place-items: center;
@@ -873,7 +967,7 @@ export default function SiteFooter() {
           outline-offset: 2px !important;
         }
 
-        /* 9. Responsive Layouts: Tablet 2x2, Mobile Stack */
+        /* Responsive Layouts: Tablet 2x2, Mobile Stack */
         @media (max-width: 1080px) and (min-width: 681px) {
           .pt-main-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -914,6 +1008,16 @@ export default function SiteFooter() {
           .pt-bottom-right-wrap {
             flex-direction: row;
             justify-content: center;
+          }
+        }
+
+        /* Mobile Our Work Tiles: 2 columns down to 360px, 1 column below 360px */
+        @media (max-width: 360px) {
+          .pt-work-tiles-grid {
+            grid-template-columns: minmax(0, 1fr) !important;
+          }
+          .pt-work-tile-span-2 {
+            grid-column: span 1 !important;
           }
         }
       `}</style>
