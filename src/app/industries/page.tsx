@@ -1,3 +1,4 @@
+import { CtaWaterSplashDesign } from "@/components/CtaWaterSplashDesign";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -477,7 +478,7 @@ export default function IndustriesPage() {
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
-            <div className="industries-cta-wave-decor" aria-hidden="true" />
+            <CtaWaterSplashDesign />
           </div>
         </div>
       </section>

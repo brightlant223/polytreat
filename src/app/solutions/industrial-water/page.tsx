@@ -1,3 +1,4 @@
+import { CtaWaterSplashDesign } from "@/components/CtaWaterSplashDesign";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -44,6 +45,66 @@ function BoilerIcon({ className = "", size = 24 }: { className?: string; size?: 
     </svg>
   );
 }
+
+function CardWaterSplash({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 120 70"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="card-splash-drop" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#1769A6" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#1C5F91" stopOpacity="0.6" />
+        </linearGradient>
+        <linearGradient id="card-splash-ring" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#1769A6" stopOpacity="0.32" />
+          <stop offset="100%" stopColor="#B9D9E8" stopOpacity="0.1" />
+        </linearGradient>
+        <linearGradient id="card-splash-pool" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#B9D9E8" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#EAF3F8" stopOpacity="0.2" />
+        </linearGradient>
+      </defs>
+
+      {/* Soft corner water pool */}
+      <path d="M45 70 C70 50 95 48 120 54 L120 70 Z" fill="url(#card-splash-pool)" />
+
+      {/* Concentric ripple arcs emanating from corner */}
+      <path
+        d="M20 70 C20 42 62 18 120 22"
+        stroke="url(#card-splash-ring)"
+        strokeWidth="1.5"
+        strokeDasharray="3 3"
+      />
+      <path
+        d="M50 70 C50 50 80 34 120 38"
+        stroke="url(#card-splash-ring)"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M78 70 C78 58 96 48 120 50"
+        stroke="url(#card-splash-ring)"
+        strokeWidth="2"
+      />
+
+      {/* Dynamic water splash droplets */}
+      <path
+        d="M84 34 C80 28 78 20 83 14 C87 8 94 11 96 18 C98 26 90 32 84 34 Z"
+        fill="url(#card-splash-drop)"
+      />
+      <circle cx="66" cy="22" r="3.5" fill="url(#card-splash-drop)" />
+      <circle cx="52" cy="36" r="2.5" fill="#B9D9E8" fillOpacity="0.75" />
+      <circle cx="75" cy="10" r="2" fill="#1769A6" fillOpacity="0.5" />
+      <circle cx="100" cy="26" r="4" fill="url(#card-splash-drop)" />
+      <circle cx="94" cy="44" r="1.8" fill="#B9D9E8" fillOpacity="0.8" />
+    </svg>
+  );
+}
+
 
 function ReverseOsmosisIcon({ className = "", size = 24 }: { className?: string; size?: number }) {
   return (
@@ -93,45 +154,6 @@ function EffluentIcon({ className = "", size = 24 }: { className?: string; size?
     </svg>
   );
 }
-
-const functionCards = [
-  {
-    id: "boiler",
-    title: "Boiler water",
-    description:
-      "Treatment programmes for boiler systems to control scale, corrosion and maintain efficiency.",
-    linkText: "Read more about boiler water",
-    href: "/solutions/boiler-cooling-water#boiler-water",
-    icon: BoilerIcon,
-  },
-  {
-    id: "cooling",
-    title: "Cooling water",
-    description:
-      "Solutions for cooling water systems to control scale, corrosion and biological growth.",
-    linkText: "Configure cooling water",
-    href: "/solutions/boiler-cooling-water#cooling-water",
-    icon: Fan,
-  },
-  {
-    id: "ro",
-    title: "Reverse osmosis",
-    description:
-      "Pre-treatment and membrane support solutions for reliable RO operation and water recovery.",
-    linkText: "RO solutions",
-    href: "/solutions/ro-effluent#reverse-osmosis",
-    icon: ReverseOsmosisIcon,
-  },
-  {
-    id: "effluent",
-    title: "Effluent treatment",
-    description:
-      "Chemical solutions for industrial effluent to support treatment, reuse and discharge compliance.",
-    linkText: "Effluent treatment",
-    href: "/solutions/ro-effluent#effluent-treatment",
-    icon: EffluentIcon,
-  },
-];
 
 const problemChecklistCol1 = [
   "Scale and deposition reduce heat transfer.",
@@ -250,7 +272,7 @@ export default function IndustrialWaterPage() {
             <span aria-hidden="true" className="industrial-water-breadcrumb-sep">
               &gt;
             </span>
-            <Link href="/solutions">Solutions</Link>
+            <Link href="/#solutions">Solutions</Link>
             <span aria-hidden="true" className="industrial-water-breadcrumb-sep">
               &gt;
             </span>
@@ -277,7 +299,7 @@ export default function IndustrialWaterPage() {
               </p>
 
               <div className="industrial-water-hero-actions">
-                <Link className="btn btn-industrial-primary" href="#water-systems">
+                <Link className="btn btn-industrial-primary" href="#treatment-categories">
                   <span>Explore by category</span>
                   <ArrowRight size={16} aria-hidden="true" />
                 </Link>
@@ -292,10 +314,11 @@ export default function IndustrialWaterPage() {
             </div>
 
             <div className="industrial-water-hero-visual-col">
-              {/* Decorative blue geometric shape behind image */}
+              {/* Modern technical architectural backdrop & ambient glow */}
               <div className="industrial-hero-backdrop-shape" aria-hidden="true">
-                <div className="industrial-hero-tab-topright" />
-                <div className="industrial-hero-tab-bottomleft" />
+                <div className="industrial-hero-backdrop-glow" />
+                <div className="industrial-hero-backdrop-frame" />
+                <div className="industrial-hero-backdrop-dots" />
               </div>
 
               {/* Large high-resolution RO facility photograph container */}
@@ -311,70 +334,80 @@ export default function IndustrialWaterPage() {
         </div>
 
 
-        {/* Smooth layered water waves along the bottom */}
+        {/* Rich flowing water wave divider - transparent background, vibrant layered aquatic gradient */}
         <div className="industrial-hero-wave-bottom" aria-hidden="true">
-          <img
-            src="/images/solutions/hero-wave-bottom.png"
-            alt=""
-            className="industrial-wave-img"
-          />
+          <svg
+            className="industrial-hero-wave-svg"
+            viewBox="0 0 1440 96"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              {/* Back soft navy/water-light wave */}
+              <linearGradient id="ind-wave-back" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#B9D9E8" stopOpacity="0.5" />
+                <stop offset="40%" stopColor="#D5E8F3" stopOpacity="0.7" />
+                <stop offset="70%" stopColor="#B9D9E8" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="#EAF3F8" stopOpacity="0.45" />
+              </linearGradient>
+
+              {/* Mid flowing brand-blue wave */}
+              <linearGradient id="ind-wave-mid" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#1769A6" stopOpacity="0.4" />
+                <stop offset="30%" stopColor="#1C5F91" stopOpacity="0.55" />
+                <stop offset="70%" stopColor="#1769A6" stopOpacity="0.45" />
+                <stop offset="100%" stopColor="#1C5F91" stopOpacity="0.5" />
+              </linearGradient>
+
+              {/* Front subtle water gradient wave melting smoothly into section below */}
+              <linearGradient id="ind-wave-front" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#1769A6" stopOpacity="0.8" />
+                <stop offset="25%" stopColor="#1C5F91" stopOpacity="0.7" />
+                <stop offset="65%" stopColor="#B9D9E8" stopOpacity="0.4" />
+                <stop offset="100%" stopColor="#F4F8FD" stopOpacity="1" />
+              </linearGradient>
+
+              {/* Luminous wave crest reflection */}
+              <linearGradient id="ind-wave-shine" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.7" />
+                <stop offset="35%" stopColor="#EAF3F8" stopOpacity="0.9" />
+                <stop offset="70%" stopColor="#ffffff" stopOpacity="0.85" />
+                <stop offset="100%" stopColor="#EAF3F8" stopOpacity="0.7" />
+              </linearGradient>
+            </defs>
+
+            {/* 1. Back translucent wave */}
+            <path
+              d="M0,22 C240,54 480,6 720,36 C960,66 1200,12 1440,30 L1440,96 L0,96 Z"
+              fill="url(#ind-wave-back)"
+            />
+
+            {/* 2. Mid cyan/sky ribbon wave */}
+            <path
+              d="M0,42 C280,12 560,58 840,28 C1120,4 1300,44 1440,36 L1440,96 L0,96 Z"
+              fill="url(#ind-wave-mid)"
+            />
+
+            {/* 3. Front vibrant gradient wave */}
+            <path
+              d="M0,58 C220,36 460,68 700,46 C940,24 1180,56 1440,44 L1440,96 L0,96 Z"
+              fill="url(#ind-wave-front)"
+            />
+
+            {/* 4. Luminous wave crest shine stroke */}
+            <path
+              d="M0,58 C220,36 460,68 700,46 C940,24 1180,56 1440,44"
+              stroke="url(#ind-wave-shine)"
+              strokeWidth="2.5"
+              fill="none"
+              strokeLinecap="round"
+            />
+          </svg>
         </div>
       </section>
 
-      {/* 2. EXPLORE BY FUNCTION / INDUSTRIAL WATER CATEGORIES */}
-      <section
-        className="industrial-function-section"
-        id="water-systems"
-        aria-labelledby="water-systems-title"
-      >
-        <div className="container">
-          <div className="industrial-section-header">
-            <div className="industrial-section-header-left">
-              <div className="industrial-section-eyebrow">
-                <span className="industrial-eyebrow-bar" aria-hidden="true" />
-                <span>Explore by function</span>
-              </div>
-              <h2 id="water-systems-title" className="industrial-section-title">
-                Industrial water categories.
-              </h2>
-            </div>
-            <div className="industrial-section-header-right">
-              <span className="industrial-header-divider" aria-hidden="true" />
-              <p>
-                Tailor off-the-shelf or customised water treatment solutions for thermal
-                systems, cooling systems, membrane operations and effluent treatment.
-              </p>
-            </div>
-          </div>
-
-          <div className="industrial-function-grid">
-            {functionCards.map((card) => {
-              const Icon = card.icon;
-              return (
-                <article className="industrial-function-card" key={card.id}>
-                  <div className="industrial-function-icon-box">
-                    <Icon size={24} className="industrial-function-svg" />
-                  </div>
-                  <h3 className="industrial-function-card-title">{card.title}</h3>
-                  <p className="industrial-function-card-desc">{card.description}</p>
-                  <Link href={card.href} className="industrial-function-card-link">
-                    <span>{card.linkText}</span>
-                    <ArrowRight size={15} aria-hidden="true" />
-                  </Link>
-                  <img
-                    src="/images/solutions/card-water-splash.png"
-                    alt=""
-                    className="industrial-card-water-splash"
-                    aria-hidden="true"
-                  />
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. PROBLEM & SOLUTION */}
+      {/* 2. PROBLEM & SOLUTION */}
       <section
         className="industrial-problems-section"
         id="system-challenges"
@@ -428,7 +461,7 @@ export default function IndustrialWaterPage() {
         </div>
       </section>
 
-      {/* 4. TREATMENT APPROACH / CATEGORIES IN THE INDUSTRIAL RANGE */}
+      {/* 3. TREATMENT APPROACH / CATEGORIES IN THE INDUSTRIAL RANGE */}
       <section
         className="industrial-approach-section"
         id="treatment-categories"
@@ -492,12 +525,7 @@ export default function IndustrialWaterPage() {
                       </Link>
                     </div>
                   </div>
-                  <img
-                    src="/images/solutions/card-water-splash.png"
-                    alt=""
-                    className="industrial-card-water-splash"
-                    aria-hidden="true"
-                  />
+                  <CardWaterSplash className="industrial-card-water-splash" />
                 </article>
               );
             })}
@@ -505,7 +533,7 @@ export default function IndustrialWaterPage() {
         </div>
       </section>
 
-      {/* 5. PRODUCT SELECTION & OVERVIEW / ALSO IN THE INDUSTRIAL CATALOGUE */}
+      {/* 4. PRODUCT SELECTION & OVERVIEW / ALSO IN THE INDUSTRIAL CATALOGUE */}
       <section
         className="industrial-catalogue-section"
         id="other-categories"
@@ -561,55 +589,31 @@ export default function IndustrialWaterPage() {
         </div>
       </section>
 
-      {/* 6. WORK TOGETHER / BOTTOM CTA BANNER */}
+      {/* 5. BOTTOM CTA BAND - Matches Industries page design */}
       <section
-        className="industrial-cta-section"
+        className="industries-contact-band"
         id="industrial-cta"
         aria-labelledby="industrial-cta-title"
       >
         <div className="container">
-          <div className="industrial-cta-banner">
-            <div className="industrial-cta-content">
-              <div className="industrial-section-eyebrow industrial-section-eyebrow-cta">
-                <span className="industrial-eyebrow-bar" aria-hidden="true" />
-                <span>Work together on your application</span>
-              </div>
-              <h2 id="industrial-cta-title" className="industrial-cta-title">
-                Share the application with our team.
+          <div className="industries-contact-inner">
+            <div className="industries-contact-copy">
+              <span className="industries-contact-eyebrow">Have a specific site or system in mind?</span>
+              <h2 id="industrial-cta-title">
+                Tell us what <span className="industries-highlight">you work with.</span>
               </h2>
-              <p className="industrial-cta-desc">
-                Tell us about your water system, operating conditions and any specific
-                needs, and we&apos;ll help you identify a suitable treatment approach.
+              <p>
+                Share the application area, the system and the operating conditions, and
+                the team can direct your enquiry to the right category.
               </p>
             </div>
-
-            <div className="industrial-cta-action">
-              <Link
-                href="/contact#contact-form"
-                className="btn btn-industrial-cta-action"
-              >
+            <div className="industries-contact-action">
+              <Link className="btn btn-industries-primary" href="/contact#contact-form">
                 <span>Discuss your application</span>
-                <ArrowRight size={17} aria-hidden="true" />
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
-
-            {/* Floating bubbles decoration in banner */}
-            <div className="industrial-cta-bubbles" aria-hidden="true">
-              <img
-                src="/images/solutions/hero-bubbles.png"
-                alt=""
-                className="industrial-cta-bubbles-img"
-              />
-            </div>
-
-            {/* Layered wave bottom decoration in banner */}
-            <div className="industrial-cta-waves" aria-hidden="true">
-              <img
-                src="/images/solutions/hero-wave-bottom.png"
-                alt=""
-                className="industrial-cta-waves-img"
-              />
-            </div>
+            <CtaWaterSplashDesign />
           </div>
         </div>
       </section>

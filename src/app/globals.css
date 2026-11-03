@@ -5622,21 +5622,32 @@ html[data-theme="dark"] .footer-credit a,
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 220px;
-  height: 55px;
-  background-image: url("/images/industries/cta-water-splash.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right bottom;
+  width: clamp(260px, 32vw, 420px);
+  height: 100%;
+  max-height: 150px;
   pointer-events: none;
-  z-index: 2;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  overflow: visible;
+}
+
+.cta-water-splash-svg {
+  width: 100%;
+  height: 100%;
+  max-height: 140px;
+  display: block;
+  pointer-events: none;
+  user-select: none;
 }
 
 /* ==========================================================================
    Footer Enhancements for Industries Page
    ========================================================================== */
 
-body:has(.industries-page) .site-footer {
+body:has(.industries-page) .site-footer,
+body:has(.industrial-water-page) .site-footer {
   position: relative;
   overflow: hidden;
   padding-top: 2rem;
@@ -5644,7 +5655,8 @@ body:has(.industries-page) .site-footer {
   border-top: 1px solid #bae6fd;
 }
 
-body:has(.industries-page) .site-footer-waves {
+body:has(.industries-page) .site-footer-waves,
+body:has(.industrial-water-page) .site-footer-waves {
   position: absolute;
   left: 0;
   right: 0;
@@ -5658,7 +5670,8 @@ body:has(.industries-page) .site-footer-waves {
   z-index: 1;
 }
 
-body:has(.industries-page) .footer-column h2 {
+body:has(.industries-page) .footer-column h2,
+body:has(.industrial-water-page) .footer-column h2 {
   color: #10213B;
   font-weight: 800;
   font-size: 0.78rem;
@@ -5666,17 +5679,20 @@ body:has(.industries-page) .footer-column h2 {
   text-transform: uppercase;
 }
 
-body:has(.industries-page) .footer-column a {
+body:has(.industries-page) .footer-column a,
+body:has(.industrial-water-page) .footer-column a {
   color: #52677F;
   font-size: 0.77rem;
   transition: color 0.2s ease;
 }
 
-body:has(.industries-page) .footer-column a:hover {
+body:has(.industries-page) .footer-column a:hover,
+body:has(.industrial-water-page) .footer-column a:hover {
   color: #0879E8;
 }
 
-body:has(.industries-page) .footer-bottom {
+body:has(.industries-page) .footer-bottom,
+body:has(.industrial-water-page) .footer-bottom {
   position: relative;
   z-index: 2;
   border-top: 1px solid rgba(186, 230, 253, 0.6);
@@ -5982,7 +5998,9 @@ body:has(.industries-page) .footer-bottom {
   }
 
   .industries-cta-wave-decor {
-    display: none;
+    width: 200px;
+    max-height: 90px;
+    opacity: 0.65;
   }
 }
 
@@ -27197,7 +27215,7 @@ main {
 .industrial-water-page .industrial-water-hero.industrial-water-reference-hero {
   position: relative;
   overflow: hidden;
-  padding: 2.2rem 0 5rem;
+  padding: 2.2rem 0 clamp(3.2rem, 5vw, 4.2rem);
   background:
     radial-gradient(ellipse 65% 60% at 75% 35%, rgba(186, 230, 253, 0.45) 0%, transparent 70%),
     radial-gradient(ellipse 50% 50% at 20% 30%, rgba(224, 242, 254, 0.5) 0%, transparent 60%),
@@ -27230,14 +27248,14 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  color: #0879E8;
+  color: #1769A6;
   text-decoration: none;
   font-weight: 700;
   transition: color 0.2s ease;
 }
 
 .industrial-water-breadcrumb-home:hover {
-  color: #0369a1;
+  color: #125682;
 }
 
 .industrial-water-breadcrumb-sep {
@@ -27252,7 +27270,7 @@ main {
 }
 
 .industrial-water-page .industrial-water-breadcrumbs a:hover {
-  color: #0879E8;
+  color: #1769A6;
 }
 
 .industrial-water-page .industrial-water-breadcrumbs span[aria-current="page"] {
@@ -27286,7 +27304,7 @@ main {
 }
 
 .industrial-hero-highlight {
-  color: #0879E8;
+  color: #1769A6;
 }
 
 /* Decorative Accent Line */
@@ -27294,7 +27312,7 @@ main {
   width: 48px;
   height: 3.5px;
   border-radius: 999px;
-  background: #0879E8;
+  background: #1769A6;
   margin: 1.15rem 0 1.35rem;
 }
 
@@ -27322,18 +27340,18 @@ main {
   gap: 0.5rem;
   border-radius: 999px;
   padding: 0.6rem 1.6rem;
-  background: linear-gradient(135deg, #0879E8 0%, #0284c7 100%);
+  background: linear-gradient(135deg, #1769A6 0%, #1C5F91 100%);
   color: #ffffff;
   font-size: 0.84rem;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 8px 22px rgba(8, 121, 232, 0.32);
+  box-shadow: 0 8px 22px rgba(23, 105, 166, 0.22);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-industrial-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(8, 121, 232, 0.42);
+  box-shadow: 0 12px 28px rgba(23, 105, 166, 0.32);
 }
 
 .btn-industrial-secondary {
@@ -27342,7 +27360,7 @@ main {
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  border: 1.5px solid #0879E8;
+  border: 1.5px solid #1769A6;
   border-radius: 999px;
   padding: 0.6rem 1.5rem;
   background: #ffffff;
@@ -27350,20 +27368,20 @@ main {
   font-size: 0.84rem;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(8, 121, 232, 0.08);
+  box-shadow: 0 4px 14px rgba(23, 105, 166, 0.08);
   transition: all 0.2s ease;
 }
 
 .btn-industrial-secondary svg {
-  color: #0879E8;
+  color: #1769A6;
   transition: transform 0.2s ease;
 }
 
 .btn-industrial-secondary:hover {
-  border-color: #0284c7;
-  color: #0879E8;
+  border-color: #125682;
+  color: #1769A6;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(8, 121, 232, 0.16);
+  box-shadow: 0 6px 18px rgba(23, 105, 166, 0.14);
 }
 
 .btn-industrial-secondary:hover svg {
@@ -27380,7 +27398,7 @@ main {
   animation: heroImageReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
 }
 
-/* Decorative Geometric Shape Behind Image */
+/* Decorative Technical Architectural Backdrop Behind Image */
 .industrial-hero-backdrop-shape {
   position: absolute;
   inset: 0;
@@ -27388,30 +27406,42 @@ main {
   z-index: 1;
 }
 
-.industrial-hero-tab-topright {
+.industrial-hero-backdrop-glow {
   position: absolute;
-  top: -18px;
-  right: -8px;
-  width: 160px;
-  height: 52px;
-  background: linear-gradient(135deg, #7dd3fc 0%, #0879E8 100%);
-  border-radius: 20px 24px 0 0;
-  clip-path: polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%);
-  z-index: 1;
-  box-shadow: 0 8px 20px rgba(8, 121, 232, 0.2);
+  top: -24px;
+  right: -24px;
+  bottom: -24px;
+  left: -24px;
+  background: radial-gradient(ellipse 75% 65% at 50% 50%, rgba(23, 105, 166, 0.18) 0%, rgba(185, 217, 232, 0.10) 45%, transparent 72%);
+  filter: blur(14px);
+  border-radius: 36px;
+  z-index: 0;
 }
 
-.industrial-hero-tab-bottomleft {
+.industrial-hero-backdrop-frame {
   position: absolute;
-  bottom: -28px;
-  left: -22px;
-  width: 140px;
-  height: 110px;
-  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
-  border-radius: 22px 0 0 34px;
-  clip-path: polygon(0% 25%, 100% 0%, 100% 100%, 0% 100%);
+  top: -12px;
+  right: -12px;
+  bottom: 12px;
+  left: 12px;
+  border: 1.5px solid rgba(23, 105, 166, 0.22);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(23, 105, 166, 0.03) 0%, rgba(185, 217, 232, 0.07) 100%);
   z-index: 1;
-  box-shadow: 0 8px 20px rgba(8, 121, 232, 0.2);
+  pointer-events: none;
+}
+
+.industrial-hero-backdrop-dots {
+  position: absolute;
+  top: -24px;
+  left: -20px;
+  width: 80px;
+  height: 80px;
+  background-image: radial-gradient(rgba(23, 105, 166, 0.32) 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+  opacity: 0.85;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* Image Container */
@@ -27423,8 +27453,8 @@ main {
   border: 4px solid #ffffff;
   background: #ffffff;
   box-shadow:
-    0 16px 42px rgba(8, 121, 232, 0.18),
-    0 4px 14px rgba(16, 33, 59, 0.08);
+    0 16px 42px rgba(23, 105, 166, 0.14),
+    0 4px 14px rgba(11, 25, 44, 0.06);
   overflow: hidden;
   aspect-ratio: 16 / 9.2;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
@@ -27433,8 +27463,8 @@ main {
 .industrial-water-figure-wrap:hover {
   transform: translateY(-4px);
   box-shadow:
-    0 22px 50px rgba(8, 121, 232, 0.25),
-    0 8px 20px rgba(16, 33, 59, 0.12);
+    0 22px 50px rgba(23, 105, 166, 0.20),
+    0 8px 20px rgba(11, 25, 44, 0.10);
 }
 
 .industrial-water-hero-img {
@@ -27457,12 +27487,13 @@ main {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 85px;
+  height: clamp(65px, 6.5vw, 85px);
   pointer-events: none;
   z-index: 3;
   overflow: hidden;
 }
 
+.industrial-hero-wave-svg,
 .industrial-wave-img {
   width: 100%;
   height: 100%;
@@ -27586,7 +27617,7 @@ main {
   display: inline-block;
   width: 4px;
   height: 16px;
-  background: #0879E8;
+  background: #1769A6;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -27596,7 +27627,7 @@ main {
   align-items: flex-end;
   justify-content: space-between;
   gap: 2rem;
-  margin-bottom: 2.25rem;
+  margin-bottom: clamp(1.25rem, 2vw, 1.75rem);
 }
 
 .industrial-water-page .industrial-section-header-left {
@@ -27623,7 +27654,7 @@ main {
 
 .industrial-water-page .industrial-header-divider {
   width: 3px;
-  background: #0879E8;
+  background: #1769A6;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -27639,7 +27670,7 @@ main {
    1. FUNCTION SECTION (Industrial water categories - 4 Cards)
    -------------------------------------------------------------------------- */
 .industrial-water-page .industrial-function-section {
-  padding: clamp(3.5rem, 6vw, 4.75rem) 0 clamp(3rem, 5vw, 4rem);
+  padding: clamp(1.15rem, 2vw, 1.65rem) 0 clamp(1.75rem, 3vw, 2.25rem);
   background: #FFFFFF;
   scroll-margin-top: 5rem;
 }
@@ -27665,20 +27696,20 @@ main {
 
 .industrial-water-page .industrial-function-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(8, 121, 232, 0.12);
-  border-color: #BFDBFE;
+  box-shadow: 0 12px 32px rgba(23, 105, 166, 0.10);
+  border-color: #B9D9E8;
 }
 
 .industrial-water-page .industrial-function-icon-box {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: #EBF4FE;
+  background: #EAF3F8;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.25rem;
-  color: #0879E8;
+  color: #1769A6;
   flex-shrink: 0;
 }
 
@@ -27705,7 +27736,7 @@ main {
   width: fit-content;
   font-size: 0.85rem;
   font-weight: 700;
-  color: #0879E8;
+  color: #1769A6;
   text-decoration: none;
   position: relative;
   z-index: 2;
@@ -27724,20 +27755,24 @@ main {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 105px;
-  height: 56px;
+  width: 120px;
+  height: 70px;
   pointer-events: none;
   z-index: 1;
-  object-fit: contain;
-  object-position: bottom right;
-  opacity: 0.95;
+  opacity: 0.85;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.industrial-water-page .industrial-approach-card:hover .industrial-card-water-splash {
+  transform: scale(1.06) translate(-2px, -2px);
+  opacity: 1;
 }
 
 /* --------------------------------------------------------------------------
    2. PROBLEMS SECTION (Every system has its own set of problems)
    -------------------------------------------------------------------------- */
 .industrial-water-page .industrial-problems-section {
-  padding: clamp(3.5rem, 6vw, 4.75rem) 0;
+  padding: clamp(2rem, 3.5vw, 2.75rem) 0;
   background: linear-gradient(180deg, #F4F8FD 0%, #FFFFFF 100%);
   scroll-margin-top: 5rem;
 }
@@ -27754,7 +27789,7 @@ main {
   border-radius: 20px;
   overflow: hidden;
   border: 4px solid #FFFFFF;
-  box-shadow: 0 12px 36px rgba(8, 121, 232, 0.12), 0 0 0 1px #D6E7FC;
+  box-shadow: 0 12px 36px rgba(23, 105, 166, 0.10), 0 0 0 1px #D6E7FC;
   aspect-ratio: 16 / 10;
   background: #EBF3FC;
 }
@@ -27767,7 +27802,7 @@ main {
 }
 
 .industrial-water-page .industrial-problems-title {
-  margin: 0.55rem 0 1.85rem;
+  margin: 0.45rem 0 1.25rem;
   font-size: clamp(1.8rem, 2.7vw, 2.35rem);
   font-weight: 800;
   color: #10213B;
@@ -27807,8 +27842,8 @@ main {
   width: 22px;
   height: 22px;
   border-radius: 6px;
-  background: #E8F3FE;
-  color: #0879E8;
+  background: #EAF3F8;
+  color: #1769A6;
   flex-shrink: 0;
   margin-top: 1px;
 }
@@ -27817,7 +27852,7 @@ main {
    3. TREATMENT APPROACH SECTION (Categories in the industrial range - 2x2)
    -------------------------------------------------------------------------- */
 .industrial-water-page .industrial-approach-section {
-  padding: clamp(3.5rem, 6vw, 4.75rem) 0;
+  padding: clamp(2rem, 3.5vw, 2.75rem) 0;
   background: #FFFFFF;
   scroll-margin-top: 5rem;
 }
@@ -27841,8 +27876,8 @@ main {
 
 .industrial-water-page .industrial-approach-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(8, 121, 232, 0.12);
-  border-color: #BFDBFE;
+  box-shadow: 0 12px 32px rgba(23, 105, 166, 0.10);
+  border-color: #B9D9E8;
 }
 
 .industrial-water-page .industrial-approach-card-inner {
@@ -27857,11 +27892,11 @@ main {
   width: 54px;
   height: 54px;
   border-radius: 14px;
-  background: #EBF4FE;
+  background: #EAF3F8;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0879E8;
+  color: #1769A6;
   flex-shrink: 0;
 }
 
@@ -27915,7 +27950,7 @@ main {
   width: fit-content;
   font-size: 0.88rem;
   font-weight: 700;
-  color: #0879E8;
+  color: #1769A6;
   text-decoration: none;
 }
 
@@ -27931,7 +27966,7 @@ main {
    4. CATALOGUE SECTION (Also in the industrial catalogue - 5 Rows)
    -------------------------------------------------------------------------- */
 .industrial-water-page .industrial-catalogue-section {
-  padding: clamp(3.5rem, 6vw, 4.75rem) 0;
+  padding: clamp(2rem, 3.5vw, 2.75rem) 0 clamp(1.25rem, 2.2vw, 1.75rem);
   background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FE 100%);
   scroll-margin-top: 5rem;
 }
@@ -27958,8 +27993,8 @@ main {
 
 .industrial-water-page .industrial-catalogue-row:hover {
   transform: translateY(-2px);
-  border-color: #BFDBFE;
-  box-shadow: 0 6px 20px rgba(8, 121, 232, 0.08);
+  border-color: #B9D9E8;
+  box-shadow: 0 6px 20px rgba(23, 105, 166, 0.08);
 }
 
 .industrial-water-page .industrial-catalogue-title-col {
@@ -27974,7 +28009,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0879E8;
+  color: #1769A6;
 }
 
 .industrial-water-page .industrial-catalogue-title {
@@ -28016,7 +28051,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0879E8;
+  color: #1769A6;
   flex-shrink: 0;
   margin-left: 0.5rem;
   transition: transform 0.2s ease;
@@ -28029,6 +28064,11 @@ main {
 /* --------------------------------------------------------------------------
    5. BOTTOM CTA SECTION (Share the application with our team - Banner)
    -------------------------------------------------------------------------- */
+.industrial-water-page .industries-contact-band {
+  padding: 0.75rem 0 3.25rem;
+  background: #ffffff;
+}
+
 .industrial-water-page .industrial-cta-section {
   padding: clamp(3.5rem, 6vw, 4.75rem) 0 clamp(4rem, 7vw, 6rem);
   background: #FFFFFF;
