@@ -37,6 +37,7 @@ import {
   Phone,
   ScrollText,
   ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -132,6 +133,45 @@ const pqrsTiles = [
     letter: "S",
     title: "Service",
     description: "A direct conversation with the team about the product and its intended use.",
+  },
+];
+
+const vklinFeaturedProducts = [
+  {
+    name: "Multipurpose Cleaner",
+    tagline: "3-in-1 action for tiles, kitchen counters, sinks & grease removal.",
+    image: "/vklin-products/vklin-multipurpose-surface-cleaner.webp",
+    alt: "V-Klin Multipurpose Surface Cleaner",
+    href: "/vklin/products/multipurpose-surface-cleaner",
+  },
+  {
+    name: "Golden Floor Deodoriser",
+    tagline: "Sparkling clean floors with long-lasting residual fragrance for homes & offices.",
+    image: "/vklin-products/vklin-golden-floor-cleaner.webp",
+    alt: "V-Klin Golden Floor Cleaner",
+    href: "/vklin/products/golden-floor-cleaner",
+  },
+  {
+    name: "Dishwash Liquid Gel",
+    tagline: "Lemon grease-cutting enzymes for spotless utensils, gentle on hands.",
+    image: "/vklin-products/vklin-dishwash-liquid-gel-lemon.webp",
+    alt: "V-Klin Dishwash Liquid Gel Lemon",
+    href: "/vklin/products/dishwash-liquid-gel-lemon",
+  },
+  {
+    name: "Streak-Free Glass Cleaner",
+    tagline: "Crystal clear shine on windows, mirrors, display counters & windshields.",
+    image: "/vklin-products/vklin-streak-free-glass-cleaner.webp",
+    alt: "V-Klin Streak-Free Glass Cleaner",
+    href: "/vklin/products/glass-cleaner",
+  },
+  {
+    name: "Herbal Mosquito Repellent",
+    tagline: "Natural Neem & Citronella oil formula without toxic fumes or irritation.",
+    image: "/vklin-products/vklin-herbal-mosquito-repellent.webp",
+    alt: "V-Klin Herbal Mosquito Repellent",
+    href: "/vklin/products/herbal-mosquito-repellent",
+    badge: "100% Herbal",
   },
 ];
 
@@ -519,97 +559,44 @@ export default function Home() {
         {/* V-Klin Popular Everyday Products Shelf (Real Bottles & Real Tasks) */}
         <div className="hp-vklin-products-showcase hp-reveal">
           <div className="hp-vklin-showcase-head">
+            <span className="hp-vklin-showcase-eyebrow">
+              <Sparkles size={13} strokeWidth={2.4} aria-hidden="true" />
+              The V-Klin shelf
+            </span>
             <h3>Popular V-Klin Formulations in Daily Use</h3>
             <p>Everyday cleaning solutions formulated for homes, institutions, and facilities.</p>
           </div>
 
-          <div className="hp-vklin-cards-grid">
-            <div className="hp-vklin-item-card">
-              <div className="hp-vklin-thumb-box">
-                <Image
-                  src="/vklin-products/vklin-multipurpose-surface-cleaner.webp"
-                  alt="V-Klin Multipurpose Surface Cleaner"
-                  width={180}
-                  height={180}
-                  className="hp-vklin-thumb"
-                />
-              </div>
-              <h4>Multipurpose Cleaner</h4>
-              <p>3-in-1 action for tiles, kitchen counters, sinks & grease removal.</p>
-              <Link href="/vklin/products/multipurpose-surface-cleaner" className="hp-vklin-card-link">
-                View product &rarr;
-              </Link>
-            </div>
-
-            <div className="hp-vklin-item-card">
-              <div className="hp-vklin-thumb-box">
-                <Image
-                  src="/vklin-products/vklin-golden-floor-cleaner.webp"
-                  alt="V-Klin Golden Floor Cleaner"
-                  width={180}
-                  height={180}
-                  className="hp-vklin-thumb"
-                />
-              </div>
-              <h4>Golden Floor Deodoriser</h4>
-              <p>Sparkling clean floors with long-lasting residual fragrance for homes & offices.</p>
-              <Link href="/vklin/products/golden-floor-cleaner" className="hp-vklin-card-link">
-                View product &rarr;
-              </Link>
-            </div>
-
-            <div className="hp-vklin-item-card">
-              <div className="hp-vklin-thumb-box">
-                <Image
-                  src="/vklin-products/vklin-dishwash-liquid-gel-lemon.webp"
-                  alt="V-Klin Dishwash Liquid Gel Lemon"
-                  width={180}
-                  height={180}
-                  className="hp-vklin-thumb"
-                />
-              </div>
-              <h4>Dishwash Liquid Gel</h4>
-              <p>Lemon grease-cutting enzymes for spotless utensils, gentle on hands.</p>
-              <Link href="/vklin/products/dishwash-liquid-gel-lemon" className="hp-vklin-card-link">
-                View product &rarr;
-              </Link>
-            </div>
-
-            <div className="hp-vklin-item-card">
-              <div className="hp-vklin-thumb-box">
-                <Image
-                  src="/vklin-products/vklin-streak-free-glass-cleaner.webp"
-                  alt="V-Klin Streak-Free Glass Cleaner"
-                  width={180}
-                  height={180}
-                  className="hp-vklin-thumb"
-                />
-              </div>
-              <h4>Streak-Free Glass Cleaner</h4>
-              <p>Crystal clear shine on windows, mirrors, display counters & windshields.</p>
-              <Link href="/vklin/products/glass-cleaner" className="hp-vklin-card-link">
-                View product &rarr;
-              </Link>
-            </div>
-
-            <div className="hp-vklin-item-card hp-vklin-item-highlight">
-              <div className="hp-vklin-thumb-box">
-                <Image
-                  src="/vklin-products/vklin-herbal-mosquito-repellent.webp"
-                  alt="V-Klin Herbal Mosquito Repellent"
-                  width={180}
-                  height={180}
-                  className="hp-vklin-thumb"
-                />
-              </div>
-              <span className="hp-vklin-botanical-pill">100% Herbal</span>
-              <h4>Herbal Mosquito Repellent</h4>
-              <p>Natural Neem & Citronella oil formula without toxic fumes or irritation.</p>
-              <Link href="/vklin/products/herbal-mosquito-repellent" className="hp-vklin-card-link">
-                View product &rarr;
-              </Link>
-            </div>
-          </div>
+          <ul className="hp-vklin-cards-grid">
+            {vklinFeaturedProducts.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={`hp-vklin-item-card${item.badge ? " hp-vklin-item-highlight" : ""}`}
+                  aria-label={`View ${item.name} product details`}
+                >
+                  {item.badge && (
+                    <span className="hp-vklin-botanical-pill">{item.badge}</span>
+                  )}
+                  <span className="hp-vklin-thumb-box">
+                    <Image
+                      src={item.image}
+                      alt={item.alt}
+                      width={180}
+                      height={180}
+                      className="hp-vklin-thumb"
+                    />
+                  </span>
+                  <span className="hp-vklin-item-name">{item.name}</span>
+                  <span className="hp-vklin-item-desc">{item.tagline}</span>
+                  <span className="hp-vklin-card-link">
+                    View product
+                    <ArrowRight size={14} strokeWidth={2.4} aria-hidden="true" />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         </div>
