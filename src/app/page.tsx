@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import VKlinHeroSection from "@/components/VKlinHeroSection";
-import HeroCarousel from "@/components/HeroCarousel";
 import VKlinCommercialDemos from "@/components/VKlinCommercialDemos";
 import ScrollReveal from "@/components/ScrollReveal";
 import VKlinVideoPlayer from "@/components/VKlinVideoPlayer";
@@ -27,25 +26,17 @@ import {
   BadgeCheck,
   Building2,
   Check,
-  Droplets,
   Factory,
-  Fan,
   FileCheck2,
-  Gauge,
-  Headset,
   Info,
   Layers,
-  Layers3,
   Leaf,
   Mail,
   MapPin,
   MessageCircle,
-  Paintbrush,
   Phone,
   ScrollText,
   ShieldCheck,
-  Wind,
-  Wrench,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -58,9 +49,6 @@ export const metadata: Metadata = {
 /* What we make: one card per range, mirroring the /industries map.   */
 /* ------------------------------------------------------------------ */
 
-const specialtyAreas = ["Odour control", "HVAC coil cleaning", "Rust conversion", "Pool & drinking water"];
-
-
 const rangeProductAreaCount = productMapGroups.reduce(
   (total, group) => total + group.items.length,
   0,
@@ -69,8 +57,8 @@ const rangeProductAreaCount = productMapGroups.reduce(
 /* ------------------------------------------------------------------ */
 /* Flagship specialty products: the three documented specialty items. */
 /* Copy comes from `specialtyProducts` (the claim-reviewed source of   */
-/* truth behind /specialty/*); icons, short chip labels and the safety */
-/* notes below stay faithful to that module.                            */
+/* truth behind /specialty/*); the safety notes below stay faithful    */
+/* to that module.                                                     */
 /* ------------------------------------------------------------------ */
 
 const flagshipChips: Record<string, string[]> = {
@@ -100,11 +88,7 @@ const flagshipMedia: Record<
   },
 };
 
-const flagshipIcons: Record<string, typeof Paintbrush> = {
-  corosil: Paintbrush,
-  "polydor-ws": Wind,
-  polyklin: Fan,
-};
+const flagshipSlugs = new Set(["corosil", "polydor-ws", "polyklin"]);
 
 const flagshipNotes: Record<string, string> = {
   corosil:
@@ -115,8 +99,8 @@ const flagshipNotes: Record<string, string> = {
     "Directions are as published in our product literature; ask for the current sheet.",
 };
 
-const flagshipProducts = specialtyProducts.filter(
-  (product) => product.slug in flagshipIcons,
+const flagshipProducts = specialtyProducts.filter((product) =>
+  flagshipSlugs.has(product.slug),
 );
 
 
@@ -131,41 +115,25 @@ const markets = operatingEnvironments.map(({ id, eyebrow, description }) => ({
 const pqrsTiles = [
   {
     letter: "P",
-    icon: Gauge,
     title: "Performance",
     description: "Formulations considered in the context of the task and operating system.",
   },
   {
     letter: "Q",
-    icon: BadgeCheck,
     title: "Quality",
     description: "A focus on product quality and clear technical documentation.",
   },
   {
     letter: "R",
-    icon: ShieldCheck,
     title: "Reliability",
     description: "A dependable working relationship from product enquiry through supply.",
   },
   {
     letter: "S",
-    icon: Headset,
     title: "Service",
     description: "A direct conversation with the team about the product and its intended use.",
   },
 ];
-
-const WhatsAppCta = ({ className = "" }: { className?: string }) => (
-  <a
-    className={`hp-whatsapp-link ${className}`.trim()}
-    href="https://wa.me/919820235995?text=Hi%20PolyTreat%2C%20I%27d%20like%20to%20discuss%20a%20product%20or%20site%20requirement."
-    target="_blank"
-    rel="noreferrer"
-  >
-    <MessageCircle size={16} aria-hidden="true" />
-    Chat on WhatsApp <ArrowUpRight size={14} aria-hidden="true" className="hp-whatsapp-arrow" />
-  </a>
-);
 
 export default function Home() {
   return (
@@ -291,12 +259,12 @@ export default function Home() {
             </div>
 
             <div className="hp-application-rows hp-stagger">
-              {markets.map(({ icon: Icon, description, href }, index) => (
-                <Link className="hp-application-row" href={href} key={markets[index].href}>
+              {markets.map(({ icon: Icon, title, description, href }, index) => (
+                <Link className="hp-application-row" href={href} key={href}>
                   <span className="hp-application-index">{`0${index + 1}`}</span>
                   <span className="hp-application-icon"><Icon size={20} strokeWidth={1.8} aria-hidden="true" /></span>
                   <span className="hp-application-copy">
-                    <strong>{markets[index].title}</strong>
+                    <strong>{title}</strong>
                     <span>{description}</span>
                   </span>
                   <ArrowUpRight className="hp-application-arrow" size={18} aria-hidden="true" />
@@ -699,7 +667,7 @@ export default function Home() {
               <div className="hp-pqrs hp-reveal-scale">
                 <h3 className="hp-pqrs-label">The PQRS framework</h3>
                 <div className="hp-pqrs-list">
-                  {pqrsTiles.map(({ letter, icon: Icon, title, description }) => (
+                  {pqrsTiles.map(({ letter, title, description }) => (
                     <article className={`hp-pqrs-tile hp-pqrs-${letter.toLowerCase()}`} key={letter}>
                       <span className="hp-pqrs-letter" aria-hidden="true">{letter}</span>
                       <div className="hp-pqrs-copy">
