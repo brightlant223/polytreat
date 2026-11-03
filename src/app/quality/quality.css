@@ -1917,31 +1917,56 @@
 }
 
 .qp-domains-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   gap: 1.5rem;
-  margin-top: 1.5rem;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  padding: 8px 4px 20px;
+  margin: -8px -4px -20px;
+}
+
+.qp-domains-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .qp-domain-card {
+  flex: 0 0 calc((100% - 3rem) / 3);
+  max-width: calc((100% - 3rem) / 3);
+  width: calc((100% - 3rem) / 3);
+  min-width: 0;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  grid-column: auto;
   background: #F8FCFD;
   border: 1px solid var(--qp-border);
   border-radius: 18px;
   padding: 1.75rem 1.6rem;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   transition: all 0.24s var(--qp-ease);
 }
 
-.qp-domain-card:hover {
-  transform: translateY(-3px);
-  background: #FFFFFF;
-  border-color: rgba(2, 132, 199, 0.45);
-  box-shadow: 0 14px 32px rgba(14, 116, 144, 0.1);
-}
-
-.qp-domain-card-wide {
-  grid-column: span 1;
+@media (min-width: 1025px) and (hover: hover) {
+  .qp-domain-card:hover {
+    transform: translateY(-3px);
+    background: #FFFFFF;
+    border-color: rgba(2, 132, 199, 0.45);
+    box-shadow: 0 14px 32px rgba(14, 116, 144, 0.1);
+  }
 }
 
 .qp-domain-header {
@@ -1949,6 +1974,7 @@
   align-items: flex-start;
   gap: 0.85rem;
   margin-bottom: 0.85rem;
+  flex: 0 0 auto;
 }
 
 .qp-domain-icon {
@@ -1986,13 +2012,15 @@
   line-height: 1.55;
   color: var(--qp-text-muted);
   margin: 0 0 1rem;
+  flex: 0 0 auto;
 }
 
 .qp-domain-app-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+  flex: 0 0 auto;
 }
 
 .qp-domain-app-chip {
@@ -2008,12 +2036,13 @@
 .qp-domain-list {
   list-style: none;
   padding: 0;
-  margin: auto 0 0;
+  margin: 1.25rem 0 0;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   border-top: 1px solid rgba(206, 224, 235, 0.7);
   padding-top: 1rem;
+  flex: 0 0 auto;
 }
 
 .qp-domain-list li {
@@ -2033,6 +2062,78 @@
   background: #0284C7;
   flex-shrink: 0;
   margin-top: 6px;
+}
+
+/* Controls Row (Arrows + Numbers Bar) */
+.qp-domain-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.qp-domain-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: var(--qp-navy, #0B192C);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.qp-domain-arrow:hover:not(:disabled) {
+  background: var(--qp-blue, #0284C7);
+  color: #fff;
+  border-color: var(--qp-blue, #0284C7);
+}
+
+.qp-domain-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.qp-domain-numbers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.4rem;
+  border-radius: 999px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+}
+
+.qp-domain-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #64748b;
+  background: transparent;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.qp-domain-num.is-active {
+  background: var(--qp-blue, #0284C7);
+  color: #fff;
+  transform: scale(1.05);
 }
 
 /* ==========================================================================
@@ -2286,12 +2387,10 @@
     grid-column: span 2;
   }
 
-  .qp-domains-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .qp-domain-card:last-child {
-    grid-column: span 2;
+  .qp-domain-card {
+    flex: 0 0 calc((100% - 1.5rem) / 2);
+    max-width: calc((100% - 1.5rem) / 2);
+    width: calc((100% - 1.5rem) / 2);
   }
 
   .qp-journey-track {
@@ -2472,13 +2571,47 @@
     grid-column: span 1;
   }
 
+  /* Section 7: Mobile Carousel Overrides */
   .qp-domains-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.25rem;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
   }
 
+  .qp-domain-card,
   .qp-domain-card:last-child {
-    grid-column: span 1;
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+    transform: none !important;
+    transition: none;
+  }
+
+  .qp-domain-card:hover,
+  .qp-domain-card:active {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .qp-domain-card,
+  .qp-domain-header,
+  .qp-domain-eyebrow,
+  .qp-domain-header h3,
+  .qp-domain-desc,
+  .qp-domain-list,
+  .qp-domain-list li {
+    white-space: normal;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .qp-domain-app-chips {
+    flex-wrap: wrap;
+  }
+
+  .qp-domain-arrow {
+    display: none;
   }
 
   .qp-doc-band-bullets {
@@ -2488,6 +2621,20 @@
   .qp-btn-band-white {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* Very small phones: compact numbered bar */
+@media (max-width: 359px) {
+  .qp-domain-numbers {
+    gap: 0.35rem;
+    padding: 0.35rem;
+  }
+
+  .qp-domain-num {
+    width: 40px;
+    height: 40px;
+    font-size: 0.875rem;
   }
 }
 

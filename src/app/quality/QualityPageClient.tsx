@@ -11,6 +11,8 @@ import {
   Check,
   ChevronDown,
   ChevronUp,
+  ChevronLeft,
+  ChevronRight,
   FlaskConical,
   Factory,
   Leaf,
@@ -135,6 +137,46 @@ export default function QualityPageClient() {
     const index = Math.round(el.scrollLeft / el.clientWidth);
     setActivePillar(index);
   };
+
+  // Domains carousel ref, visible state & scroll handlers
+  const domainsTrackRef = useRef<HTMLDivElement>(null);
+  const [visibleDomains, setVisibleDomains] = useState<number[]>([0]);
+
+  const getDomainStep = () => {
+    const el = domainsTrackRef.current;
+    const first = el?.firstElementChild as HTMLElement | null;
+    if (!el || !first) return null;
+    const cs = getComputedStyle(el);
+    const gap = parseFloat(cs.columnGap || cs.gap || "0") || 0;
+    return { el, step: first.offsetWidth + gap };
+  };
+
+  const handleDomainsScroll = () => {
+    const s = getDomainStep();
+    if (!s) return;
+    const { el, step } = s;
+    if (step <= 0) return;
+    const first = Math.min(Math.max(Math.round(el.scrollLeft / step), 0), productCoverageDomains.length - 1);
+    const count = Math.max(1, Math.round((el.clientWidth + 1) / step));
+    const last = Math.min(first + count - 1, productCoverageDomains.length - 1);
+    setVisibleDomains(Array.from({ length: last - first + 1 }, (_, i) => first + i));
+  };
+
+  const scrollToDomain = (i: number) => {
+    const s = getDomainStep();
+    if (s) s.el.scrollTo({ left: s.step * i, behavior: "smooth" });
+  };
+
+  const scrollDomainsBy = (dir: 1 | -1) => {
+    const s = getDomainStep();
+    if (s) s.el.scrollBy({ left: s.step * dir, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    handleDomainsScroll();
+    window.addEventListener("resize", handleDomainsScroll);
+    return () => window.removeEventListener("resize", handleDomainsScroll);
+  }, []);
 
   // Batch Journey in-view state for line draw and sequential dot pulse
   const journeyRef = useRef<HTMLElement>(null);
@@ -900,7 +942,11 @@ export default function QualityPageClient() {
             </p>
           </header>
 
-          <div className="qp-domains-grid">
+          <div
+            className="qp-domains-grid"
+            ref={domainsTrackRef}
+            onScroll={handleDomainsScroll}
+          >
             {productCoverageDomains.map((domain, idx) => {
               const Icon = domainIconMap[idx] || Droplets;
               return (
@@ -933,6 +979,43 @@ export default function QualityPageClient() {
                 </article>
               );
             })}
+          </div>
+
+          <div className="qp-domain-controls">
+            <button
+              type="button"
+              className="qp-domain-arrow"
+              aria-label="Previous domain"
+              onClick={() => scrollDomainsBy(-1)}
+              disabled={visibleDomains[0] === 0}
+            >
+              <ChevronLeft size={20} aria-hidden="true" />
+            </button>
+
+            <div className="qp-domain-numbers" role="group" aria-label="Choose product domain">
+              {productCoverageDomains.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className={`qp-domain-num${visibleDomains.includes(i) ? " is-active" : ""}`}
+                  aria-label={`Go to domain ${i + 1}`}
+                  aria-current={visibleDomains.includes(i) ? "true" : undefined}
+                  onClick={() => scrollToDomain(i)}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className="qp-domain-arrow"
+              aria-label="Next domain"
+              onClick={() => scrollDomainsBy(1)}
+              disabled={visibleDomains[visibleDomains.length - 1] === productCoverageDomains.length - 1}
+            >
+              <ChevronRight size={20} aria-hidden="true" />
+            </button>
           </div>
         </div>
       </section>
