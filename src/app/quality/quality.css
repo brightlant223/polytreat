@@ -403,6 +403,45 @@
   transform-origin: 85px 220px;
 }
 
+@media (max-width: 768px) {
+  .qp-hero-chips-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+    width: 100%;
+  }
+
+  .qp-hero-chips-row .qp-chip {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    white-space: normal;
+    /* allow wrapping inside the chip */
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    line-height: 1.3;
+    padding: 0.6rem 0.75rem;
+    min-height: 44px;
+  }
+
+  /* 5 chips = odd count, so the last one spans the full row */
+  .qp-hero-chips-row .qp-chip:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Very small phones: single column */
+@media (max-width: 359px) {
+  .qp-hero-chips-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .qp-hero-chips-row .qp-chip:last-child {
+    grid-column: auto;
+  }
+}
+
 /* ==========================================================================
    2. STATS ROW (4 CARDS)
    ========================================================================== */
