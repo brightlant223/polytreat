@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -122,9 +122,11 @@ export default function VKlinHeroSection() {
   const [titleIdx, setTitleIdx] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [slideIdx, setSlideIdx] = useState(0);
+  const transitionTimeout = useRef<number | null>(null);
 
   useEffect(() => {
     const slideTimer = setInterval(() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       setSlideIdx((prev) => (prev + 1) % heroSlides.length);
     }, 4000);
 
@@ -133,14 +135,20 @@ export default function VKlinHeroSection() {
 
   useEffect(() => {
     const timer = setInterval(() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       setIsTransitioning(true);
-      setTimeout(() => {
+      transitionTimeout.current = window.setTimeout(() => {
         setTitleIdx((prev) => (prev + 1) % heroTitles.length);
         setIsTransitioning(false);
       }, 350);
     }, 3200);
 
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+      if (transitionTimeout.current !== null) {
+        window.clearTimeout(transitionTimeout.current);
+      }
+    };
   }, []);
 
   return (

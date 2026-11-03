@@ -142,23 +142,50 @@ export default function VKlinCommercialDemos() {
 
   const activeDemo = cleaningDemos[activeTab];
 
-  // Continuous auto-advance every 5.5s
+  // Continuous auto-advance every 5.5s (skipped for reduced-motion users)
   useEffect(() => {
     if (isPaused) return;
 
     const autoTimer = setInterval(() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       setActiveTab((prev) => (prev + 1) % cleaningDemos.length);
     }, 5500);
 
     return () => clearInterval(autoTimer);
   }, [isPaused]);
 
-  // Seamless auto-play whenever activeTab changes
+  // React does not always apply `muted` as a property on <video>, so set it
+  // through the ref on mount.
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
+      videoRef.current.muted = isMuted;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Seamless auto-play whenever activeTab changes. The very first run is
+  // the initial mount: reduced-motion users are not autoplayed at all.
+  // After that, a tab switch is a user action, so playing is intended.
+  const isFirstRun = useRef(true);
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = isMuted;
+
+    if (
+      isFirstRun.current &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      isFirstRun.current = false;
+      video.pause();
+      return;
+    }
+
+    isFirstRun.current = false;
+    video.currentTime = 0;
+    video.play().catch(() => {});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 
   const toggleMute = () => {
@@ -166,6 +193,33 @@ export default function VKlinCommercialDemos() {
     const newMuted = !videoRef.current.muted;
     videoRef.current.muted = newMuted;
     setIsMuted(newMuted);
+  };
+
+  const pauseFromFocus = () => setIsPaused(true);
+  const resumeFromBlur = (event: React.FocusEvent<HTMLElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+      setIsPaused(false);
+    }
+  };
+
+  const handleTabKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const keys = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"];
+    if (!keys.includes(event.key)) return;
+    event.preventDefault();
+
+    let next = activeTab;
+    if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      next = (activeTab - 1 + cleaningDemos.length) % cleaningDemos.length;
+    } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      next = (activeTab + 1) % cleaningDemos.length;
+    } else if (event.key === "Home") {
+      next = 0;
+    } else if (event.key === "End") {
+      next = cleaningDemos.length - 1;
+    }
+
+    setActiveTab(next);
+    document.getElementById(`demo-tab-${cleaningDemos[next].id}`)?.focus();
   };
 
   return (
@@ -198,15 +252,20 @@ export default function VKlinCommercialDemos() {
           aria-label="Cleaning demonstrations"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          onFocus={pauseFromFocus}
+          onBlur={resumeFromBlur}
+          onKeyDown={handleTabKeyDown}
         >
           {cleaningDemos.map((demo, idx) => {
             const isActive = activeTab === idx;
             return (
               <button
                 key={demo.id}
+                id={`demo-tab-${demo.id}`}
                 type="button"
                 role="tab"
                 aria-selected={isActive}
+                aria-controls="cleaning-demos-panel"
                 className={`vklin-mini-tab-item ${isActive ? "is-active" : ""}`}
                 onClick={() => setActiveTab(idx)}
               >
@@ -224,8 +283,13 @@ export default function VKlinCommercialDemos() {
         {/* Compact, Luxury Demonstration Stage Box */}
         <div
           className="vklin-mini-stage hp-reveal-scale"
+          role="tabpanel"
+          id="cleaning-demos-panel"
+          aria-labelledby={`demo-tab-${activeDemo.id}`}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          onFocus={pauseFromFocus}
+          onBlur={resumeFromBlur}
         >
           {/* Slim Top Bar */}
           <div className="vklin-mini-topbar">
@@ -245,7 +309,6 @@ export default function VKlinCommercialDemos() {
                   key={activeDemo.demoVideoSrc}
                   ref={videoRef}
                   src={activeDemo.demoVideoSrc}
-                  autoPlay
                   muted={isMuted}
                   loop
                   playsInline

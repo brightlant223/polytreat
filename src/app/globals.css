@@ -21304,8 +21304,13 @@ a.hp-contact-card:hover svg:last-child {
   .hp-hero-visual,
   .hp-reveal,
   .hp-reveal-scale,
-  .hp-stagger.is-visible>* {
+  .hp-reveal-section,
+  .hp-stagger.is-visible>*,
+  .vklin-rotating-text,
+  .vklin-mini-tab-progress,
+  .vklin-mini-live-dot {
     animation: none !important;
+    transition: none !important;
     opacity: 1 !important;
     transform: none !important;
   }
@@ -25180,7 +25185,7 @@ main {
 }
 
 .vklin-hero-title {
-  font-family: var(--font-playfair, Georgia, 'Times New Roman', serif), sans-serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(2.4rem, 3.8vw, 3.5rem);
   font-weight: 850;
   color: #0B2545;
@@ -29238,5 +29243,26 @@ main {
   .boiler-cooling-page .boiler-card-water-splash {
     width: 90px;
     height: 48px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Progressive enhancement: when scripting is unavailable, reveal      */
+/* sections must still be visible (they default to opacity: 0 and       */
+/* rely on JS to add .is-visible).                                      */
+/* ------------------------------------------------------------------ */
+@media (scripting: none) {
+  .hp-reveal,
+  .hp-reveal-scale,
+  .hp-reveal-section {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .hp-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
   }
 }
