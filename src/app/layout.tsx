@@ -9,6 +9,20 @@ export const metadata: Metadata = {
     "Explore PolyTreat's industrial water treatment, construction chemistry, and V-Klin facility-care product areas. Contact the team to discuss an application or request current product information.",
   keywords:
     "PolyTreat Chemicals, industrial water treatment, boiler water treatment, cooling water, construction chemicals, V-Klin cleaning products",
+  openGraph: {
+    title: "PolyTreat Chemicals | Industrial Water Treatment & Specialty Chemistry",
+    description:
+      "Explore PolyTreat's industrial water treatment, construction chemistry, and V-Klin facility-care product areas. Contact the team to discuss an application or request current product information.",
+    siteName: "PolyTreat Chemicals",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "PolyTreat Chemicals | Industrial Water Treatment & Specialty Chemistry",
+    description:
+      "Explore PolyTreat's industrial water treatment, construction chemistry, and V-Klin facility-care product areas. Contact the team to discuss an application or request current product information.",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

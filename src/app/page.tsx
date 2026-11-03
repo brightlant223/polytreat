@@ -40,7 +40,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "PolyTreat Pvt. Ltd. | Water Treatment, Surface Protection, Polydor & V-Klin Care",
+  title: "PolyTreat Chemicals | Water Treatment, Surface Protection, Polydor & V-Klin Care",
   description:
     "Mumbai manufacturer since 1987 of industrial water-treatment, construction & surface protection, Polydor odour neutraliser, and V-Klin home & facility hygiene products. Explore 28 product areas across four ranges.",
 };
