@@ -30458,9 +30458,10 @@ main {
   color: #10213B;
   font-size: clamp(2.15rem, 3.4vw, 2.85rem);
   font-weight: 850;
-  line-height: 1.1;
-  letter-spacing: -0.035em;
-  word-break: break-word;
+  line-height: 1.20;
+  letter-spacing: -0.025em;
+  word-spacing: 0.03em;
+  word-break: normal;
   overflow-wrap: break-word;
 }
 
@@ -30742,8 +30743,9 @@ main {
   color: #10213B;
   font-size: clamp(1.85rem, 3.2vw, 2.45rem);
   font-weight: 850;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  word-break: normal;
 }
 
 .ro-effluent-page .ro-section-header-right {
@@ -30968,8 +30970,9 @@ main {
   font-size: clamp(1.85rem, 2.8vw, 2.35rem);
   font-weight: 850;
   color: #10213B;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  word-break: normal;
   margin: 0;
 }
 
@@ -31092,8 +31095,9 @@ main {
   font-size: clamp(1.85rem, 2.8vw, 2.35rem);
   font-weight: 850;
   color: #10213B;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  word-break: normal;
   margin: 0;
 }
 
@@ -31366,6 +31370,7 @@ main {
 
   .ro-effluent-page .ro-benefits-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
 }
 
@@ -31375,17 +31380,29 @@ main {
     gap: 2rem;
   }
 
+  .ro-effluent-page .ro-hero-br-desktop,
+  .ro-effluent-page .ro-header-br-desktop {
+    display: none;
+  }
+
   .ro-effluent-page .ro-hero-copy {
     max-width: 100%;
   }
 
+  .ro-effluent-page .ro-hero-copy h1 {
+    font-size: clamp(1.85rem, 5.5vw, 2.5rem);
+    line-height: 1.22;
+    letter-spacing: -0.025em;
+  }
+
   .ro-effluent-page .ro-process-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   .ro-effluent-page .ro-card-inner {
     max-width: 100%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .ro-effluent-page .ro-card-image-wrap {
@@ -31400,82 +31417,577 @@ main {
 
   .ro-effluent-page .ro-benefits-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
 
+  /* 2x2 grid with directional arrows */
   .ro-effluent-page .ro-process-timeline {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.85rem 1.25rem;
+    padding: 0.5rem 0 1rem;
+    position: relative;
   }
 
   .ro-effluent-page .ro-timeline-step-wrap {
-    flex: 0 1 calc(50% - 1.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    flex: unset;
+  }
+
+  .ro-effluent-page .ro-timeline-step {
+    width: 100%;
+    align-items: center;
+    text-align: center;
   }
 
   .ro-effluent-page .ro-timeline-arrow {
     display: none;
   }
+
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(1) .ro-timeline-arrow,
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(3) .ro-timeline-arrow {
+    display: flex !important;
+    position: absolute;
+    right: -13px;
+    top: 52px;
+    transform: translate(50%, -50%);
+    z-index: 4;
+    color: #1769A6;
+    background: #FFFFFF;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid #C4DDF2;
+    box-shadow: 0 2px 8px rgba(23, 105, 166, 0.12);
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(1) .ro-timeline-arrow svg,
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(3) .ro-timeline-arrow svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .ro-effluent-page .ro-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .ro-effluent-page .ro-section-header-right {
+    margin-left: 0;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
+  .ro-effluent-page .ro-hero {
+    padding-top: 1.15rem;
+    padding-bottom: clamp(4.5rem, 8.5vw, 5.5rem);
+  }
+
+  .ro-effluent-page .ro-hero-wave-bottom {
+    height: clamp(44px, 5.5vw, 54px);
+  }
+
+  .ro-effluent-page .industrial-water-breadcrumbs {
+    gap: 0.35rem 0.45rem;
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .ro-effluent-page .ro-hero-copy h1 {
+    font-size: clamp(1.65rem, 6vw, 2.25rem);
+    line-height: 1.24;
+    letter-spacing: -0.02em;
+    word-break: normal;
+    overflow-wrap: break-word;
+    margin-bottom: 0.55rem;
+  }
+
+  .ro-effluent-page .ro-hero-copy p {
+    font-size: 0.92rem;
+    line-height: 1.52;
+  }
+
   .ro-effluent-page .ro-features-strip {
     grid-template-columns: 1fr;
   }
 
   .ro-effluent-page .ro-feature-col {
     border-right: none !important;
-    border-bottom: 1px solid #E2E8F0;
+    border-bottom: 1px solid #EBF4FE;
+    padding: 0.95rem 1.15rem;
   }
 
   .ro-effluent-page .ro-feature-col:last-child {
     border-bottom: none;
   }
 
-  .ro-effluent-page .ro-products-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .ro-effluent-page .ro-process-section {
+    padding-top: 2rem;
+  }
+
+  .ro-effluent-page .ro-process-card {
+    padding: 1.6rem 1.35rem 1.75rem;
+  }
+
+  .ro-effluent-page .ro-card-inner {
+    max-width: 100%;
+  }
+
+  .ro-effluent-page .ro-card-image-wrap {
+    height: 165px;
+    margin: 1.35rem auto 0;
+  }
+
+  .ro-effluent-page .ro-benefits-section {
+    padding: 2.5rem 0;
+  }
+
+  .ro-effluent-page .ro-benefits-heading {
+    font-size: clamp(1.55rem, 5.2vw, 2rem);
+    line-height: 1.22;
   }
 
   .ro-effluent-page .ro-benefits-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
-  .ro-effluent-page .ro-timeline-arrow {
-    display: none;
+  .ro-effluent-page .ro-benefit-card {
+    padding: 1.35rem 1.15rem;
+  }
+
+  .ro-effluent-page .ro-approach-section {
+    padding: 2.75rem 0 2.25rem;
+  }
+
+  .ro-effluent-page .ro-approach-heading {
+    font-size: clamp(1.55rem, 5.2vw, 2rem);
+    line-height: 1.22;
+  }
+
+  /* 2x2 grid with arrows */
+  .ro-effluent-page .ro-process-timeline {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.6rem 1rem;
+    padding: 0.25rem 0 0.5rem;
+    position: relative;
   }
 
   .ro-effluent-page .ro-timeline-step-wrap {
-    flex: 0 1 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    flex: unset;
+  }
+
+  .ro-effluent-page .ro-step-circle-box {
+    width: 58px;
+    height: 58px;
+  }
+
+  .ro-effluent-page .ro-step-circle-box svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .ro-effluent-page .ro-step-title {
+    font-size: 0.85rem;
+    max-width: 135px;
+  }
+
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(1) .ro-timeline-arrow,
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(3) .ro-timeline-arrow {
+    display: flex !important;
+    position: absolute;
+    right: -11px;
+    top: 50px;
+    transform: translate(50%, -50%);
+    width: 26px;
+    height: 26px;
+  }
+
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(1) .ro-timeline-arrow svg,
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(3) .ro-timeline-arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .ro-effluent-page .ro-products-section {
+    padding: 2.75rem 0;
+  }
+
+  .ro-effluent-page .ro-products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .ro-effluent-page .ro-section-title {
+    font-size: clamp(1.45rem, 5.2vw, 1.85rem);
+    line-height: 1.24;
+  }
+
+  .ro-effluent-page .industries-contact-band {
+    padding: 0.5rem 0 2.5rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .ro-effluent-page .ro-hero-actions {
     flex-direction: column;
     width: 100%;
+    gap: 0.75rem;
   }
 
   .ro-effluent-page .ro-hero-actions .btn {
     width: 100%;
+    min-height: 46px;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .ro-effluent-page .ro-process-card {
+    padding: 1.35rem 1.15rem 1.5rem;
+    border-radius: 16px;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .ro-effluent-page .ro-hero {
+    padding-top: 1rem;
+    padding-bottom: clamp(4.25rem, 8.5vw, 5.25rem);
+  }
+
+  .ro-effluent-page .ro-hero-wave-bottom {
+    height: clamp(40px, 5.5vw, 50px);
+  }
+
+  .ro-effluent-page .industrial-water-breadcrumbs {
+    font-size: 0.74rem;
+    gap: 0.3rem 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .ro-effluent-page .ro-hero-copy h1 {
+    font-size: clamp(1.55rem, 6.2vw, 1.95rem);
+    line-height: 1.26;
+    word-spacing: 0.05em;
+    letter-spacing: -0.015em;
+  }
+
+  .ro-effluent-page .ro-hero-accent-line {
+    margin: 0.65rem 0 0.85rem;
+  }
+
+  .ro-effluent-page .ro-hero-copy p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 1.15rem;
+  }
+
+  .ro-effluent-page .ro-hero-visual-col {
+    max-width: 100%;
+    padding: 0.25rem;
+  }
+
+  .ro-effluent-page .ro-hero-backdrop-frame {
+    top: -6px;
+    right: 0;
+    bottom: 6px;
+    left: 0;
+    border-radius: 18px;
+  }
+
+  .ro-effluent-page .ro-hero-backdrop-dots {
+    top: -10px;
+    left: -2px;
+    width: 44px;
+    height: 44px;
+    background-size: 8px 8px;
+  }
+
+  .ro-effluent-page .ro-hero-backdrop-glow {
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    filter: blur(10px);
+  }
+
+  .ro-effluent-page .ro-hero-figure-wrap {
+    border-radius: 16px;
+    border-width: 2.5px;
+  }
+
+  .ro-effluent-page .ro-hero-image-pill {
+    top: 0.65rem;
+    left: 0.65rem;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.68rem;
+  }
+
+  .ro-effluent-page .ro-features-strip {
+    border-radius: 14px;
+  }
+
+  .ro-effluent-page .ro-feature-col {
+    padding: 0.8rem 0.95rem;
+    gap: 0.7rem;
+  }
+
+  .ro-effluent-page .ro-feature-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .ro-effluent-page .ro-feature-title {
+    font-size: 0.84rem;
+  }
+
+  .ro-effluent-page .ro-feature-desc {
+    font-size: 0.72rem;
+  }
+
+  .ro-effluent-page .ro-section-title {
+    font-size: clamp(1.4rem, 5.2vw, 1.75rem);
+    line-height: 1.24;
+  }
+
+  .ro-effluent-page .ro-section-header-right p {
+    font-size: 0.82rem;
+    line-height: 1.48;
+  }
+
+  .ro-effluent-page .ro-card-title {
+    font-size: 1.22rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .ro-effluent-page .ro-card-desc {
+    font-size: 0.84rem;
+    line-height: 1.52;
+    margin-bottom: 1rem;
+  }
+
+  .ro-effluent-page .ro-card-tag {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.65rem;
+  }
+
+  .ro-effluent-page .ro-card-image-wrap {
+    height: 145px;
+    max-width: 200px;
+    margin: 1.1rem auto 0;
+  }
+
+  .ro-effluent-page .ro-card-water-splash {
+    width: 70px;
+    height: 38px;
+    opacity: 0.55;
+  }
+
+  .ro-effluent-page .ro-back-link-wrap {
+    margin-top: 1.25rem;
+  }
+
+  .ro-effluent-page .ro-benefits-section {
+    padding: 2.25rem 0;
+  }
+
+  .ro-effluent-page .ro-benefits-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .ro-effluent-page .ro-benefits-heading {
+    font-size: clamp(1.4rem, 5vw, 1.75rem);
+    line-height: 1.22;
+  }
+
+  .ro-effluent-page .ro-benefit-card {
+    padding: 1.2rem 1rem;
+    border-radius: 14px;
+  }
+
+  .ro-effluent-page .ro-benefit-icon-box {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.75rem;
+  }
+
+  .ro-effluent-page .ro-benefit-card-title {
+    font-size: 0.96rem;
+  }
+
+  .ro-effluent-page .ro-benefit-card-desc {
+    font-size: 0.8rem;
+    line-height: 1.48;
+  }
+
+  .ro-effluent-page .ro-approach-section {
+    padding: 2.25rem 0 1.75rem;
+  }
+
+  .ro-effluent-page .ro-approach-header {
+    margin-bottom: 1.35rem;
+  }
+
+  .ro-effluent-page .ro-approach-heading {
+    font-size: clamp(1.4rem, 5vw, 1.75rem);
+    line-height: 1.22;
+  }
+
+  .ro-effluent-page .ro-process-timeline {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.35rem 0.75rem;
+    padding: 0.25rem 0 0.5rem;
+  }
+
+  .ro-effluent-page .ro-timeline-step-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    flex: unset;
+  }
+
+  .ro-effluent-page .ro-step-circle-box {
+    width: 52px;
+    height: 52px;
+  }
+
+  .ro-effluent-page .ro-step-circle-box svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ro-effluent-page .ro-step-title {
+    font-size: 0.8rem;
+    max-width: 125px;
+    line-height: 1.3;
+  }
+
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(1) .ro-timeline-arrow,
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(3) .ro-timeline-arrow {
+    display: flex !important;
+    position: absolute;
+    right: -9px;
+    top: 46px;
+    transform: translate(50%, -50%);
+    width: 24px;
+    height: 24px;
+  }
+
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(1) .ro-timeline-arrow svg,
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(3) .ro-timeline-arrow svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .ro-effluent-page .ro-products-section {
+    padding: 2.25rem 0;
   }
 
   .ro-effluent-page .ro-products-grid {
     grid-template-columns: 1fr;
+    gap: 0.9rem;
+    margin-top: 1.25rem;
   }
 
-  .ro-effluent-page .ro-hero-backdrop-frame {
-    top: -8px;
-    right: -8px;
-    bottom: 8px;
-    left: 8px;
+  .ro-effluent-page .ro-product-card {
+    padding: 1.25rem 1rem 1.35rem;
+    border-radius: 14px;
   }
 
-  .ro-effluent-page .ro-card-water-splash {
-    width: 90px;
-    height: 48px;
+  .ro-effluent-page .ro-product-img-wrap {
+    height: 80px;
+    margin-bottom: 0.65rem;
+  }
+
+  .ro-effluent-page .ro-flask-svg {
+    width: 66px;
+    height: 76px;
+  }
+
+  .ro-effluent-page .ro-product-title {
+    font-size: 0.94rem;
+  }
+
+  .ro-effluent-page .ro-product-desc {
+    font-size: 0.78rem;
+    line-height: 1.4;
+    margin-bottom: 0.95rem;
+  }
+
+  .ro-effluent-page .ro-product-arrow-btn {
+    width: 32px;
+    height: 32px;
   }
 }
 
+@media (max-width: 360px) {
+  .ro-effluent-page .ro-process-timeline {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem 0.5rem;
+  }
 
+  .ro-effluent-page .ro-timeline-step-wrap {
+    flex: unset;
+    width: 100%;
+  }
+
+  .ro-effluent-page .ro-step-title {
+    font-size: 0.76rem;
+    max-width: 115px;
+  }
+
+  .ro-effluent-page .ro-step-circle-box {
+    width: 46px;
+    height: 46px;
+  }
+
+  .ro-effluent-page .ro-step-circle-box svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(1) .ro-timeline-arrow,
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(3) .ro-timeline-arrow {
+    display: flex !important;
+    position: absolute;
+    right: -7px;
+    top: 42px;
+    transform: translate(50%, -50%);
+    width: 22px;
+    height: 22px;
+  }
+
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(1) .ro-timeline-arrow svg,
+  .ro-effluent-page .ro-timeline-step-wrap:nth-child(3) .ro-timeline-arrow svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .ro-effluent-page .ro-hero-copy h1 {
+    font-size: 1.45rem;
+  }
+}
 
 /* Laptop gap fix: the enlarged navbar overflowed into the logo/CTA between
    1024-1279px (nav content > available width). Compact the bar in this band

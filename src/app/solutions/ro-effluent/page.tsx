@@ -323,7 +323,8 @@ export default function RoEffluentPage() {
               </div>
 
               <h1 id="ro-effluent-title">
-                RO and effluent<br />
+                RO and effluent{" "}
+                <br className="ro-hero-br-desktop" />
                 <span className="ro-hero-highlight">treatment categories.</span>
               </h1>
 
@@ -590,7 +591,8 @@ export default function RoEffluentPage() {
             <div className="ro-benefits-header">
               <span className="ro-badge-pill">Key benefits</span>
               <h2 id="ro-benefits-title" className="ro-benefits-heading">
-                Why treat RO &amp;<br />
+                Why treat RO &amp;{" "}
+                <br className="ro-header-br-desktop" />
                 effluent systems?
               </h2>
             </div>
@@ -624,7 +626,8 @@ export default function RoEffluentPage() {
           <div className="ro-approach-header">
             <span className="ro-section-subeyebrow">Our treatment approach</span>
             <h2 id="ro-approach-title" className="ro-approach-heading">
-              A complete water<br />
+              A complete water{" "}
+              <br className="ro-header-br-desktop" />
               treatment programme.
             </h2>
           </div>
@@ -667,7 +670,8 @@ export default function RoEffluentPage() {
                 <span>Product areas</span>
               </div>
               <h2 id="ro-products-title" className="ro-section-title">
-                Treatment solutions<br />
+                Treatment solutions{" "}
+                <br className="ro-header-br-desktop" />
                 for RO &amp; effluent systems.
               </h2>
             </div>
