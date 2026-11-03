@@ -28307,11 +28307,12 @@ main {
 .boiler-cooling-page .boiler-cooling-hero {
   position: relative;
   background:
-    radial-gradient(ellipse at 86% 18%, rgba(8, 121, 232, 0.12), transparent 42%),
-    radial-gradient(ellipse at 14% 82%, rgba(14, 165, 233, 0.08), transparent 38%),
-    linear-gradient(180deg, #F0F7FD 0%, #F9FCFF 55%, #EBF5FE 100%);
-  padding: 1.25rem 0 clamp(6.8rem, 8vw, 7.6rem);
+    radial-gradient(ellipse 65% 60% at 75% 35%, rgba(185, 217, 232, 0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 20% 30%, rgba(234, 243, 248, 0.6) 0%, transparent 60%),
+    linear-gradient(135deg, #f0f7fd 0%, #f9fcff 45%, #ebf5fe 100%);
+  padding: 1.35rem 0 clamp(5.25rem, 7.5vw, 6.75rem);
   overflow: hidden;
+  border-bottom: 1px solid rgba(185, 217, 232, 0.4);
 }
 
 .boiler-cooling-page .boiler-cooling-hero::before {
@@ -28326,7 +28327,7 @@ main {
 
 .boiler-cooling-page .boiler-hero-container {
   position: relative;
-  z-index: 2;
+  z-index: 4;
 }
 
 /* Breadcrumbs */
@@ -28351,7 +28352,7 @@ main {
 }
 
 .boiler-cooling-page .industrial-water-breadcrumbs a:hover {
-  color: #0879E8;
+  color: #1769A6;
 }
 
 .boiler-cooling-page .industrial-water-breadcrumbs span[aria-current="page"] {
@@ -28383,9 +28384,9 @@ main {
   gap: 0.45rem;
   padding: 0.3rem 0.85rem;
   border-radius: 999px;
-  background: rgba(8, 121, 232, 0.08);
-  border: 1px solid rgba(8, 121, 232, 0.22);
-  color: #0879E8;
+  background: rgba(23, 105, 166, 0.08);
+  border: 1px solid rgba(23, 105, 166, 0.22);
+  color: #1769A6;
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -28393,7 +28394,7 @@ main {
 }
 
 .boiler-cooling-page .boiler-hero-badge-icon {
-  color: #0879E8;
+  color: #1769A6;
   flex-shrink: 0;
 }
 
@@ -28410,7 +28411,7 @@ main {
 }
 
 .boiler-cooling-page .boiler-hero-highlight {
-  color: #0879E8;
+  color: #1769A6;
 }
 
 /* Accent Line */
@@ -28418,7 +28419,7 @@ main {
   width: 44px;
   height: 3px;
   border-radius: 999px;
-  background: #0879E8;
+  background: #1769A6;
   margin: 0.75rem 0 0.95rem;
 }
 
@@ -28454,38 +28455,60 @@ main {
   z-index: 1;
 }
 
-.boiler-cooling-page .boiler-hero-tab-topright {
+.boiler-cooling-page .boiler-hero-backdrop-glow {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 105px;
-  height: 55px;
-  background: #0879E8;
-  border-radius: 18px;
-  opacity: 0.92;
+  top: -24px;
+  right: -24px;
+  bottom: -24px;
+  left: -24px;
+  background: radial-gradient(ellipse 75% 65% at 50% 50%, rgba(23, 105, 166, 0.18) 0%, rgba(185, 217, 232, 0.10) 45%, transparent 72%);
+  filter: blur(14px);
+  border-radius: 36px;
+  z-index: 0;
 }
 
-.boiler-cooling-page .boiler-hero-tab-bottomleft {
+.boiler-cooling-page .boiler-hero-backdrop-frame {
   position: absolute;
-  bottom: -10px;
-  left: -10px;
+  top: -12px;
+  right: -12px;
+  bottom: 12px;
+  left: 12px;
+  border: 1.5px solid rgba(23, 105, 166, 0.22);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(23, 105, 166, 0.03) 0%, rgba(185, 217, 232, 0.07) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.boiler-cooling-page .boiler-hero-backdrop-dots {
+  position: absolute;
+  top: -24px;
+  left: -20px;
   width: 80px;
   height: 80px;
-  background: #0879E8;
-  border-radius: 18px;
-  opacity: 0.92;
+  background-image: radial-gradient(rgba(23, 105, 166, 0.32) 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+  opacity: 0.85;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .boiler-cooling-page .boiler-hero-figure-wrap {
   position: relative;
   width: 100%;
   max-width: 490px;
-  border-radius: 18px;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 14px 38px rgba(8, 121, 232, 0.14);
+  box-shadow: 0 16px 42px rgba(23, 105, 166, 0.14), 0 4px 14px rgba(11, 25, 44, 0.06);
   border: 3.5px solid #FFFFFF;
-  z-index: 2;
+  z-index: 5;
   background: #FFFFFF;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.boiler-cooling-page .boiler-hero-figure-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px rgba(23, 105, 166, 0.20), 0 8px 20px rgba(11, 25, 44, 0.10);
 }
 
 .boiler-cooling-page .boiler-hero-image-pill {
@@ -28497,14 +28520,14 @@ main {
   gap: 0.4rem;
   padding: 0.38rem 0.75rem;
   background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(8, 121, 232, 0.25);
+  border: 1px solid rgba(23, 105, 166, 0.22);
   border-radius: 999px;
-  color: #0879E8;
+  color: #1769A6;
   font-size: 0.72rem;
   font-weight: 700;
   backdrop-filter: blur(8px);
   z-index: 3;
-  box-shadow: 0 4px 10px rgba(16, 33, 59, 0.08);
+  box-shadow: 0 4px 10px rgba(11, 25, 44, 0.08);
 }
 
 .boiler-cooling-page .boiler-hero-img {
@@ -28527,17 +28550,17 @@ main {
   left: 0;
   right: 0;
   width: 100%;
-  height: clamp(42px, 4.8vw, 54px);
+  height: clamp(55px, 5.8vw, 75px);
   pointer-events: none;
-  z-index: 3;
+  z-index: 2;
   overflow: hidden;
 }
 
+.boiler-cooling-page .boiler-hero-wave-svg,
 .boiler-cooling-page .boiler-wave-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: bottom;
+  object-fit: fill;
   display: block;
 }
 
@@ -28545,7 +28568,7 @@ main {
    2. KEY FEATURES STRIP
    -------------------------------------------------------------------------- */
 .boiler-cooling-page .boiler-features-section {
-  padding: 0;
+  padding: clamp(1.25rem, 2vw, 1.75rem) 0 clamp(0.75rem, 1.25vw, 1.15rem);
   background: #FFFFFF;
   position: relative;
   z-index: 4;
@@ -28555,9 +28578,9 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   background: #FFFFFF;
-  border: 1px solid #E2EEF8;
+  border: 1px solid #B9D9E8;
   border-radius: 18px;
-  box-shadow: 0 6px 24px rgba(8, 121, 232, 0.06);
+  box-shadow: 0 12px 32px rgba(23, 105, 166, 0.10);
   overflow: hidden;
 }
 
@@ -28565,8 +28588,8 @@ main {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1.6rem 1.4rem;
+  gap: 0.85rem;
+  padding: 1.05rem 1.25rem;
   transition: background-color 0.2s ease;
 }
 
@@ -28575,16 +28598,16 @@ main {
 }
 
 .boiler-cooling-page .boiler-feature-icon-box {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  background: #EBF4FE;
-  color: #0879E8;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #EAF3F8;
+  color: #1769A6;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid #DCEAFC;
+  border: 1px solid #D6E8FC;
 }
 
 .boiler-cooling-page .boiler-feature-text {
@@ -28592,18 +28615,18 @@ main {
 }
 
 .boiler-cooling-page .boiler-feature-title {
-  font-size: 0.95rem;
+  font-size: 0.90rem;
   font-weight: 800;
   color: #10213B;
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.15rem;
   letter-spacing: -0.015em;
 }
 
 .boiler-cooling-page .boiler-feature-desc {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: #5B6E88;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 .boiler-cooling-page .boiler-feature-divider {
@@ -28623,7 +28646,7 @@ main {
   align-items: flex-end;
   justify-content: space-between;
   gap: 2rem;
-  margin-bottom: 2.25rem;
+  margin-bottom: 1.35rem;
 }
 
 .boiler-cooling-page .boiler-section-header-left {
@@ -28636,7 +28659,7 @@ main {
   gap: 8px;
   font-size: 0.84rem;
   font-weight: 700;
-  color: #0879E8;
+  color: #1769A6;
   letter-spacing: 0.02em;
 }
 
@@ -28644,8 +28667,8 @@ main {
   width: 22px;
   height: 22px;
   border-radius: 6px;
-  background: #EBF4FE;
-  color: #0879E8;
+  background: #EAF3F8;
+  color: #1769A6;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -28655,7 +28678,7 @@ main {
   display: inline-block;
   width: 4px;
   height: 16px;
-  background: #0879E8;
+  background: #1769A6;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -28680,7 +28703,7 @@ main {
 
 .boiler-cooling-page .boiler-header-divider {
   width: 3px;
-  background: #0879E8;
+  background: #1769A6;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -28696,7 +28719,7 @@ main {
    3. EXPLORE BY SYSTEM (Two systems, distinct operating contexts.)
    -------------------------------------------------------------------------- */
 .boiler-cooling-page .boiler-systems-section {
-  padding: 45px 0 clamp(3rem, 5vw, 4.25rem);
+  padding: clamp(1.25rem, 2.2vw, 2rem) 0 clamp(2.5rem, 4vw, 3.25rem);
   background: #FFFFFF;
   scroll-margin-top: 5rem;
 }
@@ -28705,7 +28728,7 @@ main {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1.25rem;
 }
 
 .boiler-cooling-page .boiler-system-card {
@@ -28715,7 +28738,7 @@ main {
   border-radius: 20px;
   padding: 2.2rem 2.2rem 2.2rem;
   overflow: hidden;
-  box-shadow: 0 6px 25px rgba(8, 121, 232, 0.05);
+  box-shadow: 0 6px 25px rgba(23, 105, 166, 0.04);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -28725,8 +28748,8 @@ main {
 
 .boiler-cooling-page .boiler-system-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(8, 121, 232, 0.12);
-  border-color: #93C5FD;
+  box-shadow: 0 16px 36px rgba(23, 105, 166, 0.10);
+  border-color: #B9D9E8;
 }
 
 .boiler-cooling-page .boiler-card-inner {
@@ -28743,21 +28766,21 @@ main {
 }
 
 .boiler-cooling-page .boiler-card-num-badge {
-  background: #0879E8;
+  background: #1769A6;
   color: #FFFFFF;
   font-weight: 800;
   font-size: 0.85rem;
   padding: 0.28rem 0.85rem;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(8, 121, 232, 0.3);
+  box-shadow: 0 4px 10px rgba(23, 105, 166, 0.22);
 }
 
 .boiler-cooling-page .boiler-card-icon-pill {
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: #EBF4FE;
-  color: #0879E8;
+  background: #EAF3F8;
+  color: #1769A6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28808,14 +28831,14 @@ main {
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
 }
 
 .boiler-cooling-page .boiler-card-img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 10px 18px rgba(8, 121, 232, 0.14));
+  filter: drop-shadow(0 10px 18px rgba(23, 105, 166, 0.10));
 }
 
 .boiler-cooling-page .boiler-card-water-splash {
@@ -28842,7 +28865,7 @@ main {
   gap: 0.45rem;
   font-size: 0.9rem;
   font-weight: 700;
-  color: #0879E8;
+  color: #1769A6;
   text-decoration: none;
   transition: transform 0.2s ease, color 0.2s ease;
 }
@@ -28852,7 +28875,7 @@ main {
 }
 
 .boiler-cooling-page .boiler-back-link:hover {
-  color: #0284C7;
+  color: #125682;
 }
 
 .boiler-cooling-page .boiler-back-link:hover svg {
@@ -28863,16 +28886,18 @@ main {
    4. KEY BENEFITS (Why treat boiler & cooling water?)
    -------------------------------------------------------------------------- */
 .boiler-cooling-page .boiler-benefits-section {
-  padding: clamp(1rem, 2vw, 2rem) 0;
-  background: #FFFFFF;
+  padding: clamp(2.75rem, 4.5vw, 3.75rem) 0;
+  background: linear-gradient(180deg, #F4F8FD 0%, #EDF4FB 100%);
+  border-top: 1px solid #E1EDF7;
+  border-bottom: 1px solid #E1EDF7;
 }
 
 .boiler-cooling-page .boiler-benefits-panel {
-  background: linear-gradient(135deg, #F0F7FD 0%, #E7F3FD 100%);
-  border: 1.5px solid #D5E8F8;
-  border-radius: 24px;
-  padding: clamp(2.5rem, 4vw, 3.5rem);
-  box-shadow: 0 8px 30px rgba(8, 121, 232, 0.05);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
 }
 
 .boiler-cooling-page .boiler-benefits-header {
@@ -28884,8 +28909,8 @@ main {
   padding: 0.3rem 0.85rem;
   border-radius: 999px;
   background: #FFFFFF;
-  border: 1px solid #CBE2F7;
-  color: #0879E8;
+  border: 1px solid #B9D9E8;
+  color: #1769A6;
   font-size: 0.78rem;
   font-weight: 700;
   margin-bottom: 0.6rem;
@@ -28919,16 +28944,16 @@ main {
 
 .boiler-cooling-page .boiler-benefit-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(8, 121, 232, 0.1);
-  border-color: #BFDBFE;
+  box-shadow: 0 10px 28px rgba(23, 105, 166, 0.08);
+  border-color: #B9D9E8;
 }
 
 .boiler-cooling-page .boiler-benefit-icon-box {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: #EBF4FE;
-  color: #0879E8;
+  background: #EAF3F8;
+  color: #1769A6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28951,16 +28976,57 @@ main {
   margin: 0;
 }
 
+/* Key Benefits 4-Color Themes (Green, Red, Orange, Blue) */
+.boiler-cooling-page .boiler-benefit-card.color-green .boiler-benefit-icon-box {
+  background: #ECFDF5;
+  color: #059669;
+  border-color: #A7F3D0;
+}
+.boiler-cooling-page .boiler-benefit-card.color-green:hover {
+  border-color: #A7F3D0;
+  box-shadow: 0 10px 28px rgba(5, 150, 105, 0.14);
+}
+
+.boiler-cooling-page .boiler-benefit-card.color-red .boiler-benefit-icon-box {
+  background: #FFF1F2;
+  color: #E11D48;
+  border-color: #FECDD3;
+}
+.boiler-cooling-page .boiler-benefit-card.color-red:hover {
+  border-color: #FECDD3;
+  box-shadow: 0 10px 28px rgba(225, 29, 72, 0.14);
+}
+
+.boiler-cooling-page .boiler-benefit-card.color-orange .boiler-benefit-icon-box {
+  background: #FFFBEB;
+  color: #D97706;
+  border-color: #FDE68A;
+}
+.boiler-cooling-page .boiler-benefit-card.color-orange:hover {
+  border-color: #FDE68A;
+  box-shadow: 0 10px 28px rgba(217, 119, 6, 0.14);
+}
+
+.boiler-cooling-page .boiler-benefit-card.color-blue .boiler-benefit-icon-box {
+  background: #EAF3F8;
+  color: #1769A6;
+  border-color: #B9D9E8;
+}
+.boiler-cooling-page .boiler-benefit-card.color-blue:hover {
+  border-color: #B9D9E8;
+  box-shadow: 0 10px 28px rgba(23, 105, 166, 0.14);
+}
+
 /* --------------------------------------------------------------------------
    5. TREATMENT APPROACH (Process Timeline)
    -------------------------------------------------------------------------- */
 .boiler-cooling-page .boiler-approach-section {
-  padding: clamp(3.5rem, 6vw, 4.75rem) 0 clamp(2.5rem, 4vw, 3.5rem);
+  padding: clamp(3rem, 5vw, 4.25rem) 0 clamp(2.5rem, 4vw, 3.5rem);
   background: #FFFFFF;
 }
 
 .boiler-cooling-page .boiler-approach-header {
-  margin-bottom: 2.75rem;
+  margin-bottom: 2.25rem;
 }
 
 .boiler-cooling-page .boiler-section-subeyebrow {
@@ -28968,7 +29034,7 @@ main {
   align-items: center;
   font-size: 0.82rem;
   font-weight: 700;
-  color: #0879E8;
+  color: #1769A6;
   letter-spacing: 0.02em;
   margin-bottom: 0.4rem;
 }
@@ -29013,19 +29079,98 @@ main {
   height: 68px;
   border-radius: 50%;
   background: #FFFFFF;
-  border: 2px solid #BAE6FD;
-  color: #0879E8;
+  border: 2px solid #B9D9E8;
+  color: #1769A6;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 20px rgba(8, 121, 232, 0.1);
+  box-shadow: 0 6px 20px rgba(23, 105, 166, 0.08);
   transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
 }
 
 .boiler-cooling-page .boiler-timeline-step:hover .boiler-step-circle-box {
   transform: scale(1.08);
-  border-color: #0879E8;
+  border-color: #1769A6;
   background: #F0F7FE;
+}
+
+/* Treatment Approach 4-Color Themes (Green, Red, Orange, Blue) */
+.boiler-cooling-page .boiler-step-num-pill {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 0.16rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.35rem;
+  display: inline-block;
+}
+
+.boiler-cooling-page .boiler-timeline-step.color-green .boiler-step-num-pill {
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid #A7F3D0;
+}
+.boiler-cooling-page .boiler-timeline-step.color-green .boiler-step-circle-box {
+  border-color: #10B981;
+  color: #059669;
+  background: #F0FDF4;
+  box-shadow: 0 6px 18px rgba(5, 150, 105, 0.10);
+}
+.boiler-cooling-page .boiler-timeline-step.color-green:hover .boiler-step-circle-box {
+  border-color: #059669;
+  background: #ECFDF5;
+  box-shadow: 0 10px 24px rgba(5, 150, 105, 0.22);
+}
+
+.boiler-cooling-page .boiler-timeline-step.color-red .boiler-step-num-pill {
+  background: #FFF1F2;
+  color: #E11D48;
+  border: 1px solid #FECDD3;
+}
+.boiler-cooling-page .boiler-timeline-step.color-red .boiler-step-circle-box {
+  border-color: #F43F5E;
+  color: #E11D48;
+  background: #FFF1F2;
+  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.10);
+}
+.boiler-cooling-page .boiler-timeline-step.color-red:hover .boiler-step-circle-box {
+  border-color: #E11D48;
+  background: #FFE4E6;
+  box-shadow: 0 10px 24px rgba(225, 29, 72, 0.22);
+}
+
+.boiler-cooling-page .boiler-timeline-step.color-orange .boiler-step-num-pill {
+  background: #FFFBEB;
+  color: #D97706;
+  border: 1px solid #FDE68A;
+}
+.boiler-cooling-page .boiler-timeline-step.color-orange .boiler-step-circle-box {
+  border-color: #F59E0B;
+  color: #D97706;
+  background: #FFFDF0;
+  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.10);
+}
+.boiler-cooling-page .boiler-timeline-step.color-orange:hover .boiler-step-circle-box {
+  border-color: #D97706;
+  background: #FFFBEB;
+  box-shadow: 0 10px 24px rgba(217, 119, 6, 0.22);
+}
+
+.boiler-cooling-page .boiler-timeline-step.color-blue .boiler-step-num-pill {
+  background: #EAF3F8;
+  color: #1769A6;
+  border: 1px solid #B9D9E8;
+}
+.boiler-cooling-page .boiler-timeline-step.color-blue .boiler-step-circle-box {
+  border-color: #1769A6;
+  color: #1769A6;
+  background: #F4F8FD;
+  box-shadow: 0 6px 18px rgba(23, 105, 166, 0.10);
+}
+.boiler-cooling-page .boiler-timeline-step.color-blue:hover .boiler-step-circle-box {
+  border-color: #125682;
+  background: #EAF3F8;
+  box-shadow: 0 10px 24px rgba(23, 105, 166, 0.22);
 }
 
 .boiler-cooling-page .boiler-step-title {
@@ -29037,7 +29182,7 @@ main {
 }
 
 .boiler-cooling-page .boiler-timeline-arrow {
-  color: #93C5FD;
+  color: #B9D9E8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29049,8 +29194,9 @@ main {
    6. PRODUCT RANGE (5 Cards)
    -------------------------------------------------------------------------- */
 .boiler-cooling-page .boiler-products-section {
-  padding: clamp(3rem, 5vw, 4.5rem) 0;
-  background: #FFFFFF;
+  padding: clamp(3rem, 5vw, 4.25rem) 0;
+  background: linear-gradient(180deg, #F8FBFE 0%, #FFFFFF 100%);
+  border-top: 1px solid #E6EFF8;
   scroll-margin-top: 5rem;
 }
 
@@ -29058,12 +29204,12 @@ main {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 1.15rem;
-  margin-top: 2.25rem;
+  margin-top: 1.75rem;
 }
 
 .boiler-cooling-page .boiler-product-card {
   background: #FFFFFF;
-  border: 1.5px solid #E2EDF7;
+  border: 1.5px solid #DCE9F6;
   border-radius: 18px;
   padding: 1.6rem 1.25rem 1.5rem;
   box-shadow: 0 4px 18px rgba(16, 33, 59, 0.04);
@@ -29077,29 +29223,26 @@ main {
 
 .boiler-cooling-page .boiler-product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 32px rgba(8, 121, 232, 0.12);
-  border-color: #93C5FD;
+  box-shadow: 0 14px 32px rgba(23, 105, 166, 0.12);
+  border-color: #B9D9E8;
 }
 
 .boiler-cooling-page .boiler-product-img-wrap {
   width: 100%;
-  height: 110px;
+  height: 105px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
-.boiler-cooling-page .boiler-product-img {
-  max-height: 95px;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 6px 12px rgba(8, 121, 232, 0.12));
-  transition: transform 0.3s ease;
+.boiler-cooling-page .boiler-flask-svg {
+  transition: transform 0.35s ease, filter 0.35s ease;
 }
 
-.boiler-cooling-page .boiler-product-card:hover .boiler-product-img {
-  transform: scale(1.05);
+.boiler-cooling-page .boiler-product-card:hover .boiler-flask-svg {
+  transform: translateY(-3px) scale(1.05);
+  filter: drop-shadow(0 8px 16px rgba(23, 105, 166, 0.18));
 }
 
 .boiler-cooling-page .boiler-product-title {
@@ -29122,8 +29265,8 @@ main {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #EBF4FE;
-  color: #0879E8;
+  background: #EAF3F8;
+  color: #1769A6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29134,7 +29277,7 @@ main {
 }
 
 .boiler-cooling-page .boiler-product-arrow-btn:hover {
-  background: #0879E8;
+  background: #1769A6;
   color: #FFFFFF;
   transform: scale(1.1);
 }
@@ -29173,12 +29316,12 @@ main {
   gap: 0.5rem;
   font-size: 0.84rem;
   font-weight: 700;
-  color: #0879E8;
+  color: #1769A6;
   margin-bottom: 0.5rem;
 }
 
 .boiler-cooling-page .boiler-cta-gear-icon {
-  color: #0879E8;
+  color: #1769A6;
   flex-shrink: 0;
 }
 
@@ -29238,8 +29381,8 @@ main {
   z-index: 1;
   opacity: 0.12;
   background:
-    radial-gradient(circle at 30% 60%, #0879E8 25%, transparent 26%),
-    linear-gradient(90deg, #0879E8 0%, transparent 100%);
+    radial-gradient(circle at 30% 60%, #1769A6 25%, transparent 26%),
+    linear-gradient(90deg, #1769A6 0%, transparent 100%);
   mask-image: linear-gradient(to right, black, transparent);
   -webkit-mask-image: linear-gradient(to right, black, transparent);
 }
@@ -29254,8 +29397,8 @@ main {
   z-index: 1;
   opacity: 0.12;
   background:
-    radial-gradient(circle at 70% 60%, #0879E8 25%, transparent 26%),
-    linear-gradient(270deg, #0879E8 0%, transparent 100%);
+    radial-gradient(circle at 70% 60%, #1769A6 25%, transparent 26%),
+    linear-gradient(270deg, #1769A6 0%, transparent 100%);
   mask-image: linear-gradient(to left, black, transparent);
   -webkit-mask-image: linear-gradient(to left, black, transparent);
 }
@@ -29456,18 +29599,11 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .boiler-cooling-page .boiler-hero-tab-topright {
-    width: 85px;
-    height: 45px;
+  .boiler-cooling-page .boiler-hero-backdrop-frame {
     top: -8px;
     right: -8px;
-  }
-
-  .boiler-cooling-page .boiler-hero-tab-bottomleft {
-    width: 70px;
-    height: 70px;
-    bottom: -8px;
-    left: -8px;
+    bottom: 8px;
+    left: 8px;
   }
 
   .boiler-cooling-page .boiler-card-water-splash {
@@ -29497,6 +29633,7 @@ main {
   }
 }
 
+/* ==========================================================================
 /* ==========================================================================
    RO & EFFLUENT TREATMENT REDESIGN
    Scoped exclusively under .ro-effluent-page to match reference image:

@@ -1,3 +1,4 @@
+import { CtaWaterSplashDesign } from "@/components/CtaWaterSplashDesign";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -55,21 +56,25 @@ const keyBenefits = [
     icon: Thermometer,
     title: "Better heat transfer",
     description: "Keeps systems efficient and reliable",
+    color: "green",
   },
   {
     icon: Layers,
     title: "Reduced scaling",
     description: "Minimises deposition and fouling",
+    color: "red",
   },
   {
     icon: ShieldCheck,
     title: "Lower corrosion risk",
     description: "Protects metallic surfaces and equipment",
+    color: "orange",
   },
   {
     icon: Leaf,
     title: "Cost-effective operations",
     description: "Extends asset life and reduces downtime",
+    color: "blue",
   },
 ];
 
@@ -78,21 +83,25 @@ const treatmentSteps = [
     number: "01",
     icon: Droplets,
     title: "Analyse Water Chemistry",
+    color: "green",
   },
   {
     number: "02",
     icon: FlaskConical,
     title: "Select Treatment Programme",
+    color: "red",
   },
   {
     number: "03",
     icon: Settings,
     title: "Dose & Monitor",
+    color: "orange",
   },
   {
     number: "04",
     icon: TrendingUp,
     title: "Optimise Performance",
+    color: "blue",
   },
 ];
 
@@ -134,6 +143,154 @@ const productCards = [
   },
 ];
 
+function LaboratoryFlaskDesign({ type = "scale-inhibitors" }: { type?: string }) {
+  const gradientMap: Record<string, { start: string; end: string; accent: string; shadow: string }> = {
+    "scale-inhibitors": { start: "#FBBF24", end: "#D97706", accent: "#FDE68A", shadow: "rgba(217, 119, 6, 0.18)" },
+    "corrosion-inhibitors": { start: "#F87171", end: "#DC2626", accent: "#FECDD3", shadow: "rgba(220, 38, 38, 0.18)" },
+    dispersants: { start: "#34D399", end: "#059669", accent: "#A7F3D0", shadow: "rgba(5, 150, 105, 0.18)" },
+    biocides: { start: "#C084FC", end: "#7E22CE", accent: "#E9D5FF", shadow: "rgba(126, 34, 206, 0.18)" },
+    "auxiliary-treatments": { start: "#38BDF8", end: "#0284C7", accent: "#BAE6FD", shadow: "rgba(2, 132, 199, 0.18)" },
+  };
+
+  const colors = gradientMap[type] || gradientMap["scale-inhibitors"];
+  const gradId = `flask-liq-${type}`;
+
+  return (
+    <svg
+      viewBox="0 0 96 108"
+      width="82"
+      height="94"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="boiler-flask-svg"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor={colors.start} stopOpacity="0.88" />
+          <stop offset="100%" stopColor={colors.end} stopOpacity="0.96" />
+        </linearGradient>
+      </defs>
+
+      {/* Soft Base Shadow */}
+      <ellipse cx="48" cy="100" rx="30" ry="4.5" fill={colors.shadow} />
+
+      {/* Internal Liquid Fill */}
+      <path
+        d="M32 58 Q48 54 64 58 L72 86 C74 90 71 93 67 93 L29 93 C25 93 22 90 24 86 Z"
+        fill={`url(#${gradId})`}
+      />
+
+      {/* Liquid Meniscus Highlight Arc */}
+      <path
+        d="M32 58 Q48 54 64 58"
+        stroke={colors.accent}
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+
+      {/* Rising Chemistry Micro-Bubbles */}
+      <circle cx="42" cy="74" r="2" fill="#ffffff" fillOpacity="0.75" />
+      <circle cx="54" cy="67" r="2.5" fill="#ffffff" fillOpacity="0.65" />
+      <circle cx="46" cy="83" r="1.5" fill="#ffffff" fillOpacity="0.8" />
+      <circle cx="58" cy="80" r="1.8" fill="#ffffff" fillOpacity="0.6" />
+
+      {/* Flask Glass Body Outline */}
+      <path
+        d="M42 12 L42 34 L21 85 C18 91 22 95 28 95 L68 95 C74 95 78 91 75 85 L54 34 L54 12 Z"
+        stroke="#1769A6"
+        strokeWidth="2.2"
+        strokeLinejoin="round"
+      />
+
+      {/* Flask Neck Graduation Tick Marks */}
+      <line x1="45" y1="64" x2="51" y2="64" stroke="#ffffff" strokeOpacity="0.7" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="44" y1="72" x2="52" y2="72" stroke="#ffffff" strokeOpacity="0.7" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="43" y1="80" x2="53" y2="80" stroke="#ffffff" strokeOpacity="0.7" strokeWidth="1.5" strokeLinecap="round" />
+
+      {/* Left Glass Specular Reflection Highlight */}
+      <path
+        d="M30 63 L24 83"
+        stroke="#ffffff"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeOpacity="0.7"
+      />
+
+      {/* Flask Lip / Rim */}
+      <rect
+        x="38"
+        y="8"
+        width="20"
+        height="5"
+        rx="2.5"
+        fill="#F0F7FD"
+        stroke="#1769A6"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+}
+
+function CardWaterSplash({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 120 70"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="boiler-splash-drop" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#1769A6" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#1C5F91" stopOpacity="0.6" />
+        </linearGradient>
+        <linearGradient id="boiler-splash-ring" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#1769A6" stopOpacity="0.32" />
+          <stop offset="100%" stopColor="#B9D9E8" stopOpacity="0.1" />
+        </linearGradient>
+        <linearGradient id="boiler-splash-pool" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#B9D9E8" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#EAF3F8" stopOpacity="0.2" />
+        </linearGradient>
+      </defs>
+
+      {/* Soft corner water pool */}
+      <path d="M45 70 C70 50 95 48 120 54 L120 70 Z" fill="url(#boiler-splash-pool)" />
+
+      {/* Concentric ripple arcs emanating from corner */}
+      <path
+        d="M20 70 C20 42 62 18 120 22"
+        stroke="url(#boiler-splash-ring)"
+        strokeWidth="1.5"
+        strokeDasharray="3 3"
+      />
+      <path
+        d="M50 70 C50 50 80 34 120 38"
+        stroke="url(#boiler-splash-ring)"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M78 70 C78 58 96 48 120 50"
+        stroke="url(#boiler-splash-ring)"
+        strokeWidth="2"
+      />
+
+      {/* Dynamic water splash droplets */}
+      <path
+        d="M84 34 C80 28 78 20 83 14 C87 8 94 11 96 18 C98 26 90 32 84 34 Z"
+        fill="url(#boiler-splash-drop)"
+      />
+      <circle cx="66" cy="22" r="3.5" fill="url(#boiler-splash-drop)" />
+      <circle cx="52" cy="36" r="2.5" fill="#B9D9E8" fillOpacity="0.75" />
+      <circle cx="75" cy="10" r="2" fill="#1769A6" fillOpacity="0.5" />
+      <circle cx="100" cy="26" r="4" fill="url(#boiler-splash-drop)" />
+      <circle cx="94" cy="44" r="1.8" fill="#B9D9E8" fillOpacity="0.8" />
+    </svg>
+  );
+}
+
 export default function BoilerCoolingWaterPage() {
   return (
     <main className="boiler-cooling-page">
@@ -151,7 +308,7 @@ export default function BoilerCoolingWaterPage() {
             <span aria-hidden="true" className="industrial-water-breadcrumb-sep">
               &gt;
             </span>
-            <Link href="/solutions">Solutions</Link>
+            <Link href="/#solutions">Solutions</Link>
             <span aria-hidden="true" className="industrial-water-breadcrumb-sep">
               &gt;
             </span>
@@ -197,10 +354,11 @@ export default function BoilerCoolingWaterPage() {
             </div>
 
             <div className="boiler-hero-visual-col">
-              {/* Geometric blue backing shapes */}
+              {/* Modern technical architectural backdrop & ambient glow */}
               <div className="boiler-hero-backdrop-shape" aria-hidden="true">
-                <div className="boiler-hero-tab-topright" />
-                <div className="boiler-hero-tab-bottomleft" />
+                <div className="boiler-hero-backdrop-glow" />
+                <div className="boiler-hero-backdrop-frame" />
+                <div className="boiler-hero-backdrop-dots" />
               </div>
 
               {/* Main boiler & cooling plant photograph */}
@@ -219,13 +377,65 @@ export default function BoilerCoolingWaterPage() {
           </div>
         </div>
 
-        {/* Smooth layered water waves along the bottom */}
+        {/* Rich flowing water wave divider - transparent background, layered aquatic gradient */}
         <div className="boiler-hero-wave-bottom" aria-hidden="true">
-          <img
-            src="/images/solutions/hero-wave-bottom.png"
-            alt=""
-            className="boiler-wave-img"
-          />
+          <svg
+            className="boiler-hero-wave-svg"
+            viewBox="0 0 1440 96"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="boiler-wave-back" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#B9D9E8" stopOpacity="0.5" />
+                <stop offset="40%" stopColor="#D5E8F3" stopOpacity="0.7" />
+                <stop offset="70%" stopColor="#B9D9E8" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="#EAF3F8" stopOpacity="0.45" />
+              </linearGradient>
+
+              <linearGradient id="boiler-wave-mid" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#1769A6" stopOpacity="0.4" />
+                <stop offset="30%" stopColor="#1C5F91" stopOpacity="0.55" />
+                <stop offset="70%" stopColor="#1769A6" stopOpacity="0.45" />
+                <stop offset="100%" stopColor="#1C5F91" stopOpacity="0.5" />
+              </linearGradient>
+
+              <linearGradient id="boiler-wave-front" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#1769A6" stopOpacity="0.8" />
+                <stop offset="25%" stopColor="#1C5F91" stopOpacity="0.7" />
+                <stop offset="65%" stopColor="#B9D9E8" stopOpacity="0.4" />
+                <stop offset="100%" stopColor="#FFFFFF" stopOpacity="1" />
+              </linearGradient>
+
+              <linearGradient id="boiler-wave-shine" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.7" />
+                <stop offset="35%" stopColor="#EAF3F8" stopOpacity="0.9" />
+                <stop offset="70%" stopColor="#ffffff" stopOpacity="0.85" />
+                <stop offset="100%" stopColor="#EAF3F8" stopOpacity="0.7" />
+              </linearGradient>
+            </defs>
+
+            <path
+              d="M0,22 C240,54 480,6 720,36 C960,66 1200,12 1440,30 L1440,96 L0,96 Z"
+              fill="url(#boiler-wave-back)"
+            />
+            <path
+              d="M0,42 C280,12 560,58 840,28 C1120,4 1300,44 1440,36 L1440,96 L0,96 Z"
+              fill="url(#boiler-wave-mid)"
+            />
+            <path
+              d="M0,58 C220,36 460,68 700,46 C940,24 1180,56 1440,44 L1440,96 L0,96 Z"
+              fill="url(#boiler-wave-front)"
+            />
+            <path
+              d="M0,58 C220,36 460,68 700,46 C940,24 1180,56 1440,44"
+              stroke="url(#boiler-wave-shine)"
+              strokeWidth="2.5"
+              fill="none"
+              strokeLinecap="round"
+            />
+          </svg>
         </div>
       </section>
 
@@ -321,12 +531,7 @@ export default function BoilerCoolingWaterPage() {
               </div>
 
               {/* Bottom decorative wave splash */}
-              <img
-                src="/images/solutions/card-water-splash.png"
-                alt=""
-                className="boiler-card-water-splash"
-                aria-hidden="true"
-              />
+              <CardWaterSplash className="boiler-card-water-splash" />
             </article>
 
             {/* CARD 02 - COOLING WATER */}
@@ -366,12 +571,7 @@ export default function BoilerCoolingWaterPage() {
               </div>
 
               {/* Bottom decorative wave splash */}
-              <img
-                src="/images/solutions/card-water-splash.png"
-                alt=""
-                className="boiler-card-water-splash"
-                aria-hidden="true"
-              />
+              <CardWaterSplash className="boiler-card-water-splash" />
             </article>
           </div>
 
@@ -406,7 +606,7 @@ export default function BoilerCoolingWaterPage() {
               {keyBenefits.map((benefit) => {
                 const Icon = benefit.icon;
                 return (
-                  <div className="boiler-benefit-card" key={benefit.title}>
+                  <div className={`boiler-benefit-card color-${benefit.color}`} key={benefit.title}>
                     <div className="boiler-benefit-icon-box" aria-hidden="true">
                       <Icon size={22} />
                     </div>
@@ -441,7 +641,8 @@ export default function BoilerCoolingWaterPage() {
               const Icon = step.icon;
               return (
                 <div className="boiler-timeline-step-wrap" key={step.title}>
-                  <div className="boiler-timeline-step">
+                  <div className={`boiler-timeline-step color-${step.color}`}>
+                    <span className="boiler-step-num-pill">{step.number}</span>
                     <div className="boiler-step-circle-box" aria-hidden="true">
                       <Icon size={24} />
                     </div>
@@ -490,11 +691,7 @@ export default function BoilerCoolingWaterPage() {
             {productCards.map((product) => (
               <article className="boiler-product-card" key={product.id}>
                 <div className="boiler-product-img-wrap">
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="boiler-product-img"
-                  />
+                  <LaboratoryFlaskDesign type={product.id} />
                 </div>
                 <h3 className="boiler-product-title">{product.title}</h3>
                 <p className="boiler-product-desc">{product.description}</p>
@@ -511,58 +708,36 @@ export default function BoilerCoolingWaterPage() {
         </div>
       </section>
 
-      {/* 7. FINAL CTA BANNER */}
+      {/* 7. BOTTOM CTA BAND - Matches Industrial Water & Industries design */}
       <section
-        className="boiler-cta-section"
+        className="industries-contact-band"
+        id="boiler-cta"
         aria-labelledby="boiler-cta-title"
       >
         <div className="container">
-          <div className="boiler-cta-banner">
-            <div className="boiler-cta-content">
-              <div className="boiler-cta-eyebrow">
-                <Settings size={18} className="boiler-cta-gear-icon" aria-hidden="true" />
-                <span>Working with a boiler or cooling loop?</span>
-              </div>
-              <h2 id="boiler-cta-title" className="boiler-cta-title">
-                Share the system context with our team.
+          <div className="industries-contact-inner">
+            <div className="industries-contact-copy">
+              <span className="industries-contact-eyebrow">
+                Working with a boiler or cooling loop?
+              </span>
+              <h2 id="boiler-cta-title">
+                Share the system context <span className="industries-highlight">with our team.</span>
               </h2>
-              <p className="boiler-cta-desc">
+              <p>
                 Include the system type and operating context to help direct your
                 enquiry.
               </p>
             </div>
-
-            <div className="boiler-cta-action">
+            <div className="industries-contact-action">
               <Link
+                className="btn btn-industries-primary"
                 href="/contact#contact-form"
-                className="btn btn-boiler-cta"
               >
                 <span>Discuss your application</span>
-                <ArrowRight size={17} aria-hidden="true" />
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
-
-            {/* Industrial facility silhouette watermark on sides */}
-            <div className="boiler-cta-silhouette-left" aria-hidden="true" />
-            <div className="boiler-cta-silhouette-right" aria-hidden="true" />
-
-            {/* Floating bubbles decoration in banner */}
-            <div className="boiler-cta-bubbles" aria-hidden="true">
-              <img
-                src="/images/solutions/hero-bubbles.png"
-                alt=""
-                className="boiler-cta-bubbles-img"
-              />
-            </div>
-
-            {/* Layered wave bottom decoration in banner */}
-            <div className="boiler-cta-waves" aria-hidden="true">
-              <img
-                src="/images/solutions/hero-wave-bottom.png"
-                alt=""
-                className="boiler-cta-waves-img"
-              />
-            </div>
+            <CtaWaterSplashDesign />
           </div>
         </div>
       </section>
