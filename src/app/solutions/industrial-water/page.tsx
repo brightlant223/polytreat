@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
+  Check,
+  ChevronRight,
   Droplets,
-  Factory,
-  Filter,
-  Gauge,
-  Waves,
+  Fan,
+  FlaskConical,
+  Home,
+  MessageCircle,
+  Pipette,
+  Recycle,
+  ShieldCheck,
 } from "lucide-react";
-import {
-  industrialCategoryGroups,
-  industrialChallenges,
-  industrialExtraFamilies,
-  industrialSystems,
-  type IndustrialSystemId,
-} from "@/data/industrialWater";
 
 export const metadata: Metadata = {
   title: "Industrial Water Treatment | PolyTreat Chemicals",
@@ -24,86 +20,353 @@ export const metadata: Metadata = {
     "Explore PolyTreat's industrial water treatment categories for boiler, cooling-water, reverse-osmosis, and effluent systems, plus the wider industrial range.",
 };
 
-const systemIcons: Record<IndustrialSystemId, LucideIcon> = {
-  boiler: Gauge,
-  cooling: Waves,
-  ro: Filter,
-  effluent: Factory,
-};
+function BoilerIcon({ className = "", size = 24 }: { className?: string; size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect x="5" y="3" width="14" height="18" rx="4" />
+      <line x1="9" y1="8" x2="9" y2="16" />
+      <line x1="15" y1="8" x2="15" y2="16" />
+      <line x1="5" y1="9" x2="19" y2="9" />
+      <line x1="5" y1="15" x2="19" y2="15" />
+      <line x1="2" y1="8" x2="5" y2="8" />
+      <line x1="2" y1="16" x2="5" y2="16" />
+    </svg>
+  );
+}
+
+function ReverseOsmosisIcon({ className = "", size = 24 }: { className?: string; size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect x="3" y="5" width="4.5" height="14" rx="2" />
+      <rect x="9.75" y="3" width="4.5" height="18" rx="2" />
+      <rect x="16.5" y="5" width="4.5" height="14" rx="2" />
+      <line x1="5.25" y1="2" x2="5.25" y2="5" />
+      <line x1="12" y1="1" x2="12" y2="3" />
+      <line x1="18.75" y1="2" x2="18.75" y2="5" />
+      <line x1="5.25" y1="19" x2="5.25" y2="22" />
+      <line x1="12" y1="21" x2="12" y2="23" />
+      <line x1="18.75" y1="19" x2="18.75" y2="22" />
+    </svg>
+  );
+}
+
+function EffluentIcon({ className = "", size = 24 }: { className?: string; size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M4 4v6a4 4 0 0 0 4 4h8" />
+      <path d="M15 11l3 3-3 3" />
+      <path d="M3 19c2.5 0 3.5-1.5 5.5-1.5s3 1.5 5.5 1.5 3.5-1.5 5.5-1.5" />
+      <path d="M3 22c2.5 0 3.5-1.5 5.5-1.5s3 1.5 5.5 1.5 3.5-1.5 5.5-1.5" />
+    </svg>
+  );
+}
+
+const functionCards = [
+  {
+    id: "boiler",
+    title: "Boiler water",
+    description:
+      "Treatment programmes for boiler systems to control scale, corrosion and maintain efficiency.",
+    linkText: "Read more about boiler water",
+    href: "/solutions/boiler-cooling-water#boiler-water",
+    icon: BoilerIcon,
+  },
+  {
+    id: "cooling",
+    title: "Cooling water",
+    description:
+      "Solutions for cooling water systems to control scale, corrosion and biological growth.",
+    linkText: "Configure cooling water",
+    href: "/solutions/boiler-cooling-water#cooling-water",
+    icon: Fan,
+  },
+  {
+    id: "ro",
+    title: "Reverse osmosis",
+    description:
+      "Pre-treatment and membrane support solutions for reliable RO operation and water recovery.",
+    linkText: "RO solutions",
+    href: "/solutions/ro-effluent#reverse-osmosis",
+    icon: ReverseOsmosisIcon,
+  },
+  {
+    id: "effluent",
+    title: "Effluent treatment",
+    description:
+      "Chemical solutions for industrial effluent to support treatment, reuse and discharge compliance.",
+    linkText: "Effluent treatment",
+    href: "/solutions/ro-effluent#effluent-treatment",
+    icon: EffluentIcon,
+  },
+];
+
+const problemChecklistCol1 = [
+  "Scale and deposition reduce heat transfer.",
+  "Corrosion can damage equipment.",
+  "Membrane fouling affects RO performance.",
+];
+
+const problemChecklistCol2 = [
+  "Biological growth impacts water quality.",
+  "Water loss and higher operating costs.",
+  "Varying effluent characteristics and compliance needs.",
+];
+
+const approachCards = [
+  {
+    id: "cooling-approach",
+    title: "Cooling water",
+    description:
+      "Corrosion and scale control, dispersants and microbial control for stable and efficient cooling operations.",
+    tags: ["Corrosion inhibitors", "Scale control", "Dispersants", "Biocides"],
+    linkText: "See the cooling water range",
+    href: "/solutions/boiler-cooling-water#cooling-water",
+    icon: Fan,
+  },
+  {
+    id: "boiler-approach",
+    title: "Boiler water",
+    description:
+      "Scale and corrosion control for reliable steam generation and long equipment life.",
+    tags: [
+      "Scale inhibitors",
+      "Oxygen scavengers",
+      "Alkalinity control",
+      "Condensate treatment",
+    ],
+    linkText: "See the boiler water range",
+    href: "/solutions/boiler-cooling-water#boiler-water",
+    icon: BoilerIcon,
+  },
+  {
+    id: "ro-approach",
+    title: "Reverse osmosis",
+    description:
+      "Membrane protection, scaling control and cleaning support for consistent RO performance.",
+    tags: ["Antiscalants", "Dispersants", "Membrane cleaners", "Pre-treatment"],
+    linkText: "See the RO range",
+    href: "/solutions/ro-effluent#reverse-osmosis",
+    icon: ReverseOsmosisIcon,
+  },
+  {
+    id: "effluent-approach",
+    title: "Effluent treatment",
+    description:
+      "Process and effluent treatment solutions to support compliance and water reuse.",
+    tags: ["Coagulants", "Flocculants", "Metal precipitants", "Nutrient control"],
+    linkText: "See the effluent treatment range",
+    href: "/solutions/ro-effluent#effluent-treatment",
+    icon: EffluentIcon,
+  },
+];
+
+const catalogueRows = [
+  {
+    title: "Scale & deposition control",
+    description: "Helps prevent scale formation in boilers, cooling systems and RO.",
+    badges: ["Scale inhibitors", "Antiscalants", "Dispersants"],
+    href: "/solutions/boiler-cooling-water#boiler-water",
+    icon: FlaskConical,
+  },
+  {
+    title: "Corrosion control",
+    description: "Protects metal surfaces in water and steam systems.",
+    badges: ["Corrosion inhibitors", "pH control", "Film-forming agents"],
+    href: "/solutions/boiler-cooling-water#cooling-water",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Membrane cleaning & care",
+    description: "Cleaning solutions to remove foulants and maintain performance.",
+    badges: ["Membrane cleaners", "Descalers", "Cleaning programmes"],
+    href: "/solutions/ro-effluent#reverse-osmosis",
+    icon: Pipette,
+  },
+  {
+    title: "Water quality conditioning",
+    description: "Helps maintain key water parameters for different systems.",
+    badges: ["pH control", "Alkalinity control", "Oxygen scavengers"],
+    href: "/solutions/boiler-cooling-water#boiler-water",
+    icon: Droplets,
+  },
+  {
+    title: "Effluent treatment aids",
+    description: "Chemical solutions to support industrial effluent treatment and compliance.",
+    badges: ["Coagulants", "Flocculants", "Metal precipitants"],
+    href: "/solutions/ro-effluent#effluent-treatment",
+    icon: Recycle,
+  },
+];
 
 export default function IndustrialWaterPage() {
   return (
     <main className="industrial-water-page">
-      <section className="industrial-water-hero" aria-labelledby="industrial-water-title">
-        <div className="container">
+      {/* 1. HERO SECTION */}
+      <section
+        className="industrial-water-hero industrial-water-reference-hero"
+        aria-labelledby="industrial-water-title"
+      >
+
+
+        <div className="container industrial-water-hero-container">
           <nav className="industrial-water-breadcrumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-            <span aria-hidden="true">/</span>
-            <span>Solutions</span>
-            <span aria-hidden="true">/</span>
-            <span>Industrial water</span>
+            <Link href="/" className="industrial-water-breadcrumb-home">
+              <Home size={13} aria-hidden="true" />
+              <span>Home</span>
+            </Link>
+            <span aria-hidden="true" className="industrial-water-breadcrumb-sep">
+              &gt;
+            </span>
+            <Link href="/solutions">Solutions</Link>
+            <span aria-hidden="true" className="industrial-water-breadcrumb-sep">
+              &gt;
+            </span>
+            <span aria-current="page">Industrial Water</span>
           </nav>
 
           <div className="industrial-water-hero-layout">
             <div className="industrial-water-hero-copy">
-              <span className="eyebrow"><Droplets size={15} aria-hidden="true" /> Industrial water treatment</span>
-              <h1 id="industrial-water-title">Water treatment for the systems that keep plants running.</h1>
+              <h1 id="industrial-water-title">
+                Water treatment for
+                <br className="industrial-hero-br-desktop" />
+                the systems that
+                <br className="industrial-hero-br-desktop" />
+                <span className="industrial-hero-highlight">keep plants running.</span>
+              </h1>
+
+              <div className="industrial-hero-accent-line" aria-hidden="true" />
+
               <p>
-                PolyTreat&apos;s industrial range covers the treatment categories used across
-                boiler, cooling-water, reverse-osmosis, and effluent systems. Start with
-                the system you are running, then narrow down to the category that
-                matches the problem.
+                Industrial water treatment solutions for thermal systems, cooling
+                systems, membrane systems and wastewater treatment that ensure water
+                quality, improve efficiency and help maintain the reliability of your
+                plant.
               </p>
+
               <div className="industrial-water-hero-actions">
-                <Link className="btn btn-accent" href="#water-systems">
-                  Explore by system <ArrowRight size={17} aria-hidden="true" />
+                <Link className="btn btn-industrial-primary" href="#water-systems">
+                  <span>Explore by category</span>
+                  <ArrowRight size={16} aria-hidden="true" />
                 </Link>
-                <Link className="industrial-water-text-link" href="/contact#contact-form">
-                  Discuss an application
+                <Link
+                  className="btn btn-industrial-secondary"
+                  href="/contact#contact-form"
+                >
+                  <span>Discuss an application</span>
+                  <MessageCircle size={16} aria-hidden="true" />
                 </Link>
               </div>
             </div>
 
-            <figure className="industrial-water-figure">
-              <Image
-                src="/images/home/reverse-osmosis-plant.webp"
-                alt="Reverse-osmosis plant with membrane housings, high-pressure pumps and process piping"
-                fill
-                sizes="(max-width: 760px) 100vw, 40vw"
-              />
-              <figcaption className="industrial-water-figure-label">Reverse-osmosis plant</figcaption>
-            </figure>
+            <div className="industrial-water-hero-visual-col">
+              {/* Decorative blue geometric shape behind image */}
+              <div className="industrial-hero-backdrop-shape" aria-hidden="true">
+                <div className="industrial-hero-tab-topright" />
+                <div className="industrial-hero-tab-bottomleft" />
+              </div>
+
+              {/* Large high-resolution RO facility photograph container */}
+              <div className="industrial-water-figure-wrap">
+                <img
+                  src="/images/solutions/industrial-water-ro-facility.jpg"
+                  alt="Industrial reverse osmosis water treatment facility with multi-tiered membrane pressure vessels, high-pressure pumps and stainless steel piping"
+                  className="industrial-water-hero-img"
+                />
+              </div>
+            </div>
           </div>
+        </div>
+
+
+        {/* Smooth layered water waves along the bottom */}
+        <div className="industrial-hero-wave-bottom" aria-hidden="true">
+          <img
+            src="/images/solutions/hero-wave-bottom.png"
+            alt=""
+            className="industrial-wave-img"
+          />
         </div>
       </section>
 
-      <section className="industrial-water-systems" id="water-systems" aria-labelledby="water-systems-title">
+      {/* 2. EXPLORE BY FUNCTION / INDUSTRIAL WATER CATEGORIES */}
+      <section
+        className="industrial-function-section"
+        id="water-systems"
+        aria-labelledby="water-systems-title"
+      >
         <div className="container">
-          <div className="industrial-water-section-heading">
-            <div>
-              <span className="eyebrow">Explore by system</span>
-              <h2 id="water-systems-title">Industrial water categories.</h2>
+          <div className="industrial-section-header">
+            <div className="industrial-section-header-left">
+              <div className="industrial-section-eyebrow">
+                <span className="industrial-eyebrow-bar" aria-hidden="true" />
+                <span>Explore by function</span>
+              </div>
+              <h2 id="water-systems-title" className="industrial-section-title">
+                Industrial water categories.
+              </h2>
             </div>
-            <p>
-              Start with the system type to find the related product-family overview.
-              The system and water conditions help define the relevant category.
-            </p>
+            <div className="industrial-section-header-right">
+              <span className="industrial-header-divider" aria-hidden="true" />
+              <p>
+                Tailor off-the-shelf or customised water treatment solutions for thermal
+                systems, cooling systems, membrane operations and effluent treatment.
+              </p>
+            </div>
           </div>
 
-          <div className="industrial-water-grid">
-            {industrialSystems.map(({ id, number, title, description, href, linkText }) => {
-              const Icon = systemIcons[id];
+          <div className="industrial-function-grid">
+            {functionCards.map((card) => {
+              const Icon = card.icon;
               return (
-                <article className="industrial-water-card" key={id}>
-                  <div className="industrial-water-card-topline">
-                    <span>{number}</span>
-                    <span className="industrial-water-card-icon"><Icon size={20} aria-hidden="true" /></span>
+                <article className="industrial-function-card" key={card.id}>
+                  <div className="industrial-function-icon-box">
+                    <Icon size={24} className="industrial-function-svg" />
                   </div>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
-                  <Link className="industrial-water-card-link" href={href}>
-                    {linkText} <ArrowRight size={15} aria-hidden="true" />
+                  <h3 className="industrial-function-card-title">{card.title}</h3>
+                  <p className="industrial-function-card-desc">{card.description}</p>
+                  <Link href={card.href} className="industrial-function-card-link">
+                    <span>{card.linkText}</span>
+                    <ArrowRight size={15} aria-hidden="true" />
                   </Link>
+                  <img
+                    src="/images/solutions/card-water-splash.png"
+                    alt=""
+                    className="industrial-card-water-splash"
+                    aria-hidden="true"
+                  />
                 </article>
               );
             })}
@@ -111,32 +374,130 @@ export default function IndustrialWaterPage() {
         </div>
       </section>
 
-      <section className="industrial-water-challenges" id="system-challenges" aria-labelledby="system-challenges-title">
+      {/* 3. PROBLEM & SOLUTION */}
+      <section
+        className="industrial-problems-section"
+        id="system-challenges"
+        aria-labelledby="system-problems-title"
+      >
         <div className="container">
-          <div className="industrial-water-section-heading">
-            <div>
-              <span className="eyebrow">What the system has to manage</span>
-              <h2 id="system-challenges-title">Every system has its own set of problems.</h2>
+          <div className="industrial-problems-layout">
+            <div className="industrial-problems-image-col">
+              <div className="industrial-problems-image-frame">
+                <img
+                  src="/images/solutions/industrial-water-systems-facility.jpg"
+                  alt="Industrial water treatment filtration facility with large blue pressure filter tanks, yellow catwalks and stainless steel piping"
+                  className="industrial-problems-img"
+                />
+              </div>
             </div>
-            <p>
-              Treatment starts with what the system is dealing with. These are the
-              conditions each water system has to manage, and the context our
-              categories are matched against.
-            </p>
+
+            <div className="industrial-problems-content-col">
+              <div className="industrial-section-eyebrow">
+                <span className="industrial-eyebrow-bar" aria-hidden="true" />
+                <span>Problem &amp; solution</span>
+              </div>
+              <h2 id="system-problems-title" className="industrial-problems-title">
+                Every system has its own set of problems.
+              </h2>
+
+              <div className="industrial-problems-checklist">
+                <ul className="industrial-checklist-col">
+                  {problemChecklistCol1.map((item) => (
+                    <li key={item}>
+                      <span className="industrial-check-icon" aria-hidden="true">
+                        <Check size={16} strokeWidth={2.8} />
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <ul className="industrial-checklist-col">
+                  {problemChecklistCol2.map((item) => (
+                    <li key={item}>
+                      <span className="industrial-check-icon" aria-hidden="true">
+                        <Check size={16} strokeWidth={2.8} />
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. TREATMENT APPROACH / CATEGORIES IN THE INDUSTRIAL RANGE */}
+      <section
+        className="industrial-approach-section"
+        id="treatment-categories"
+        aria-labelledby="treatment-approach-title"
+      >
+        <div className="container">
+          <div className="industrial-section-header">
+            <div className="industrial-section-header-left">
+              <div className="industrial-section-eyebrow">
+                <span className="industrial-eyebrow-bar" aria-hidden="true" />
+                <span>Treatment approach</span>
+              </div>
+              <h2 id="treatment-approach-title" className="industrial-section-title">
+                Categories in the industrial range.
+              </h2>
+            </div>
+            <div className="industrial-section-header-right">
+              <span className="industrial-header-divider" aria-hidden="true" />
+              <p>
+                An application-focused range, with products and programmes for the key
+                water systems in industrial operations.
+              </p>
+            </div>
           </div>
 
-          <div className="industrial-water-challenge-grid">
-            {industrialChallenges.map(({ id, title, manages }) => {
-              const Icon = systemIcons[id];
+          <div className="industrial-approach-grid">
+            {approachCards.map((card) => {
+              const Icon = card.icon;
               return (
-                <article className="industrial-water-challenge-card" key={id}>
-                  <h3>
-                    <span className="industrial-water-challenge-icon"><Icon size={18} aria-hidden="true" /></span>
-                    {title}
-                  </h3>
-                  <ul className="industrial-water-challenge-list">
-                    {manages.map((item) => <li key={item}>{item}</li>)}
-                  </ul>
+                <article className="industrial-approach-card" key={card.id}>
+                  <div className="industrial-approach-card-inner">
+                    <div className="industrial-approach-icon-box">
+                      <Icon size={26} className="industrial-approach-svg" />
+                    </div>
+                    <div className="industrial-approach-content">
+                      <h3 className="industrial-approach-card-title">{card.title}</h3>
+                      <p className="industrial-approach-card-desc">
+                        {card.description}
+                      </p>
+                      <div
+                        className="industrial-approach-tags"
+                        aria-label={`${card.title} categories`}
+                      >
+                        {card.tags.map((tag, idx) => (
+                          <span key={tag} className="industrial-approach-tag-item">
+                            {tag}
+                            {idx < card.tags.length - 1 && (
+                              <span
+                                className="industrial-approach-tag-pipe"
+                                aria-hidden="true"
+                              >
+                                |
+                              </span>
+                            )}
+                          </span>
+                        ))}
+                      </div>
+                      <Link href={card.href} className="industrial-approach-card-link">
+                        <span>{card.linkText}</span>
+                        <ArrowRight size={15} aria-hidden="true" />
+                      </Link>
+                    </div>
+                  </div>
+                  <img
+                    src="/images/solutions/card-water-splash.png"
+                    alt=""
+                    className="industrial-card-water-splash"
+                    aria-hidden="true"
+                  />
                 </article>
               );
             })}
@@ -144,98 +505,112 @@ export default function IndustrialWaterPage() {
         </div>
       </section>
 
-      <section className="industrial-water-categories" id="treatment-categories" aria-labelledby="treatment-categories-title">
+      {/* 5. PRODUCT SELECTION & OVERVIEW / ALSO IN THE INDUSTRIAL CATALOGUE */}
+      <section
+        className="industrial-catalogue-section"
+        id="other-categories"
+        aria-labelledby="catalogue-overview-title"
+      >
         <div className="container">
-          <div className="industrial-water-section-heading">
-            <div>
-              <span className="eyebrow">Treatment categories</span>
-              <h2 id="treatment-categories-title">Categories in the industrial range.</h2>
+          <div className="industrial-section-header">
+            <div className="industrial-section-header-left">
+              <div className="industrial-section-eyebrow">
+                <span className="industrial-eyebrow-bar" aria-hidden="true" />
+                <span>Product selection &amp; overview</span>
+              </div>
+              <h2 id="catalogue-overview-title" className="industrial-section-title">
+                Also in the industrial catalogue.
+              </h2>
             </div>
-            <p>
-              The categories PolyTreat works with, grouped by the system they are
-              used in. Each one links to the matching system overview.
-            </p>
           </div>
 
-          <div className="industrial-water-category-grid">
-            {industrialCategoryGroups.map(({ id, title, summary, href, categories }) => (
-              <article className="industrial-water-category-card" key={id}>
-                <h3>{title}</h3>
-                <p>{summary}</p>
-                <ul className="boiler-cooling-contexts" aria-label={`${title} categories`}>
-                  {categories.map((category) => <li key={category}>{category}</li>)}
-                </ul>
-                <Link className="industrial-water-category-link" href={href}>
-                  Open the {title.toLowerCase()} overview <ArrowRight size={15} aria-hidden="true" />
+          <div className="industrial-catalogue-table" role="list">
+            {catalogueRows.map((row) => {
+              const Icon = row.icon;
+              return (
+                <Link
+                  href={row.href}
+                  key={row.title}
+                  className="industrial-catalogue-row"
+                  role="listitem"
+                >
+                  <div className="industrial-catalogue-title-col">
+                    <span className="industrial-catalogue-icon" aria-hidden="true">
+                      <Icon size={20} />
+                    </span>
+                    <span className="industrial-catalogue-title">{row.title}</span>
+                  </div>
+                  <p className="industrial-catalogue-desc">{row.description}</p>
+                  <div
+                    className="industrial-catalogue-badges"
+                    aria-label={`${row.title} products`}
+                  >
+                    {row.badges.map((badge) => (
+                      <span key={badge} className="industrial-catalogue-badge">
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="industrial-catalogue-arrow" aria-hidden="true">
+                    <ChevronRight size={18} />
+                  </div>
                 </Link>
-              </article>
-            ))}
+              );
+            })}
           </div>
-
-          <p className="ro-effluent-note">
-            Category names follow PolyTreat&apos;s published industrial product profile.
-            Specific products, current availability, and technical data are confirmed
-            for each application.
-          </p>
         </div>
       </section>
 
-      <section className="industrial-water-extra" id="other-categories" aria-labelledby="other-categories-title">
+      {/* 6. WORK TOGETHER / BOTTOM CTA BANNER */}
+      <section
+        className="industrial-cta-section"
+        id="industrial-cta"
+        aria-labelledby="industrial-cta-title"
+      >
         <div className="container">
-          <div className="industrial-water-section-heading">
-            <div>
-              <span className="eyebrow">Wider industrial range</span>
-              <h2 id="other-categories-title">Also in the industrial catalogue.</h2>
+          <div className="industrial-cta-banner">
+            <div className="industrial-cta-content">
+              <div className="industrial-section-eyebrow industrial-section-eyebrow-cta">
+                <span className="industrial-eyebrow-bar" aria-hidden="true" />
+                <span>Work together on your application</span>
+              </div>
+              <h2 id="industrial-cta-title" className="industrial-cta-title">
+                Share the application with our team.
+              </h2>
+              <p className="industrial-cta-desc">
+                Tell us about your water system, operating conditions and any specific
+                needs, and we&apos;ll help you identify a suitable treatment approach.
+              </p>
             </div>
-            <p>
-              These families come from the same industrial product profile and sit
-              outside the four system pages above. Share the application and we will
-              confirm what is currently available and what documentation applies.
-            </p>
+
+            <div className="industrial-cta-action">
+              <Link
+                href="/contact#contact-form"
+                className="btn btn-industrial-cta-action"
+              >
+                <span>Discuss your application</span>
+                <ArrowRight size={17} aria-hidden="true" />
+              </Link>
+            </div>
+
+            {/* Floating bubbles decoration in banner */}
+            <div className="industrial-cta-bubbles" aria-hidden="true">
+              <img
+                src="/images/solutions/hero-bubbles.png"
+                alt=""
+                className="industrial-cta-bubbles-img"
+              />
+            </div>
+
+            {/* Layered wave bottom decoration in banner */}
+            <div className="industrial-cta-waves" aria-hidden="true">
+              <img
+                src="/images/solutions/hero-wave-bottom.png"
+                alt=""
+                className="industrial-cta-waves-img"
+              />
+            </div>
           </div>
-
-          <ul className="industrial-water-extra-list">
-            {industrialExtraFamilies.map((family) => (
-              <li className="industrial-water-extra-row" key={family.title}>
-                <div>
-                  <h3>{family.title}</h3>
-                  <p>{family.description}</p>
-                  {family.href && (
-                    <Link className="industrial-water-extra-link" href={family.href}>
-                      Open {family.title.toLowerCase()} <ArrowRight size={15} aria-hidden="true" />
-                    </Link>
-                  )}
-                </div>
-                <ul className="boiler-cooling-contexts" aria-label={`${family.title} categories`}>
-                  {family.categories.map((category) => <li key={category}>{category}</li>)}
-                </ul>
-              </li>
-            ))}
-          </ul>
-
-          <Link className="boiler-cooling-overview-link" href="/specialty">
-            Explore the specialty products <ArrowRight size={16} aria-hidden="true" />
-          </Link>
-
-          <Link className="boiler-cooling-overview-link" href="/contact#contact-form">
-            Discuss another industrial application <ArrowRight size={16} aria-hidden="true" />
-          </Link>
-        </div>
-      </section>
-
-      <section className="industrial-water-contact" aria-labelledby="industrial-water-contact-title">
-        <div className="container industrial-water-contact-inner">
-          <div>
-            <span className="eyebrow">Have a system or site in mind?</span>
-            <h2 id="industrial-water-contact-title">Share the application with our team.</h2>
-            <p>
-              Include the system type, the water analysis you have, and the operating
-              conditions so we can point you to the right category.
-            </p>
-          </div>
-          <Link className="btn btn-accent" href="/contact#contact-form">
-            Discuss your application <ArrowRight size={17} aria-hidden="true" />
-          </Link>
         </div>
       </section>
     </main>

@@ -26998,3 +26998,1062 @@ main {
     align-items: stretch;
   }
 }
+
+
+/* ==========================================================================
+   Industrial Water Treatment Page - Reference Hero Section
+   ========================================================================== */
+
+.industrial-water-page .industrial-water-hero.industrial-water-reference-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 2.2rem 0 5rem;
+  background:
+    radial-gradient(ellipse 65% 60% at 75% 35%, rgba(186, 230, 253, 0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 20% 30%, rgba(224, 242, 254, 0.5) 0%, transparent 60%),
+    linear-gradient(135deg, #f0f7fd 0%, #f9fcff 45%, #ebf5fe 100%);
+  border-bottom: 1px solid rgba(186, 230, 253, 0.4);
+}
+
+
+.industrial-water-hero-container {
+  position: relative;
+  z-index: 3;
+}
+
+/* Breadcrumb Navigation */
+.industrial-water-page .industrial-water-breadcrumbs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+  animation: heroFadeIn 0.6s ease forwards;
+}
+
+.industrial-water-breadcrumb-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #0879E8;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.industrial-water-breadcrumb-home:hover {
+  color: #0369a1;
+}
+
+.industrial-water-breadcrumb-sep {
+  color: #94a3b8;
+  font-size: 0.72rem;
+}
+
+.industrial-water-page .industrial-water-breadcrumbs a {
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.industrial-water-page .industrial-water-breadcrumbs a:hover {
+  color: #0879E8;
+}
+
+.industrial-water-page .industrial-water-breadcrumbs span[aria-current="page"] {
+  color: #10213B;
+  font-weight: 700;
+}
+
+/* Hero Layout */
+.industrial-water-page .industrial-water-reference-hero .industrial-water-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(380px, 0.98fr);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 3.8rem);
+}
+
+/* Left Copy */
+.industrial-water-page .industrial-water-reference-hero .industrial-water-hero-copy {
+  max-width: 580px;
+  animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.industrial-water-page .industrial-water-reference-hero .industrial-water-hero-copy h1 {
+  margin: 0 0 0.85rem;
+  color: #10213B;
+  font-size: clamp(2.35rem, 4.3vw, 3.6rem);
+  font-weight: 850;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.industrial-hero-highlight {
+  color: #0879E8;
+}
+
+/* Decorative Accent Line */
+.industrial-hero-accent-line {
+  width: 48px;
+  height: 3.5px;
+  border-radius: 999px;
+  background: #0879E8;
+  margin: 1.15rem 0 1.35rem;
+}
+
+.industrial-water-page .industrial-water-reference-hero .industrial-water-hero-copy p {
+  margin: 0 0 1.75rem;
+  color: #475569;
+  font-size: clamp(0.92rem, 1.15vw, 1.02rem);
+  line-height: 1.65;
+  max-width: 520px;
+}
+
+/* CTA Buttons */
+.industrial-water-page .industrial-water-reference-hero .industrial-water-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.95rem;
+}
+
+.btn-industrial-primary {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.6rem 1.6rem;
+  background: linear-gradient(135deg, #0879E8 0%, #0284c7 100%);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(8, 121, 232, 0.32);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-industrial-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(8, 121, 232, 0.42);
+}
+
+.btn-industrial-secondary {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border: 1.5px solid #0879E8;
+  border-radius: 999px;
+  padding: 0.6rem 1.5rem;
+  background: #ffffff;
+  color: #10213B;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(8, 121, 232, 0.08);
+  transition: all 0.2s ease;
+}
+
+.btn-industrial-secondary svg {
+  color: #0879E8;
+  transition: transform 0.2s ease;
+}
+
+.btn-industrial-secondary:hover {
+  border-color: #0284c7;
+  color: #0879E8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(8, 121, 232, 0.16);
+}
+
+.btn-industrial-secondary:hover svg {
+  transform: scale(1.1);
+}
+
+/* Right Visual Column */
+.industrial-water-hero-visual-col {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: heroImageReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+/* Decorative Geometric Shape Behind Image */
+.industrial-hero-backdrop-shape {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.industrial-hero-tab-topright {
+  position: absolute;
+  top: -18px;
+  right: -8px;
+  width: 160px;
+  height: 52px;
+  background: linear-gradient(135deg, #7dd3fc 0%, #0879E8 100%);
+  border-radius: 20px 24px 0 0;
+  clip-path: polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%);
+  z-index: 1;
+  box-shadow: 0 8px 20px rgba(8, 121, 232, 0.2);
+}
+
+.industrial-hero-tab-bottomleft {
+  position: absolute;
+  bottom: -28px;
+  left: -22px;
+  width: 140px;
+  height: 110px;
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+  border-radius: 22px 0 0 34px;
+  clip-path: polygon(0% 25%, 100% 0%, 100% 100%, 0% 100%);
+  z-index: 1;
+  box-shadow: 0 8px 20px rgba(8, 121, 232, 0.2);
+}
+
+/* Image Container */
+.industrial-water-figure-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  border-radius: 26px;
+  border: 4px solid #ffffff;
+  background: #ffffff;
+  box-shadow:
+    0 16px 42px rgba(8, 121, 232, 0.18),
+    0 4px 14px rgba(16, 33, 59, 0.08);
+  overflow: hidden;
+  aspect-ratio: 16 / 9.2;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.industrial-water-figure-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 22px 50px rgba(8, 121, 232, 0.25),
+    0 8px 20px rgba(16, 33, 59, 0.12);
+}
+
+.industrial-water-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.industrial-water-figure-wrap:hover .industrial-water-hero-img {
+  transform: scale(1.03);
+}
+
+
+/* Water Waves Along Bottom */
+.industrial-hero-wave-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 85px;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.industrial-wave-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+}
+
+
+/* Responsive Styles for Industrial Water Hero */
+@media (max-width: 960px) {
+  .industrial-water-page .industrial-water-reference-hero .industrial-water-hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.2rem;
+  }
+
+
+  .industrial-water-hero-visual-col {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .industrial-water-page .industrial-water-hero.industrial-water-reference-hero {
+    padding: 1.5rem 0 3.5rem;
+  }
+
+  .industrial-hero-br-desktop {
+    display: none;
+  }
+
+  .industrial-water-page .industrial-water-reference-hero .industrial-water-hero-copy h1 {
+    font-size: clamp(1.55rem, 6.5vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .industrial-water-page .industrial-water-reference-hero .industrial-water-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .btn-industrial-primary,
+  .btn-industrial-secondary {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .industrial-water-figure-wrap {
+    border-radius: 18px;
+    border-width: 3px;
+  }
+
+  .industrial-hero-tab-topright {
+    width: 110px;
+    height: 36px;
+    top: -12px;
+    right: -4px;
+  }
+
+  .industrial-hero-tab-bottomleft {
+    width: 95px;
+    height: 75px;
+    bottom: -20px;
+    left: -14px;
+  }
+
+  .industrial-hero-wave-bottom {
+    height: 52px;
+  }
+
+}
+
+@media (max-width: 375px) {
+  .industrial-water-page .industrial-water-reference-hero .industrial-water-hero-copy h1 {
+    font-size: clamp(1.32rem, 5.8vw, 1.52rem);
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+  }
+
+  .industrial-water-figure-wrap {
+    border-radius: 16px;
+  }
+
+  .industrial-hero-tab-topright {
+    width: 90px;
+    height: 30px;
+    top: -10px;
+  }
+
+  .industrial-hero-tab-bottomleft {
+    width: 75px;
+    height: 60px;
+    bottom: -16px;
+  }
+}
+
+
+/* ==========================================================================
+   INDUSTRIAL WATER TREATMENT HUB: REFERENCE DESIGN SECTIONS
+   Matching media_1793680253742_e3d37d78.jpg
+   ========================================================================== */
+
+/* Shared Section Eyebrow & Header */
+.industrial-water-page .industrial-section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #10213B;
+  letter-spacing: 0.02em;
+}
+
+.industrial-water-page .industrial-eyebrow-bar {
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  background: #0879E8;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.industrial-water-page .industrial-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.25rem;
+}
+
+.industrial-water-page .industrial-section-header-left {
+  flex-grow: 1;
+}
+
+.industrial-water-page .industrial-section-title {
+  margin: 0.45rem 0 0;
+  color: #10213B;
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+.industrial-water-page .industrial-section-header-right {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  max-width: 440px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.industrial-water-page .industrial-header-divider {
+  width: 3px;
+  background: #0879E8;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.industrial-water-page .industrial-section-header-right p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #5B6E88;
+}
+
+/* --------------------------------------------------------------------------
+   1. FUNCTION SECTION (Industrial water categories - 4 Cards)
+   -------------------------------------------------------------------------- */
+.industrial-water-page .industrial-function-section {
+  padding: clamp(3.5rem, 6vw, 4.75rem) 0 clamp(3rem, 5vw, 4rem);
+  background: #FFFFFF;
+  scroll-margin-top: 5rem;
+}
+
+.industrial-water-page .industrial-function-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.industrial-water-page .industrial-function-card {
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid #E2EBF6;
+  border-radius: 16px;
+  padding: 1.6rem 1.4rem 1.65rem;
+  box-shadow: 0 4px 20px rgba(16, 33, 59, 0.035);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.industrial-water-page .industrial-function-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(8, 121, 232, 0.12);
+  border-color: #BFDBFE;
+}
+
+.industrial-water-page .industrial-function-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #EBF4FE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  color: #0879E8;
+  flex-shrink: 0;
+}
+
+.industrial-water-page .industrial-function-card-title {
+  margin: 0 0 0.55rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #10213B;
+  letter-spacing: -0.025em;
+}
+
+.industrial-water-page .industrial-function-card-desc {
+  margin: 0 0 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #5B6E88;
+  flex-grow: 1;
+}
+
+.industrial-water-page .industrial-function-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0879E8;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+}
+
+.industrial-water-page .industrial-function-card-link svg {
+  transition: transform 0.2s ease;
+}
+
+.industrial-water-page .industrial-function-card:hover .industrial-function-card-link svg {
+  transform: translateX(3px);
+}
+
+.industrial-water-page .industrial-card-water-splash {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 105px;
+  height: 56px;
+  pointer-events: none;
+  z-index: 1;
+  object-fit: contain;
+  object-position: bottom right;
+  opacity: 0.95;
+}
+
+/* --------------------------------------------------------------------------
+   2. PROBLEMS SECTION (Every system has its own set of problems)
+   -------------------------------------------------------------------------- */
+.industrial-water-page .industrial-problems-section {
+  padding: clamp(3.5rem, 6vw, 4.75rem) 0;
+  background: linear-gradient(180deg, #F4F8FD 0%, #FFFFFF 100%);
+  scroll-margin-top: 5rem;
+}
+
+.industrial-water-page .industrial-problems-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 3.75rem);
+}
+
+.industrial-water-page .industrial-problems-image-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid #FFFFFF;
+  box-shadow: 0 12px 36px rgba(8, 121, 232, 0.12), 0 0 0 1px #D6E7FC;
+  aspect-ratio: 16 / 10;
+  background: #EBF3FC;
+}
+
+.industrial-water-page .industrial-problems-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.industrial-water-page .industrial-problems-title {
+  margin: 0.55rem 0 1.85rem;
+  font-size: clamp(1.8rem, 2.7vw, 2.35rem);
+  font-weight: 800;
+  color: #10213B;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+}
+
+.industrial-water-page .industrial-problems-checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 2rem;
+}
+
+.industrial-water-page .industrial-checklist-col {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.industrial-water-page .industrial-checklist-col li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #10213B;
+  line-height: 1.45;
+}
+
+.industrial-water-page .industrial-check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #E8F3FE;
+  color: #0879E8;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   3. TREATMENT APPROACH SECTION (Categories in the industrial range - 2x2)
+   -------------------------------------------------------------------------- */
+.industrial-water-page .industrial-approach-section {
+  padding: clamp(3.5rem, 6vw, 4.75rem) 0;
+  background: #FFFFFF;
+  scroll-margin-top: 5rem;
+}
+
+.industrial-water-page .industrial-approach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.industrial-water-page .industrial-approach-card {
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid #E2EBF6;
+  border-radius: 18px;
+  padding: 1.85rem 2rem 2rem;
+  box-shadow: 0 4px 24px rgba(16, 33, 59, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.industrial-water-page .industrial-approach-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(8, 121, 232, 0.12);
+  border-color: #BFDBFE;
+}
+
+.industrial-water-page .industrial-approach-card-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.35rem;
+  position: relative;
+  z-index: 2;
+}
+
+.industrial-water-page .industrial-approach-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: #EBF4FE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0879E8;
+  flex-shrink: 0;
+}
+
+.industrial-water-page .industrial-approach-content {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.industrial-water-page .industrial-approach-card-title {
+  margin: 0 0 0.45rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #10213B;
+  letter-spacing: -0.025em;
+}
+
+.industrial-water-page .industrial-approach-card-desc {
+  margin: 0 0 0.95rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: #5B6E88;
+}
+
+.industrial-water-page .industrial-approach-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.industrial-water-page .industrial-approach-tag-item {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1E3A5F;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.industrial-water-page .industrial-approach-tag-pipe {
+  color: #A0B7D2;
+  font-weight: 400;
+  font-size: 0.78rem;
+}
+
+.industrial-water-page .industrial-approach-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0879E8;
+  text-decoration: none;
+}
+
+.industrial-water-page .industrial-approach-card-link svg {
+  transition: transform 0.2s ease;
+}
+
+.industrial-water-page .industrial-approach-card:hover .industrial-approach-card-link svg {
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   4. CATALOGUE SECTION (Also in the industrial catalogue - 5 Rows)
+   -------------------------------------------------------------------------- */
+.industrial-water-page .industrial-catalogue-section {
+  padding: clamp(3.5rem, 6vw, 4.75rem) 0;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FE 100%);
+  scroll-margin-top: 5rem;
+}
+
+.industrial-water-page .industrial-catalogue-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.industrial-water-page .industrial-catalogue-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: #FFFFFF;
+  border: 1px solid #E6EFF8;
+  border-radius: 12px;
+  padding: 1.15rem 1.6rem;
+  box-shadow: 0 2px 10px rgba(16, 33, 59, 0.02);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.industrial-water-page .industrial-catalogue-row:hover {
+  transform: translateY(-2px);
+  border-color: #BFDBFE;
+  box-shadow: 0 6px 20px rgba(8, 121, 232, 0.08);
+}
+
+.industrial-water-page .industrial-catalogue-title-col {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 250px;
+  flex-shrink: 0;
+}
+
+.industrial-water-page .industrial-catalogue-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0879E8;
+}
+
+.industrial-water-page .industrial-catalogue-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #10213B;
+  letter-spacing: -0.015em;
+}
+
+.industrial-water-page .industrial-catalogue-desc {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #5B6E88;
+  flex-grow: 1;
+  max-width: 460px;
+  line-height: 1.5;
+}
+
+.industrial-water-page .industrial-catalogue-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.industrial-water-page .industrial-catalogue-badge {
+  background: #EEF5FC;
+  color: #1E3A5F;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  border: 1px solid #DCE9F6;
+  white-space: nowrap;
+}
+
+.industrial-water-page .industrial-catalogue-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0879E8;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.industrial-water-page .industrial-catalogue-row:hover .industrial-catalogue-arrow {
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   5. BOTTOM CTA SECTION (Share the application with our team - Banner)
+   -------------------------------------------------------------------------- */
+.industrial-water-page .industrial-cta-section {
+  padding: clamp(3.5rem, 6vw, 4.75rem) 0 clamp(4rem, 7vw, 6rem);
+  background: #FFFFFF;
+}
+
+.industrial-water-page .industrial-cta-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #F0F7FF 0%, #E3F1FD 100%);
+  border: 1px solid #CCE3F9;
+  padding: clamp(2.5rem, 4.5vw, 3.6rem) clamp(2rem, 4.5vw, 3.8rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: 0 12px 36px rgba(8, 121, 232, 0.08);
+}
+
+.industrial-water-page .industrial-cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+}
+
+.industrial-water-page .industrial-section-eyebrow-cta {
+  margin-bottom: 0.5rem;
+}
+
+.industrial-water-page .industrial-cta-title {
+  margin: 0.4rem 0 0.8rem;
+  font-size: clamp(1.85rem, 2.8vw, 2.4rem);
+  font-weight: 800;
+  color: #10213B;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.industrial-water-page .industrial-cta-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #5B6E88;
+}
+
+.industrial-water-page .industrial-cta-action {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.industrial-water-page .btn-industrial-cta-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, #09478A 0%, #086AD8 100%);
+  color: #FFFFFF;
+  font-size: 0.98rem;
+  font-weight: 700;
+  padding: 0.95rem 2rem;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 6px 20px rgba(8, 106, 216, 0.35);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.industrial-water-page .btn-industrial-cta-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(8, 106, 216, 0.45);
+  color: #FFFFFF;
+}
+
+.industrial-water-page .industrial-cta-bubbles {
+  position: absolute;
+  right: 28%;
+  bottom: 12px;
+  width: 220px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.industrial-water-page .industrial-cta-bubbles-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.industrial-water-page .industrial-cta-waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.industrial-water-page .industrial-cta-waves-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN FOR INDUSTRIAL WATER SECTIONS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .industrial-water-page .industrial-function-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .industrial-water-page .industrial-problems-layout {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .industrial-water-page .industrial-problems-image-frame {
+    max-width: 580px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .industrial-water-page .industrial-catalogue-row {
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  .industrial-water-page .industrial-catalogue-title-col {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .industrial-water-page .industrial-catalogue-desc {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .industrial-water-page .industrial-catalogue-badges {
+    justify-content: flex-start;
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 840px) {
+  .industrial-water-page .industrial-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+
+  .industrial-water-page .industrial-section-header-right {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .industrial-water-page .industrial-approach-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .industrial-water-page .industrial-cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.75rem;
+    padding: 2.25rem 1.75rem 4rem;
+  }
+
+  .industrial-water-page .industrial-cta-action,
+  .industrial-water-page .btn-industrial-cta-action {
+    width: 100%;
+  }
+
+  .industrial-water-page .industrial-cta-bubbles {
+    right: 5%;
+    bottom: 25px;
+    width: 160px;
+  }
+}
+
+@media (max-width: 600px) {
+  .industrial-water-page .industrial-function-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .industrial-water-page .industrial-problems-checklist {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .industrial-water-page .industrial-approach-card {
+    padding: 1.5rem 1.25rem 1.75rem;
+  }
+
+  .industrial-water-page .industrial-approach-card-inner {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .industrial-water-page .industrial-catalogue-row {
+    padding: 1rem 1.15rem;
+  }
+
+  .industrial-water-page .industrial-catalogue-arrow {
+    display: none;
+  }
+
+  .industrial-water-page .industrial-card-water-splash {
+    width: 85px;
+    height: 46px;
+  }
+}
