@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowRight, Building2, FileText, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import LocationMap from "@/components/LocationMap";
@@ -47,10 +48,13 @@ export default function ContactPage() {
         </div>
 
         {/* Industrial water treatment facility photo inside circular glass portal */}
-        <div className="contact-hero-visual" aria-hidden="true">
-          <img
-            src="/images/contact/hero-portal.png"
+        <div className="contact-hero-visual">
+          <Image
+            src="/images/contact/hero-portal.webp"
             alt="Industrial water treatment plant with storage tanks, piping and water clarifier pool"
+            fill
+            priority
+            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 530px"
             className="contact-hero-portal-img"
           />
         </div>
@@ -134,7 +138,11 @@ export default function ContactPage() {
             <p>Choose a location to view it on the map.</p>
           </div>
           <LocationMap
-            locations={locations.map(({ id, area, address }) => ({ id, title: area, address }))}
+            locations={locations.map(({ id, area, address }) => ({
+              id,
+              title: area.split(",")[0].trim(),
+              address,
+            }))}
           />
         </div>
       </section>
