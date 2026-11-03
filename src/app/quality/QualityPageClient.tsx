@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -113,33 +113,14 @@ function CountUpNumber({
 }
 
 export default function QualityPageClient() {
-  // PQRS Accordion state & auto-cycling
+  // PQRS Accordion state (P panel active on load)
   const [activePqrs, setActivePqrs] = useState<number>(0);
-  const [isPaused, setIsPaused] = useState<boolean>(false);
-  const autoCycleTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const startAutoCycle = useCallback(() => {
-    if (autoCycleTimerRef.current) clearInterval(autoCycleTimerRef.current);
-    autoCycleTimerRef.current = setInterval(() => {
-      setActivePqrs((prev) => (prev + 1) % 4);
-    }, 4500);
-  }, []);
-
-  const stopAutoCycle = useCallback(() => {
-    if (autoCycleTimerRef.current) {
-      clearInterval(autoCycleTimerRef.current);
-      autoCycleTimerRef.current = null;
+  const handlePqrsHover = (index: number) => {
+    if (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches) {
+      setActivePqrs(index);
     }
-  }, []);
-
-  useEffect(() => {
-    if (!isPaused) {
-      startAutoCycle();
-    } else {
-      stopAutoCycle();
-    }
-    return () => stopAutoCycle();
-  }, [isPaused, startAutoCycle, stopAutoCycle]);
+  };
 
   // Pillar "Read more" toggle states
   const [expandedPillars, setExpandedPillars] = useState<Record<string, boolean>>({});
@@ -468,22 +449,10 @@ export default function QualityPageClient() {
             </p>
           </header>
 
-          {/* Interactive auto-cycle status bar */}
-          <div className="qp-pqrs-controls-bar">
-            <div className="qp-pqrs-auto-indicator">
-              <span className={`qp-pqrs-auto-dot ${isPaused ? "is-paused" : ""}`} aria-hidden="true" />
-              <span>{isPaused ? "Auto-rotation paused on hover" : "Auto-cycling principles (Hover to pause)"}</span>
-            </div>
-          </div>
-
           <div
             className="qp-pqrs-accordion"
             role="tablist"
             aria-label="P.Q.R.S Principles Accordion"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onFocus={() => setIsPaused(true)}
-            onBlur={() => setIsPaused(false)}
           >
             {pqrsPrinciples.map((principle, index) => {
               const isExpanded = activePqrs === index;
@@ -503,11 +472,8 @@ export default function QualityPageClient() {
                   }`}
                   onClick={() => setActivePqrs(index)}
                   onFocus={() => setActivePqrs(index)}
-                  onMouseEnter={() => setActivePqrs(index)}
+                  onMouseEnter={() => handlePqrsHover(index)}
                 >
-                  {/* Active Panel Timer Progress Line */}
-                  {isExpanded && <div className="qp-pqrs-panel-timer" style={{ color: principle.accentColor }} />}
-
                   <div className="qp-pqrs-panel-header">
                     <span className="qp-pqrs-big-letter" aria-hidden="true">
                       {principle.letter}

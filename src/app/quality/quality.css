@@ -415,8 +415,7 @@
     width: 100%;
     min-width: 0;
     box-sizing: border-box;
-    white-space: normal;
-    /* allow wrapping inside the chip */
+    white-space: normal;      /* allow wrapping inside the chip */
     justify-content: flex-start;
     align-items: center;
     text-align: left;
@@ -436,7 +435,6 @@
   .qp-hero-chips-row {
     grid-template-columns: minmax(0, 1fr);
   }
-
   .qp-hero-chips-row .qp-chip:last-child {
     grid-column: auto;
   }
@@ -648,37 +646,6 @@
   border-color: #F97316;
 }
 
-/* Active Panel Top Timer Progress Bar */
-.qp-pqrs-panel-timer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: currentColor;
-  opacity: 0.6;
-  transform-origin: left;
-  transform: scaleX(0);
-}
-
-.qp-pqrs-panel.is-expanded .qp-pqrs-panel-timer {
-  animation: qpTimerFill 4.5s linear infinite;
-}
-
-.qp-pqrs-accordion:hover .qp-pqrs-panel-timer {
-  animation-play-state: paused;
-}
-
-@keyframes qpTimerFill {
-  from {
-    transform: scaleX(0);
-  }
-
-  to {
-    transform: scaleX(1);
-  }
-}
-
 /* Panel Header & Big Letter */
 .qp-pqrs-panel-header {
   display: flex;
@@ -761,8 +728,9 @@
 /* Expanded Content with Compact Layout & Strictly NO SCROLL */
 .qp-pqrs-expanded-body {
   opacity: 0;
+  visibility: hidden;
   transform: translateY(10px);
-  transition: opacity 0.3s 0.1s ease, transform 0.3s 0.1s ease;
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -773,8 +741,10 @@
 
 .qp-pqrs-panel.is-expanded .qp-pqrs-expanded-body {
   opacity: 1;
+  visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
+  transition: opacity 0.25s 0.15s ease, transform 0.25s 0.15s ease, visibility 0.25s 0.15s ease;
 }
 
 .qp-pqrs-tagline {
@@ -2215,34 +2185,119 @@
     gap: 0.85rem;
   }
 
-  /* Vertical Accordion on Mobile */
+  /* Section 3: Static 4-Card Stack on Mobile */
   .qp-pqrs-accordion {
     flex-direction: column;
     height: auto;
-    gap: 12px;
+    gap: 16px;
   }
 
   .qp-pqrs-panel {
     flex: none !important;
     width: 100%;
-    min-height: auto;
-    padding: 1.35rem;
+    height: auto;
+    min-height: 0;
+    transition: none;
+    cursor: default;
+    overflow: visible;
+    padding: 1.25rem;
+    box-shadow: 0 4px 20px rgba(11, 25, 44, 0.04);
   }
 
   .qp-pqrs-panel.is-expanded {
     flex-grow: 0 !important;
+    box-shadow: 0 4px 20px rgba(11, 25, 44, 0.04);
   }
 
+  .qp-pqrs-panel:hover,
+  .qp-pqrs-panel:active,
+  .qp-pqrs-panel.is-expanded:hover {
+    transform: none;
+    box-shadow: 0 4px 20px rgba(11, 25, 44, 0.04);
+  }
+
+  .qp-pqrs-panel:hover .qp-pqrs-big-letter {
+    transform: none;
+  }
+
+  /* Active color styling applied to all 4 cards */
+  .qp-pqrs-panel-p {
+    background: #F2FBF7;
+    border-color: #10B981;
+  }
+
+  .qp-pqrs-panel-q {
+    background: #F0F9FF;
+    border-color: #0284C7;
+  }
+
+  .qp-pqrs-panel-r {
+    background: #F8F5FF;
+    border-color: #8B5CF6;
+  }
+
+  .qp-pqrs-panel-s {
+    background: #FFF9F3;
+    border-color: #F97316;
+  }
+
+  /* Header layout and big letter */
+  .qp-pqrs-header-meta,
   .qp-pqrs-panel:not(.is-expanded) .qp-pqrs-header-meta {
     display: flex;
   }
 
-  .qp-pqrs-collapsed-hint {
-    display: none;
+  .qp-pqrs-big-letter {
+    font-size: clamp(2.75rem, 6vw, 3.25rem);
   }
 
-  .qp-pqrs-big-letter {
-    font-size: 3.5rem;
+  /* Fully show expanded body on all cards */
+  .qp-pqrs-expanded-body,
+  .qp-pqrs-panel.is-expanded .qp-pqrs-expanded-body,
+  .qp-pqrs-panel:not(.is-expanded) .qp-pqrs-expanded-body {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    max-height: none;
+    height: auto;
+    overflow: visible;
+    transition: none;
+    position: static;
+    transform: none;
+  }
+
+  /* Hide collapsed indicator */
+  .qp-pqrs-collapsed-hint {
+    display: none !important;
+  }
+
+  /* Hide timer element if present */
+  .qp-pqrs-panel-timer {
+    display: none !important;
+  }
+
+  /* Text wrap & overflow safety */
+  .qp-pqrs-panel,
+  .qp-pqrs-tagline,
+  .qp-pqrs-desc,
+  .qp-pqrs-bullets li,
+  .qp-pqrs-text-card-value,
+  .qp-pqrs-text-card-label {
+    white-space: normal;
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Bottom text card with wrap */
+  .qp-pqrs-text-card {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .qp-pqrs-text-card:hover {
+    transform: none;
+    box-shadow: 0 2px 8px rgba(11, 25, 44, 0.04);
   }
 
   .qp-journey-track {
