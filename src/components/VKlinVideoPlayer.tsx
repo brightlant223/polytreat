@@ -23,7 +23,7 @@ export default function VKlinVideoPlayer() {
       <div className="hp-vklin-video-frame">
         <video
           ref={videoRef}
-          src="/images/home/v-clean.mp4"
+          src="/images/home/vklin-commercial.mp4"
           className="hp-vklin-video-element"
           controls
           playsInline

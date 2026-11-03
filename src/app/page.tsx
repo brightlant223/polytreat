@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import VKlinHeroSection from "@/components/VKlinHeroSection";
 import HeroCarousel from "@/components/HeroCarousel";
-import InteractiveRangesSection from "@/components/InteractiveRangesSection";
+import VKlinCommercialDemos from "@/components/VKlinCommercialDemos";
 import ScrollReveal from "@/components/ScrollReveal";
 import VKlinVideoPlayer from "@/components/VKlinVideoPlayer";
 import { homeStockImages } from "@/data/homeImages";
@@ -169,7 +170,7 @@ const WhatsAppCta = ({ className = "" }: { className?: string }) => (
 export default function Home() {
   return (
     <main className="hp-home">
-      <HeroCarousel />
+      <VKlinHeroSection />
       <ScrollReveal />
 
       {/* Quality & Compliance Strip */}
@@ -207,7 +208,7 @@ export default function Home() {
         </div>
       </section>
 
-      <InteractiveRangesSection />
+      <VKlinCommercialDemos />
 
       {/* Complete business map */}
       <section className="hp-section" id="range-map" aria-labelledby="range-map-title">
