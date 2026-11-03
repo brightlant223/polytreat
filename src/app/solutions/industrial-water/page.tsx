@@ -282,9 +282,9 @@ export default function IndustrialWaterPage() {
           <div className="industrial-water-hero-layout">
             <div className="industrial-water-hero-copy">
               <h1 id="industrial-water-title">
-                Water treatment for
+                Water treatment for{" "}
                 <br className="industrial-hero-br-desktop" />
-                the systems that
+                the systems that{" "}
                 <br className="industrial-hero-br-desktop" />
                 <span className="industrial-hero-highlight">keep plants running.</span>
               </h1>
