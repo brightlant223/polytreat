@@ -125,6 +125,17 @@ export default function QualityPageClient() {
   // Pillar "Read more" toggle states
   const [expandedPillars, setExpandedPillars] = useState<Record<string, boolean>>({});
 
+  // Pillars carousel ref & state for mobile swipe
+  const pillarsTrackRef = useRef<HTMLDivElement>(null);
+  const [activePillar, setActivePillar] = useState(0);
+
+  const handlePillarsScroll = () => {
+    const el = pillarsTrackRef.current;
+    if (!el) return;
+    const index = Math.round(el.scrollLeft / el.clientWidth);
+    setActivePillar(index);
+  };
+
   // Batch Journey in-view state for line draw and sequential dot pulse
   const journeyRef = useRef<HTMLElement>(null);
   const [journeyInView, setJourneyInView] = useState(false);
@@ -615,7 +626,11 @@ export default function QualityPageClient() {
           </header>
 
           {/* Connected Split Rows */}
-          <div className="qp-pillars-timeline">
+          <div
+            className="qp-pillars-timeline"
+            ref={pillarsTrackRef}
+            onScroll={handlePillarsScroll}
+          >
             {qualityPillars.map((pillar, idx) => {
               const Icon = pillarIconMap[idx] || FlaskConical;
               const isExpanded = !!expandedPillars[pillar.id];
@@ -763,6 +778,21 @@ export default function QualityPageClient() {
                 </article>
               );
             })}
+          </div>
+
+          <div className="qp-pillars-dots" aria-hidden="false">
+            {qualityPillars.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                className={`qp-pillars-dot${activePillar === i ? " is-active" : ""}`}
+                aria-label={`Go to pillar ${i + 1}`}
+                onClick={() => {
+                  const el = pillarsTrackRef.current;
+                  if (el) el.scrollTo({ left: el.clientWidth * i, behavior: "smooth" });
+                }}
+              />
+            ))}
           </div>
         </div>
       </section>

@@ -1694,6 +1694,159 @@
   }
 }
 
+/* Dots Indicator (Hidden on Desktop & Tablet) */
+.qp-pillars-dots {
+  display: none;
+}
+
+/* ==========================================================================
+   Section 5: Mobile Swipe Carousel (max-width: 767px)
+   ========================================================================== */
+@media (max-width: 767px) {
+  /* 1. Carousel Track */
+  .qp-pillars-timeline {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .qp-pillars-timeline::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 2. One Pillar Row = One Slide */
+  .qp-pillars-row {
+    flex: 0 0 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    border-radius: 20px;
+    border: 1px solid rgba(224, 242, 254, 0.95);
+    background: #FFFFFF;
+    padding: 1.25rem;
+    box-shadow: 0 4px 20px -4px rgba(2, 132, 199, 0.08);
+    animation: none !important;
+    transform: none !important;
+  }
+
+  /* 3. Reset Desktop Split & Timeline Overlays */
+  .qp-pillars-connector-line,
+  .qp-pillars-node {
+    display: none !important;
+  }
+
+  .qp-pillars-split-grid {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    gap: 1rem;
+  }
+
+  .qp-pillars-text-col,
+  .qp-pillars-text-col-even {
+    order: 1;
+    padding: 0;
+    width: 100%;
+  }
+
+  .qp-pillars-panel-col,
+  .qp-pillars-panel-col-even {
+    order: 2;
+    padding: 0;
+    width: 100%;
+  }
+
+  .qp-pillars-panel {
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transform: none !important;
+  }
+
+  .qp-pillars-panel:hover,
+  .qp-pillars-panel:active {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 4. Content Visibility & Wrapping */
+  .qp-pillars-meta-row {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .qp-pillars-title {
+    font-size: clamp(1.35rem, 6vw, 1.75rem);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  .qp-pillars-subtitle,
+  .qp-pillars-desc,
+  .qp-pillars-tag,
+  .qp-pillars-icon-badge,
+  .qp-pillars-checklist li span,
+  .qp-pillars-deep-item span,
+  .qp-pillars-footer-strip span {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  .qp-pillars-deco-num {
+    font-size: 2.75rem;
+  }
+
+  /* 5. Mobile Dot Indicators */
+  .qp-pillars-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+  }
+
+  .qp-pillars-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    background: #cbd5e1;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+
+  .qp-pillars-dot::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+  }
+
+  .qp-pillars-dot.is-active {
+    width: 26px;
+    background: var(--qp-blue, #0284C7);
+  }
+}
+
 /* ==========================================================================
    6. COMPANY MANUFACTURING PROFILE & INFRASTRUCTURE
    ========================================================================== */
