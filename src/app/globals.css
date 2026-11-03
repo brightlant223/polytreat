@@ -28251,7 +28251,7 @@ main {
     radial-gradient(ellipse at 86% 18%, rgba(8, 121, 232, 0.12), transparent 42%),
     radial-gradient(ellipse at 14% 82%, rgba(14, 165, 233, 0.08), transparent 38%),
     linear-gradient(180deg, #F0F7FD 0%, #F9FCFF 55%, #EBF5FE 100%);
-  padding: 1.25rem 0 clamp(3.2rem, 4.5vw, 4.2rem);
+  padding: 1.25rem 0 clamp(6.8rem, 8vw, 7.6rem);
   overflow: hidden;
 }
 
@@ -28468,7 +28468,7 @@ main {
   left: 0;
   right: 0;
   width: 100%;
-  height: clamp(48px, 5.8vw, 68px);
+  height: clamp(42px, 4.8vw, 54px);
   pointer-events: none;
   z-index: 3;
   overflow: hidden;
@@ -28486,7 +28486,7 @@ main {
    2. KEY FEATURES STRIP
    -------------------------------------------------------------------------- */
 .boiler-cooling-page .boiler-features-section {
-  padding: 0 0 clamp(3.5rem, 5vw, 4.5rem);
+  padding: 0;
   background: #FFFFFF;
   position: relative;
   z-index: 4;
@@ -28637,7 +28637,7 @@ main {
    3. EXPLORE BY SYSTEM (Two systems, distinct operating contexts.)
    -------------------------------------------------------------------------- */
 .boiler-cooling-page .boiler-systems-section {
-  padding: clamp(3.5rem, 6vw, 4.75rem) 0;
+  padding: 45px 0 clamp(3rem, 5vw, 4.25rem);
   background: #FFFFFF;
   scroll-margin-top: 5rem;
 }
@@ -29329,7 +29329,11 @@ main {
 @media (max-width: 768px) {
   .boiler-cooling-page .boiler-cooling-hero {
     padding-top: 1.15rem;
-    padding-bottom: 3.25rem;
+    padding-bottom: 4.8rem;
+  }
+
+  .boiler-cooling-page .boiler-systems-section {
+    padding-top: 35px;
   }
 
   .boiler-cooling-page .boiler-hero-copy h1 {
