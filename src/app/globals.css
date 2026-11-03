@@ -25013,8 +25013,32 @@ main {
 
 .hp-vklin-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1.25rem;
+}
+
+@media (max-width: 480px) {
+  .hp-vklin-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .hp-vklin-thumb-box {
+    width: 96px;
+    height: 96px;
+  }
+
+  .hp-vklin-item-card {
+    padding: 0.9rem 0.6rem;
+  }
+
+  .hp-vklin-item-card h4 {
+    font-size: 0.85rem;
+  }
+
+  .hp-vklin-item-card p {
+    font-size: 0.72rem;
+  }
 }
 
 .hp-vklin-item-card {
@@ -25505,7 +25529,7 @@ main {
   }
 
   .vklin-categories-track {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.65rem;
   }
 
@@ -25517,6 +25541,17 @@ main {
   .vklin-hero-btn-primary {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .vklin-categories-track {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .vklin-cat-title {
+    font-size: 0.72rem;
   }
 }
 
@@ -26269,6 +26304,35 @@ main {
   box-shadow: 0 0 10px rgba(56, 189, 248, 0.8) !important;
 }
 
+/* Compact hero visual badge on small phones so it never collides with the
+   carousel dots (badge sits bottom-left, dots bottom-right). */
+@media (max-width: 480px) {
+  .vklin-brand-pill {
+    font-size: 0.68rem !important;
+    padding: 0.32rem 0.65rem !important;
+    gap: 0.4rem !important;
+  }
+
+  .vklin-hero-dots-nav {
+    gap: 5px !important;
+    padding: 5px 8px !important;
+    right: 10px !important;
+    bottom: 10px !important;
+  }
+
+  .vklin-hero-visual-badge {
+    left: 10px !important;
+    bottom: 10px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  /* Drop the tagline, keep the V-Klin logo pill + dots only */
+  .vklin-brand-pill > span:last-child {
+    display: none !important;
+  }
+}
+
 /* ================================================================== */
 /* DEMO SECTION COLUMN BALANCED ALIGNMENT (Top & Bottom Baseline)    */
 /* ================================================================== */
@@ -26613,6 +26677,15 @@ main {
   gap: 1.5rem;
   padding: 1.4rem;
   align-items: stretch;
+}
+
+/* Grid/flex children must never force the track wider than the stage on
+   narrow screens (min-width: auto lets intrinsic content blow out "1fr"). */
+.vklin-mini-grid > *,
+.vklin-mini-video-col > *,
+.vklin-mini-content-col > *,
+.vklin-mini-stage-foot > * {
+  min-width: 0;
 }
 
 /* Left Column */
@@ -27001,6 +27074,17 @@ main {
   .vklin-mini-stage-foot {
     flex-direction: column;
     align-items: stretch;
+  }
+  .vklin-mini-tab-item {
+    min-width: 124px;
+    padding: 0.45rem 0.65rem;
+    gap: 0.5rem;
+  }
+  .vklin-mini-tab-text strong {
+    font-size: 0.76rem;
+  }
+  .vklin-mini-tab-text small {
+    font-size: 0.63rem;
   }
 }
 
