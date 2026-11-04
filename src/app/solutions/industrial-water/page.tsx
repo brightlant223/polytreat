@@ -574,11 +574,8 @@ export default function IndustrialWaterPage() {
           <div className="industrial-water-hero-layout">
             <div className="industrial-water-hero-copy">
               <h1 id="industrial-water-title">
-                Water treatment for{" "}
-                <br className="industrial-hero-br-desktop" />
-                the systems that{" "}
-                <br className="industrial-hero-br-desktop" />
-                <span className="industrial-hero-highlight">keep plants running.</span>
+                Water treatment for the systems that{" "}
+                <span className="industrial-hero-highlight">keep plants running</span>.
               </h1>
 
               <div className="industrial-hero-accent-line" aria-hidden="true" />
@@ -615,6 +612,14 @@ export default function IndustrialWaterPage() {
 
               {/* Large high-resolution RO facility photograph container */}
               <div className="industrial-water-figure-wrap">
+                <div className="industrial-hero-visual-badge">
+                  <span className="industrial-brand-pill">
+                    <span className="industrial-pill-dot" aria-hidden="true" />
+                    <strong>RO &amp; Membrane Plant</strong>
+                    <span className="industrial-pill-sep">·</span>
+                    <span>Industrial Process Demineralisation</span>
+                  </span>
+                </div>
                 <img
                   src="/images/solutions/industrial-water-ro-facility.jpg"
                   alt="Industrial reverse osmosis water treatment facility with multi-tiered membrane pressure vessels, high-pressure pumps and stainless steel piping"
@@ -709,6 +714,14 @@ export default function IndustrialWaterPage() {
           <div className="industrial-problems-layout">
             <div className="industrial-problems-image-col">
               <div className="industrial-problems-image-frame">
+                <div className="industrial-hero-visual-badge">
+                  <span className="industrial-brand-pill">
+                    <span className="industrial-pill-dot" aria-hidden="true" />
+                    <strong>Filtration &amp; Pre-Treatment</strong>
+                    <span className="industrial-pill-sep">·</span>
+                    <span>Multi-Tier Media Vessels</span>
+                  </span>
+                </div>
                 <img
                   src="/images/solutions/industrial-water-systems-facility.jpg"
                   alt="Industrial water treatment filtration facility with large blue pressure filter tanks, yellow catwalks and stainless steel piping"

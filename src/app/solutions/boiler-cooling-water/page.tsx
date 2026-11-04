@@ -7,7 +7,6 @@ import {
   CheckCircle2,
   ChevronRight,
   Droplets,
-  Factory,
   FlaskConical,
   Gauge,
   Home,
@@ -410,9 +409,13 @@ export default function BoilerCoolingWaterPage() {
 
               {/* Main boiler & cooling plant photograph */}
               <div className="boiler-hero-figure-wrap">
-                <div className="boiler-hero-image-pill" aria-hidden="true">
-                  <Factory size={13} />
-                  <span>Boiler &amp; Cooling Water</span>
+                <div className="boiler-hero-visual-badge">
+                  <span className="boiler-brand-pill">
+                    <span className="boiler-pill-dot" aria-hidden="true" />
+                    <strong>Boiler &amp; Cooling Systems</strong>
+                    <span className="boiler-pill-sep">·</span>
+                    <span>Steam Generation &amp; Heat Exchange</span>
+                  </span>
                 </div>
                 <img
                   src="/images/solutions/boiler-cooling-hero-facility.jpg"
@@ -490,20 +493,17 @@ export default function BoilerCoolingWaterPage() {
       <section className="boiler-features-section" aria-label="Key features">
         <div className="container">
           <div className="boiler-features-strip">
-            {keyFeatures.map((feature, idx) => {
+            {keyFeatures.map((feature) => {
               const Icon = feature.icon;
               return (
                 <div className="boiler-feature-col" key={feature.title}>
                   <div className="boiler-feature-icon-box" aria-hidden="true">
-                    <Icon size={22} />
+                    <Icon size={20} />
                   </div>
                   <div className="boiler-feature-text">
                     <h3 className="boiler-feature-title">{feature.title}</h3>
                     <p className="boiler-feature-desc">{feature.description}</p>
                   </div>
-                  {idx < keyFeatures.length - 1 && (
-                    <span className="boiler-feature-divider" aria-hidden="true" />
-                  )}
                 </div>
               );
             })}

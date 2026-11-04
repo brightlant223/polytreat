@@ -13993,20 +13993,23 @@ body:has(.contact-page) .footer-credit a {
 }
 
 .industrial-water-hero-copy h1 {
-  max-width: 690px;
-  margin: 1rem 0 1.1rem;
-  color: #0B192C;
-  font-size: clamp(2.5rem, 5vw, 4.2rem);
-  line-height: 1.04;
-  letter-spacing: -0.055em;
+  max-width: 580px;
+  margin: 0 0 0.55rem;
+  color: #10213B;
+  font-size: clamp(2.15rem, 3.4vw, 2.85rem);
+  font-weight: 850;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .industrial-water-hero-copy>p {
-  max-width: 590px;
-  margin-bottom: 1.45rem;
-  color: #5C7182;
-  font-size: clamp(1rem, 1.35vw, 1.12rem);
-  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 1.35rem;
+  color: #475569;
+  font-size: clamp(0.9rem, 1.05vw, 0.98rem);
+  line-height: 1.55;
 }
 
 .industrial-water-hero-actions {
@@ -27534,14 +27537,13 @@ main {
 }
 
 .industrial-water-page .industrial-water-reference-hero .industrial-water-hero-copy h1 {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.55rem;
   color: #10213B;
-  font-size: clamp(2.35rem, 4.3vw, 3.6rem);
+  font-size: clamp(2.15rem, 3.4vw, 2.85rem);
   font-weight: 850;
-  line-height: 1.20;
-  letter-spacing: -0.025em;
-  word-spacing: 0.03em;
-  word-break: normal;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  word-break: break-word;
   overflow-wrap: break-word;
 }
 
@@ -27551,19 +27553,19 @@ main {
 
 /* Decorative Accent Line */
 .industrial-hero-accent-line {
-  width: 48px;
+  width: 44px;
   height: 3.5px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #0284C7 0%, #38BDF8 100%);
-  margin: 1.15rem 0 1.35rem;
+  background: #0284C7;
+  margin: 0.75rem 0 0.95rem;
 }
 
 .industrial-water-page .industrial-water-reference-hero .industrial-water-hero-copy p {
-  margin: 0 0 1.75rem;
+  margin: 0 0 1.35rem;
   color: #475569;
-  font-size: clamp(0.92rem, 1.15vw, 1.02rem);
-  line-height: 1.65;
-  max-width: 520px;
+  font-size: clamp(0.9rem, 1.05vw, 0.98rem);
+  line-height: 1.55;
+  max-width: 480px;
 }
 
 /* CTA Buttons */
@@ -27757,9 +27759,15 @@ main {
   }
 
   .industrial-water-page .industrial-water-reference-hero .industrial-water-hero-copy h1 {
-    font-size: clamp(1.85rem, 5.5vw, 2.5rem);
-    line-height: 1.22;
-    letter-spacing: -0.025em;
+    font-size: clamp(1.75rem, 6vw, 2.35rem);
+    line-height: 1.16;
+    letter-spacing: -0.03em;
+    word-break: break-word;
+  }
+
+  .industrial-water-page .industrial-water-reference-hero .industrial-water-hero-copy p {
+    font-size: 0.92rem;
+    line-height: 1.52;
   }
 
   .industrial-water-hero-visual-col {
@@ -27779,23 +27787,22 @@ main {
   }
 
   .industrial-water-page .industrial-water-reference-hero .industrial-water-hero-copy h1 {
-    font-size: clamp(1.55rem, 6.2vw, 2.15rem);
-    line-height: 1.28;
-    letter-spacing: -0.015em;
-    word-spacing: 0.05em;
-    word-break: normal;
+    font-size: clamp(1.55rem, 6.2vw, 1.95rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    word-break: break-word;
     overflow-wrap: break-word;
     margin-bottom: 0.55rem;
   }
 
   .industrial-water-page .industrial-hero-accent-line {
-    margin: 0.6rem 0 0.85rem;
+    margin: 0.65rem 0 0.85rem;
   }
 
   .industrial-water-page .industrial-water-reference-hero .industrial-water-hero-copy p {
-    font-size: clamp(0.88rem, 3.6vw, 0.94rem);
-    line-height: 1.55;
-    margin-bottom: 1.35rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 1.15rem;
   }
 
   .industrial-water-page .industrial-water-reference-hero .industrial-water-hero-actions {
@@ -27853,12 +27860,9 @@ main {
 
 @media (max-width: 375px) {
   .industrial-water-page .industrial-water-reference-hero .industrial-water-hero-copy h1 {
-    font-size: clamp(1.4rem, 5.8vw, 1.65rem);
-    line-height: 1.28;
-    letter-spacing: -0.01em;
-    word-spacing: 0.05em;
-    word-break: normal;
-    overflow-wrap: break-word;
+    font-size: 1.45rem;
+    line-height: 1.18;
+    word-break: break-word;
   }
 
   .industrial-water-figure-wrap {
@@ -28961,9 +28965,9 @@ main {
 /* Hero Layout */
 .boiler-cooling-page .boiler-hero-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  grid-template-columns: minmax(0, 1.02fr) minmax(380px, 0.98fr);
   align-items: center;
-  gap: clamp(1.75rem, 3.5vw, 3rem);
+  gap: clamp(2rem, 4vw, 3.8rem);
 }
 
 .boiler-cooling-page .boiler-hero-copy {
@@ -29120,13 +29124,14 @@ main {
 
 .boiler-cooling-page .boiler-hero-backdrop-frame {
   position: absolute;
-  top: -12px;
-  right: -12px;
-  bottom: 12px;
-  left: 12px;
-  border: 1.5px solid rgba(2, 132, 199, 0.22);
-  border-radius: 28px;
-  background: linear-gradient(135deg, rgba(2, 132, 199, 0.03) 0%, rgba(186, 230, 253, 0.07) 100%);
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  border-radius: 32px;
+  border: 1.5px solid rgba(2, 132, 199, 0.16);
+  background: rgba(240, 249, 255, 0.45);
+  backdrop-filter: blur(4px);
   z-index: 1;
   pointer-events: none;
 }
@@ -29146,14 +29151,16 @@ main {
 
 .boiler-cooling-page .boiler-hero-figure-wrap {
   position: relative;
+  z-index: 4;
   width: 100%;
-  max-width: 490px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 16px 42px rgba(2, 132, 199, 0.14), 0 4px 14px rgba(11, 25, 44, 0.06);
-  border: 3.5px solid #FFFFFF;
-  z-index: 5;
+  border-radius: 26px;
+  border: 4px solid #FFFFFF;
   background: #FFFFFF;
+  box-shadow:
+    0 16px 42px rgba(2, 132, 199, 0.14),
+    0 4px 14px rgba(11, 25, 44, 0.06);
+  overflow: hidden;
+  aspect-ratio: 16 / 9.2;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
@@ -29183,8 +29190,7 @@ main {
 
 .boiler-cooling-page .boiler-hero-img {
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9.8;
+  height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
@@ -29219,7 +29225,7 @@ main {
    2. KEY FEATURES STRIP
    -------------------------------------------------------------------------- */
 .boiler-cooling-page .boiler-features-section {
-  padding: clamp(1.25rem, 2vw, 1.75rem) 0 clamp(0.75rem, 1.25vw, 1.15rem);
+  padding: clamp(1.5rem, 2.5vw, 2.25rem) 0 clamp(1rem, 1.75vw, 1.5rem);
   background: #FFFFFF;
   position: relative;
   z-index: 4;
@@ -29227,66 +29233,97 @@ main {
 
 .boiler-cooling-page .boiler-features-strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: #FFFFFF;
-  border: 1px solid #BAE6FD;
-  border-radius: 18px;
-  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.10);
-  overflow: hidden;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.15rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
 }
 
 .boiler-cooling-page .boiler-feature-col {
   position: relative;
   display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 1.05rem 1.25rem;
-  transition: background-color 0.2s ease;
+  align-items: flex-start;
+  gap: 0.95rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid #E2EBF6;
+  border-radius: 18px;
+  padding: 1.2rem 1.25rem;
+  box-shadow: 0 4px 16px rgba(16, 33, 59, 0.04);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background 0.25s ease;
+  cursor: default;
 }
 
+/* Lean, elegant hover animation with popup icon - matching specialty product features */
 .boiler-cooling-page .boiler-feature-col:hover {
-  background: #F8FBFE;
+  transform: translateY(-4px);
+  border-color: #7DD3FC;
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.12), 0 3px 8px rgba(16, 33, 59, 0.04);
+  background: #FFFFFF;
 }
 
 .boiler-cooling-page .boiler-feature-icon-box {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: #EAF3F8;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: #E0F2FE;
+  border: 1.5px solid #BAE6FD;
   color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid #D6E8FC;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.25s ease;
+}
+
+.boiler-cooling-page .boiler-feature-col:hover .boiler-feature-icon-box {
+  transform: scale(1.1) translateY(-2px);
+  background: #0284C7;
+  border-color: #0284C7;
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.32);
 }
 
 .boiler-cooling-page .boiler-feature-text {
   flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .boiler-cooling-page .boiler-feature-title {
-  font-size: 0.90rem;
-  font-weight: 800;
+  font-size: 0.95rem;
+  font-weight: 850;
   color: #10213B;
-  margin: 0 0 0.15rem;
+  margin: 0 0 0.25rem;
   letter-spacing: -0.015em;
+  transition: color 0.2s ease;
+}
+
+.boiler-cooling-page .boiler-feature-col:hover .boiler-feature-title {
+  color: #0284C7;
 }
 
 .boiler-cooling-page .boiler-feature-desc {
-  font-size: 0.76rem;
-  color: #5B6E88;
+  font-size: 0.78rem;
+  color: #64748B;
   margin: 0;
-  line-height: 1.35;
+  line-height: 1.45;
 }
 
 .boiler-cooling-page .boiler-feature-divider {
-  position: absolute;
-  right: 0;
-  top: 20%;
-  bottom: 20%;
-  width: 1px;
-  background: #E6EFF8;
+  display: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -30177,11 +30214,8 @@ main {
   }
 
   .boiler-cooling-page .boiler-features-strip {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .boiler-cooling-page .boiler-feature-col:nth-child(2) .boiler-feature-divider {
-    display: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
   }
 }
 
@@ -30325,15 +30359,11 @@ main {
 
   .boiler-cooling-page .boiler-features-strip {
     grid-template-columns: 1fr;
-  }
-
-  .boiler-cooling-page .boiler-feature-divider {
-    display: none;
+    gap: 0.85rem;
   }
 
   .boiler-cooling-page .boiler-feature-col {
-    border-bottom: 1px solid #EBF4FE;
-    padding: 0.95rem 1.15rem;
+    padding: 1.05rem 1.15rem;
   }
 
   .boiler-cooling-page .boiler-feature-col:last-child {
@@ -30532,8 +30562,8 @@ main {
   }
 
   .boiler-cooling-page .boiler-hero-figure-wrap {
-    border-radius: 16px;
-    border-width: 2.5px;
+    border-radius: 18px;
+    border-width: 3px;
   }
 
   .boiler-cooling-page .boiler-hero-image-pill {
@@ -30544,18 +30574,19 @@ main {
   }
 
   .boiler-cooling-page .boiler-features-strip {
-    border-radius: 14px;
+    gap: 0.75rem;
   }
 
   .boiler-cooling-page .boiler-feature-col {
-    padding: 0.8rem 0.95rem;
-    gap: 0.7rem;
+    padding: 0.9rem 1rem;
+    gap: 0.8rem;
+    border-radius: 14px;
   }
 
   .boiler-cooling-page .boiler-feature-icon-box {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
   }
 
   .boiler-cooling-page .boiler-feature-title {
@@ -30899,9 +30930,9 @@ main {
 /* Hero Layout */
 .ro-effluent-page .ro-hero-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  grid-template-columns: minmax(0, 1.02fr) minmax(380px, 0.98fr);
   align-items: center;
-  gap: clamp(1.75rem, 3.5vw, 3rem);
+  gap: clamp(2rem, 4vw, 3.8rem);
 }
 
 .ro-effluent-page .ro-hero-copy {
@@ -31001,13 +31032,14 @@ main {
 
 .ro-effluent-page .ro-hero-backdrop-frame {
   position: absolute;
-  top: -12px;
-  right: -12px;
-  bottom: 12px;
-  left: 12px;
-  border: 1.5px solid rgba(2, 132, 199, 0.22);
-  border-radius: 28px;
-  background: linear-gradient(135deg, rgba(2, 132, 199, 0.03) 0%, rgba(186, 230, 253, 0.07) 100%);
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  border-radius: 32px;
+  border: 1.5px solid rgba(2, 132, 199, 0.16);
+  background: rgba(240, 249, 255, 0.45);
+  backdrop-filter: blur(4px);
   z-index: 1;
   pointer-events: none;
 }
@@ -31028,14 +31060,16 @@ main {
 /* Image Container */
 .ro-effluent-page .ro-hero-figure-wrap {
   position: relative;
+  z-index: 4;
   width: 100%;
-  max-width: 490px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 16px 42px rgba(2, 132, 199, 0.14), 0 4px 14px rgba(11, 25, 44, 0.06);
-  border: 3.5px solid #FFFFFF;
-  z-index: 5;
+  border-radius: 26px;
+  border: 4px solid #FFFFFF;
   background: #FFFFFF;
+  box-shadow:
+    0 16px 42px rgba(2, 132, 199, 0.14),
+    0 4px 14px rgba(11, 25, 44, 0.06);
+  overflow: hidden;
+  aspect-ratio: 16 / 9.2;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
@@ -31065,8 +31099,7 @@ main {
 
 .ro-effluent-page .ro-hero-img {
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9.8;
+  height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
@@ -31099,7 +31132,7 @@ main {
    2. KEY FEATURES STRIP (Clean Spacing Below Hero - No Overlapping)
    -------------------------------------------------------------------------- */
 .ro-effluent-page .ro-features-section {
-  padding: clamp(1.25rem, 2vw, 1.75rem) 0 clamp(0.75rem, 1.25vw, 1.15rem);
+  padding: clamp(1.5rem, 2.5vw, 2.25rem) 0 clamp(1rem, 1.75vw, 1.5rem);
   background: #FFFFFF;
   position: relative;
   z-index: 4;
@@ -31107,62 +31140,98 @@ main {
 
 .ro-effluent-page .ro-features-strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: #FFFFFF;
-  border: 1px solid #BAE6FD;
-  border-radius: 16px;
-  box-shadow: 0 4px 18px rgba(2, 132, 199, 0.05);
-  overflow: hidden;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.15rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
 }
 
 .ro-effluent-page .ro-feature-col {
   position: relative;
   display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 1.05rem 1.25rem;
-  transition: background-color 0.2s ease;
+  align-items: flex-start;
+  gap: 0.95rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid #E2EBF6;
+  border-radius: 18px;
+  padding: 1.2rem 1.25rem;
+  box-shadow: 0 4px 16px rgba(16, 33, 59, 0.04);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background 0.25s ease;
+  cursor: default;
 }
 
+/* Lean, elegant hover animation with popup icon - matching specialty product features */
 .ro-effluent-page .ro-feature-col:hover {
-  background: #F8FBFE;
+  transform: translateY(-4px);
+  border-color: #7DD3FC;
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.12), 0 3px 8px rgba(16, 33, 59, 0.04);
+  background: #FFFFFF;
 }
 
 .ro-effluent-page .ro-feature-col:not(:last-child) {
-  border-right: 1px solid #E6EFF8;
+  border-right: none;
 }
 
 .ro-effluent-page .ro-feature-icon-box {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: #EAF3F8;
-  border: 1px solid #D6E8FC;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: #E0F2FE;
+  border: 1.5px solid #BAE6FD;
   color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.25s ease;
+}
+
+.ro-effluent-page .ro-feature-col:hover .ro-feature-icon-box {
+  transform: scale(1.1) translateY(-2px);
+  background: #0284C7;
+  border-color: #0284C7;
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.32);
 }
 
 .ro-effluent-page .ro-feature-text {
   flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .ro-effluent-page .ro-feature-title {
-  margin: 0 0 0.15rem;
+  font-size: 0.95rem;
+  font-weight: 850;
   color: #10213B;
-  font-size: 0.90rem;
-  font-weight: 800;
+  margin: 0 0 0.25rem;
   line-height: 1.25;
   letter-spacing: -0.015em;
+  transition: color 0.2s ease;
+}
+
+.ro-effluent-page .ro-feature-col:hover .ro-feature-title {
+  color: #0284C7;
 }
 
 .ro-effluent-page .ro-feature-desc {
   margin: 0;
-  color: #5B6E88;
-  font-size: 0.76rem;
-  line-height: 1.35;
+  color: #64748B;
+  font-size: 0.78rem;
+  line-height: 1.45;
 }
 
 /* --------------------------------------------------------------------------
@@ -31918,11 +31987,8 @@ main {
   }
 
   .ro-effluent-page .ro-features-strip {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .ro-effluent-page .ro-feature-col:nth-child(2) {
-    border-right: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
   }
 
   .ro-effluent-page .ro-benefits-grid {
@@ -32075,16 +32141,11 @@ main {
 
   .ro-effluent-page .ro-features-strip {
     grid-template-columns: 1fr;
+    gap: 0.85rem;
   }
 
   .ro-effluent-page .ro-feature-col {
-    border-right: none !important;
-    border-bottom: 1px solid #EBF4FE;
-    padding: 0.95rem 1.15rem;
-  }
-
-  .ro-effluent-page .ro-feature-col:last-child {
-    border-bottom: none;
+    padding: 1.05rem 1.15rem;
   }
 
   .ro-effluent-page .ro-process-section {
@@ -32290,8 +32351,8 @@ main {
   }
 
   .ro-effluent-page .ro-hero-figure-wrap {
-    border-radius: 16px;
-    border-width: 2.5px;
+    border-radius: 18px;
+    border-width: 3px;
   }
 
   .ro-effluent-page .ro-hero-image-pill {
@@ -32302,18 +32363,19 @@ main {
   }
 
   .ro-effluent-page .ro-features-strip {
-    border-radius: 14px;
+    gap: 0.75rem;
   }
 
   .ro-effluent-page .ro-feature-col {
-    padding: 0.8rem 0.95rem;
-    gap: 0.7rem;
+    padding: 0.9rem 1rem;
+    gap: 0.8rem;
+    border-radius: 14px;
   }
 
   .ro-effluent-page .ro-feature-icon-box {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
   }
 
   .ro-effluent-page .ro-feature-title {
@@ -33815,8 +33877,8 @@ body:has(.construction-solution-page) .footer-bottom {
 
 .specialty-hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(2rem, 4vw, 3.5rem);
+  grid-template-columns: minmax(0, 1.02fr) minmax(380px, 0.98fr);
+  gap: clamp(2rem, 4vw, 3.8rem);
   align-items: center;
   margin-top: 0.75rem;
 }
@@ -33912,13 +33974,24 @@ body:has(.construction-solution-page) .footer-bottom {
 
 .specialty-hero-visual-card {
   position: relative;
+  z-index: 4;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 24px;
+  border-radius: 26px;
+  border: 4px solid #FFFFFF;
+  background: #FFFFFF;
+  box-shadow:
+    0 16px 42px rgba(2, 132, 199, 0.14),
+    0 4px 14px rgba(11, 25, 44, 0.06);
   overflow: hidden;
-  background: #0B192C;
-  box-shadow: 0 20px 50px -10px rgba(11, 37, 69, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.8);
-  border: 2px solid #FFFFFF;
+  aspect-ratio: 16 / 9.2;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.specialty-hero-visual-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 22px 50px rgba(2, 132, 199, 0.20),
+    0 8px 20px rgba(11, 25, 44, 0.10);
 }
 
 .specialty-hero-slider-track {
@@ -34571,9 +34644,9 @@ body:has(.construction-solution-page) .footer-bottom {
 
 .corosil-hero-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  grid-template-columns: minmax(0, 1.02fr) minmax(380px, 0.98fr);
   align-items: center;
-  gap: clamp(1.5rem, 3.5vw, 2.5rem);
+  gap: clamp(2rem, 4vw, 3.8rem);
   margin-bottom: 1.4rem;
 }
 
@@ -36067,20 +36140,24 @@ body:has(.construction-solution-page) .footer-bottom {
 
 .corosil-hero-visual-card {
   position: relative;
+  z-index: 4;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  min-height: 380px;
-  border-radius: 24px;
+  border-radius: 26px;
+  border: 4px solid #FFFFFF;
+  background: #FFFFFF;
+  box-shadow:
+    0 16px 42px rgba(2, 132, 199, 0.14),
+    0 4px 14px rgba(11, 25, 44, 0.06);
   overflow: hidden;
-  background: #0B192C;
-  box-shadow: 0 20px 50px -10px rgba(11, 37, 69, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.85);
-  border: 2px solid #FFFFFF;
-  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  aspect-ratio: 16 / 9.2;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .corosil-hero-visual-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 28px 65px -10px rgba(2, 132, 199, 0.28), 0 0 0 2px #7DD3FC;
+  box-shadow:
+    0 22px 50px rgba(2, 132, 199, 0.20),
+    0 8px 20px rgba(11, 25, 44, 0.10);
 }
 
 .corosil-visual-slide {
@@ -36267,9 +36344,12 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 @media (max-width: 640px) {
-  .corosil-hero-visual-card {
-    aspect-ratio: 16 / 11;
-    min-height: 320px;
+  .corosil-hero-visual-card,
+  .specialty-hero-visual-card {
+    border-radius: 18px;
+    border-width: 3px;
+    aspect-ratio: 16 / 9.2;
+    min-height: auto;
   }
 
   .corosil-floating-stats-card {
@@ -36571,5 +36651,81 @@ body:has(.construction-solution-page) .footer-bottom {
   .specialty-video-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+}
+
+/* ==========================================================================
+   INDUSTRIAL WATER TREATMENT IMAGE TAG BADGES (MATCHING SPECIALTY PRODUCT)
+   ========================================================================== */
+.industrial-hero-visual-badge,
+.boiler-hero-visual-badge,
+.ro-hero-visual-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.industrial-brand-pill,
+.boiler-brand-pill,
+.ro-brand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.42rem 0.88rem;
+  border-radius: 9999px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease;
+}
+
+.industrial-pill-dot,
+.boiler-pill-dot,
+.ro-pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38BDF8;
+  box-shadow: 0 0 8px #38BDF8;
+  flex-shrink: 0;
+}
+
+.industrial-pill-sep,
+.boiler-pill-sep,
+.ro-pill-sep {
+  opacity: 0.6;
+}
+
+.industrial-water-figure-wrap:hover .industrial-brand-pill,
+.industrial-problems-image-frame:hover .industrial-brand-pill,
+.boiler-hero-figure-wrap:hover .boiler-brand-pill,
+.ro-hero-figure-wrap:hover .ro-brand-pill {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 8px 22px rgba(2, 132, 199, 0.32);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .industrial-hero-visual-badge,
+  .boiler-hero-visual-badge,
+  .ro-hero-visual-badge {
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .industrial-brand-pill,
+  .boiler-brand-pill,
+  .ro-brand-pill {
+    font-size: 0.72rem;
+    padding: 0.32rem 0.72rem;
+    gap: 0.4rem;
   }
 }
