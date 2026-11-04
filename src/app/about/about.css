@@ -2214,6 +2214,13 @@
     border-bottom: none;
   }
 
+  /* Long figures (e.g. "ISO 9001:2015") must fit 2-col cells without being clipped */
+  .ab-stats-figure {
+    font-size: clamp(1.3rem, 5.6vw, 1.9rem);
+    letter-spacing: -0.02em;
+    overflow-wrap: break-word;
+  }
+
   .ab-story-section {
     padding: 2.25rem 0;
   }

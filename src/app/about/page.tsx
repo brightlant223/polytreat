@@ -525,7 +525,7 @@ export default function AboutPage() {
               className="ab-cert-card"
               href="/iso-9001-2015-quality-certificate.jpeg"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="View ISO 9001:2015 Certificate in full resolution (opens in new tab)"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -578,7 +578,7 @@ export default function AboutPage() {
                 className="ab-btn-outline-white"
                 href="https://wa.me/919820235995?text=Hi%20PolyTreat%2C%20I%27d%20like%20to%20discuss%20a%20product%20or%20site%20requirement."
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 Chat on WhatsApp <ArrowUpRight size={16} aria-hidden="true" />
               </a>
@@ -612,7 +612,7 @@ export default function AboutPage() {
               className="ab-contact-tile"
               href="https://wa.me/919820235995?text=Hi%20PolyTreat%2C%20I%27d%20like%20to%20discuss%20a%20product%20or%20site%20requirement."
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <div className="ab-contact-tile-icon">
                 <MessageCircle size={18} strokeWidth={2} aria-hidden="true" />
