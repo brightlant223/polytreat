@@ -5011,7 +5011,13 @@ html[data-theme="dark"] .footer-credit a,
   margin-bottom: 0.65rem;
 }
 
+.industries-eyebrow-wrapper .industries-eyebrow-line::after {
+  display: none !important;
+  content: none !important;
+}
+
 .industries-eyebrow-line {
+  white-space: nowrap;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -5815,7 +5821,7 @@ body:has(.industrial-water-page) .footer-bottom {
     z-index: 3;
   }
 
-  /* 6. Industrial Hero Image below buttons */
+  /* Industrial Hero Image below buttons */
   .industries-hero-mobile-image-wrap {
     display: block !important;
     position: relative !important;
@@ -5860,18 +5866,85 @@ body:has(.industrial-water-page) .footer-bottom {
     box-shadow: 0 4px 14px rgba(8, 121, 232, 0.1) !important;
   }
 
-  /* Equal specificity with the base .industries-section-heading.industries-env-heading
-     rule (0-2-0) is required here — a single-class selector (0-1-0) silently loses,
-     leaving the 320px minmax() floor in place and clipping the heading off-screen. */
-  .industries-section-heading.industries-env-heading {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+  /* Operating Environment Section */
+  .industries-area-section {
+    padding: clamp(1.75rem, 4vw, 2.5rem) 0 clamp(2.5rem, 5vw, 3.5rem) !important;
   }
 
+  .industries-section-heading.industries-env-heading,
+  .industries-section-heading {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+    margin-bottom: 2rem !important;
+    width: 100% !important;
+  }
+
+  .industries-heading-left {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .industries-eyebrow-wrapper {
+    margin-bottom: 0.4rem !important;
+  }
+
+  .industries-eyebrow-line {
+    white-space: nowrap !important;
+    font-size: clamp(0.72rem, 2.5vw, 0.8rem) !important;
+  }
+
+  .industries-eyebrow-wrapper .industries-eyebrow-line::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .industries-section-heading h2,
+  .industries-section-heading.industries-env-heading h2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 0.5rem 0 !important;
+    font-size: clamp(1.65rem, 6.5vw, 2.35rem) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.03em !important;
+    color: #10213B !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .industries-heading-highlight-wrapper {
+    display: inline-block !important;
+    position: relative !important;
+    color: #0879E8 !important;
+  }
+
+  .industries-heading-swoosh {
+    position: absolute !important;
+    left: 0 !important;
+    bottom: -4px !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    height: 8px !important;
+    pointer-events: none !important;
+  }
+
+  .industries-heading-right,
   .industries-env-heading .industries-heading-right {
-    border-left: none;
-    padding-left: 0;
-    margin-top: 0.25rem;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-left: none !important;
+    padding-left: 0 !important;
+    margin-top: 0.25rem !important;
+  }
+
+  .industries-heading-right p,
+  .industries-env-heading .industries-heading-right p {
+    font-size: clamp(0.88rem, 2.8vw, 0.95rem) !important;
+    line-height: 1.55 !important;
+    color: #475569 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
   }
 
   .industries-contact-inner {
@@ -5891,6 +5964,184 @@ body:has(.industrial-water-page) .footer-bottom {
   }
 }
 
+/* Tablet & Mobile Grid Collapse (768px and below) */
+@media (max-width: 768px) {
+  .industries-area-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.35rem !important;
+    width: 100% !important;
+  }
+
+  .industries-map-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    width: 100% !important;
+  }
+
+  .industries-sector-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    width: 100% !important;
+  }
+
+  .industries-map-section,
+  .industries-sector-section {
+    padding: clamp(2rem, 4vw, 2.5rem) 0 clamp(2.2rem, 4.5vw, 2.8rem) !important;
+  }
+
+  .industries-area-card {
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 2.1rem 1.35rem 1.35rem !important;
+    border-radius: 22px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  .industries-area-card-badge {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    padding: 0.45rem 1.35rem 0.45rem 1.1rem !important;
+    border-radius: 22px 0 18px 0 !important;
+    font-size: 0.9rem !important;
+    font-weight: 850 !important;
+    letter-spacing: 0.04em !important;
+    z-index: 3 !important;
+  }
+
+  .industries-area-card-icon-wrap {
+    position: absolute !important;
+    top: 1rem !important;
+    right: 1.15rem !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    z-index: 3 !important;
+  }
+
+  .industries-area-card-content {
+    margin-top: 1.15rem !important;
+    position: relative !important;
+    z-index: 2 !important;
+    width: 100% !important;
+  }
+
+  .industries-area-card-eyebrow {
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.05em !important;
+    color: #0879E8 !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.45rem !important;
+    display: block !important;
+  }
+
+  .industries-area-card-title {
+    font-size: clamp(1.15rem, 4vw, 1.3rem) !important;
+    font-weight: 850 !important;
+    line-height: 1.25 !important;
+    color: #10213B !important;
+    margin: 0 0 0.55rem 0 !important;
+  }
+
+  .industries-area-card-desc {
+    font-size: 0.84rem !important;
+    line-height: 1.55 !important;
+    color: #475569 !important;
+    margin: 0 0 1.1rem 0 !important;
+  }
+
+  .industries-area-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.45rem !important;
+    margin: 0 0 1.35rem 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  .industries-area-tag {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    padding: 0.32rem 0.65rem !important;
+    font-size: 0.73rem !important;
+    font-weight: 700 !important;
+    border-radius: 999px !important;
+    background: #ffffff !important;
+    border: 1px solid #D6EDFF !important;
+    color: #10213B !important;
+    white-space: nowrap !important;
+  }
+
+  .industries-area-card-bottom {
+    position: relative !important;
+    z-index: 3 !important;
+    margin-top: auto !important;
+    padding-top: 0.65rem !important;
+  }
+
+  .industries-area-card-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.55rem !important;
+    font-size: 0.88rem !important;
+    font-weight: 800 !important;
+    color: #10213B !important;
+    text-decoration: none !important;
+  }
+
+  .industries-area-arrow-circle {
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 50% !important;
+    background: #0879E8 !important;
+    color: #ffffff !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .industries-card-decor-wrap {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    height: 85px !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    overflow: hidden !important;
+  }
+
+  .industries-corner-decor {
+    position: absolute !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    max-width: 100px !important;
+    height: auto !important;
+    max-height: 75px !important;
+    object-fit: contain !important;
+    object-position: right bottom !important;
+    opacity: 0.85 !important;
+  }
+
+  .industries-map-items li a {
+    min-height: 40px !important;
+    padding: 0.45rem 0.6rem !important;
+  }
+
+  .industries-sector-list li a {
+    min-height: 38px !important;
+    padding: 0.4rem 0.55rem !important;
+  }
+}
+
 /* Mobile Screens (640px and below) */
 @media (max-width: 640px) {
   .industries-eyebrow {
@@ -5898,6 +6149,7 @@ body:has(.industrial-water-page) .footer-bottom {
     gap: 0.35rem !important;
     letter-spacing: 0.03em !important;
   }
+
   .industries-page-hero {
     padding: 1.4rem 0 2.2rem;
   }
@@ -5919,65 +6171,6 @@ body:has(.industrial-water-page) .footer-bottom {
     width: 100%;
     justify-content: center;
     min-height: 44px;
-  }
-
-  .industries-area-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: 1.25rem;
-  }
-
-  .industries-map-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: 1rem;
-  }
-
-  .industries-sector-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: 1rem;
-  }
-
-  .industries-section-heading h2 {
-    font-size: clamp(1.5rem, 6.2vw, 1.95rem);
-  }
-
-  .industries-heading-swoosh {
-    height: 6px;
-    bottom: -3px;
-    width: min(210px, 80%);
-  }
-
-  .industries-area-card {
-    border-radius: 22px;
-    padding: 2.1rem 1.25rem 1.25rem;
-    min-height: auto;
-  }
-
-  .industries-area-card-badge {
-    border-radius: 20px 0 16px 0;
-    padding: 0.45rem 1.25rem 0.45rem 1rem;
-    font-size: 0.88rem;
-  }
-
-  .industries-area-card-icon-wrap {
-    width: 44px;
-    height: 44px;
-    top: 1rem;
-    right: 1rem;
-    border-radius: 12px;
-  }
-
-  .industries-area-tags {
-    gap: 0.4rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .industries-area-tag {
-    font-size: 0.72rem;
-    padding: 0.32rem 0.65rem;
-  }
-
-  .industries-area-card-btn {
-    font-size: 0.85rem;
   }
 
   .industries-hero-card-badge {
@@ -6022,6 +6215,7 @@ body:has(.industrial-water-page) .footer-bottom {
     gap: 0.3rem !important;
     letter-spacing: 0.02em !important;
   }
+
   .industries-reference-layout .container {
     padding-left: 0.75rem !important;
     padding-right: 0.75rem !important;
@@ -6051,13 +6245,13 @@ body:has(.industrial-water-page) .footer-bottom {
   }
 
   .industries-area-card {
-    padding: 1.9rem 1rem 1rem !important;
+    padding: 1.85rem 1rem 1.15rem !important;
     border-radius: 18px !important;
   }
 
   .industries-area-card-badge {
     padding: 0.38rem 0.95rem 0.38rem 0.8rem !important;
-    font-size: 0.8rem !important;
+    font-size: 0.82rem !important;
   }
 
   .industries-area-card-icon-wrap {
@@ -6068,35 +6262,35 @@ body:has(.industrial-water-page) .footer-bottom {
   }
 
   .industries-area-card-icon-wrap svg {
-    width: 18px;
-    height: 18px;
+    width: 18px !important;
+    height: 18px !important;
   }
 
   .industries-area-card-title {
-    font-size: 1.02rem;
+    font-size: 1.08rem !important;
   }
 
   .industries-area-card-desc {
-    font-size: 0.8rem;
+    font-size: 0.82rem !important;
   }
 
   .industries-area-tag {
-    font-size: 0.67rem !important;
+    font-size: 0.68rem !important;
     padding: 0.28rem 0.52rem !important;
   }
 
   .industries-area-card-btn {
-    font-size: 0.8rem !important;
+    font-size: 0.82rem !important;
   }
 
   .industries-area-arrow-circle {
-    width: 24px;
-    height: 24px;
+    width: 24px !important;
+    height: 24px !important;
   }
 
   .industries-corner-decor {
-    width: 80px;
-    height: 65px;
+    max-width: 80px !important;
+    max-height: 60px !important;
   }
 }
 
@@ -6123,7 +6317,6 @@ body:has(.industrial-water-page) .footer-bottom {
     transform: none !important;
   }
 }
-
 
 .vklin-section {
   overflow: hidden;
@@ -32011,5 +32204,1101 @@ main {
   .nav-trigger svg {
     width: 13px !important;
     height: 13px !important;
+  }
+}
+
+/* ==========================================================================
+   CONSTRUCTION & SURFACE PROTECTION SOLUTION SUITE (3 REDESIGNED PAGES)
+   Pages:
+   - /solutions/construction-chemistry
+   - /solutions/waterproofing-repair-coatings
+   - /solutions/flooring-joint-sealing
+   Matches Reference Image 2 Design Language & Component System
+   ========================================================================== */
+
+/* Footer styling enhancement for Construction Suite pages */
+body:has(.construction-solution-page) .site-footer {
+  position: relative;
+  overflow: hidden;
+  padding-top: 2rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 50%, #e0f2fe 100%);
+  border-top: 1px solid #bae6fd;
+}
+
+body:has(.construction-solution-page) .site-footer-waves {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  background:
+    radial-gradient(ellipse 50% 100% at 50% 100%, rgba(8, 121, 232, 0.16) 0%, transparent 80%),
+    linear-gradient(180deg, transparent 0%, rgba(56, 189, 248, 0.15) 50%, rgba(8, 121, 232, 0.25) 100%);
+  border-top: 1px solid rgba(56, 189, 248, 0.25);
+  pointer-events: none;
+  z-index: 1;
+}
+
+body:has(.construction-solution-page) .footer-column h2 {
+  color: #10213B;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body:has(.construction-solution-page) .footer-column a {
+  color: #52677F;
+  font-size: 0.77rem;
+  transition: color 0.2s ease;
+}
+
+body:has(.construction-solution-page) .footer-column a:hover {
+  color: #1769A6;
+}
+
+body:has(.construction-solution-page) .footer-bottom {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(186, 230, 253, 0.6);
+}
+
+/* Base Page Wrapper */
+.construction-solution-page {
+  position: relative;
+  color: #10213B;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO SECTION
+   -------------------------------------------------------------------------- */
+.construction-solution-page .construction-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 2.2rem 0 clamp(5.25rem, 7.5vw, 6.75rem);
+  background:
+    radial-gradient(ellipse 65% 60% at 75% 35%, rgba(186, 230, 253, 0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 20% 30%, rgba(224, 242, 254, 0.5) 0%, transparent 60%),
+    linear-gradient(135deg, #f0f7fd 0%, #f9fcff 45%, #ebf5fe 100%);
+  border-bottom: 1px solid rgba(186, 230, 253, 0.4);
+}
+
+.construction-solution-page .construction-hero-container {
+  position: relative;
+  z-index: 4;
+}
+
+/* Breadcrumbs */
+.construction-solution-page .construction-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  margin: 0 0 1.15rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.construction-solution-page .construction-breadcrumb-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #1769A6;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.construction-solution-page .construction-breadcrumb-home:hover {
+  color: #125682;
+}
+
+.construction-solution-page .construction-breadcrumb-sep {
+  color: #94a3b8;
+  font-size: 0.72rem;
+}
+
+.construction-solution-page .construction-breadcrumbs a {
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.construction-solution-page .construction-breadcrumbs a:hover {
+  color: #1769A6;
+}
+
+.construction-solution-page .construction-breadcrumbs span[aria-current="page"] {
+  color: #10213B;
+  font-weight: 700;
+}
+
+/* Hero Layout */
+.construction-solution-page .construction-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(380px, 0.98fr);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 3.8rem);
+}
+
+/* Left Copy */
+.construction-solution-page .construction-hero-copy {
+  max-width: 580px;
+}
+
+.construction-solution-page .construction-eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: #EAF3F8;
+  border: 1px solid #D6E8FC;
+  color: #1769A6;
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.construction-solution-page .construction-hero-copy h1 {
+  margin: 0 0 0.85rem;
+  color: #10213B;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 850;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.construction-solution-page .construction-hero-highlight {
+  color: #1769A6;
+}
+
+.construction-solution-page .construction-hero-accent-line {
+  width: 48px;
+  height: 3.5px;
+  border-radius: 999px;
+  background: #1769A6;
+  margin: 1.15rem 0 1.35rem;
+}
+
+.construction-solution-page .construction-hero-copy p {
+  margin: 0 0 1.75rem;
+  color: #475569;
+  font-size: clamp(0.92rem, 1.15vw, 1.02rem);
+  line-height: 1.65;
+  max-width: 520px;
+}
+
+/* CTA Buttons */
+.construction-solution-page .construction-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.95rem;
+}
+
+.btn-construction-primary {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.6rem 1.6rem;
+  background: linear-gradient(135deg, #1769A6 0%, #1C5F91 100%);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(23, 105, 166, 0.22);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-construction-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(23, 105, 166, 0.32);
+}
+
+.btn-construction-secondary {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border: 1.5px solid #1769A6;
+  border-radius: 999px;
+  padding: 0.6rem 1.5rem;
+  background: #ffffff;
+  color: #10213B;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(23, 105, 166, 0.08);
+  transition: all 0.2s ease;
+}
+
+.btn-construction-secondary svg {
+  color: #1769A6;
+  transition: transform 0.2s ease;
+}
+
+.btn-construction-secondary:hover {
+  border-color: #125682;
+  color: #1769A6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(23, 105, 166, 0.14);
+}
+
+.btn-construction-secondary:hover svg {
+  transform: scale(1.1);
+}
+
+/* Right Visual Column */
+.construction-solution-page .construction-hero-visual-col {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.construction-solution-page .construction-hero-backdrop-shape {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.construction-solution-page .construction-hero-backdrop-glow {
+  position: absolute;
+  top: -24px;
+  right: -24px;
+  bottom: -24px;
+  left: -24px;
+  background: radial-gradient(ellipse 75% 65% at 50% 50%, rgba(23, 105, 166, 0.18) 0%, rgba(185, 217, 232, 0.10) 45%, transparent 72%);
+  filter: blur(14px);
+  border-radius: 36px;
+  z-index: 0;
+}
+
+.construction-solution-page .construction-hero-backdrop-frame {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  bottom: 12px;
+  left: 12px;
+  border: 1.5px solid rgba(23, 105, 166, 0.22);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(23, 105, 166, 0.03) 0%, rgba(185, 217, 232, 0.07) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.construction-solution-page .construction-hero-backdrop-dots {
+  position: absolute;
+  top: -24px;
+  left: -20px;
+  width: 80px;
+  height: 80px;
+  background-image: radial-gradient(rgba(23, 105, 166, 0.32) 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+  opacity: 0.85;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.construction-solution-page .construction-figure-wrap {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  border-radius: 26px;
+  border: 4px solid #ffffff;
+  background: #ffffff;
+  box-shadow:
+    0 16px 42px rgba(23, 105, 166, 0.14),
+    0 4px 14px rgba(11, 25, 44, 0.06);
+  overflow: hidden;
+  aspect-ratio: 16 / 9.2;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.construction-solution-page .construction-figure-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 22px 50px rgba(23, 105, 166, 0.20),
+    0 8px 20px rgba(11, 25, 44, 0.10);
+}
+
+.construction-solution-page .construction-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.construction-solution-page .construction-figure-wrap:hover .construction-hero-img {
+  transform: scale(1.03);
+}
+
+/* Water Waves Divider */
+.construction-solution-page .construction-hero-wave-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(55px, 5.8vw, 75px);
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.construction-solution-page .construction-hero-wave-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   2. KEY BENEFITS (Section 2 - 4 Cards Strip)
+   -------------------------------------------------------------------------- */
+.construction-solution-page .construction-features-section {
+  padding: clamp(1.25rem, 2vw, 1.75rem) 0 clamp(0.75rem, 1.25vw, 1.15rem);
+  background: #FFFFFF;
+  position: relative;
+  z-index: 4;
+}
+
+.construction-solution-page .construction-features-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #FFFFFF;
+  border: 1px solid #B9D9E8;
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(23, 105, 166, 0.10);
+  overflow: hidden;
+}
+
+.construction-solution-page .construction-feature-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.05rem 1.25rem;
+  transition: background-color 0.2s ease;
+}
+
+.construction-solution-page .construction-feature-col + .construction-feature-col {
+  border-left: 1px solid #E2EBF6;
+}
+
+.construction-solution-page .construction-feature-col:hover {
+  background: #F8FBFE;
+}
+
+.construction-solution-page .construction-feature-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #EAF3F8;
+  color: #1769A6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid #D6E8FC;
+}
+
+.construction-solution-page .construction-feature-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.construction-solution-page .construction-feature-title {
+  font-size: 0.90rem;
+  font-weight: 800;
+  color: #10213B;
+  margin: 0 0 0.15rem;
+  letter-spacing: -0.015em;
+}
+
+.construction-solution-page .construction-feature-desc {
+  font-size: 0.77rem;
+  color: #5B6E88;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* --------------------------------------------------------------------------
+   3. PROBLEM & SOLUTION (Section 3 - 2-Column Layout)
+   -------------------------------------------------------------------------- */
+.construction-solution-page .construction-problems-section {
+  padding: clamp(2rem, 3.5vw, 2.75rem) 0;
+  background: linear-gradient(180deg, #F4F8FD 0%, #FFFFFF 100%);
+  scroll-margin-top: 5rem;
+}
+
+.construction-solution-page .construction-problems-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 3.75rem);
+}
+
+.construction-solution-page .construction-problems-image-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid #FFFFFF;
+  box-shadow: 0 12px 36px rgba(23, 105, 166, 0.10), 0 0 0 1px #D6E7FC;
+  aspect-ratio: 16 / 10;
+  background: #EBF3FC;
+}
+
+.construction-solution-page .construction-problems-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.construction-solution-page .construction-section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #10213B;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.construction-solution-page .construction-eyebrow-bar {
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  background: #1769A6;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.construction-solution-page .construction-problems-title {
+  margin: 0.5rem 0 1.25rem;
+  font-size: clamp(1.8rem, 2.7vw, 2.35rem);
+  font-weight: 800;
+  color: #10213B;
+  line-height: 1.24;
+  letter-spacing: -0.025em;
+  word-break: break-word;
+}
+
+.construction-solution-page .construction-problems-checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 2rem;
+}
+
+.construction-solution-page .construction-checklist-col {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.construction-solution-page .construction-checklist-col li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #10213B;
+  line-height: 1.45;
+}
+
+.construction-solution-page .construction-check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #EAF3F8;
+  color: #1769A6;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   4. PRODUCT / TREATMENT CATEGORIES (Section 4 - Attractive Cards)
+   -------------------------------------------------------------------------- */
+.construction-solution-page .construction-categories-section {
+  padding: clamp(2rem, 3.5vw, 2.75rem) 0;
+  background: #FFFFFF;
+  scroll-margin-top: 5rem;
+}
+
+.construction-solution-page .construction-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.construction-solution-page .construction-section-header-left {
+  flex-grow: 1;
+}
+
+.construction-solution-page .construction-section-title {
+  margin: 0.45rem 0 0;
+  color: #10213B;
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.24;
+  letter-spacing: -0.025em;
+  word-break: break-word;
+}
+
+.construction-solution-page .construction-section-header-right {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  max-width: 440px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.construction-solution-page .construction-header-divider {
+  width: 3px;
+  background: #1769A6;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.construction-solution-page .construction-section-header-right p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #5B6E88;
+}
+
+.construction-solution-page .construction-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.construction-solution-page .construction-category-card {
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid #E2EBF6;
+  border-radius: 18px;
+  padding: 1.85rem 2rem 2rem;
+  box-shadow: 0 4px 24px rgba(16, 33, 59, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.construction-solution-page .construction-category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(23, 105, 166, 0.10);
+  border-color: #B9D9E8;
+}
+
+.construction-solution-page .construction-category-card-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.35rem;
+  position: relative;
+  z-index: 2;
+}
+
+.construction-solution-page .construction-category-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: #EAF3F8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1769A6;
+  flex-shrink: 0;
+}
+
+.construction-solution-page .construction-category-content {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.construction-solution-page .construction-category-card-title {
+  margin: 0 0 0.45rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #10213B;
+  letter-spacing: -0.025em;
+}
+
+.construction-solution-page .construction-category-card-desc {
+  margin: 0 0 0.95rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: #5B6E88;
+}
+
+.construction-solution-page .construction-category-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.construction-solution-page .construction-category-tag-item {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1E3A5F;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.construction-solution-page .construction-category-tag-pipe {
+  color: #A0B7D2;
+  font-weight: 400;
+  font-size: 0.78rem;
+}
+
+.construction-solution-page .construction-category-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1769A6;
+  text-decoration: none;
+}
+
+.construction-solution-page .construction-category-card-link svg {
+  transition: transform 0.2s ease;
+}
+
+.construction-solution-page .construction-category-card:hover .construction-category-card-link svg {
+  transform: translateX(3px);
+}
+
+.construction-solution-page .construction-card-water-splash {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 120px;
+  height: 70px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.construction-solution-page .construction-category-card:hover .construction-card-water-splash {
+  transform: scale(1.06) translate(-2px, -2px);
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   5. PRODUCT OVERVIEW / CATALOGUE (Section 5 - Stacked Rows)
+   -------------------------------------------------------------------------- */
+.construction-solution-page .construction-catalogue-section {
+  padding: clamp(2rem, 3.5vw, 2.75rem) 0 clamp(1.25rem, 2.2vw, 1.75rem);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FE 100%);
+  scroll-margin-top: 5rem;
+}
+
+.construction-solution-page .construction-catalogue-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.construction-solution-page .construction-catalogue-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: #FFFFFF;
+  border: 1px solid #E6EFF8;
+  border-radius: 12px;
+  padding: 1.15rem 1.6rem;
+  box-shadow: 0 2px 10px rgba(16, 33, 59, 0.02);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.construction-solution-page .construction-catalogue-row:hover {
+  transform: translateY(-2px);
+  border-color: #B9D9E8;
+  box-shadow: 0 6px 20px rgba(23, 105, 166, 0.08);
+}
+
+.construction-solution-page .construction-catalogue-title-col {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 250px;
+  flex-shrink: 0;
+}
+
+.construction-solution-page .construction-catalogue-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1769A6;
+}
+
+.construction-solution-page .construction-catalogue-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #10213B;
+  letter-spacing: -0.015em;
+}
+
+.construction-solution-page .construction-catalogue-desc {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #5B6E88;
+  flex-grow: 1;
+  max-width: 460px;
+  line-height: 1.5;
+}
+
+.construction-solution-page .construction-catalogue-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.construction-solution-page .construction-catalogue-badge {
+  background: #EEF5FC;
+  color: #1E3A5F;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  border: 1px solid #DCE9F6;
+  white-space: nowrap;
+}
+
+.construction-solution-page .construction-catalogue-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1769A6;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.construction-solution-page .construction-catalogue-row:hover .construction-catalogue-arrow {
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   6. CTA SECTION (Section 6 - Blue-Gradient Banner)
+   -------------------------------------------------------------------------- */
+.construction-solution-page .construction-cta-section {
+  padding: clamp(2rem, 3.5vw, 3rem) 0 clamp(2.5rem, 4vw, 3.5rem);
+  background: #FFFFFF;
+}
+
+.construction-solution-page .construction-cta-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #F0F7FF 0%, #E3F1FD 100%);
+  border: 1px solid #CCE3F9;
+  padding: clamp(2.5rem, 4.5vw, 3.6rem) clamp(2rem, 4.5vw, 3.8rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: 0 12px 36px rgba(8, 121, 232, 0.08);
+}
+
+.construction-solution-page .construction-cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+}
+
+.construction-solution-page .construction-section-eyebrow-cta {
+  margin-bottom: 0.5rem;
+}
+
+.construction-solution-page .construction-cta-title {
+  margin: 0.4rem 0 0.8rem;
+  font-size: clamp(1.85rem, 2.8vw, 2.4rem);
+  font-weight: 800;
+  color: #10213B;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.construction-solution-page .construction-cta-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #5B6E88;
+}
+
+.construction-solution-page .construction-cta-action {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE MEDIA QUERIES FOR CONSTRUCTION SUITE
+   -------------------------------------------------------------------------- */
+
+/* Tablet & Laptop (1024px and below) */
+@media (max-width: 1024px) {
+  .construction-solution-page .construction-features-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .construction-solution-page .construction-feature-col:nth-child(2) {
+    border-right: none;
+  }
+
+  .construction-solution-page .construction-feature-col:nth-child(3),
+  .construction-solution-page .construction-feature-col:nth-child(4) {
+    border-top: 1px solid #E2EBF6;
+  }
+
+  .construction-solution-page .construction-feature-col:nth-child(3) {
+    border-left: none;
+  }
+
+  .construction-solution-page .construction-catalogue-row {
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+
+  .construction-solution-page .construction-catalogue-desc {
+    max-width: 100%;
+    order: 3;
+    width: 100%;
+  }
+
+  .construction-solution-page .construction-catalogue-badges {
+    order: 2;
+  }
+
+  .construction-solution-page .construction-catalogue-arrow {
+    order: 4;
+    margin-left: auto;
+  }
+}
+
+/* Mobile & Tablet Transition (960px and below) */
+@media (max-width: 960px) {
+  .construction-solution-page .construction-hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .construction-solution-page .construction-hero-copy {
+    max-width: 100%;
+  }
+
+  .construction-solution-page .construction-hero-copy h1 {
+    font-size: clamp(1.85rem, 5.5vw, 2.5rem);
+    line-height: 1.22;
+  }
+
+  .construction-solution-page .construction-hero-visual-col {
+    max-width: 580px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .construction-solution-page .construction-problems-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .construction-solution-page .construction-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+
+  .construction-solution-page .construction-section-header-right {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .construction-solution-page .construction-categories-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .construction-solution-page .construction-cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2.2rem 1.6rem;
+  }
+
+  .construction-solution-page .construction-cta-action {
+    width: 100%;
+  }
+
+  .construction-solution-page .construction-cta-action .btn-construction-primary {
+    width: 100%;
+  }
+}
+
+/* Mobile (640px and below) */
+@media (max-width: 640px) {
+  .construction-solution-page .construction-hero {
+    padding: 1.25rem 0 clamp(4.5rem, 9vw, 5.5rem);
+  }
+
+  .construction-solution-page .construction-hero-copy h1 {
+    font-size: clamp(1.55rem, 6.2vw, 2.15rem);
+    line-height: 1.26;
+  }
+
+  .construction-solution-page .construction-hero-accent-line {
+    margin: 0.6rem 0 0.85rem;
+  }
+
+  .construction-solution-page .construction-hero-copy p {
+    font-size: clamp(0.88rem, 3.6vw, 0.94rem);
+    line-height: 1.55;
+    margin-bottom: 1.35rem;
+  }
+
+  .construction-solution-page .construction-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.7rem;
+  }
+
+  .btn-construction-primary,
+  .btn-construction-secondary {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+    box-sizing: border-box;
+    font-size: 0.88rem;
+  }
+
+  .construction-solution-page .construction-figure-wrap {
+    border-radius: 18px;
+    border-width: 3px;
+  }
+
+  .construction-solution-page .construction-hero-wave-bottom {
+    height: clamp(44px, 5.5vw, 54px);
+  }
+
+  .construction-solution-page .construction-features-strip {
+    grid-template-columns: 1fr;
+    border-radius: 16px;
+  }
+
+  .construction-solution-page .construction-feature-col + .construction-feature-col {
+    border-left: none;
+    border-top: 1px solid #E2EBF6;
+  }
+
+  .construction-solution-page .construction-problems-checklist {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .construction-solution-page .construction-category-card {
+    padding: 1.4rem 1.25rem 1.5rem;
+    border-radius: 16px;
+  }
+
+  .construction-solution-page .construction-category-card-inner {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .construction-solution-page .construction-catalogue-row {
+    padding: 1rem 1.15rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .construction-solution-page .construction-catalogue-title-col {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .construction-solution-page .construction-catalogue-badges {
+    justify-content: flex-start;
+  }
+
+  .construction-solution-page .construction-catalogue-arrow {
+    display: none;
+  }
+
+  .construction-solution-page .construction-hero-backdrop-frame {
+    top: -8px;
+    right: -8px;
+    bottom: 8px;
+    left: 8px;
+    border-radius: 20px;
+  }
+
+  .construction-solution-page .construction-hero-backdrop-dots {
+    top: -16px;
+    left: -10px;
+    width: 56px;
+    height: 56px;
+    background-size: 8px 8px;
+  }
+
+  .construction-solution-page .construction-hero-backdrop-glow {
+    top: -14px;
+    right: -14px;
+    bottom: -14px;
+    left: -14px;
+    border-radius: 26px;
+  }
+}
+
+/* Compact Mobile (375px and below) */
+@media (max-width: 375px) {
+  .construction-solution-page .construction-hero-copy h1 {
+    font-size: clamp(1.4rem, 5.8vw, 1.65rem);
+    line-height: 1.28;
+  }
+
+  .construction-solution-page .construction-figure-wrap {
+    border-radius: 16px;
+    border-width: 2.5px;
   }
 }
