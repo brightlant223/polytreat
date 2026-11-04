@@ -115,7 +115,7 @@ export default function CertificationsPage() {
           <div className="certs-grid">
             {certificates.map(({ name, title, issuer, image, alt, scope, tone }) => (
               <article className={`cert-card cert-card-${tone}`} key={name}>
-                <a className="cert-card-figure" href={image} target="_blank" rel="noreferrer">
+                <a className="cert-card-figure" href={image} target="_blank" rel="noopener noreferrer">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={image} alt={alt} loading="lazy" />
                   <span className="cert-card-view">View full <ArrowUpRight size={15} aria-hidden="true" /></span>
