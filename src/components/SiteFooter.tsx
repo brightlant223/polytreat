@@ -97,138 +97,245 @@ export default function SiteFooter() {
         Site footer
       </h2>
 
-      <div className={styles.accentLine} aria-hidden="true" />
+      {/* Dual overlapping top waves */}
+      <div className={styles.topWaves} aria-hidden="true">
+        <svg className={styles.waveBack} viewBox="0 0 1440 84" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path
+            d="M0,24 C280,68 560,0 840,42 C1120,84 1300,32 1440,24 L1440,84 L0,84 Z"
+            fill="url(#pt-wave-grad-1)"
+          />
+          <defs>
+            <linearGradient id="pt-wave-grad-1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#bae6fd" stopOpacity="0.32" />
+              <stop offset="50%" stopColor="#7dd3fc" stopOpacity="0.2" />
+              <stop offset="100%" stopColor="#99f6e4" stopOpacity="0.3" />
+            </linearGradient>
+          </defs>
+        </svg>
 
-      <div className={`container ${styles.shell}`}>
-        <div className={styles.main}>
-          {/* Brand + social placeholders */}
-          <section className={styles.brand} aria-label="PolyTreat brand">
-            <Link href="/" className={styles.logoTile} aria-label="PolyTreat home">
-              <Image
-                src="/polytreat-logo-footer.webp"
-                alt="PolyTreat Chemicals"
-                width={780}
-                height={262}
-                sizes="(max-width: 680px) 190px, 240px"
-                loading="eager"
-              />
-            </Link>
+        <svg className={styles.waveFront} viewBox="0 0 1440 76" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path
+            d="M0,38 C360,6 720,64 1080,28 C1260,10 1380,24 1440,32 L1440,76 L0,76 Z"
+            fill="url(#pt-wave-grad-2)"
+          />
+          <defs>
+            <linearGradient id="pt-wave-grad-2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#e0f2fe" stopOpacity="0.65" />
+              <stop offset="45%" stopColor="#bae6fd" stopOpacity="0.45" />
+              <stop offset="100%" stopColor="#ccfbf1" stopOpacity="0.55" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
 
-            <p className={styles.tagline}>
-              Applied chemistry for industrial water, construction, and everyday facility care.
-            </p>
-
-            <div className={styles.socialBlock}>
-              <span className={styles.socialLabel}>Social profiles</span>
-              <div className={styles.socialRow}>
-                {socialLinks.map(({ label, icon: Icon }) => (
-                  <button
-                    key={label}
-                    type="button"
-                    className={styles.socialButton}
-                    disabled
-                    aria-label={`${label} — profile coming soon`}
-                    title={`${label} — profile coming soon`}
-                  >
-                    <Icon size={18} />
-                  </button>
-                ))}
-              </div>
-              <span className={styles.socialNote}>Coming soon</span>
-            </div>
-          </section>
-
-          {/* Explore */}
-          <nav className={styles.column} aria-label="Explore PolyTreat">
-            <h3 className={styles.heading}>Explore</h3>
-            <ul className={styles.exploreList}>
-              {exploreLinks.map(({ label, href }) => (
-                <li key={href}>
-                  <Link href={href} className={styles.exploreLink}>
-                    <ChevronRight size={14} aria-hidden="true" />
-                    <span>{label}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* Our work */}
-          <nav className={styles.column} aria-label="PolyTreat product and service areas">
-            <h3 className={styles.heading}>Our work</h3>
-            <ul className={styles.workGrid}>
-              {solutionLinks.map(({ label, href, icon: Icon }) => (
-                <li key={href}>
-                  <Link href={href} className={styles.workLink}>
-                    <Icon size={17} strokeWidth={1.8} aria-hidden="true" />
-                    <span>{label}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* Contact */}
-          <section className={styles.column} aria-label="Contact PolyTreat">
-            <h3 className={styles.heading}>Contact</h3>
-            <ul className={styles.contactList}>
-              <li>
-                <a href="mailto:polyind2@gmail.com" className={styles.contactLink}>
-                  <span className={styles.contactIcon}>
-                    <Mail size={17} aria-hidden="true" />
-                  </span>
-                  <span>
-                    <span className={styles.contactLabel}>Email</span>
-                    <span className={styles.contactValue}>polyind2@gmail.com</span>
-                  </span>
-                  <ArrowUpRight size={15} className={styles.contactArrow} aria-hidden="true" />
-                </a>
-              </li>
-              <li>
-                <a href="tel:+919820235995" className={styles.contactLink}>
-                  <span className={styles.contactIcon}>
-                    <Phone size={17} aria-hidden="true" />
-                  </span>
-                  <span>
-                    <span className={styles.contactLabel}>Technical &amp; sales</span>
-                    <span className={styles.contactValue}>+91 98202 35995</span>
-                  </span>
-                  <ArrowUpRight size={15} className={styles.contactArrow} aria-hidden="true" />
-                </a>
-              </li>
-              <li className={styles.locationRow}>
-                <span className={styles.contactIcon}>
-                  <MapPin size={17} aria-hidden="true" />
-                </span>
-                <span>
-                  <span className={styles.contactLabel}>Corporate office</span>
-                  <span className={styles.contactValue}>Goregaon (West), Mumbai</span>
-                </span>
-              </li>
-            </ul>
-            <Link href="/contact#contact-form" className={styles.quoteLink}>
-              Request a quote
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </Link>
-          </section>
+      {/* Floating lifted panel */}
+      <div className={styles.panel}>
+        {/* Ambient bubbles */}
+        <div className={styles.bubbles} aria-hidden="true">
+          <span className={`${styles.bubble} ${styles.bubble1}`} />
+          <span className={`${styles.bubble} ${styles.bubble2}`} />
+          <span className={`${styles.bubble} ${styles.bubble3}`} />
+          <span className={`${styles.bubble} ${styles.bubble4}`} />
         </div>
 
-        {/* Bottom bar */}
-        <div className={styles.bottom}>
-          <span className={styles.copyright}>© 2026 PolyTreat Chemicals Pvt. Ltd.</span>
-          <span className={styles.principle}>Performance, quality, reliability, service</span>
-          <div className={styles.bottomRight}>
-            <span className={styles.credit}>
-              Designed with{" "}
-              <Heart className={styles.heart} size={13} fill="currentColor" aria-hidden="true" />{" "}
-              by{" "}
-              <a href="https://brightlant.com" target="_blank" rel="noopener noreferrer">
-                Brightlant
-              </a>
-            </span>
-            <a href="#top" className={styles.backToTop} aria-label="Back to top" title="Back to top">
-              <ArrowUp size={17} strokeWidth={2.2} aria-hidden="true" />
-            </a>
+        {/* Watermark */}
+        <div className={styles.watermark} aria-hidden="true">
+          <svg className={styles.watermarkSvg} viewBox="0 0 1400 160" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="pt-wm-stroke" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#0284c7" stopOpacity="0.32" />
+                <stop offset="100%" stopColor="#0d9488" stopOpacity="0.32" />
+              </linearGradient>
+              <linearGradient id="pt-wm-fill" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#0284c7" stopOpacity="0.06" />
+                <stop offset="100%" stopColor="#0d9488" stopOpacity="0.06" />
+              </linearGradient>
+            </defs>
+            <text
+              x="50%"
+              y="55%"
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fill="url(#pt-wm-fill)"
+              stroke="url(#pt-wm-stroke)"
+              strokeWidth="1.4"
+              letterSpacing="0.14em"
+              className={styles.watermarkText}
+            >
+              POLYTREAT
+            </text>
+          </svg>
+        </div>
+
+        <div className={`container ${styles.panelInner}`}>
+          <div className={styles.main}>
+            {/* Brand column */}
+            <div className={styles.brandColumn}>
+              <div className={styles.brandContent}>
+                <Link href="/" className={styles.logoLink} aria-label="PolyTreat home">
+                  <Image
+                    className={styles.logo}
+                    src="/polytreat-logo-footer.webp"
+                    width={780}
+                    height={262}
+                    sizes="(max-width: 680px) 185px, 230px"
+                    alt="PolyTreat Chemicals"
+                    loading="eager"
+                  />
+                </Link>
+                <p className={styles.tagline}>
+                  Applied chemistry for industrial water, construction, and everyday facility care.
+                </p>
+
+                <div className={styles.socialBlock}>
+                  <span className={styles.socialLabel}>Social profiles</span>
+                  <div className={styles.socialRow}>
+                    {socialLinks.map(({ label, icon: Icon }) => (
+                      <button
+                        key={label}
+                        type="button"
+                        className={styles.socialButton}
+                        disabled
+                        aria-label={`${label} — profile coming soon`}
+                        title={`${label} — profile coming soon`}
+                      >
+                        <Icon size={18} />
+                      </button>
+                    ))}
+                  </div>
+                  <span className={styles.socialNote}>Coming soon</span>
+                </div>
+              </div>
+
+              {/* Decorative water drop */}
+              <div className={styles.waterDrop} aria-hidden="true">
+                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M100 12 C100 12 32 88 32 135 C32 171.4 62.4 200 100 200 C137.6 200 168 171.4 168 135 C168 88 100 12 100 12 Z"
+                    fill="url(#pt-brand-drop-grad)"
+                  />
+                  <circle cx="72" cy="132" r="10" fill="#38bdf8" fillOpacity="0.25" />
+                  <circle cx="86" cy="112" r="5" fill="#38bdf8" fillOpacity="0.2" />
+                  <defs>
+                    <linearGradient id="pt-brand-drop-grad" x1="100" y1="12" x2="100" y2="200" gradientUnits="userSpaceOnUse">
+                      <stop stopColor="#0284c7" stopOpacity="0.16" />
+                      <stop offset="1" stopColor="#0d9488" stopOpacity="0.05" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+
+            {/* Explore */}
+            <nav className={`${styles.column} ${styles.exploreCard}`} aria-label="Explore PolyTreat">
+              <h3 className={styles.heading}>
+                Explore
+                <span className={styles.headingLine} aria-hidden="true" />
+              </h3>
+              <div className={styles.exploreWrap}>
+                <ul className={styles.exploreList}>
+                  {exploreLinks.map(({ label, href }) => (
+                    <li key={href}>
+                      <Link href={href} className={styles.exploreLink}>
+                        <ChevronRight size={14} aria-hidden="true" />
+                        <span>{label}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </nav>
+
+            {/* Our work */}
+            <nav className={`${styles.column} ${styles.workCard}`} aria-label="PolyTreat product and service areas">
+              <h3 className={styles.heading}>
+                Our work
+                <span className={styles.headingLine} aria-hidden="true" />
+              </h3>
+              <ul className={styles.workGrid}>
+                {solutionLinks.map(({ label, href, icon: Icon }, index) => (
+                  <li key={href}>
+                    <Link href={href} className={`${styles.workTile} ${index === 10 ? styles.span2 : ""}`}>
+                      <Icon size={17} strokeWidth={1.8} className={styles.workIcon} aria-hidden="true" />
+                      <span>{label}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* Contact */}
+            <section className={`${styles.column} ${styles.contactCard}`} aria-label="Contact PolyTreat">
+              <div className={styles.contactTopStrip} aria-hidden="true" />
+              <h3 className={styles.heading}>
+                Contact
+                <span className={styles.headingLine} aria-hidden="true" />
+              </h3>
+
+              <ul className={styles.contactList}>
+                <li>
+                  <a href="mailto:polyind2@gmail.com" className={styles.contactRow}>
+                    <span className={styles.contactIcon}>
+                      <Mail size={17} strokeWidth={1.8} aria-hidden="true" />
+                    </span>
+                    <span className={styles.contactText}>
+                      <span className={styles.contactLabel}>Email</span>
+                      <span className={styles.contactValue}>polyind2@gmail.com</span>
+                    </span>
+                    <ArrowUpRight size={15} className={styles.contactArrow} aria-hidden="true" />
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+919820235995" className={styles.contactRow}>
+                    <span className={styles.contactIcon}>
+                      <Phone size={17} strokeWidth={1.8} aria-hidden="true" />
+                    </span>
+                    <span className={styles.contactText}>
+                      <span className={styles.contactLabel}>Technical &amp; sales</span>
+                      <span className={styles.contactValue}>+91 98202 35995</span>
+                    </span>
+                    <ArrowUpRight size={15} className={styles.contactArrow} aria-hidden="true" />
+                  </a>
+                </li>
+                <li className={styles.locationRow}>
+                  <span className={styles.contactIcon}>
+                    <MapPin size={17} strokeWidth={1.8} aria-hidden="true" />
+                  </span>
+                  <span className={styles.contactText}>
+                    <span className={styles.contactLabel}>Corporate office</span>
+                    <span className={styles.contactValue}>Goregaon (West), Mumbai</span>
+                  </span>
+                </li>
+              </ul>
+
+              <Link href="/contact#contact-form" className={styles.quoteButton}>
+                Request a quote
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </Link>
+            </section>
+          </div>
+
+          {/* Bottom frosted strip */}
+          <div className={styles.bottomSection}>
+            <div className={styles.bottom}>
+              <span className={styles.bottomText}>© 2026 PolyTreat Chemicals Pvt. Ltd.</span>
+              <span className={`${styles.bottomText} ${styles.principle}`}>
+                Performance, quality, reliability, service
+              </span>
+              <div className={styles.bottomRight}>
+                <span className={`${styles.bottomText} ${styles.credit}`}>
+                  Designed with{" "}
+                  <Heart className={styles.heart} size={13} fill="currentColor" aria-hidden="true" />{" "}
+                  by{" "}
+                  <a href="https://brightlant.com" target="_blank" rel="noopener noreferrer">
+                    Brightlant
+                  </a>
+                </span>
+                <a href="#top" className={styles.backToTop} aria-label="Back to top" title="Back to top">
+                  <ArrowUp size={15} strokeWidth={2.4} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
