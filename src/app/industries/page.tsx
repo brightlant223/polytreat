@@ -16,7 +16,6 @@ import {
   Layers3,
   LayoutGrid,
   LucideIcon,
-  Menu,
   PlusSquare,
   RefreshCw,
   Shield,
@@ -148,13 +147,13 @@ export default function IndustriesPage() {
               </nav>
 
               <span className="industries-eyebrow">
-                <Menu size={14} strokeWidth={2.5} aria-hidden="true" />
+                <Factory size={14} strokeWidth={2.5} aria-hidden="true" />
                 <span>Industries &amp; applications</span>
               </span>
 
               <h1 id="industries-page-title">
-                Chemistry for plants,<br className="industries-hero-br-desktop" />
-                infrastructure, and<br className="industries-hero-br-desktop" />
+                Chemistry for plants,{" "}<br className="industries-hero-br-desktop" />
+                infrastructure, and{" "}<br className="industries-hero-br-desktop" />
                 <span className="industries-highlight">shared facilities.</span>
               </h1>
 
