@@ -28339,6 +28339,69 @@ main {
   transform: translateX(3px);
 }
 
+/* Embla structure in plain CSS */
+.industrial-catalogue-embla-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.industrial-catalogue-embla-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-left: -16px;
+  touch-action: pan-y pinch-zoom;
+}
+
+.industrial-catalogue-embla-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding-left: 16px;
+  box-sizing: border-box;
+}
+
+.industrial-catalogue-embla-slide .industrial-catalogue-row {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Dots */
+.industrial-catalogue-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.industrial-catalogue-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #CBD5E1;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.industrial-catalogue-dot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+}
+
+.industrial-catalogue-dot.is-active {
+  width: 24px;
+  background: #0284C7;
+}
+
 /* --------------------------------------------------------------------------
    5. BOTTOM CTA SECTION (Share the application with our team - Banner)
    -------------------------------------------------------------------------- */
@@ -28649,16 +28712,20 @@ main {
     padding: clamp(1.75rem, 4vw, 2.5rem) 0;
   }
 
-  .industrial-water-page .industrial-catalogue-row {
+  .industrial-water-page .industrial-catalogue-embla-slide .industrial-catalogue-row {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.65rem;
     padding: 1.1rem 1.15rem;
     border-radius: 14px;
     position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
   }
 
-  .industrial-water-page .industrial-catalogue-title-col {
+  .industrial-water-page .industrial-catalogue-embla-slide .industrial-catalogue-title-col {
     width: 100%;
     display: flex;
     align-items: center;
@@ -28667,31 +28734,32 @@ main {
     padding-right: 1.75rem;
   }
 
-  .industrial-water-page .industrial-catalogue-title {
+  .industrial-water-page .industrial-catalogue-embla-slide .industrial-catalogue-title {
     font-size: 0.96rem;
   }
 
-  .industrial-water-page .industrial-catalogue-desc {
+  .industrial-water-page .industrial-catalogue-embla-slide .industrial-catalogue-desc {
     width: 100%;
     max-width: 100%;
     font-size: 0.83rem;
     line-height: 1.5;
   }
 
-  .industrial-water-page .industrial-catalogue-badges {
+  .industrial-water-page .industrial-catalogue-embla-slide .industrial-catalogue-badges {
     width: 100%;
     justify-content: flex-start;
     gap: 0.35rem;
     flex-wrap: wrap;
+    margin-top: auto;
   }
 
-  .industrial-water-page .industrial-catalogue-badge {
+  .industrial-water-page .industrial-catalogue-embla-slide .industrial-catalogue-badge {
     padding: 0.22rem 0.65rem;
     font-size: 0.74rem;
     font-weight: 600;
   }
 
-  .industrial-water-page .industrial-catalogue-arrow {
+  .industrial-water-page .industrial-catalogue-embla-slide .industrial-catalogue-arrow {
     position: absolute;
     top: 1.15rem;
     right: 1.15rem;

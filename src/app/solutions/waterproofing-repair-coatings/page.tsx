@@ -355,9 +355,13 @@ export default function WaterproofingRepairCoatingsPage() {
           <div className="construction-problems-layout">
             <div className="construction-problems-image-col">
               <div className="construction-problems-image-frame">
-                <img
-                  src="/images/solutions/waterproofing-problems-facility.jpg"
-                  alt="Structural concrete rehabilitation, leak injection repair, and protective exterior masonry coating"
+                <video
+                  src="/Waterproofing%2C%20Repair%20%26%20Coatings.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls={false}
                   className="construction-problems-img"
                 />
               </div>

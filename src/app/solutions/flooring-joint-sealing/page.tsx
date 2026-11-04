@@ -356,9 +356,13 @@ export default function FlooringJointSealingPage() {
           <div className="construction-problems-layout">
             <div className="construction-problems-image-col">
               <div className="construction-problems-image-frame">
-                <img
-                  src="/images/solutions/flooring-problems-facility.jpg"
-                  alt="Industrial chemical-resistant polyurethane floor screed application and flexible joint sealing in manufacturing plant"
+                <video
+                  src="/Flooring%20%26%20Joint%20Sealing.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls={false}
                   className="construction-problems-img"
                 />
               </div>
