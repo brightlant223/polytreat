@@ -142,14 +142,19 @@ export default function VKlinCommercialDemos() {
 
   const activeDemo = cleaningDemos[activeTab];
 
-  // Continuous non-stop auto-advance every 5.5s
+  // Advance to next tab when the full 10-second video ends
+  const handleVideoEnded = () => {
+    setActiveTab((prev) => (prev + 1) % cleaningDemos.length);
+  };
+
+  // Full 10.5-second timer fallback so the entire 10-second commercial plays
   useEffect(() => {
     const autoTimer = setInterval(() => {
       setActiveTab((prev) => (prev + 1) % cleaningDemos.length);
-    }, 5500);
+    }, 10500);
 
     return () => clearInterval(autoTimer);
-  }, []);
+  }, [activeTab]);
 
   // Continuous uninterrupted video autoplay on active tab switch
   useEffect(() => {
@@ -275,10 +280,11 @@ export default function VKlinCommercialDemos() {
                   key={activeDemo.demoVideoSrc}
                   ref={videoRef}
                   src={activeDemo.demoVideoSrc}
+                  autoPlay
                   muted={isMuted}
-                  loop
                   playsInline
                   preload="auto"
+                  onEnded={handleVideoEnded}
                   className="vklin-mini-video-el"
                 />
 
