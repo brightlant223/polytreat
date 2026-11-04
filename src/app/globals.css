@@ -26896,7 +26896,7 @@ main {
   left: 0;
   height: 2.5px;
   background: linear-gradient(90deg, #0284C7 0%, #38BDF8 100%);
-  animation: vklin-progress-sweep 5.5s linear infinite;
+  animation: vklin-progress-sweep 10.5s linear infinite;
   transform-origin: left;
 }
 
