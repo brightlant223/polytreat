@@ -365,9 +365,13 @@ export default function ConstructionChemistryPage() {
           <div className="construction-problems-layout">
             <div className="construction-problems-image-col">
               <div className="construction-problems-image-frame">
-                <img
-                  src="/images/solutions/construction-problems-facility.jpg"
-                  alt="High-angle view of industrial concrete infrastructure protection and foundation retaining walls"
+                <video
+                  src="/Construction%20%26%20Surface%20Protection.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls={false}
                   className="construction-problems-img"
                 />
               </div>
