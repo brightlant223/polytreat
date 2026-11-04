@@ -15,6 +15,7 @@ import {
   Info,
   Layers,
   Paintbrush,
+  Play,
   ShieldAlert,
   ShieldCheck,
   Sparkles,
@@ -27,12 +28,37 @@ import {
   corosilSpecifications,
   findSpecialtyProduct,
 } from "@/data/specialtyProducts";
+import CtaWaterSplashDesign from "@/components/CtaWaterSplashDesign";
+import CorosilHeroVisual from "@/components/CorosilHeroVisual";
 
 export const metadata: Metadata = {
   title: "COROSIL | Rust Converter Primer | PolyTreat Chemicals",
   description:
     "COROSIL: Water-based rust inhibitor and chemical converter primer for ferrous metal. Surface preparation, 3-step sequence, physical data, and finishing-system compatibility.",
 };
+
+const corosilHallmarkFeatures = [
+  {
+    icon: ShieldCheck,
+    title: "Metallo-Organic Chelation",
+    desc: "Chemically transforms loose iron oxides (Fe₂O₃) into a dense, insoluble metallo-organic barrier complex.",
+  },
+  {
+    icon: Layers,
+    title: "1-Coat Direct Application",
+    desc: "Applies directly over manually wire-brushed metal without the heavy expense of abrasive sandblasting.",
+  },
+  {
+    icon: Clock,
+    title: "Rapid 4-Hour Hard Dry",
+    desc: "Touch dry in ≤ 30 minutes, fully hard-dry in 4 hours, and ready for compatible topcoats within 10 days.",
+  },
+  {
+    icon: Sparkles,
+    title: "Broad Paint Compatibility",
+    desc: "Chemically compatible with epoxies, urethanes, synthetic alkyds, chlorinated rubbers, and water-based paints.",
+  },
+];
 
 const problemChecklistCol1 = [
   "Inadequate surface blast cleaning leads to catastrophic premature paint peeling.",
@@ -65,6 +91,9 @@ export default function CorosilPage() {
     <main className="corosil-detail-page">
       {/* 1. HERO SECTION */}
       <section className="corosil-hero" aria-labelledby="corosil-hero-title">
+        {/* Soft Ambient Hero Glow */}
+        <div className="corosil-hero-bg-glow" aria-hidden="true" />
+
         <div className="container">
           {/* Breadcrumb Navigation */}
           <nav className="corosil-breadcrumbs" aria-label="Breadcrumb">
@@ -108,38 +137,37 @@ export default function CorosilPage() {
                   <span>Enquire about COROSIL</span>
                   <ArrowRight size={16} aria-hidden="true" />
                 </Link>
+                <a href="#corosil-video-demo" className="btn btn-corosil-video">
+                  <Play size={14} fill="currentColor" />
+                  <span>Watch Application</span>
+                </a>
                 <Link href="/specialty" className="btn btn-corosil-secondary">
                   <span>All specialty products</span>
                 </Link>
               </div>
             </div>
 
-            {/* Visual Technical Badge Graphic */}
-            <div className="corosil-hero-visual" aria-hidden="true">
-              <div className="corosil-visual-frame">
-                <div className="corosil-visual-grid" />
-                <div className="corosil-visual-badge">
-                  <ShieldCheck size={48} strokeWidth={1.5} className="corosil-badge-icon" />
-                  <span className="corosil-badge-title">Rust Converter Primer</span>
-                  <span className="corosil-badge-meta">Water-Based Formulation</span>
-                </div>
-                <div className="corosil-visual-stats">
-                  <div className="corosil-vstat">
-                    <span className="corosil-vstat-val">1 Coat</span>
-                    <span className="corosil-vstat-lbl">Application</span>
+            {/* Specialty-Style Hero Visual Showcase with Floating Stats Card */}
+            <CorosilHeroVisual />
+          </div>
+
+          {/* Dedicated Hallmark Features Section with Lean Hover Animations */}
+          <div className="corosil-features-section" aria-label="COROSIL Key Features">
+            <div className="corosil-features-grid">
+              {corosilHallmarkFeatures.map((feat) => {
+                const Icon = feat.icon;
+                return (
+                  <div key={feat.title} className="corosil-feature-card">
+                    <div className="corosil-feat-icon-box" aria-hidden="true">
+                      <Icon size={22} strokeWidth={2.2} />
+                    </div>
+                    <div className="corosil-feat-content">
+                      <h3 className="corosil-feat-title">{feat.title}</h3>
+                      <p className="corosil-feat-desc">{feat.desc}</p>
+                    </div>
                   </div>
-                  <div className="corosil-vstat-divider" />
-                  <div className="corosil-vstat">
-                    <span className="corosil-vstat-val">4 Hours</span>
-                    <span className="corosil-vstat-lbl">Hard Dry</span>
-                  </div>
-                  <div className="corosil-vstat-divider" />
-                  <div className="corosil-vstat">
-                    <span className="corosil-vstat-val">&lt; 2 pH</span>
-                    <span className="corosil-vstat-lbl">Active Acidic</span>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
 
@@ -165,26 +193,26 @@ export default function CorosilPage() {
           >
             <defs>
               <linearGradient id="corosil-hero-wave-back" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#FEF3C7" stopOpacity="0.45" />
-                <stop offset="50%" stopColor="#FDE68A" stopOpacity="0.35" />
-                <stop offset="100%" stopColor="#FFFBEB" stopOpacity="0.45" />
+                <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.45" />
+                <stop offset="50%" stopColor="#D5E8F3" stopOpacity="0.65" />
+                <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.45" />
               </linearGradient>
               <linearGradient id="corosil-hero-wave-mid" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#D97706" stopOpacity="0.30" />
-                <stop offset="50%" stopColor="#B45309" stopOpacity="0.40" />
-                <stop offset="100%" stopColor="#D97706" stopOpacity="0.30" />
+                <stop offset="0%" stopColor="#0284C7" stopOpacity="0.35" />
+                <stop offset="50%" stopColor="#0369A1" stopOpacity="0.45" />
+                <stop offset="100%" stopColor="#0284C7" stopOpacity="0.35" />
               </linearGradient>
               <linearGradient id="corosil-hero-wave-front" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#D97706" stopOpacity="0.65" />
-                <stop offset="35%" stopColor="#B45309" stopOpacity="0.55" />
-                <stop offset="70%" stopColor="#FEF3C7" stopOpacity="0.30" />
-                <stop offset="100%" stopColor="#FFFDF9" stopOpacity="1" />
+                <stop offset="0%" stopColor="#0284C7" stopOpacity="0.75" />
+                <stop offset="35%" stopColor="#0369A1" stopOpacity="0.65" />
+                <stop offset="70%" stopColor="#BAE6FD" stopOpacity="0.35" />
+                <stop offset="100%" stopColor="#F8FBFE" stopOpacity="1" />
               </linearGradient>
               <linearGradient id="corosil-hero-wave-shine" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.7" />
-                <stop offset="35%" stopColor="#FDE68A" stopOpacity="0.9" />
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+                <stop offset="35%" stopColor="#BAE6FD" stopOpacity="0.9" />
                 <stop offset="70%" stopColor="#ffffff" stopOpacity="0.85" />
-                <stop offset="100%" stopColor="#FDE68A" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="#BAE6FD" stopOpacity="0.7" />
               </linearGradient>
             </defs>
 
@@ -287,7 +315,7 @@ export default function CorosilPage() {
         </div>
       </section>
 
-      {/* 3. THREE STEPS IN ORDER */}
+      {/* 3. THREE STEPS IN ORDER & VIDEO SHOWCASE */}
       <section className="corosil-steps-section" id="application-steps" aria-labelledby="corosil-steps-title">
         <div className="container">
           <div className="corosil-section-header">
@@ -325,6 +353,81 @@ export default function CorosilPage() {
                 </div>
               );
             })}
+          </div>
+
+          {/* Dedicated "Application in Action" Video Showcase (Option 1) */}
+          <div className="corosil-video-showcase-wrap" id="corosil-video-demo">
+            <div className="corosil-video-grid">
+              {/* Left Col: High-Definition Video Player Card */}
+              <div className="corosil-video-player-card">
+                <div className="corosil-video-header">
+                  <div className="corosil-video-pill">
+                    <span className="corosil-video-dot" aria-hidden="true" />
+                    <Play size={13} fill="currentColor" />
+                    <span>Live Application Footage</span>
+                  </div>
+                  <span className="corosil-video-res-badge">HD · 1080p</span>
+                </div>
+                <div className="corosil-video-frame">
+                  <video
+                    className="corosil-application-video"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster="/images/specialty/corosil-rust-treatment.jpg"
+                  >
+                    <source src="/videos/specialty/corosil-application.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div className="corosil-video-caption">
+                  <ShieldCheck size={16} className="corosil-video-caption-icon" />
+                  <span>Real-time chemical passivation observed during direct steel brushing.</span>
+                </div>
+              </div>
+
+              {/* Right Col: Contractor Practical Application Insights */}
+              <div className="corosil-video-insights">
+                <span className="corosil-kicker">Field Guidelines</span>
+                <h3 className="corosil-video-insights-title">Best practices for optimum conversion</h3>
+                <p className="corosil-video-insights-desc">
+                  COROSIL is engineered for quick, direct application where mechanical shot blasting
+                  or sandblasting is unfeasible, hazardous, or cost-prohibitive.
+                </p>
+
+                <div className="corosil-video-tips-list">
+                  <div className="corosil-video-tip-item">
+                    <div className="corosil-tip-icon-box">
+                      <Wrench size={18} />
+                    </div>
+                    <div>
+                      <h4 className="corosil-tip-title">Minimal Surface Prep</h4>
+                      <p className="corosil-tip-desc">Only manual wire-brushing is required to dislodge loose flake and thick mill scale.</p>
+                    </div>
+                  </div>
+
+                  <div className="corosil-video-tip-item">
+                    <div className="corosil-tip-icon-box">
+                      <Paintbrush size={18} />
+                    </div>
+                    <div>
+                      <h4 className="corosil-tip-title">Brush or Spray Uniformly</h4>
+                      <p className="corosil-tip-desc">Apply 1 unthinned coat generously. Brush vigorously into deep pits, crevices, and welds.</p>
+                    </div>
+                  </div>
+
+                  <div className="corosil-video-tip-item">
+                    <div className="corosil-tip-icon-box">
+                      <Layers size={18} />
+                    </div>
+                    <div>
+                      <h4 className="corosil-tip-title">Topcoat Window (≤ 10 Days)</h4>
+                      <p className="corosil-tip-desc">After 4 hours hard dry, apply intermediate or finish coat within 10 days for peak adhesion.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -471,23 +574,32 @@ export default function CorosilPage() {
       </section>
 
       {/* 8. CTA ENQUIRY BAND */}
-      <section className="corosil-cta-section" aria-labelledby="corosil-cta-title">
+      <section
+        className="industries-contact-band"
+        id="corosil-cta"
+        aria-labelledby="corosil-cta-title"
+      >
         <div className="container">
-          <div className="corosil-cta-card">
-            <div className="corosil-cta-content">
-              <span className="corosil-cta-kicker">Technical Consultation</span>
-              <h2 id="corosil-cta-title">Need technical advice for your steel coating project?</h2>
+          <div className="industries-contact-inner">
+            <div className="industries-contact-copy">
+              <span className="industries-contact-eyebrow">
+                Technical Consultation &amp; Support
+              </span>
+              <h2 id="corosil-cta-title">
+                Need technical advice for your <span className="industries-highlight">steel coating project?</span>
+              </h2>
               <p>
                 Discuss surface preparation parameters, topcoat selection, and bulk container
-                requirements with PolyTreat's technical team.
+                requirements with PolyTreat&apos;s technical chemists.
               </p>
             </div>
-            <div className="corosil-cta-actions">
-              <Link href="/contact#contact-form" className="btn btn-corosil-primary">
+            <div className="industries-contact-action">
+              <Link className="btn btn-industries-primary" href="/contact#contact-form">
                 <span>Contact technical team</span>
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
+            <CtaWaterSplashDesign />
           </div>
         </div>
       </section>
