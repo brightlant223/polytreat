@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning>
+      <body id="top" suppressHydrationWarning>
         <Navbar />
         {children}
         <SiteFooter />

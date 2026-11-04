@@ -1,0 +1,491 @@
+/* PolyTreat compact navy footer — no global selectors, no !important */
+
+.footer {
+  position: relative;
+  overflow: hidden;
+  color: #dbeafe;
+  background:
+    radial-gradient(ellipse 70% 120% at 8% 0%, rgba(56, 189, 248, 0.16), transparent 58%),
+    radial-gradient(ellipse 70% 120% at 92% 100%, rgba(20, 184, 166, 0.13), transparent 58%),
+    linear-gradient(135deg, #071a2c 0%, #06111d 48%, #071f2d 100%);
+  border-top: 1px solid rgba(125, 211, 252, 0.18);
+}
+
+.accentLine {
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8 0%, #0284c7 34%, #14b8a6 72%, #0d9488 100%);
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  padding-top: 2.5rem;
+  padding-bottom: 1.1rem;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(210px, 1.16fr) minmax(150px, 0.78fr) minmax(300px, 1.52fr) minmax(220px, 1fr);
+  align-items: start;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding: 0 0 1.5rem;
+}
+
+.brand {
+  min-width: 0;
+}
+
+.logoTile {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.75rem 1rem;
+  border-radius: 0.85rem;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.16);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.logoTile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 38px rgba(2, 132, 199, 0.24);
+}
+
+.logoTile img {
+  display: block;
+  width: clamp(160px, 18vw, 220px);
+  height: auto;
+}
+
+.tagline {
+  max-width: 26rem;
+  margin: 1.15rem 0 1.25rem;
+  color: #a8bdd0;
+  font-size: 0.875rem;
+  line-height: 1.62;
+}
+
+.socialBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.socialLabel,
+.socialNote {
+  color: #7da2b8;
+  font-size: 0.67rem;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.socialNote {
+  width: fit-content;
+  padding-left: 0.1rem;
+  border-left: 2px solid rgba(56, 189, 248, 0.45);
+  padding-left: 0.5rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-weight: 500;
+}
+
+.socialRow {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.socialButton {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(148, 197, 218, 0.24);
+  border-radius: 0.72rem;
+  color: #8fb8cc;
+  background: rgba(255, 255, 255, 0.035);
+  cursor: not-allowed;
+}
+
+.column {
+  min-width: 0;
+}
+
+.heading {
+  margin: 0 0 0.8rem;
+  color: #f8fafc;
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.exploreList,
+.workGrid,
+.contactList {
+  display: grid;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.exploreList {
+  gap: 0.32rem;
+}
+
+.exploreLink {
+  display: flex;
+  align-items: center;
+  gap: 0.34rem;
+  width: fit-content;
+  max-width: 100%;
+  color: #b9cbda;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.exploreLink svg {
+  color: #38bdf8;
+  flex: 0 0 auto;
+  transition: transform 180ms ease;
+}
+
+.exploreLink:hover,
+.exploreLink:focus-visible {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.exploreLink:hover svg,
+.exploreLink:focus-visible svg {
+  transform: translateX(2px);
+}
+
+.workGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.workLink {
+  display: flex;
+  align-items: center;
+  gap: 0.48rem;
+  min-height: 40px;
+  padding: 0.42rem 0.5rem;
+  border: 1px solid rgba(148, 197, 218, 0.14);
+  border-radius: 0.58rem;
+  color: #c9d8e4;
+  background: rgba(255, 255, 255, 0.035);
+  font-size: 0.72rem;
+  line-height: 1.28;
+  text-decoration: none;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.workLink svg {
+  color: #67e8f9;
+  flex: 0 0 auto;
+  transition: color 180ms ease;
+}
+
+.workLink:hover,
+.workLink:focus-visible {
+  color: #ffffff;
+  background: rgba(14, 165, 233, 0.13);
+  border-color: rgba(125, 211, 252, 0.38);
+  transform: translateY(-1px);
+}
+
+.workLink:hover svg,
+.workLink:focus-visible svg {
+  color: #5eead4;
+}
+
+.contactList {
+  gap: 0.4rem;
+}
+
+.contactLink,
+.locationRow {
+  display: flex;
+  align-items: center;
+  gap: 0.58rem;
+  min-height: 46px;
+  padding: 0.44rem 0.48rem;
+  border-radius: 0.6rem;
+}
+
+.contactLink {
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.contactLink:hover,
+.contactLink:focus-visible {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(148, 197, 218, 0.18);
+  transform: translateX(2px);
+}
+
+.locationRow {
+  border-top: 1px solid rgba(148, 197, 218, 0.13);
+  padding-top: 0.55rem;
+  margin-top: 0.15rem;
+}
+
+.contactIcon {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  flex: 0 0 31px;
+  border-radius: 0.52rem;
+  color: #7dd3fc;
+  background: rgba(56, 189, 248, 0.09);
+  border: 1px solid rgba(125, 211, 252, 0.16);
+}
+
+.contactLabel,
+.contactValue {
+  display: block;
+}
+
+.contactLabel {
+  color: #7da2b8;
+  font-size: 0.62rem;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contactValue {
+  margin-top: 0.18rem;
+  color: #eef7fb;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.28;
+}
+
+.contactArrow {
+  color: #6e91a7;
+  margin-left: auto;
+  flex: 0 0 auto;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.contactLink:hover .contactArrow,
+.contactLink:focus-visible .contactArrow {
+  color: #7dd3fc;
+  transform: translate(2px, -2px);
+}
+
+.quoteLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  margin-top: 0.55rem;
+  padding: 0.62rem 0.78rem;
+  border-radius: 0.62rem;
+  color: #05202f;
+  background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 45%, #2dd4bf 100%);
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.18);
+  transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+}
+
+.quoteLink:hover,
+.quoteLink:focus-visible {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 12px 26px rgba(56, 189, 248, 0.25);
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 48px;
+  padding: 0.62rem 0 0;
+  border-top: 1px solid rgba(148, 197, 218, 0.13);
+}
+
+.copyright,
+.principle,
+.credit {
+  color: #8eaec0;
+  font-size: 0.68rem;
+  line-height: 1.4;
+}
+
+.principle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #6e91a7;
+}
+
+.bottomRight {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-left: auto;
+}
+
+.credit a {
+  color: #7dd3fc;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(125, 211, 252, 0.35);
+}
+
+.credit a:hover,
+.credit a:focus-visible {
+  color: #bae6fd;
+  border-bottom-color: #7dd3fc;
+}
+
+.backToTop {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 0.62rem;
+  color: #7dd3fc;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(125, 211, 252, 0.18);
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease, border-color 180ms ease;
+}
+
+.backToTop:hover,
+.backToTop:focus-visible {
+  color: #05202f;
+  background: #7dd3fc;
+  border-color: #7dd3fc;
+  transform: translateY(-2px);
+}
+
+.footer a:focus-visible,
+.footer button:focus-visible {
+  outline: 2px solid #7dd3fc;
+  outline-offset: 3px;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 1080px) {
+  .shell {
+    padding-top: 2.25rem;
+  }
+
+  .main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem 2rem;
+  }
+
+  .principle {
+    display: none;
+  }
+}
+
+/* Mobile: stack and reduce padding */
+@media (max-width: 680px) {
+  .shell {
+    padding-top: 2rem;
+    padding-bottom: 0.9rem;
+  }
+
+  .main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.35rem;
+    padding-bottom: 1.2rem;
+  }
+
+  .logoTile {
+    padding: 0.62rem 0.8rem;
+  }
+
+  .logoTile img {
+    width: 172px;
+  }
+
+  .tagline {
+    margin: 0.9rem 0 1rem;
+  }
+
+  .workGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
+
+  .workLink {
+    min-height: 38px;
+    padding: 0.36rem 0.42rem;
+    font-size: 0.66rem;
+    gap: 0.36rem;
+  }
+
+  .workLink svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.38rem;
+    min-height: 0;
+    padding-top: 0.62rem;
+  }
+
+  .bottomRight {
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 0;
+  }
+}
+
+/* Small phones: one column for dense links */
+@media (max-width: 380px) {
+  .workGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contactValue {
+    font-size: 0.74rem;
+    word-break: break-word;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logoTile,
+  .exploreLink,
+  .exploreLink svg,
+  .workLink,
+  .workLink svg,
+  .contactLink,
+  .contactArrow,
+  .quoteLink,
+  .backToTop {
+    transition: none;
+  }
+}
