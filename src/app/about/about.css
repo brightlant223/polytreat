@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
 /* ==========================================================================
    PolyTreat About Us Page - Redesign Styles
    Logo-Based Brand Identity (PolyTreat Blue & Deep Authority Navy)
    ========================================================================== */
 
 :root {
-  --ab-font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --ab-navy: #0B192C;
   /* Deep Navy authority matching Home Page #0B192C */
   --ab-blue: #0284C7;
@@ -32,11 +29,17 @@
 }
 
 .about-page-redesign {
-  font-family: var(--ab-font);
+  /* --font-jakarta is injected on this element by next/font (self-hosted, no external requests) */
+  font-family: var(--font-jakarta, 'Plus Jakarta Sans'), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: var(--ab-bg);
   color: var(--ab-navy);
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+/* Override the global Segoe UI heading rule so the about page uses Jakarta consistently */
+.about-page-redesign :is(h1, h2, h3, h4, h5, h6) {
+  font-family: inherit;
 }
 
 .about-page-redesign a:focus-visible,

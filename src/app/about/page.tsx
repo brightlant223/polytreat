@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -20,6 +21,13 @@ import {
 import { locationSites } from "@/data/locations";
 import AboutObserver from "./AboutObserver";
 import "./about.css";
+
+/* Self-hosted via next/font — variable font, weights 200-800, no external requests */
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "About Us | PolyTreat Chemicals Pvt. Ltd.",
@@ -159,7 +167,7 @@ const rdPoints = [
 
 export default function AboutPage() {
   return (
-    <main className="about-page-redesign">
+    <main className={`about-page-redesign ${plusJakarta.variable}`}>
       <AboutObserver />
 
       {/* 1. HERO SECTION */}
