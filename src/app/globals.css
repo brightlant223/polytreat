@@ -2342,7 +2342,7 @@ html[data-theme="dark"] .footer-credit a,
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  border: 1px solid rgba(23, 105, 166, 0.14);
+  border: 1px solid rgba(2, 132, 199, 0.14);
   border-radius: 12px;
   padding: 0.72rem 0.9rem;
   background: rgba(255, 255, 255, 0.88);
@@ -27412,7 +27412,7 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  color: #1769A6;
+  color: #0284C7;
   text-decoration: none;
   font-weight: 700;
   transition: color 0.2s ease;
@@ -27434,7 +27434,7 @@ main {
 }
 
 .industrial-water-page .industrial-water-breadcrumbs a:hover {
-  color: #1769A6;
+  color: #0284C7;
 }
 
 .industrial-water-page .industrial-water-breadcrumbs span[aria-current="page"] {
@@ -27469,7 +27469,7 @@ main {
 }
 
 .industrial-hero-highlight {
-  color: #1769A6;
+  color: #0284C7;
 }
 
 /* Decorative Accent Line */
@@ -27477,7 +27477,7 @@ main {
   width: 48px;
   height: 3.5px;
   border-radius: 999px;
-  background: #1769A6;
+  background: linear-gradient(90deg, #0284C7 0%, #38BDF8 100%);
   margin: 1.15rem 0 1.35rem;
 }
 
@@ -27499,54 +27499,55 @@ main {
 
 .btn-industrial-primary {
   display: inline-flex;
-  min-height: 46px;
+  min-height: 48px;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   border-radius: 999px;
-  padding: 0.6rem 1.6rem;
-  background: linear-gradient(135deg, #1769A6 0%, #1C5F91 100%);
-  color: #ffffff;
-  font-size: 0.84rem;
-  font-weight: 700;
+  padding: 0.72rem 1.7rem;
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  color: #ffffff !important;
+  font-size: 0.95rem;
+  font-weight: 800;
   text-decoration: none;
-  box-shadow: 0 8px 22px rgba(23, 105, 166, 0.22);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+  transition: all 250ms ease;
 }
 
 .btn-industrial-primary:hover {
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(23, 105, 166, 0.32);
+  box-shadow: 0 10px 26px rgba(2, 132, 199, 0.45);
 }
 
 .btn-industrial-secondary {
   display: inline-flex;
-  min-height: 46px;
+  min-height: 48px;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  border: 1.5px solid #1769A6;
+  border: 1.5px solid #BAE6FD;
   border-radius: 999px;
-  padding: 0.6rem 1.5rem;
+  padding: 0.72rem 1.6rem;
   background: #ffffff;
-  color: #10213B;
-  font-size: 0.84rem;
+  color: #0F172A;
+  font-size: 0.95rem;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(23, 105, 166, 0.08);
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.08);
+  transition: all 200ms ease;
 }
 
 .btn-industrial-secondary svg {
-  color: #1769A6;
+  color: #0284C7;
   transition: transform 0.2s ease;
 }
 
 .btn-industrial-secondary:hover {
-  border-color: #125682;
-  color: #1769A6;
+  border-color: #0284C7;
+  color: #0284C7;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(23, 105, 166, 0.14);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.18);
 }
 
 .btn-industrial-secondary:hover svg {
@@ -27589,7 +27590,7 @@ main {
   right: -12px;
   bottom: 12px;
   left: 12px;
-  border: 1.5px solid rgba(23, 105, 166, 0.22);
+  border: 1.5px solid rgba(2, 132, 199, 0.25);
   border-radius: 28px;
   background: linear-gradient(135deg, rgba(23, 105, 166, 0.03) 0%, rgba(185, 217, 232, 0.07) 100%);
   z-index: 1;
@@ -27602,7 +27603,7 @@ main {
   left: -20px;
   width: 80px;
   height: 80px;
-  background-image: radial-gradient(rgba(23, 105, 166, 0.32) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(rgba(2, 132, 199, 0.35) 1.5px, transparent 1.5px);
   background-size: 10px 10px;
   opacity: 0.85;
   z-index: 0;
@@ -27811,7 +27812,7 @@ main {
   display: inline-block;
   width: 4px;
   height: 16px;
-  background: #1769A6;
+  background: #0284C7;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -27849,7 +27850,7 @@ main {
 
 .industrial-water-page .industrial-header-divider {
   width: 3px;
-  background: #1769A6;
+  background: #0284C7;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -27984,7 +27985,7 @@ main {
   border-radius: 20px;
   overflow: hidden;
   border: 4px solid #FFFFFF;
-  box-shadow: 0 12px 36px rgba(23, 105, 166, 0.10), 0 0 0 1px #D6E7FC;
+  box-shadow: 0 12px 36px rgba(2, 132, 199, 0.12), 0 0 0 1px #BAE6FD;
   aspect-ratio: 16 / 10;
   background: #EBF3FC;
 }
@@ -28038,8 +28039,8 @@ main {
   width: 22px;
   height: 22px;
   border-radius: 6px;
-  background: #EAF3F8;
-  color: #1769A6;
+  background: #E0F2FE;
+  color: #0284C7;
   flex-shrink: 0;
   margin-top: 1px;
 }
@@ -28072,8 +28073,8 @@ main {
 
 .industrial-water-page .industrial-approach-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(23, 105, 166, 0.10);
-  border-color: #B9D9E8;
+  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.14);
+  border-color: #BAE6FD;
 }
 
 .industrial-water-page .industrial-approach-card-inner {
@@ -28088,11 +28089,12 @@ main {
   width: 54px;
   height: 54px;
   border-radius: 14px;
-  background: #EAF3F8;
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #1769A6;
+  color: #0284C7;
   flex-shrink: 0;
 }
 
@@ -28146,8 +28148,12 @@ main {
   width: fit-content;
   font-size: 0.88rem;
   font-weight: 700;
-  color: #1769A6;
+  color: #0284C7;
   text-decoration: none;
+}
+
+.industrial-water-page .industrial-approach-card-link:hover {
+  color: #0369A1;
 }
 
 .industrial-water-page .industrial-approach-card-link svg {
@@ -28189,8 +28195,8 @@ main {
 
 .industrial-water-page .industrial-catalogue-row:hover {
   transform: translateY(-2px);
-  border-color: #B9D9E8;
-  box-shadow: 0 6px 20px rgba(23, 105, 166, 0.08);
+  border-color: #BAE6FD;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.12);
 }
 
 .industrial-water-page .industrial-catalogue-title-col {
@@ -28205,7 +28211,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #1769A6;
+  color: #0284C7;
 }
 
 .industrial-water-page .industrial-catalogue-title {
@@ -28247,7 +28253,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #1769A6;
+  color: #0284C7;
   flex-shrink: 0;
   margin-left: 0.5rem;
   transition: transform 0.2s ease;
@@ -28674,12 +28680,12 @@ main {
 .boiler-cooling-page .boiler-cooling-hero {
   position: relative;
   background:
-    radial-gradient(ellipse 65% 60% at 75% 35%, rgba(185, 217, 232, 0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 65% 60% at 75% 35%, rgba(186, 230, 253, 0.45) 0%, transparent 70%),
     radial-gradient(ellipse 50% 50% at 20% 30%, rgba(234, 243, 248, 0.6) 0%, transparent 60%),
     linear-gradient(135deg, #f0f7fd 0%, #f9fcff 45%, #ebf5fe 100%);
   padding: 1.35rem 0 clamp(5.25rem, 7.5vw, 6.75rem);
   overflow: hidden;
-  border-bottom: 1px solid rgba(185, 217, 232, 0.4);
+  border-bottom: 1px solid rgba(186, 230, 253, 0.4);
 }
 
 .boiler-cooling-page .boiler-cooling-hero::before {
@@ -28719,7 +28725,7 @@ main {
 }
 
 .boiler-cooling-page .industrial-water-breadcrumbs a:hover {
-  color: #1769A6;
+  color: #0284C7;
 }
 
 .boiler-cooling-page .industrial-water-breadcrumbs span[aria-current="page"] {
@@ -28751,9 +28757,9 @@ main {
   gap: 0.45rem;
   padding: 0.3rem 0.85rem;
   border-radius: 999px;
-  background: rgba(23, 105, 166, 0.08);
-  border: 1px solid rgba(23, 105, 166, 0.22);
-  color: #1769A6;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.22);
+  color: #0284C7;
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -28761,7 +28767,7 @@ main {
 }
 
 .boiler-cooling-page .boiler-hero-badge-icon {
-  color: #1769A6;
+  color: #0284C7;
   flex-shrink: 0;
 }
 
@@ -28778,7 +28784,7 @@ main {
 }
 
 .boiler-cooling-page .boiler-hero-highlight {
-  color: #1769A6;
+  color: #0284C7;
 }
 
 /* Accent Line */
@@ -28786,7 +28792,7 @@ main {
   width: 44px;
   height: 3px;
   border-radius: 999px;
-  background: #1769A6;
+  background: #0284C7;
   margin: 0.75rem 0 0.95rem;
 }
 
@@ -28808,54 +28814,56 @@ main {
 
 .boiler-cooling-page .btn-boiler-primary {
   display: inline-flex;
-  min-height: 46px;
+  min-height: 48px;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, #1769A6 0%, #125682 100%);
-  color: #FFFFFF;
-  padding: 0.72rem 1.45rem;
-  font-size: 0.88rem;
-  font-weight: 700;
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  color: #FFFFFF !important;
+  padding: 0.74rem 1.7rem;
+  font-size: 0.95rem;
+  font-weight: 800;
   text-decoration: none;
-  box-shadow: 0 8px 22px rgba(23, 105, 166, 0.25);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+  transition: all 250ms ease;
 }
 
 .boiler-cooling-page .btn-boiler-primary:hover {
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(23, 105, 166, 0.32);
-  color: #FFFFFF;
+  box-shadow: 0 10px 26px rgba(2, 132, 199, 0.45);
+  color: #FFFFFF !important;
 }
 
 .boiler-cooling-page .btn-boiler-secondary {
   display: inline-flex;
-  min-height: 46px;
+  min-height: 48px;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  border: 1.5px solid #B9D9E8;
+  border: 1.5px solid #BAE6FD;
   border-radius: 999px;
   background: #FFFFFF;
-  color: #1769A6;
-  padding: 0.72rem 1.45rem;
-  font-size: 0.88rem;
+  color: #0F172A;
+  padding: 0.74rem 1.6rem;
+  font-size: 0.95rem;
   font-weight: 700;
   text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.08);
+  transition: all 200ms ease;
 }
 
 .boiler-cooling-page .btn-boiler-secondary svg {
-  color: #1769A6;
+  color: #0284C7;
   transition: transform 0.2s ease;
 }
 
 .boiler-cooling-page .btn-boiler-secondary:hover {
-  border-color: #125682;
-  color: #1769A6;
+  border-color: #0284C7;
+  color: #0284C7;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(23, 105, 166, 0.12);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.18);
 }
 
 .boiler-cooling-page .btn-boiler-secondary:hover svg {
@@ -28884,7 +28892,7 @@ main {
   right: -24px;
   bottom: -24px;
   left: -24px;
-  background: radial-gradient(ellipse 75% 65% at 50% 50%, rgba(23, 105, 166, 0.18) 0%, rgba(185, 217, 232, 0.10) 45%, transparent 72%);
+  background: radial-gradient(ellipse 75% 65% at 50% 50%, rgba(2, 132, 199, 0.18) 0%, rgba(186, 230, 253, 0.10) 45%, transparent 72%);
   filter: blur(14px);
   border-radius: 36px;
   z-index: 0;
@@ -28896,9 +28904,9 @@ main {
   right: -12px;
   bottom: 12px;
   left: 12px;
-  border: 1.5px solid rgba(23, 105, 166, 0.22);
+  border: 1.5px solid rgba(2, 132, 199, 0.22);
   border-radius: 28px;
-  background: linear-gradient(135deg, rgba(23, 105, 166, 0.03) 0%, rgba(185, 217, 232, 0.07) 100%);
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.03) 0%, rgba(186, 230, 253, 0.07) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -28909,7 +28917,7 @@ main {
   left: -20px;
   width: 80px;
   height: 80px;
-  background-image: radial-gradient(rgba(23, 105, 166, 0.32) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(rgba(2, 132, 199, 0.32) 1.5px, transparent 1.5px);
   background-size: 10px 10px;
   opacity: 0.85;
   z-index: 0;
@@ -28922,7 +28930,7 @@ main {
   max-width: 490px;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 16px 42px rgba(23, 105, 166, 0.14), 0 4px 14px rgba(11, 25, 44, 0.06);
+  box-shadow: 0 16px 42px rgba(2, 132, 199, 0.14), 0 4px 14px rgba(11, 25, 44, 0.06);
   border: 3.5px solid #FFFFFF;
   z-index: 5;
   background: #FFFFFF;
@@ -28931,7 +28939,7 @@ main {
 
 .boiler-cooling-page .boiler-hero-figure-wrap:hover {
   transform: translateY(-4px);
-  box-shadow: 0 22px 50px rgba(23, 105, 166, 0.20), 0 8px 20px rgba(11, 25, 44, 0.10);
+  box-shadow: 0 22px 50px rgba(2, 132, 199, 0.20), 0 8px 20px rgba(11, 25, 44, 0.10);
 }
 
 .boiler-cooling-page .boiler-hero-image-pill {
@@ -28943,9 +28951,9 @@ main {
   gap: 0.4rem;
   padding: 0.38rem 0.75rem;
   background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(23, 105, 166, 0.22);
+  border: 1px solid rgba(2, 132, 199, 0.22);
   border-radius: 999px;
-  color: #1769A6;
+  color: #0284C7;
   font-size: 0.72rem;
   font-weight: 700;
   backdrop-filter: blur(8px);
@@ -29001,9 +29009,9 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   background: #FFFFFF;
-  border: 1px solid #B9D9E8;
+  border: 1px solid #BAE6FD;
   border-radius: 18px;
-  box-shadow: 0 12px 32px rgba(23, 105, 166, 0.10);
+  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.10);
   overflow: hidden;
 }
 
@@ -29025,7 +29033,7 @@ main {
   height: 42px;
   border-radius: 10px;
   background: #EAF3F8;
-  color: #1769A6;
+  color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29082,7 +29090,7 @@ main {
   gap: 8px;
   font-size: 0.84rem;
   font-weight: 700;
-  color: #1769A6;
+  color: #0284C7;
   letter-spacing: 0.02em;
 }
 
@@ -29091,7 +29099,7 @@ main {
   height: 22px;
   border-radius: 6px;
   background: #EAF3F8;
-  color: #1769A6;
+  color: #0284C7;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -29101,7 +29109,7 @@ main {
   display: inline-block;
   width: 4px;
   height: 16px;
-  background: #1769A6;
+  background: #0284C7;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -29126,7 +29134,7 @@ main {
 
 .boiler-cooling-page .boiler-header-divider {
   width: 3px;
-  background: #1769A6;
+  background: #0284C7;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -29161,7 +29169,7 @@ main {
   border-radius: 20px;
   padding: 2.2rem 2.2rem 2.2rem;
   overflow: hidden;
-  box-shadow: 0 6px 25px rgba(23, 105, 166, 0.04);
+  box-shadow: 0 6px 25px rgba(2, 132, 199, 0.04);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -29171,8 +29179,8 @@ main {
 
 .boiler-cooling-page .boiler-system-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(23, 105, 166, 0.10);
-  border-color: #B9D9E8;
+  box-shadow: 0 16px 36px rgba(2, 132, 199, 0.10);
+  border-color: #BAE6FD;
 }
 
 .boiler-cooling-page .boiler-card-inner {
@@ -29189,13 +29197,13 @@ main {
 }
 
 .boiler-cooling-page .boiler-card-num-badge {
-  background: #1769A6;
+  background: #0284C7;
   color: #FFFFFF;
   font-weight: 800;
   font-size: 0.85rem;
   padding: 0.28rem 0.85rem;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(23, 105, 166, 0.22);
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.22);
 }
 
 .boiler-cooling-page .boiler-card-icon-pill {
@@ -29203,7 +29211,7 @@ main {
   height: 36px;
   border-radius: 10px;
   background: #EAF3F8;
-  color: #1769A6;
+  color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29261,7 +29269,7 @@ main {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 10px 18px rgba(23, 105, 166, 0.10));
+  filter: drop-shadow(0 10px 18px rgba(2, 132, 199, 0.10));
 }
 
 .boiler-cooling-page .boiler-card-water-splash {
@@ -29288,7 +29296,7 @@ main {
   gap: 0.45rem;
   font-size: 0.9rem;
   font-weight: 700;
-  color: #1769A6;
+  color: #0284C7;
   text-decoration: none;
   transition: transform 0.2s ease, color 0.2s ease;
 }
@@ -29298,7 +29306,7 @@ main {
 }
 
 .boiler-cooling-page .boiler-back-link:hover {
-  color: #125682;
+  color: #0369A1;
 }
 
 .boiler-cooling-page .boiler-back-link:hover svg {
@@ -29332,8 +29340,8 @@ main {
   padding: 0.3rem 0.85rem;
   border-radius: 999px;
   background: #FFFFFF;
-  border: 1px solid #B9D9E8;
-  color: #1769A6;
+  border: 1px solid #BAE6FD;
+  color: #0284C7;
   font-size: 0.78rem;
   font-weight: 700;
   margin-bottom: 0.6rem;
@@ -29367,8 +29375,8 @@ main {
 
 .boiler-cooling-page .boiler-benefit-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(23, 105, 166, 0.08);
-  border-color: #B9D9E8;
+  box-shadow: 0 10px 28px rgba(2, 132, 199, 0.08);
+  border-color: #BAE6FD;
 }
 
 .boiler-cooling-page .boiler-benefit-icon-box {
@@ -29376,7 +29384,7 @@ main {
   height: 48px;
   border-radius: 50%;
   background: #EAF3F8;
-  color: #1769A6;
+  color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29432,12 +29440,12 @@ main {
 
 .boiler-cooling-page .boiler-benefit-card.color-blue .boiler-benefit-icon-box {
   background: #EAF3F8;
-  color: #1769A6;
-  border-color: #B9D9E8;
+  color: #0284C7;
+  border-color: #BAE6FD;
 }
 .boiler-cooling-page .boiler-benefit-card.color-blue:hover {
-  border-color: #B9D9E8;
-  box-shadow: 0 10px 28px rgba(23, 105, 166, 0.14);
+  border-color: #BAE6FD;
+  box-shadow: 0 10px 28px rgba(2, 132, 199, 0.14);
 }
 
 /* --------------------------------------------------------------------------
@@ -29457,7 +29465,7 @@ main {
   align-items: center;
   font-size: 0.82rem;
   font-weight: 700;
-  color: #1769A6;
+  color: #0284C7;
   letter-spacing: 0.02em;
   margin-bottom: 0.4rem;
 }
@@ -29502,18 +29510,18 @@ main {
   height: 68px;
   border-radius: 50%;
   background: #FFFFFF;
-  border: 2px solid #B9D9E8;
-  color: #1769A6;
+  border: 2px solid #BAE6FD;
+  color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 20px rgba(23, 105, 166, 0.08);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.08);
   transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
 }
 
 .boiler-cooling-page .boiler-timeline-step:hover .boiler-step-circle-box {
   transform: scale(1.08);
-  border-color: #1769A6;
+  border-color: #0284C7;
   background: #F0F7FE;
 }
 
@@ -29581,19 +29589,19 @@ main {
 
 .boiler-cooling-page .boiler-timeline-step.color-blue .boiler-step-num-pill {
   background: #EAF3F8;
-  color: #1769A6;
-  border: 1px solid #B9D9E8;
+  color: #0284C7;
+  border: 1px solid #BAE6FD;
 }
 .boiler-cooling-page .boiler-timeline-step.color-blue .boiler-step-circle-box {
-  border-color: #1769A6;
-  color: #1769A6;
+  border-color: #0284C7;
+  color: #0284C7;
   background: #F4F8FD;
-  box-shadow: 0 6px 18px rgba(23, 105, 166, 0.10);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.10);
 }
 .boiler-cooling-page .boiler-timeline-step.color-blue:hover .boiler-step-circle-box {
-  border-color: #125682;
+  border-color: #0369A1;
   background: #EAF3F8;
-  box-shadow: 0 10px 24px rgba(23, 105, 166, 0.22);
+  box-shadow: 0 10px 24px rgba(2, 132, 199, 0.22);
 }
 
 .boiler-cooling-page .boiler-step-title {
@@ -29605,7 +29613,7 @@ main {
 }
 
 .boiler-cooling-page .boiler-timeline-arrow {
-  color: #B9D9E8;
+  color: #BAE6FD;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29646,8 +29654,8 @@ main {
 
 .boiler-cooling-page .boiler-product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 32px rgba(23, 105, 166, 0.12);
-  border-color: #B9D9E8;
+  box-shadow: 0 14px 32px rgba(2, 132, 199, 0.12);
+  border-color: #BAE6FD;
 }
 
 .boiler-cooling-page .boiler-product-img-wrap {
@@ -29665,7 +29673,7 @@ main {
 
 .boiler-cooling-page .boiler-product-card:hover .boiler-flask-svg {
   transform: translateY(-3px) scale(1.05);
-  filter: drop-shadow(0 8px 16px rgba(23, 105, 166, 0.18));
+  filter: drop-shadow(0 8px 16px rgba(2, 132, 199, 0.18));
 }
 
 .boiler-cooling-page .boiler-product-title {
@@ -29685,22 +29693,20 @@ main {
 }
 
 .boiler-cooling-page .boiler-product-arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #EAF3F8;
-  color: #1769A6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-  border: 1px solid #D4E6F8;
-  margin-top: auto;
+  background: #0284C7;
+  color: #FFFFFF;
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .boiler-cooling-page .boiler-product-arrow-btn:hover {
-  background: #1769A6;
+  background: #0284C7;
   color: #FFFFFF;
   transform: scale(1.1);
 }
@@ -29739,12 +29745,12 @@ main {
   gap: 0.5rem;
   font-size: 0.84rem;
   font-weight: 700;
-  color: #1769A6;
+  color: #0284C7;
   margin-bottom: 0.5rem;
 }
 
 .boiler-cooling-page .boiler-cta-gear-icon {
-  color: #1769A6;
+  color: #0284C7;
   flex-shrink: 0;
 }
 
@@ -29804,8 +29810,8 @@ main {
   z-index: 1;
   opacity: 0.12;
   background:
-    radial-gradient(circle at 30% 60%, #1769A6 25%, transparent 26%),
-    linear-gradient(90deg, #1769A6 0%, transparent 100%);
+    radial-gradient(circle at 30% 60%, #0284C7 25%, transparent 26%),
+    linear-gradient(90deg, #0284C7 0%, transparent 100%);
   mask-image: linear-gradient(to right, black, transparent);
   -webkit-mask-image: linear-gradient(to right, black, transparent);
 }
@@ -29820,8 +29826,8 @@ main {
   z-index: 1;
   opacity: 0.12;
   background:
-    radial-gradient(circle at 70% 60%, #1769A6 25%, transparent 26%),
-    linear-gradient(270deg, #1769A6 0%, transparent 100%);
+    radial-gradient(circle at 70% 60%, #0284C7 25%, transparent 26%),
+    linear-gradient(270deg, #0284C7 0%, transparent 100%);
   mask-image: linear-gradient(to left, black, transparent);
   -webkit-mask-image: linear-gradient(to left, black, transparent);
 }
@@ -29943,13 +29949,13 @@ main {
     top: 52px;
     transform: translate(50%, -50%);
     z-index: 4;
-    color: #1769A6;
+    color: #0284C7;
     background: #FFFFFF;
     width: 28px;
     height: 28px;
     border-radius: 50%;
     border: 1.5px solid #C4DDF2;
-    box-shadow: 0 2px 8px rgba(23, 105, 166, 0.12);
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.12);
     align-items: center;
     justify-content: center;
     padding: 0;
@@ -30432,9 +30438,17 @@ main {
   }
 
   .boiler-cooling-page .boiler-product-arrow-btn {
-    width: 32px;
-    height: 32px;
-  }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0284C7;
+  color: #FFFFFF;
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
 }
 
 @media (max-width: 360px) {
@@ -30525,12 +30539,12 @@ main {
 .ro-effluent-page .ro-hero {
   position: relative;
   background:
-    radial-gradient(ellipse 65% 60% at 75% 35%, rgba(185, 217, 232, 0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 65% 60% at 75% 35%, rgba(186, 230, 253, 0.45) 0%, transparent 70%),
     radial-gradient(ellipse 50% 50% at 20% 30%, rgba(234, 243, 248, 0.6) 0%, transparent 60%),
     linear-gradient(135deg, #f0f7fd 0%, #f9fcff 45%, #ebf5fe 100%);
   padding: 1.35rem 0 clamp(5.25rem, 7.5vw, 6.75rem);
   overflow: hidden;
-  border-bottom: 1px solid rgba(185, 217, 232, 0.4);
+  border-bottom: 1px solid rgba(186, 230, 253, 0.4);
 }
 
 .ro-effluent-page .ro-hero::before {
@@ -30570,7 +30584,7 @@ main {
 }
 
 .ro-effluent-page .industrial-water-breadcrumbs a:hover {
-  color: #1769A6;
+  color: #0284C7;
 }
 
 .ro-effluent-page .industrial-water-breadcrumbs span[aria-current="page"] {
@@ -30602,9 +30616,9 @@ main {
   gap: 0.45rem;
   padding: 0.3rem 0.85rem;
   border-radius: 999px;
-  background: rgba(23, 105, 166, 0.08);
-  border: 1px solid rgba(23, 105, 166, 0.22);
-  color: #1769A6;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.22);
+  color: #0284C7;
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -30612,7 +30626,7 @@ main {
 }
 
 .ro-effluent-page .ro-hero-badge-icon {
-  color: #1769A6;
+  color: #0284C7;
   flex-shrink: 0;
 }
 
@@ -30630,7 +30644,7 @@ main {
 }
 
 .ro-effluent-page .ro-hero-highlight {
-  color: #1769A6;
+  color: #0284C7;
 }
 
 /* Accent Line */
@@ -30638,7 +30652,7 @@ main {
   width: 44px;
   height: 3px;
   border-radius: 999px;
-  background: #1769A6;
+  background: #0284C7;
   margin: 0.75rem 0 0.95rem;
 }
 
@@ -30680,7 +30694,7 @@ main {
   right: -24px;
   bottom: -24px;
   left: -24px;
-  background: radial-gradient(ellipse 75% 65% at 50% 50%, rgba(23, 105, 166, 0.18) 0%, rgba(185, 217, 232, 0.10) 45%, transparent 72%);
+  background: radial-gradient(ellipse 75% 65% at 50% 50%, rgba(2, 132, 199, 0.18) 0%, rgba(186, 230, 253, 0.10) 45%, transparent 72%);
   filter: blur(14px);
   border-radius: 36px;
   z-index: 0;
@@ -30692,9 +30706,9 @@ main {
   right: -12px;
   bottom: 12px;
   left: 12px;
-  border: 1.5px solid rgba(23, 105, 166, 0.22);
+  border: 1.5px solid rgba(2, 132, 199, 0.22);
   border-radius: 28px;
-  background: linear-gradient(135deg, rgba(23, 105, 166, 0.03) 0%, rgba(185, 217, 232, 0.07) 100%);
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.03) 0%, rgba(186, 230, 253, 0.07) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -30705,7 +30719,7 @@ main {
   left: -20px;
   width: 80px;
   height: 80px;
-  background-image: radial-gradient(rgba(23, 105, 166, 0.32) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(rgba(2, 132, 199, 0.32) 1.5px, transparent 1.5px);
   background-size: 10px 10px;
   opacity: 0.85;
   z-index: 0;
@@ -30719,7 +30733,7 @@ main {
   max-width: 490px;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 16px 42px rgba(23, 105, 166, 0.14), 0 4px 14px rgba(11, 25, 44, 0.06);
+  box-shadow: 0 16px 42px rgba(2, 132, 199, 0.14), 0 4px 14px rgba(11, 25, 44, 0.06);
   border: 3.5px solid #FFFFFF;
   z-index: 5;
   background: #FFFFFF;
@@ -30728,7 +30742,7 @@ main {
 
 .ro-effluent-page .ro-hero-figure-wrap:hover {
   transform: translateY(-4px);
-  box-shadow: 0 22px 50px rgba(23, 105, 166, 0.20), 0 8px 20px rgba(11, 25, 44, 0.10);
+  box-shadow: 0 22px 50px rgba(2, 132, 199, 0.20), 0 8px 20px rgba(11, 25, 44, 0.10);
 }
 
 .ro-effluent-page .ro-hero-image-pill {
@@ -30740,9 +30754,9 @@ main {
   gap: 0.4rem;
   padding: 0.38rem 0.75rem;
   background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(23, 105, 166, 0.22);
+  border: 1px solid rgba(2, 132, 199, 0.22);
   border-radius: 999px;
-  color: #1769A6;
+  color: #0284C7;
   font-size: 0.72rem;
   font-weight: 700;
   backdrop-filter: blur(8px);
@@ -30796,9 +30810,9 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   background: #FFFFFF;
-  border: 1px solid #B9D9E8;
+  border: 1px solid #BAE6FD;
   border-radius: 16px;
-  box-shadow: 0 4px 18px rgba(23, 105, 166, 0.05);
+  box-shadow: 0 4px 18px rgba(2, 132, 199, 0.05);
   overflow: hidden;
 }
 
@@ -30825,7 +30839,7 @@ main {
   border-radius: 10px;
   background: #EAF3F8;
   border: 1px solid #D6E8FC;
-  color: #1769A6;
+  color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30878,7 +30892,7 @@ main {
   gap: 8px;
   font-size: 0.84rem;
   font-weight: 700;
-  color: #1769A6;
+  color: #0284C7;
   letter-spacing: 0.02em;
 }
 
@@ -30887,7 +30901,7 @@ main {
   height: 22px;
   border-radius: 6px;
   background: #EAF3F8;
-  color: #1769A6;
+  color: #0284C7;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -30897,7 +30911,7 @@ main {
   display: inline-block;
   width: 4px;
   height: 16px;
-  background: #1769A6;
+  background: #0284C7;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -30923,7 +30937,7 @@ main {
 
 .ro-effluent-page .ro-header-divider {
   width: 3px;
-  background: #1769A6;
+  background: #0284C7;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -30950,7 +30964,7 @@ main {
   border-radius: 20px;
   padding: 2.2rem 2.2rem 2.2rem;
   overflow: hidden;
-  box-shadow: 0 6px 25px rgba(23, 105, 166, 0.04);
+  box-shadow: 0 6px 25px rgba(2, 132, 199, 0.04);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30960,8 +30974,8 @@ main {
 
 .ro-effluent-page .ro-process-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(23, 105, 166, 0.10);
-  border-color: #B9D9E8;
+  box-shadow: 0 16px 36px rgba(2, 132, 199, 0.10);
+  border-color: #BAE6FD;
 }
 
 .ro-effluent-page .ro-card-inner {
@@ -30978,7 +30992,7 @@ main {
 }
 
 .ro-effluent-page .ro-card-num-badge {
-  background: #1769A6;
+  background: #0284C7;
   color: #FFFFFF;
   font-size: 0.8rem;
   font-weight: 800;
@@ -30988,7 +31002,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(23, 105, 166, 0.25);
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
 }
 
 .ro-effluent-page .ro-card-icon-pill {
@@ -30997,7 +31011,7 @@ main {
   border-radius: 10px;
   background: #EAF3F8;
   border: 1px solid #D6E8FC;
-  color: #1769A6;
+  color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31027,7 +31041,7 @@ main {
 .ro-effluent-page .ro-card-tag {
   font-size: 0.72rem;
   font-weight: 600;
-  color: #1769A6;
+  color: #0284C7;
   background: #F0F7FD;
   border: 1px solid #D6E8FC;
   padding: 0.25rem 0.65rem;
@@ -31053,7 +31067,7 @@ main {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 10px 18px rgba(23, 105, 166, 0.10));
+  filter: drop-shadow(0 10px 18px rgba(2, 132, 199, 0.10));
 }
 
 .ro-effluent-page .ro-card-water-splash {
@@ -31083,7 +31097,7 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  color: #1769A6;
+  color: #0284C7;
   font-size: 0.86rem;
   font-weight: 700;
   text-decoration: none;
@@ -31091,7 +31105,7 @@ main {
 }
 
 .ro-effluent-page .ro-back-link:hover {
-  color: #1C5F91;
+  color: #0369A1;
   transform: translateX(3px);
 }
 
@@ -31123,8 +31137,8 @@ main {
   padding: 0.3rem 0.85rem;
   border-radius: 999px;
   background: #FFFFFF;
-  border: 1px solid #B9D9E8;
-  color: #1769A6;
+  border: 1px solid #BAE6FD;
+  color: #0284C7;
   font-size: 0.78rem;
   font-weight: 700;
   margin-bottom: 0.6rem;
@@ -31159,8 +31173,8 @@ main {
 
 .ro-effluent-page .ro-benefit-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(23, 105, 166, 0.08);
-  border-color: #B9D9E8;
+  box-shadow: 0 10px 28px rgba(2, 132, 199, 0.08);
+  border-color: #BAE6FD;
 }
 
 .ro-effluent-page .ro-benefit-icon-box {
@@ -31168,7 +31182,7 @@ main {
   height: 48px;
   border-radius: 50%;
   background: #EAF3F8;
-  color: #1769A6;
+  color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31224,12 +31238,12 @@ main {
 
 .ro-effluent-page .ro-benefit-card.color-blue .ro-benefit-icon-box {
   background: #EAF3F8;
-  color: #1769A6;
-  border-color: #B9D9E8;
+  color: #0284C7;
+  border-color: #BAE6FD;
 }
 .ro-effluent-page .ro-benefit-card.color-blue:hover {
-  border-color: #B9D9E8;
-  box-shadow: 0 10px 28px rgba(23, 105, 166, 0.14);
+  border-color: #BAE6FD;
+  box-shadow: 0 10px 28px rgba(2, 132, 199, 0.14);
 }
 
 /* --------------------------------------------------------------------------
@@ -31250,7 +31264,7 @@ main {
   align-items: center;
   font-size: 0.82rem;
   font-weight: 700;
-  color: #1769A6;
+  color: #0284C7;
   letter-spacing: 0.02em;
   margin-bottom: 0.4rem;
 }
@@ -31303,19 +31317,19 @@ main {
   height: 68px;
   border-radius: 50%;
   background: #FFFFFF;
-  border: 2px solid #B9D9E8;
-  color: #1769A6;
+  border: 2px solid #BAE6FD;
+  color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 20px rgba(23, 105, 166, 0.08);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.08);
   transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
   margin-bottom: 0;
 }
 
 .ro-effluent-page .ro-timeline-step:hover .ro-step-circle-box {
   transform: scale(1.08);
-  border-color: #1769A6;
+  border-color: #0284C7;
   background: #F0F7FE;
 }
 
@@ -31386,19 +31400,19 @@ main {
 
 .ro-effluent-page .ro-timeline-step.color-blue .ro-step-num-pill {
   background: #EAF3F8;
-  color: #1769A6;
-  border: 1px solid #B9D9E8;
+  color: #0284C7;
+  border: 1px solid #BAE6FD;
 }
 .ro-effluent-page .ro-timeline-step.color-blue .ro-step-circle-box {
-  border-color: #1769A6;
-  color: #1769A6;
+  border-color: #0284C7;
+  color: #0284C7;
   background: #F4F8FD;
-  box-shadow: 0 6px 18px rgba(23, 105, 166, 0.10);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.10);
 }
 .ro-effluent-page .ro-timeline-step.color-blue:hover .ro-step-circle-box {
-  border-color: #125682;
+  border-color: #0369A1;
   background: #EAF3F8;
-  box-shadow: 0 10px 24px rgba(23, 105, 166, 0.22);
+  box-shadow: 0 10px 24px rgba(2, 132, 199, 0.22);
 }
 
 .ro-effluent-page .ro-step-title {
@@ -31410,7 +31424,7 @@ main {
 }
 
 .ro-effluent-page .ro-timeline-arrow {
-  color: #B9D9E8;
+  color: #BAE6FD;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31432,7 +31446,7 @@ main {
   width: 4px;
   height: 16px;
   border-radius: 2px;
-  background: #1769A6;
+  background: #0284C7;
   flex-shrink: 0;
 }
 
@@ -31459,8 +31473,8 @@ main {
 
 .ro-effluent-page .ro-product-card:hover {
   transform: translateY(-4px);
-  border-color: #B9D9E8;
-  box-shadow: 0 14px 32px rgba(23, 105, 166, 0.12);
+  border-color: #BAE6FD;
+  box-shadow: 0 14px 32px rgba(2, 132, 199, 0.12);
 }
 
 .ro-effluent-page .ro-product-img-wrap {
@@ -31497,22 +31511,29 @@ main {
 }
 
 .ro-effluent-page .ro-product-arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #EAF3F8;
-  color: #1769A6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: auto;
-  transition: all 0.2s ease;
+  background: #0284C7;
+  color: #FFFFFF;
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .ro-effluent-page .ro-product-card:hover .ro-product-arrow-btn {
-  background: #1769A6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0284C7;
   color: #FFFFFF;
-  transform: scale(1.08);
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* --------------------------------------------------------------------------
@@ -31620,13 +31641,13 @@ main {
     top: 52px;
     transform: translate(50%, -50%);
     z-index: 4;
-    color: #1769A6;
+    color: #0284C7;
     background: #FFFFFF;
     width: 28px;
     height: 28px;
     border-radius: 50%;
     border: 1.5px solid #C4DDF2;
-    box-shadow: 0 2px 8px rgba(23, 105, 166, 0.12);
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.12);
     align-items: center;
     justify-content: center;
     padding: 0;
@@ -32099,9 +32120,17 @@ main {
   }
 
   .ro-effluent-page .ro-product-arrow-btn {
-    width: 32px;
-    height: 32px;
-  }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0284C7;
+  color: #FFFFFF;
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
 }
 
 @media (max-width: 360px) {
@@ -33268,5 +33297,56 @@ body:has(.construction-solution-page) .footer-bottom {
   .construction-solution-page .construction-figure-wrap {
     border-radius: 16px;
     border-width: 2.5px;
+  }
+}
+
+/* ==========================================================================
+   Specialty Products Overview Page - Design Aligned with Industrial Water
+   ========================================================================== */
+
+.specialty-overview-page .specialty-approach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.specialty-overview-page .specialty-card-category {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0284C7;
+  margin-bottom: 0.45rem;
+}
+
+.specialty-overview-page .industrial-approach-card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.15rem;
+}
+
+.specialty-overview-page .industrial-approach-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.specialty-overview-page .industrial-approach-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.specialty-overview-page .industrial-approach-card-link {
+  margin-top: auto;
+  padding-top: 0.85rem;
+}
+
+@media (max-width: 1024px) {
+  .specialty-overview-page .specialty-approach-grid {
+    grid-template-columns: 1fr;
   }
 }
