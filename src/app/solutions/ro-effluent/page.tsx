@@ -407,9 +407,13 @@ export default function RoEffluentPage() {
 
               {/* Main RO & Effluent plant photograph */}
               <div className="ro-hero-figure-wrap">
-                <div className="ro-hero-image-pill" aria-hidden="true">
-                  <Factory size={13} />
-                  <span>RO &amp; Effluent Systems</span>
+                <div className="ro-hero-visual-badge">
+                  <span className="ro-brand-pill">
+                    <span className="ro-pill-dot" aria-hidden="true" />
+                    <strong>RO &amp; Effluent Reclamation</strong>
+                    <span className="ro-pill-sep">·</span>
+                    <span>Membrane Separation &amp; ETP Reclamation</span>
+                  </span>
                 </div>
                 <img
                   src="/images/solutions/ro-effluent-hero-facility.jpg"
