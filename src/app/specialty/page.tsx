@@ -1,4 +1,3 @@
-import { CtaWaterSplashDesign } from "@/components/CtaWaterSplashDesign";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -7,13 +6,14 @@ import {
   ChevronRight,
   Droplets,
   FlaskConical,
-  Home,
-  MessageCircle,
+  Play,
   ShieldCheck,
   Snowflake,
   Sparkles,
   Wind,
 } from "lucide-react";
+import SpecialtyHeroSection from "@/components/SpecialtyHeroSection";
+import { CtaWaterSplashDesign } from "@/components/CtaWaterSplashDesign";
 
 export const metadata: Metadata = {
   title: "Specialty Products Overview | PolyTreat Chemicals",
@@ -21,61 +21,56 @@ export const metadata: Metadata = {
     "Explore PolyTreat's specialty product range: COROSIL rust converter primer, POLYDOR-WS molecular odour neutraliser, and POLYKLIN AHU and FCU coil cleaning compound, plus further industrial specialty lines.",
 };
 
-function CardWaterSplash({ className = "" }: { className?: string }) {
+/* Unified Clean Blue Flow Wave Decor */
+function SpecialtyCardFlowDecor() {
   return (
     <svg
-      viewBox="0 0 120 70"
+      className="specialty-card-decor-svg"
+      viewBox="0 0 360 85"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
+      preserveAspectRatio="none"
     >
       <defs>
-        <linearGradient id="spec-card-splash-drop" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#0284C7" stopOpacity="0.8" />
-          <stop offset="100%" stopColor="#0369A1" stopOpacity="0.6" />
+        <linearGradient id="spec-blue-flow-bg" x1="0" y1="40" x2="360" y2="40" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#BAE6FD" stopOpacity="0.28" />
+          <stop offset="0.6" stopColor="#0284C7" stopOpacity="0.30" />
+          <stop offset="1" stopColor="#0369A1" stopOpacity="0.38" />
         </linearGradient>
-        <linearGradient id="spec-card-splash-ring" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#0284C7" stopOpacity="0.32" />
-          <stop offset="100%" stopColor="#BAE6FD" stopOpacity="0.1" />
-        </linearGradient>
-        <linearGradient id="spec-card-splash-pool" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.45" />
-          <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.2" />
+        <linearGradient id="spec-blue-flow-fg" x1="0" y1="50" x2="360" y2="50" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#E0F2FE" stopOpacity="0.65" />
+          <stop offset="0.5" stopColor="#0284C7" stopOpacity="0.78" />
+          <stop offset="1" stopColor="#075985" stopOpacity="0.90" />
         </linearGradient>
       </defs>
 
-      {/* Soft corner water pool */}
-      <path d="M45 70 C70 50 95 48 120 54 L120 70 Z" fill="url(#spec-card-splash-pool)" />
-
-      {/* Concentric ripple arcs emanating from corner */}
+      {/* Ambient background wave */}
       <path
-        d="M20 70 C20 42 62 18 120 22"
-        stroke="url(#spec-card-splash-ring)"
-        strokeWidth="1.5"
-        strokeDasharray="3 3"
-      />
-      <path
-        d="M50 70 C50 50 80 34 120 38"
-        stroke="url(#spec-card-splash-ring)"
-        strokeWidth="1.8"
-      />
-      <path
-        d="M78 70 C78 58 96 48 120 50"
-        stroke="url(#spec-card-splash-ring)"
-        strokeWidth="2"
+        d="M0 52 C70 42 140 60 210 48 C260 38 300 46 360 36 V92 H0 Z"
+        fill="url(#spec-blue-flow-bg)"
       />
 
-      {/* Dynamic water splash droplets */}
+      {/* Foreground flowing wave */}
       <path
-        d="M84 34 C80 28 78 20 83 14 C87 8 94 11 96 18 C98 26 90 32 84 34 Z"
-        fill="url(#spec-card-splash-drop)"
+        d="M0 60 C65 50 135 68 200 58 C245 52 280 56 360 48 V92 H0 Z"
+        fill="url(#spec-blue-flow-fg)"
       />
-      <circle cx="66" cy="22" r="3.5" fill="url(#spec-card-splash-drop)" />
-      <circle cx="52" cy="36" r="2.5" fill="#BAE6FD" fillOpacity="0.75" />
-      <circle cx="75" cy="10" r="2" fill="#0284C7" fillOpacity="0.5" />
-      <circle cx="100" cy="26" r="4" fill="url(#spec-card-splash-drop)" />
-      <circle cx="94" cy="44" r="1.8" fill="#BAE6FD" fillOpacity="0.8" />
+
+      {/* Subtle sub-surface chemical flow contour lines */}
+      <path
+        d="M160 66 C210 60 255 64 310 56"
+        stroke="#38BDF8"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.75"
+      />
+      <path
+        d="M185 74 C230 68 275 70 330 64"
+        stroke="#BAE6FD"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        opacity="0.55"
+      />
     </svg>
   );
 }
@@ -96,7 +91,7 @@ const flagshipCards = [
   {
     slug: "corosil",
     name: "COROSIL",
-    category: "Corrosion control · Rust converter primer",
+    category: "Corrosion control · Rust converter",
     description:
       "A water-based rust inhibitor and converter primer that chemically transforms iron oxides into stable metallo-organic complexes, creating an adherent foundation for compatible paint systems.",
     tags: [
@@ -184,145 +179,8 @@ const catalogueRows = [
 export default function SpecialtyPage() {
   return (
     <main className="industrial-water-page specialty-overview-page">
-      {/* 1. HERO SECTION */}
-      <section
-        className="industrial-water-hero industrial-water-reference-hero"
-        aria-labelledby="specialty-hero-title"
-      >
-        <div className="container industrial-water-hero-container">
-          <nav className="industrial-water-breadcrumbs" aria-label="Breadcrumb">
-            <Link href="/" className="industrial-water-breadcrumb-home">
-              <Home size={13} aria-hidden="true" />
-              <span>Home</span>
-            </Link>
-            <span aria-hidden="true" className="industrial-water-breadcrumb-sep">
-              &gt;
-            </span>
-            <Link href="/#solutions">Solutions</Link>
-            <span aria-hidden="true" className="industrial-water-breadcrumb-sep">
-              &gt;
-            </span>
-            <span aria-current="page">Specialty Products Overview</span>
-          </nav>
-
-          <div className="industrial-water-hero-layout">
-            <div className="industrial-water-hero-copy">
-              <span className="eyebrow">
-                <FlaskConical size={14} aria-hidden="true" /> Specialty Chemistries &amp; Formulations
-              </span>
-
-              <h1 id="specialty-hero-title">
-                Targeted formulations for{" "}
-                <br className="industrial-hero-br-desktop" />
-                the problems that{" "}
-                <br className="industrial-hero-br-desktop" />
-                <span className="industrial-hero-highlight">standard ranges don&apos;t solve.</span>
-              </h1>
-
-              <div className="industrial-hero-accent-line" aria-hidden="true" />
-
-              <p>
-                Alongside our industrial water treatment and construction ranges,
-                PolyTreat formulates dedicated specialty chemical solutions engineered
-                for singular, demanding maintenance and operational challenges.
-              </p>
-
-              <div className="industrial-water-hero-actions">
-                <Link className="btn btn-industrial-primary" href="#specialty-categories">
-                  <span>Explore the range</span>
-                  <ArrowRight size={16} aria-hidden="true" />
-                </Link>
-                <Link
-                  className="btn btn-industrial-secondary"
-                  href="/contact#contact-form"
-                >
-                  <span>Discuss an application</span>
-                  <MessageCircle size={16} aria-hidden="true" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="industrial-water-hero-visual-col">
-              {/* Technical architectural backdrop & ambient glow */}
-              <div className="industrial-hero-backdrop-shape" aria-hidden="true">
-                <div className="industrial-hero-backdrop-glow" />
-                <div className="industrial-hero-backdrop-frame" />
-                <div className="industrial-hero-backdrop-dots" />
-              </div>
-
-              {/* High-resolution specialty application photograph */}
-              <div className="industrial-water-figure-wrap">
-                <img
-                  src="/images/specialty/polydor-odour-control.jpg"
-                  alt="Industrial environmental odour control facility with aeration lagoons and treatment equipment"
-                  className="industrial-water-hero-img"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Rich flowing water wave divider */}
-        <div className="industrial-hero-wave-bottom" aria-hidden="true">
-          <svg
-            className="industrial-hero-wave-svg"
-            viewBox="0 0 1440 96"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <linearGradient id="spec-wave-back" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.5" />
-                <stop offset="40%" stopColor="#D5E8F3" stopOpacity="0.7" />
-                <stop offset="70%" stopColor="#BAE6FD" stopOpacity="0.55" />
-                <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.45" />
-              </linearGradient>
-
-              <linearGradient id="spec-wave-mid" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#0284C7" stopOpacity="0.4" />
-                <stop offset="30%" stopColor="#0369A1" stopOpacity="0.55" />
-                <stop offset="70%" stopColor="#0284C7" stopOpacity="0.45" />
-                <stop offset="100%" stopColor="#0369A1" stopOpacity="0.5" />
-              </linearGradient>
-
-              <linearGradient id="spec-wave-front" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#0284C7" stopOpacity="0.8" />
-                <stop offset="25%" stopColor="#0369A1" stopOpacity="0.7" />
-                <stop offset="65%" stopColor="#BAE6FD" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="#F4F8FD" stopOpacity="1" />
-              </linearGradient>
-
-              <linearGradient id="spec-wave-shine" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.7" />
-                <stop offset="35%" stopColor="#E0F2FE" stopOpacity="0.9" />
-                <stop offset="70%" stopColor="#ffffff" stopOpacity="0.85" />
-                <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.7" />
-              </linearGradient>
-            </defs>
-
-            <path
-              d="M0,22 C240,54 480,6 720,36 C960,66 1200,12 1440,30 L1440,96 L0,96 Z"
-              fill="url(#spec-wave-back)"
-            />
-            <path
-              d="M0,42 C280,12 560,58 840,28 C1120,4 1300,44 1440,36 L1440,96 L0,96 Z"
-              fill="url(#spec-wave-mid)"
-            />
-            <path
-              d="M0,58 C220,36 460,68 700,46 C940,24 1180,56 1440,44 L1440,96 L0,96 Z"
-              fill="url(#spec-wave-front)"
-            />
-            <path
-              d="M0,58 C220,36 460,68 700,46 C940,24 1180,56 1440,44"
-              stroke="url(#spec-wave-shine)"
-              strokeWidth="2.5"
-              fill="none"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
-      </section>
+      {/* 1. DYNAMIC SPECIALTY HERO SECTION (Rotating headlines, HD Carousel & Quick Selector) */}
+      <SpecialtyHeroSection />
 
       {/* 2. PROBLEM & OPERATIONAL CHALLENGES */}
       <section
@@ -378,7 +236,7 @@ export default function SpecialtyPage() {
         </div>
       </section>
 
-      {/* 3. FLAGSHIP SPECIALTY PRODUCTS */}
+      {/* 3. FLAGSHIP SPECIALTY PRODUCTS - SIMPLE BLUE COLOR THEME */}
       <section
         className="industrial-approach-section"
         id="specialty-categories"
@@ -409,13 +267,18 @@ export default function SpecialtyPage() {
             {flagshipCards.map((card) => {
               const Icon = card.icon;
               return (
-                <article className="industrial-approach-card" key={card.slug}>
+                <article
+                  className="industrial-approach-card specialty-simple-blue-card"
+                  key={card.slug}
+                >
                   <div className="industrial-approach-card-inner">
                     <div className="industrial-approach-icon-box">
-                      <Icon size={26} className="industrial-approach-svg" />
+                      <Icon size={24} className="industrial-approach-svg" />
                     </div>
                     <div className="industrial-approach-content">
-                      <span className="specialty-card-category">{card.category}</span>
+                      <span className="specialty-card-category">
+                        {card.category}
+                      </span>
                       <h3 className="industrial-approach-card-title">{card.name}</h3>
                       <p className="industrial-approach-card-desc">
                         {card.description}
@@ -438,16 +301,127 @@ export default function SpecialtyPage() {
                           </span>
                         ))}
                       </div>
-                      <Link href={card.href} className="industrial-approach-card-link">
+                      <Link
+                        href={card.href}
+                        className="industrial-approach-card-link"
+                      >
                         <span>{card.linkText}</span>
                         <ArrowRight size={15} aria-hidden="true" />
                       </Link>
                     </div>
                   </div>
-                  <CardWaterSplash className="industrial-card-water-splash" />
+                  <div className="specialty-card-decor-wrap" aria-hidden="true">
+                    <SpecialtyCardFlowDecor />
+                  </div>
                 </article>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* 3B. SPECIALTY CHEMISTRIES IN ACTION (ALL-IN-ONE VIDEO SHOWCASE) */}
+      <section
+        className="specialty-video-section"
+        id="specialty-video-showcase"
+        aria-labelledby="specialty-video-title"
+      >
+        <div className="container">
+          <div className="specialty-video-card">
+            <div className="specialty-video-grid">
+              {/* Left Col: High-Definition Video Player */}
+              <div className="specialty-video-player-wrap">
+                <div className="specialty-video-bar">
+                  <div className="specialty-video-live-tag">
+                    <span className="specialty-video-live-dot" aria-hidden="true" />
+                    <Play size={13} fill="currentColor" />
+                    <span>Specialty Formulations in Action</span>
+                  </div>
+                  <span className="specialty-video-badge">3 Chemistries · HD 1080p</span>
+                </div>
+                <div className="specialty-video-viewport">
+                  <video
+                    className="specialty-main-video"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster="/images/specialty/corosil-hero.webp"
+                  >
+                    <source src="/videos/specialty/specialty-products-overview.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div className="specialty-video-footer">
+                  <Sparkles size={15} className="specialty-video-footer-icon" />
+                  <span>Real field applications of COROSIL, POLYDOR-WS, and POLYKLIN</span>
+                </div>
+              </div>
+
+              {/* Right Col: 3 Product Breakdown Cards */}
+              <div className="specialty-video-breakdown">
+                <div className="industrial-section-eyebrow">
+                  <span className="industrial-eyebrow-bar" aria-hidden="true" />
+                  <span>Field Demonstration</span>
+                </div>
+                <h3 id="specialty-video-title" className="specialty-video-heading">
+                  Watch PolyTreat specialty chemistries solve real maintenance challenges.
+                </h3>
+                <p className="specialty-video-lead">
+                  From chemical rust chelation on structural steel to molecular odour neutralization
+                  and HVAC cooling coil spray-and-rinse decontamination.
+                </p>
+
+                <div className="specialty-video-products-list">
+                  <Link href="/specialty/corosil" className="specialty-video-prod-item">
+                    <div className="specialty-video-icon-box">
+                      <ShieldCheck size={20} />
+                    </div>
+                    <div className="specialty-video-prod-content">
+                      <div className="specialty-video-prod-top">
+                        <strong className="specialty-video-prod-name">COROSIL®</strong>
+                        <span className="specialty-video-prod-tag">Rust Converter</span>
+                      </div>
+                      <p className="specialty-video-prod-desc">
+                        Direct conversion of iron oxides into an adherent, paintable barrier base without blasting.
+                      </p>
+                    </div>
+                    <ChevronRight size={18} className="specialty-video-arrow" />
+                  </Link>
+
+                  <Link href="/specialty/polydor-ws" className="specialty-video-prod-item">
+                    <div className="specialty-video-icon-box">
+                      <Wind size={20} />
+                    </div>
+                    <div className="specialty-video-prod-content">
+                      <div className="specialty-video-prod-top">
+                        <strong className="specialty-video-prod-name">POLYDOR-WS®</strong>
+                        <span className="specialty-video-prod-tag">Odour Neutraliser</span>
+                      </div>
+                      <p className="specialty-video-prod-desc">
+                        Permanent molecular chemical adduct formation targeting mercaptans, amines &amp; H₂S.
+                      </p>
+                    </div>
+                    <ChevronRight size={18} className="specialty-video-arrow" />
+                  </Link>
+
+                  <Link href="/specialty/polyklin" className="specialty-video-prod-item">
+                    <div className="specialty-video-icon-box">
+                      <Snowflake size={20} />
+                    </div>
+                    <div className="specialty-video-prod-content">
+                      <div className="specialty-video-prod-top">
+                        <strong className="specialty-video-prod-name">POLYKLIN®</strong>
+                        <span className="specialty-video-prod-tag">HVAC Coil Cleaner</span>
+                      </div>
+                      <p className="specialty-video-prod-desc">
+                        Fast-acting spray-and-rinse decontamination restoring airflow and heat exchange.
+                      </p>
+                    </div>
+                    <ChevronRight size={18} className="specialty-video-arrow" />
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -466,15 +440,15 @@ export default function SpecialtyPage() {
                 <span>Product selection &amp; overview</span>
               </div>
               <h2 id="catalogue-overview-title" className="industrial-section-title">
-                Also in the specialty catalogue.
+                Further specialty formulations.
               </h2>
             </div>
             <div className="industrial-section-header-right">
               <span className="industrial-header-divider" aria-hidden="true" />
               <p>
-                These specialty lines sit within the same industrial product profile.
-                Share your application parameters and our technical team will confirm
-                available grades and technical documentation.
+                Beyond our three flagship problem-solvers, PolyTreat manufactures
+                targeted specialty formulations for facility hygiene, commercial pool
+                care, potable water treatment, and industrial maintenance.
               </p>
             </div>
           </div>
@@ -526,15 +500,15 @@ export default function SpecialtyPage() {
           <div className="industries-contact-inner">
             <div className="industries-contact-copy">
               <span className="industries-contact-eyebrow">
-                Have a specific application or maintenance challenge in mind?
+                Custom Formulation &amp; Consultation
               </span>
               <h2 id="specialty-cta-title">
-                Tell us what <span className="industries-highlight">you need to solve.</span>
+                Have an unaddressed <span className="industries-highlight">chemical maintenance challenge?</span>
               </h2>
               <p>
-                The substrate, equipment, or environmental conditions tell us more than a
-                product name. Share your parameters and our technical team will
-                recommend the right formulation and dosage protocol.
+                Whether it is stubborn corrosion, complex odour streams, or HVAC
+                rehabilitation, our technical chemists can review your site requirements
+                and recommend or formulate a fit-for-purpose solution.
               </p>
             </div>
             <div className="industries-contact-action">

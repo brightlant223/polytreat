@@ -28,8 +28,15 @@ export default function SpecialtyProductDetail({
   icon: LucideIcon;
   children?: ReactNode;
 }) {
+  const themeClass =
+    product.slug === "corosil"
+      ? "specialty-theme-corosil"
+      : product.slug === "polydor-ws"
+      ? "specialty-theme-polydor"
+      : "specialty-theme-polyklin";
+
   return (
-    <main className="specialty-product-page">
+    <main className={`specialty-product-page ${themeClass}`}>
       <section className="specialty-product-hero" aria-labelledby="specialty-product-title">
         <div className="container">
           <nav className="specialty-product-breadcrumbs" aria-label="Breadcrumb">

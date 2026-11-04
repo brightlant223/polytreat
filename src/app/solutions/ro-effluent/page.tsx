@@ -139,61 +139,108 @@ const productCards = [
   },
 ];
 
-function CardWaterSplash({ className = "" }: { className?: string }) {
+function RoCardFlowDecor() {
   return (
     <svg
-      viewBox="0 0 120 70"
+      className="ro-card-decor-svg"
+      viewBox="0 0 360 85"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
+      preserveAspectRatio="none"
     >
       <defs>
-        <linearGradient id="ro-splash-drop" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#0284C7" stopOpacity="0.8" />
-          <stop offset="100%" stopColor="#0369A1" stopOpacity="0.6" />
+        <linearGradient id="rocard-flow-bg" x1="0" y1="40" x2="360" y2="40" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#BAE6FD" stopOpacity="0.30" />
+          <stop offset="0.6" stopColor="#0284C7" stopOpacity="0.32" />
+          <stop offset="1" stopColor="#0369A1" stopOpacity="0.38" />
         </linearGradient>
-        <linearGradient id="ro-splash-ring" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#0284C7" stopOpacity="0.32" />
-          <stop offset="100%" stopColor="#BAE6FD" stopOpacity="0.1" />
-        </linearGradient>
-        <linearGradient id="ro-splash-pool" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.45" />
-          <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.2" />
+        <linearGradient id="rocard-flow-fg" x1="0" y1="50" x2="360" y2="50" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#E0F2FE" stopOpacity="0.65" />
+          <stop offset="0.5" stopColor="#0284C7" stopOpacity="0.78" />
+          <stop offset="1" stopColor="#075985" stopOpacity="0.90" />
         </linearGradient>
       </defs>
 
-      {/* Soft corner water pool */}
-      <path d="M45 70 C70 50 95 48 120 54 L120 70 Z" fill="url(#ro-splash-pool)" />
-
-      {/* Concentric ripple arcs emanating from corner */}
+      {/* Ambient background wave */}
       <path
-        d="M20 70 C20 42 62 18 120 22"
-        stroke="url(#ro-splash-ring)"
-        strokeWidth="1.5"
-        strokeDasharray="3 3"
-      />
-      <path
-        d="M50 70 C50 50 80 34 120 38"
-        stroke="url(#ro-splash-ring)"
-        strokeWidth="1.8"
-      />
-      <path
-        d="M78 70 C78 58 96 48 120 50"
-        stroke="url(#ro-splash-ring)"
-        strokeWidth="2"
+        d="M0 52 C70 42 140 60 210 48 C260 38 300 46 360 36 V92 H0 Z"
+        fill="url(#rocard-flow-bg)"
       />
 
-      {/* Dynamic water splash droplets */}
+      {/* Foreground flowing wave */}
       <path
-        d="M84 34 C80 28 78 20 83 14 C87 8 94 11 96 18 C98 26 90 32 84 34 Z"
-        fill="url(#ro-splash-drop)"
+        d="M0 60 C65 50 135 68 200 58 C245 52 280 56 360 48 V92 H0 Z"
+        fill="url(#rocard-flow-fg)"
       />
-      <circle cx="66" cy="22" r="3.5" fill="url(#ro-splash-drop)" />
-      <circle cx="52" cy="36" r="2.5" fill="#BAE6FD" fillOpacity="0.75" />
-      <circle cx="75" cy="10" r="2" fill="#0284C7" fillOpacity="0.5" />
-      <circle cx="100" cy="26" r="4" fill="url(#ro-splash-drop)" />
-      <circle cx="94" cy="44" r="1.8" fill="#BAE6FD" fillOpacity="0.8" />
+
+      {/* Static Sub-surface permeate & membrane flow contour lines */}
+      <path
+        d="M160 66 C210 60 255 64 310 56"
+        stroke="#38BDF8"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.75"
+      />
+      <path
+        d="M185 74 C230 68 275 70 330 64"
+        stroke="#BAE6FD"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        opacity="0.55"
+      />
+    </svg>
+  );
+}
+
+function EffluentCardFlowDecor() {
+  return (
+    <svg
+      className="ro-card-decor-svg"
+      viewBox="0 0 360 85"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <linearGradient id="effcard-flow-bg" x1="0" y1="40" x2="360" y2="40" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#7DD3FC" stopOpacity="0.28" />
+          <stop offset="0.6" stopColor="#0879E8" stopOpacity="0.32" />
+          <stop offset="1" stopColor="#0284C7" stopOpacity="0.38" />
+        </linearGradient>
+        <linearGradient id="effcard-flow-fg" x1="0" y1="50" x2="360" y2="50" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#BAE6FD" stopOpacity="0.65" />
+          <stop offset="0.5" stopColor="#0284C7" stopOpacity="0.78" />
+          <stop offset="1" stopColor="#0C4A6E" stopOpacity="0.90" />
+        </linearGradient>
+      </defs>
+
+      {/* Ambient background clarifier wave */}
+      <path
+        d="M0 52 C70 42 140 60 210 48 C260 38 300 46 360 36 V92 H0 Z"
+        fill="url(#effcard-flow-bg)"
+      />
+
+      {/* Foreground settling wave */}
+      <path
+        d="M0 60 C65 50 135 68 200 58 C245 52 280 56 360 48 V92 H0 Z"
+        fill="url(#effcard-flow-fg)"
+      />
+
+      {/* Static Sub-surface clarifier sweep contour lines */}
+      <path
+        d="M160 66 C210 60 255 64 310 56"
+        stroke="#38BDF8"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.75"
+      />
+      <path
+        d="M185 74 C230 68 275 70 330 64"
+        stroke="#BAE6FD"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        opacity="0.55"
+      />
     </svg>
   );
 }
@@ -489,24 +536,27 @@ export default function RoEffluentPage() {
               id={industrialAnchors.ro}
             >
               <div className="ro-card-inner">
-                <div className="ro-card-topline">
-                  <span className="ro-card-num-badge">01</span>
-                  <span className="ro-card-icon-pill" aria-hidden="true">
-                    <Filter size={18} />
-                  </span>
+                <div className="ro-card-icon-box" aria-hidden="true">
+                  <Filter size={22} className="ro-card-svg" />
                 </div>
-                <h3 className="ro-card-title">Reverse-osmosis systems</h3>
-                <p className="ro-card-desc">
-                  The product catalogue lists categories for membrane scale
-                  control, cleaning, and microbiological control in RO systems.
-                </p>
-                <div
-                  className="ro-card-tags"
-                  aria-label="Reverse-osmosis contexts"
-                >
-                  <span className="ro-card-tag">Membrane systems</span>
-                  <span className="ro-card-tag">Scale control</span>
-                  <span className="ro-card-tag">Membrane cleaning</span>
+                <div className="ro-card-content">
+                  <h3 className="ro-card-title">Reverse-osmosis systems</h3>
+                  <p className="ro-card-desc">
+                    The product catalogue lists categories for membrane scale
+                    control, cleaning, and microbiological control in RO systems.
+                  </p>
+                  <div
+                    className="ro-card-tags"
+                    aria-label="Reverse-osmosis contexts"
+                  >
+                    <span className="ro-card-tag">Membrane systems</span>
+                    <span className="ro-card-tag">Scale control</span>
+                    <span className="ro-card-tag">Membrane cleaning</span>
+                  </div>
+                  <Link href="#products" className="ro-card-link">
+                    <span>Explore reverse osmosis products</span>
+                    <ArrowRight size={14} aria-hidden="true" />
+                  </Link>
                 </div>
               </div>
 
@@ -519,8 +569,10 @@ export default function RoEffluentPage() {
                 />
               </div>
 
-              {/* Bottom decorative wave splash */}
-              <CardWaterSplash className="ro-card-water-splash" />
+              {/* Bottom decorative flowing wave */}
+              <div className="ro-card-decor-wrap" aria-hidden="true">
+                <RoCardFlowDecor />
+              </div>
             </article>
 
             {/* CARD 02 - EFFLUENT TREATMENT */}
@@ -529,24 +581,27 @@ export default function RoEffluentPage() {
               id={industrialAnchors.effluent}
             >
               <div className="ro-card-inner">
-                <div className="ro-card-topline">
-                  <span className="ro-card-num-badge">02</span>
-                  <span className="ro-card-icon-pill" aria-hidden="true">
-                    <Factory size={18} />
-                  </span>
+                <div className="ro-card-icon-box" aria-hidden="true">
+                  <Factory size={22} className="ro-card-svg" />
                 </div>
-                <h3 className="ro-card-title">Effluent treatment</h3>
-                <p className="ro-card-desc">
-                  Effluent-treatment categories include products described for
-                  coagulation, flocculation, and sludge dewatering processes.
-                </p>
-                <div
-                  className="ro-card-tags"
-                  aria-label="Effluent treatment contexts"
-                >
-                  <span className="ro-card-tag">Process wastewater</span>
-                  <span className="ro-card-tag">Particle separation</span>
-                  <span className="ro-card-tag">Sludge handling</span>
+                <div className="ro-card-content">
+                  <h3 className="ro-card-title">Effluent treatment</h3>
+                  <p className="ro-card-desc">
+                    Effluent-treatment categories include products described for
+                    coagulation, flocculation, and sludge dewatering processes.
+                  </p>
+                  <div
+                    className="ro-card-tags"
+                    aria-label="Effluent treatment contexts"
+                  >
+                    <span className="ro-card-tag">Process wastewater</span>
+                    <span className="ro-card-tag">Particle separation</span>
+                    <span className="ro-card-tag">Sludge handling</span>
+                  </div>
+                  <Link href="#products" className="ro-card-link">
+                    <span>Explore effluent treatment products</span>
+                    <ArrowRight size={14} aria-hidden="true" />
+                  </Link>
                 </div>
               </div>
 
@@ -559,8 +614,10 @@ export default function RoEffluentPage() {
                 />
               </div>
 
-              {/* Bottom decorative wave splash */}
-              <CardWaterSplash className="ro-card-water-splash" />
+              {/* Bottom decorative flowing wave */}
+              <div className="ro-card-decor-wrap" aria-hidden="true">
+                <EffluentCardFlowDecor />
+              </div>
             </article>
           </div>
 
