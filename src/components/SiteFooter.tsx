@@ -10,6 +10,7 @@ import {
   Flame,
   FlaskConical,
   Gauge,
+  Heart,
   Layers,
   Mail,
   MapPin,
@@ -109,6 +110,7 @@ export default function SiteFooter() {
                 width={780}
                 height={262}
                 sizes="(max-width: 680px) 190px, 240px"
+                loading="eager"
               />
             </Link>
 
@@ -217,7 +219,9 @@ export default function SiteFooter() {
           <span className={styles.principle}>Performance, quality, reliability, service</span>
           <div className={styles.bottomRight}>
             <span className={styles.credit}>
-              Designed by{" "}
+              Designed with{" "}
+              <Heart className={styles.heart} size={13} fill="currentColor" aria-hidden="true" />{" "}
+              by{" "}
               <a href="https://brightlant.com" target="_blank" rel="noopener noreferrer">
                 Brightlant
               </a>
