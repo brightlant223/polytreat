@@ -1,5 +1,6 @@
 import { CtaWaterSplashDesign } from "@/components/CtaWaterSplashDesign";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -121,9 +122,12 @@ export default function IndustriesPage() {
           <div className="industries-hero-ring industries-hero-ring-outer" />
           <div className="industries-hero-ring industries-hero-ring-mid" />
           <div className="industries-hero-plant-portal">
-            <img
-              src="/images/industries/industrial-water-facility.jpg"
-              alt="Industrial water treatment plant facility"
+            <Image
+              src="/images/industries/industrial-water-facility.webp"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
               className="industries-hero-plant-img"
             />
           </div>
@@ -178,9 +182,12 @@ export default function IndustriesPage() {
             <div className="industries-hero-cards-col">
               {/* Mobile Industrial Hero Image (rendered below CTA buttons on mobile/tablet) */}
               <div className="industries-hero-mobile-image-wrap">
-                <img
-                  src="/images/industries/industrial-water-facility.jpg"
-                  alt="Industrial water treatment plant facility"
+                <Image
+                  src="/images/industries/industrial-water-facility.webp"
+                  alt=""
+                  fill
+                  priority
+                  sizes="100vw"
                   className="industries-hero-mobile-plant-img"
                 />
               </div>
@@ -189,9 +196,11 @@ export default function IndustriesPage() {
                 {/* Floating Image Card 1: Industrial water systems */}
                 <div className="industries-hero-card industries-hero-card-1">
                   <div className="industries-hero-card-media">
-                    <img
-                      src="/images/industries/water-systems-pipes.jpg"
+                    <Image
+                      src="/images/industries/water-systems-pipes.webp"
                       alt="Industrial water pipelines, manifolds, and valves"
+                      fill
+                      sizes="(max-width: 900px) 46vw, 255px"
                       className="industries-hero-card-img"
                     />
                   </div>
@@ -204,9 +213,11 @@ export default function IndustriesPage() {
                 {/* Floating Image Card 2: Facility & institutional care */}
                 <div className="industries-hero-card industries-hero-card-2">
                   <div className="industries-hero-card-media">
-                    <img
-                      src="/images/industries/facility-institutional-care.jpg"
+                    <Image
+                      src="/images/industries/facility-institutional-care.webp"
                       alt="Professional facility and institutional sanitation care"
+                      fill
+                      sizes="(max-width: 900px) 46vw, 255px"
                       className="industries-hero-card-img"
                     />
                   </div>
@@ -336,23 +347,29 @@ export default function IndustriesPage() {
                     </svg>
 
                     {id === "process-manufacturing" && (
-                      <img
-                        src="/images/industries/card1-water-splash.png"
+                      <Image
+                        src="/images/industries/card1-water-splash.webp"
                         alt=""
+                        width={250}
+                        height={200}
                         className="industries-corner-decor industries-corner-splash"
                       />
                     )}
                     {id === "utilities-infrastructure" && (
-                      <img
-                        src="/images/industries/card2-construction-skyline.png"
+                      <Image
+                        src="/images/industries/card2-construction-skyline.webp"
                         alt=""
+                        width={240}
+                        height={200}
                         className="industries-corner-decor industries-corner-skyline"
                       />
                     )}
                     {id === "facilities-institutions" && (
-                      <img
-                        src="/images/industries/card3-institution-building.png"
+                      <Image
+                        src="/images/industries/card3-institution-building.webp"
                         alt=""
+                        width={270}
+                        height={200}
                         className="industries-corner-decor industries-corner-building"
                       />
                     )}
