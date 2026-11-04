@@ -1,18 +1,14 @@
 import { CtaWaterSplashDesign } from "@/components/CtaWaterSplashDesign";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { IndustrialCatalogueCarousel } from "./IndustrialCatalogueCarousel";
 import {
   ArrowRight,
   Check,
   ChevronRight,
-  Droplets,
   Fan,
-  FlaskConical,
   Home,
   MessageCircle,
-  Pipette,
-  Recycle,
-  ShieldCheck,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -221,35 +217,30 @@ const catalogueRows = [
     description: "Helps prevent scale formation in boilers, cooling systems and RO.",
     badges: ["Scale inhibitors", "Antiscalants", "Dispersants"],
     href: "/solutions/boiler-cooling-water#boiler-water",
-    icon: FlaskConical,
   },
   {
     title: "Corrosion control",
     description: "Protects metal surfaces in water and steam systems.",
     badges: ["Corrosion inhibitors", "pH control", "Film-forming agents"],
     href: "/solutions/boiler-cooling-water#cooling-water",
-    icon: ShieldCheck,
   },
   {
     title: "Membrane cleaning & care",
     description: "Cleaning solutions to remove foulants and maintain performance.",
     badges: ["Membrane cleaners", "Descalers", "Cleaning programmes"],
     href: "/solutions/ro-effluent#reverse-osmosis",
-    icon: Pipette,
   },
   {
     title: "Water quality conditioning",
     description: "Helps maintain key water parameters for different systems.",
     badges: ["pH control", "Alkalinity control", "Oxygen scavengers"],
     href: "/solutions/boiler-cooling-water#boiler-water",
-    icon: Droplets,
   },
   {
     title: "Effluent treatment aids",
     description: "Chemical solutions to support industrial effluent treatment and compliance.",
     badges: ["Coagulants", "Flocculants", "Metal precipitants"],
     href: "/solutions/ro-effluent#effluent-treatment",
-    icon: Recycle,
   },
 ];
 
@@ -552,40 +543,7 @@ export default function IndustrialWaterPage() {
             </div>
           </div>
 
-          <div className="industrial-catalogue-table" role="list">
-            {catalogueRows.map((row) => {
-              const Icon = row.icon;
-              return (
-                <Link
-                  href={row.href}
-                  key={row.title}
-                  className="industrial-catalogue-row"
-                  role="listitem"
-                >
-                  <div className="industrial-catalogue-title-col">
-                    <span className="industrial-catalogue-icon" aria-hidden="true">
-                      <Icon size={20} />
-                    </span>
-                    <span className="industrial-catalogue-title">{row.title}</span>
-                  </div>
-                  <p className="industrial-catalogue-desc">{row.description}</p>
-                  <div
-                    className="industrial-catalogue-badges"
-                    aria-label={`${row.title} products`}
-                  >
-                    {row.badges.map((badge) => (
-                      <span key={badge} className="industrial-catalogue-badge">
-                        {badge}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="industrial-catalogue-arrow" aria-hidden="true">
-                    <ChevronRight size={18} />
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          <IndustrialCatalogueCarousel items={catalogueRows} />
         </div>
       </section>
 
