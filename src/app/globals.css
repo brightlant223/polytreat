@@ -4677,17 +4677,7 @@ html[data-theme="dark"] .footer-credit a,
 }
 
 .industries-hero-splash-left {
-  position: absolute;
-  left: 0;
-  bottom: 15px;
-  width: 65px;
-  height: 110px;
-  background-image: url("/images/industries/hero-left-splash.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: left bottom;
-  pointer-events: none;
-  z-index: 3;
+  display: none !important;
 }
 
 .industries-hero-wave-bottom {
@@ -5278,55 +5268,33 @@ html[data-theme="dark"] .footer-credit a,
   background: #0284C7;
 }
 
-/* Card Decorative Background Waves & Corner Graphics */
+/* Card Decorative Background Waves & Connected Flow Graphics */
 .industries-card-decor-wrap {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100px;
+  height: 102px;
   pointer-events: none;
   z-index: 1;
   overflow: hidden;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
 }
 
-.industries-card-wave-svg {
+.industries-card-decor-svg {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   width: 100%;
-  height: 44px;
+  height: 100%;
   display: block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
-.industries-corner-decor {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.industries-corner-splash {
-  width: 120px;
-  height: 90px;
-  object-fit: contain;
-  object-position: right bottom;
-}
-
-.industries-corner-skyline {
-  width: 115px;
-  height: 90px;
-  object-fit: contain;
-  object-position: right bottom;
-}
-
-.industries-corner-building {
-  width: 125px;
-  height: 90px;
-  object-fit: contain;
-  object-position: right bottom;
+.industries-area-card:hover .industries-card-decor-svg {
+  transform: translateY(-2px) scale(1.01);
 }
 
 /* ==========================================================================

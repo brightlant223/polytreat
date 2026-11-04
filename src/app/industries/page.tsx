@@ -108,13 +108,328 @@ const contextTagIcons: Record<string, LucideIcon> = {
   "F&S": Sparkles,
 };
 
+function ProcessManufacturingWaveDecor() {
+  return (
+    <svg
+      className="industries-card-decor-svg"
+      viewBox="0 0 360 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <linearGradient id="proc-wave-bg" x1="0" y1="50" x2="360" y2="50" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#38BDF8" stopOpacity="0.28" />
+          <stop offset="0.65" stopColor="#0879E8" stopOpacity="0.32" />
+          <stop offset="1" stopColor="#0284C7" stopOpacity="0.38" />
+        </linearGradient>
+        <linearGradient id="proc-wave-fg" x1="0" y1="60" x2="360" y2="60" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#7DD3FC" stopOpacity="0.55" />
+          <stop offset="0.55" stopColor="#0879E8" stopOpacity="0.75" />
+          <stop offset="1" stopColor="#0369A1" stopOpacity="0.85" />
+        </linearGradient>
+        <linearGradient id="proc-splash-grad" x1="250" y1="10" x2="360" y2="90" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#38BDF8" />
+          <stop offset="0.5" stopColor="#0879E8" />
+          <stop offset="1" stopColor="#0284C7" />
+        </linearGradient>
+        <linearGradient id="proc-drop-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop stopColor="#7DD3FC" />
+          <stop offset="1" stopColor="#0879E8" />
+        </linearGradient>
+      </defs>
+
+      {/* Background ambient wave */}
+      <path
+        d="M0 62 C55 50 120 72 185 56 C240 42 280 52 360 38 V100 H0 Z"
+        fill="url(#proc-wave-bg)"
+      />
+
+      {/* Main flowing wave connecting into the splash on the right */}
+      <path
+        d="M0 72 C55 60 120 76 180 66 C220 59 242 64 265 52 C275 46 284 38 294 40 C306 43 315 54 335 48 C346 44 354 46 360 48 V100 H0 Z"
+        fill="url(#proc-wave-fg)"
+      />
+
+      {/* Rising sculpted water splash crown connected directly to the flow */}
+      <path
+        d="M252 66 C262 50 270 32 279 24 C283 20 287 24 286 31 C284 40 293 26 303 15 C306 11 310 14 309 22 C306 34 318 26 326 20 C330 17 334 20 332 26 C328 38 340 34 350 31 C355 29 360 33 360 40 C360 64 342 74 310 74 C282 74 265 71 252 66 Z"
+        fill="url(#proc-splash-grad)"
+        opacity="0.82"
+      />
+
+      {/* Splash inner light highlight */}
+      <path
+        d="M270 56 C278 44 287 33 293 27 C296 35 301 26 309 31 C315 35 324 33 334 38 C339 41 336 49 328 54 C314 62 290 62 270 56 Z"
+        fill="#E0F2FE"
+        opacity="0.45"
+      />
+
+      {/* Fluid droplets bursting from the splash crest */}
+      <circle cx="278" cy="14" r="3.2" fill="url(#proc-drop-grad)" opacity="0.9" />
+      <circle cx="295" cy="8" r="4" fill="url(#proc-drop-grad)" opacity="0.95" />
+      <circle cx="308" cy="6" r="2.5" fill="#38BDF8" opacity="0.9" />
+      <circle cx="325" cy="11" r="3.5" fill="url(#proc-drop-grad)" opacity="0.9" />
+      <circle cx="342" cy="18" r="3" fill="url(#proc-drop-grad)" opacity="0.85" />
+      <circle cx="355" cy="17" r="2.2" fill="#7DD3FC" opacity="0.8" />
+      <circle cx="264" cy="32" r="2.2" fill="#38BDF8" opacity="0.75" />
+
+      {/* Crisp flow accent curves */}
+      <path
+        d="M175 72 C210 65 240 54 268 40"
+        stroke="#38BDF8"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        opacity="0.75"
+      />
+      <path
+        d="M205 80 C240 73 270 58 305 45"
+        stroke="#BAE6FD"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        opacity="0.6"
+      />
+    </svg>
+  );
+}
+
+function UtilitiesInfrastructureWaveDecor() {
+  return (
+    <svg
+      className="industries-card-decor-svg"
+      viewBox="0 0 360 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <linearGradient id="util-wave-bg" x1="0" y1="50" x2="360" y2="50" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#38BDF8" stopOpacity="0.25" />
+          <stop offset="0.6" stopColor="#0879E8" stopOpacity="0.32" />
+          <stop offset="1" stopColor="#0284C7" stopOpacity="0.38" />
+        </linearGradient>
+        <linearGradient id="util-wave-fg" x1="0" y1="65" x2="360" y2="65" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#7DD3FC" stopOpacity="0.55" />
+          <stop offset="0.5" stopColor="#0879E8" stopOpacity="0.75" />
+          <stop offset="1" stopColor="#0284C7" stopOpacity="0.88" />
+        </linearGradient>
+        <linearGradient id="util-bldg-grad" x1="310" y1="15" x2="350" y2="85" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#0879E8" />
+          <stop offset="0.6" stopColor="#0284C7" />
+          <stop offset="1" stopColor="#0C4A6E" />
+        </linearGradient>
+        <linearGradient id="util-silo-grad" x1="285" y1="30" x2="315" y2="80" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#38BDF8" stopOpacity="0.9" />
+          <stop offset="1" stopColor="#0369A1" stopOpacity="0.9" />
+        </linearGradient>
+      </defs>
+
+      {/* Background ambient wave */}
+      <path
+        d="M0 64 C65 52 135 74 205 60 C250 48 285 56 360 44 V100 H0 Z"
+        fill="url(#util-wave-bg)"
+      />
+
+      {/* Infrastructure Skyline Rising directly out of the flow */}
+
+      {/* Silo / Industrial facility tower */}
+      <rect x="286" y="38" width="22" height="38" rx="4" fill="url(#util-silo-grad)" opacity="0.8" />
+      <line x1="286" y1="48" x2="308" y2="48" stroke="#BAE6FD" strokeWidth="1" opacity="0.6" />
+      <line x1="286" y1="58" x2="308" y2="58" stroke="#BAE6FD" strokeWidth="1" opacity="0.6" />
+
+      {/* Modern High-rise Utility & Engineering Tower */}
+      <path
+        d="M312 24 L328 16 L344 24 V75 H312 Z"
+        fill="url(#util-bldg-grad)"
+        opacity="0.88"
+      />
+      {/* Tower communications spire */}
+      <line x1="328" y1="8" x2="328" y2="16" stroke="#0879E8" strokeWidth="1.8" strokeLinecap="round" />
+      <circle cx="328" cy="8" r="1.8" fill="#38BDF8" />
+
+      {/* Window grid matrix on main tower */}
+      <rect x="317" y="27" width="5" height="6" rx="1" fill="#BAE6FD" opacity="0.75" />
+      <rect x="326" y="27" width="5" height="6" rx="1" fill="#BAE6FD" opacity="0.75" />
+      <rect x="334" y="27" width="5" height="6" rx="1" fill="#BAE6FD" opacity="0.75" />
+
+      <rect x="317" y="37" width="5" height="6" rx="1" fill="#BAE6FD" opacity="0.75" />
+      <rect x="326" y="37" width="5" height="6" rx="1" fill="#BAE6FD" opacity="0.75" />
+      <rect x="334" y="37" width="5" height="6" rx="1" fill="#BAE6FD" opacity="0.75" />
+
+      <rect x="317" y="47" width="5" height="6" rx="1" fill="#BAE6FD" opacity="0.75" />
+      <rect x="326" y="47" width="5" height="6" rx="1" fill="#BAE6FD" opacity="0.75" />
+      <rect x="334" y="47" width="5" height="6" rx="1" fill="#BAE6FD" opacity="0.75" />
+
+      {/* Construction Tower Crane anchored in the flow */}
+      {/* Crane Mast (Vertical Truss) */}
+      <line x1="246" y1="18" x2="246" y2="72" stroke="#0879E8" strokeWidth="1.6" />
+      <line x1="252" y1="18" x2="252" y2="72" stroke="#0879E8" strokeWidth="1.6" />
+      {/* Mast Diagonal X-Braces */}
+      <line x1="246" y1="26" x2="252" y2="34" stroke="#38BDF8" strokeWidth="1" opacity="0.7" />
+      <line x1="252" y1="26" x2="246" y2="34" stroke="#38BDF8" strokeWidth="1" opacity="0.7" />
+      <line x1="246" y1="38" x2="252" y2="46" stroke="#38BDF8" strokeWidth="1" opacity="0.7" />
+      <line x1="252" y1="38" x2="246" y2="46" stroke="#38BDF8" strokeWidth="1" opacity="0.7" />
+      <line x1="246" y1="50" x2="252" y2="58" stroke="#38BDF8" strokeWidth="1" opacity="0.7" />
+      <line x1="252" y1="50" x2="246" y2="58" stroke="#38BDF8" strokeWidth="1" opacity="0.7" />
+
+      {/* Crane Jib & Counter-Jib */}
+      <line x1="230" y1="18" x2="294" y2="18" stroke="#0879E8" strokeWidth="2" strokeLinecap="round" />
+      {/* Counterweight Block */}
+      <rect x="228" y="15" width="7" height="7" rx="1.5" fill="#0369A1" />
+      {/* Crane Apex Tower Peak */}
+      <path d="M245 18 L249 7 L253 18" stroke="#0879E8" strokeWidth="1.5" fill="none" />
+      {/* Crane Tension Cables */}
+      <line x1="249" y1="7" x2="276" y2="18" stroke="#38BDF8" strokeWidth="1" opacity="0.8" />
+      <line x1="249" y1="7" x2="231" y2="18" stroke="#38BDF8" strokeWidth="1" opacity="0.8" />
+      {/* Hoist Trolley & Cable */}
+      <rect x="272" y="17" width="5" height="3" fill="#0284C7" />
+      <line x1="274.5" y1="20" x2="274.5" y2="36" stroke="#0879E8" strokeWidth="1" strokeDasharray="2 1.5" />
+      <circle cx="274.5" cy="37" r="1.5" fill="#0879E8" />
+
+      {/* Main Flowing Wave merging directly across the infrastructure base */}
+      <path
+        d="M0 72 C60 62 130 80 195 70 C235 64 265 67 360 60 V100 H0 Z"
+        fill="url(#util-wave-fg)"
+      />
+
+      {/* Water Treatment Sub-surface Flow Lines */}
+      <path
+        d="M170 78 C215 72 250 76 295 68"
+        stroke="#38BDF8"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.7"
+      />
+      <path
+        d="M195 86 C235 80 275 82 325 76"
+        stroke="#BAE6FD"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        opacity="0.5"
+      />
+    </svg>
+  );
+}
+
+function FacilitiesInstitutionsWaveDecor() {
+  return (
+    <svg
+      className="industries-card-decor-svg"
+      viewBox="0 0 360 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <linearGradient id="fac-wave-bg" x1="0" y1="50" x2="360" y2="50" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#38BDF8" stopOpacity="0.25" />
+          <stop offset="0.6" stopColor="#0879E8" stopOpacity="0.32" />
+          <stop offset="1" stopColor="#0284C7" stopOpacity="0.38" />
+        </linearGradient>
+        <linearGradient id="fac-wave-fg" x1="0" y1="65" x2="360" y2="65" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#7DD3FC" stopOpacity="0.55" />
+          <stop offset="0.5" stopColor="#0879E8" stopOpacity="0.75" />
+          <stop offset="1" stopColor="#0284C7" stopOpacity="0.88" />
+        </linearGradient>
+        <linearGradient id="fac-campus-grad" x1="280" y1="18" x2="350" y2="80" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#0879E8" />
+          <stop offset="0.6" stopColor="#0284C7" />
+          <stop offset="1" stopColor="#0C4A6E" />
+        </linearGradient>
+        <linearGradient id="fac-pavilion-grad" x1="230" y1="35" x2="275" y2="75" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#38BDF8" stopOpacity="0.9" />
+          <stop offset="1" stopColor="#0284C7" stopOpacity="0.9" />
+        </linearGradient>
+      </defs>
+
+      {/* Background ambient wave */}
+      <path
+        d="M0 64 C65 52 135 74 205 60 C250 48 285 56 360 44 V100 H0 Z"
+        fill="url(#fac-wave-bg)"
+      />
+
+      {/* Modern Institutional Campus Complex rising out of flow */}
+
+      {/* Secondary research pavilion wing */}
+      <path
+        d="M234 44 H272 V74 H234 Z"
+        fill="url(#fac-pavilion-grad)"
+        opacity="0.85"
+      />
+      {/* Louver / Ribbon window slats on research pavilion */}
+      <line x1="238" y1="51" x2="268" y2="51" stroke="#E0F2FE" strokeWidth="1.5" opacity="0.8" />
+      <line x1="238" y1="58" x2="268" y2="58" stroke="#E0F2FE" strokeWidth="1.5" opacity="0.8" />
+      <line x1="238" y1="65" x2="268" y2="65" stroke="#E0F2FE" strokeWidth="1.5" opacity="0.8" />
+
+      {/* Main Institutional Complex / Medical & Academic Facility */}
+      <path
+        d="M276 34 H346 V76 H276 Z"
+        fill="url(#fac-campus-grad)"
+        opacity="0.9"
+      />
+      {/* Center elevated tower tier */}
+      <path
+        d="M294 22 H328 V34 H294 Z"
+        fill="#0369A1"
+        opacity="0.95"
+      />
+      {/* Modern curved architectural roof canopy */}
+      <path
+        d="M272 22 C295 16 327 16 350 22"
+        stroke="#38BDF8"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
+
+      {/* Campus facade window matrix (clean architectural rhythm) */}
+      <rect x="282" y="39" width="6" height="7" rx="1" fill="#BAE6FD" opacity="0.8" />
+      <rect x="293" y="39" width="6" height="7" rx="1" fill="#BAE6FD" opacity="0.8" />
+      <rect x="304" y="39" width="6" height="7" rx="1" fill="#BAE6FD" opacity="0.8" />
+      <rect x="315" y="39" width="6" height="7" rx="1" fill="#BAE6FD" opacity="0.8" />
+      <rect x="326" y="39" width="6" height="7" rx="1" fill="#BAE6FD" opacity="0.8" />
+      <rect x="336" y="39" width="6" height="7" rx="1" fill="#BAE6FD" opacity="0.8" />
+
+      <rect x="282" y="49" width="6" height="7" rx="1" fill="#BAE6FD" opacity="0.8" />
+      <rect x="293" y="49" width="6" height="7" rx="1" fill="#BAE6FD" opacity="0.8" />
+      <rect x="304" y="49" width="6" height="7" rx="1" fill="#BAE6FD" opacity="0.8" />
+      <rect x="315" y="49" width="6" height="7" rx="1" fill="#BAE6FD" opacity="0.8" />
+      <rect x="326" y="49" width="6" height="7" rx="1" fill="#BAE6FD" opacity="0.8" />
+      <rect x="336" y="49" width="6" height="7" rx="1" fill="#BAE6FD" opacity="0.8" />
+
+      {/* Main Entrance Colonnade / Portico Arch */}
+      <rect x="306" y="60" width="10" height="15" rx="2" fill="#E0F2FE" opacity="0.85" />
+
+      {/* Main flowing wave connecting along the campus foundation */}
+      <path
+        d="M0 72 C60 62 130 80 195 70 C240 63 275 66 360 58 V100 H0 Z"
+        fill="url(#fac-wave-fg)"
+      />
+
+      {/* Promenade waterfront flow lines */}
+      <path
+        d="M180 78 C225 72 265 76 308 70 C332 67 350 70 360 67"
+        stroke="#38BDF8"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.75"
+      />
+      <path
+        d="M205 86 C245 80 285 83 330 78"
+        stroke="#BAE6FD"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        opacity="0.55"
+      />
+    </svg>
+  );
+}
+
 export default function IndustriesPage() {
   return (
     <main className="industries-page industries-reference-layout">
       {/* Hero Section */}
       <section className="industries-page-hero" aria-labelledby="industries-page-title">
         {/* Ambient wave graphics and left water splash */}
-        <div className="industries-hero-splash-left" aria-hidden="true" />
         <div className="industries-hero-wave-bottom" aria-hidden="true" />
 
         {/* Full-width Right Industrial Plant Portal with Circular Rings */}
@@ -315,64 +630,11 @@ export default function IndustriesPage() {
                     </Link>
                   </div>
 
-                  {/* Bottom wave & corner illustration decorations */}
+                  {/* Bottom wave & connected illustration decoration */}
                   <div className="industries-card-decor-wrap" aria-hidden="true">
-                    <svg
-                      className="industries-card-wave-svg"
-                      viewBox="0 0 320 50"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      preserveAspectRatio="none"
-                    >
-                      <path
-                        d="M0 32C60 20 120 42 180 26C240 10 280 28 320 20V50H0V32Z"
-                        fill="url(#card-wave-grad-1)"
-                        opacity="0.3"
-                      />
-                      <path
-                        d="M0 38C70 28 140 46 210 34C260 25 290 36 320 30V50H0V38Z"
-                        fill="url(#card-wave-grad-2)"
-                        opacity="0.55"
-                      />
-                      <defs>
-                        <linearGradient id="card-wave-grad-1" x1="0" y1="0" x2="320" y2="0" gradientUnits="userSpaceOnUse">
-                          <stop stopColor="#38BDF8" />
-                          <stop offset="1" stopColor="#0879E8" />
-                        </linearGradient>
-                        <linearGradient id="card-wave-grad-2" x1="0" y1="0" x2="320" y2="0" gradientUnits="userSpaceOnUse">
-                          <stop stopColor="#7DD3FC" />
-                          <stop offset="1" stopColor="#0284C7" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-
-                    {id === "process-manufacturing" && (
-                      <Image
-                        src="/images/industries/card1-water-splash.webp"
-                        alt=""
-                        width={250}
-                        height={200}
-                        className="industries-corner-decor industries-corner-splash"
-                      />
-                    )}
-                    {id === "utilities-infrastructure" && (
-                      <Image
-                        src="/images/industries/card2-construction-skyline.webp"
-                        alt=""
-                        width={240}
-                        height={200}
-                        className="industries-corner-decor industries-corner-skyline"
-                      />
-                    )}
-                    {id === "facilities-institutions" && (
-                      <Image
-                        src="/images/industries/card3-institution-building.webp"
-                        alt=""
-                        width={270}
-                        height={200}
-                        className="industries-corner-decor industries-corner-building"
-                      />
-                    )}
+                    {id === "process-manufacturing" && <ProcessManufacturingWaveDecor />}
+                    {id === "utilities-infrastructure" && <UtilitiesInfrastructureWaveDecor />}
+                    {id === "facilities-institutions" && <FacilitiesInstitutionsWaveDecor />}
                   </div>
 
                 </article>
