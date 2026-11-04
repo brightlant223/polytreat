@@ -232,61 +232,108 @@ function LaboratoryFlaskDesign({ type = "scale-inhibitors" }: { type?: string })
   );
 }
 
-function CardWaterSplash({ className = "" }: { className?: string }) {
+function BoilerCardFlowDecor() {
   return (
     <svg
-      viewBox="0 0 120 70"
+      className="boiler-card-decor-svg"
+      viewBox="0 0 360 85"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
+      preserveAspectRatio="none"
     >
       <defs>
-        <linearGradient id="boiler-splash-drop" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#0284C7" stopOpacity="0.8" />
-          <stop offset="100%" stopColor="#0369A1" stopOpacity="0.6" />
+        <linearGradient id="bcard-flow-bg" x1="0" y1="40" x2="360" y2="40" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#BAE6FD" stopOpacity="0.25" />
+          <stop offset="0.6" stopColor="#0369A1" stopOpacity="0.32" />
+          <stop offset="1" stopColor="#0C4A6E" stopOpacity="0.38" />
         </linearGradient>
-        <linearGradient id="boiler-splash-ring" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#0284C7" stopOpacity="0.32" />
-          <stop offset="100%" stopColor="#BAE6FD" stopOpacity="0.1" />
-        </linearGradient>
-        <linearGradient id="boiler-splash-pool" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.45" />
-          <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.2" />
+        <linearGradient id="bcard-flow-fg" x1="0" y1="50" x2="360" y2="50" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#E0F2FE" stopOpacity="0.65" />
+          <stop offset="0.5" stopColor="#0284C7" stopOpacity="0.78" />
+          <stop offset="1" stopColor="#082F49" stopOpacity="0.90" />
         </linearGradient>
       </defs>
 
-      {/* Soft corner water pool */}
-      <path d="M45 70 C70 50 95 48 120 54 L120 70 Z" fill="url(#boiler-splash-pool)" />
-
-      {/* Concentric ripple arcs emanating from corner */}
+      {/* Ambient background wave */}
       <path
-        d="M20 70 C20 42 62 18 120 22"
-        stroke="url(#boiler-splash-ring)"
-        strokeWidth="1.5"
-        strokeDasharray="3 3"
-      />
-      <path
-        d="M50 70 C50 50 80 34 120 38"
-        stroke="url(#boiler-splash-ring)"
-        strokeWidth="1.8"
-      />
-      <path
-        d="M78 70 C78 58 96 48 120 50"
-        stroke="url(#boiler-splash-ring)"
-        strokeWidth="2"
+        d="M0 52 C70 42 140 60 210 48 C260 38 300 46 360 36 V92 H0 Z"
+        fill="url(#bcard-flow-bg)"
       />
 
-      {/* Dynamic water splash droplets */}
+      {/* Foreground flowing wave */}
       <path
-        d="M84 34 C80 28 78 20 83 14 C87 8 94 11 96 18 C98 26 90 32 84 34 Z"
-        fill="url(#boiler-splash-drop)"
+        d="M0 60 C65 50 135 68 200 58 C245 52 280 56 360 48 V92 H0 Z"
+        fill="url(#bcard-flow-fg)"
       />
-      <circle cx="66" cy="22" r="3.5" fill="url(#boiler-splash-drop)" />
-      <circle cx="52" cy="36" r="2.5" fill="#BAE6FD" fillOpacity="0.75" />
-      <circle cx="75" cy="10" r="2" fill="#0284C7" fillOpacity="0.5" />
-      <circle cx="100" cy="26" r="4" fill="url(#boiler-splash-drop)" />
-      <circle cx="94" cy="44" r="1.8" fill="#BAE6FD" fillOpacity="0.8" />
+
+      {/* Static Sub-surface thermal circulation contour lines */}
+      <path
+        d="M160 66 C210 60 255 64 310 56"
+        stroke="#38BDF8"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.75"
+      />
+      <path
+        d="M185 74 C230 68 275 70 330 64"
+        stroke="#BAE6FD"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        opacity="0.55"
+      />
+    </svg>
+  );
+}
+
+function CoolingCardFlowDecor() {
+  return (
+    <svg
+      className="boiler-card-decor-svg"
+      viewBox="0 0 360 85"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <linearGradient id="ccard-flow-bg" x1="0" y1="40" x2="360" y2="40" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#BAE6FD" stopOpacity="0.30" />
+          <stop offset="0.6" stopColor="#0284C7" stopOpacity="0.30" />
+          <stop offset="1" stopColor="#0369A1" stopOpacity="0.38" />
+        </linearGradient>
+        <linearGradient id="ccard-flow-fg" x1="0" y1="50" x2="360" y2="50" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#E0F2FE" stopOpacity="0.65" />
+          <stop offset="0.5" stopColor="#0284C7" stopOpacity="0.78" />
+          <stop offset="1" stopColor="#075985" stopOpacity="0.90" />
+        </linearGradient>
+      </defs>
+
+      {/* Ambient background cooling wave */}
+      <path
+        d="M0 52 C70 42 140 60 210 48 C260 38 300 46 360 36 V92 H0 Z"
+        fill="url(#ccard-flow-bg)"
+      />
+
+      {/* Foreground flowing wave */}
+      <path
+        d="M0 60 C65 50 135 68 200 58 C245 52 280 56 360 48 V92 H0 Z"
+        fill="url(#ccard-flow-fg)"
+      />
+
+      {/* Static Sub-surface cooling contour lines */}
+      <path
+        d="M160 66 C210 60 255 64 310 56"
+        stroke="#38BDF8"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.75"
+      />
+      <path
+        d="M185 74 C230 68 275 70 330 64"
+        stroke="#BAE6FD"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        opacity="0.55"
+      />
     </svg>
   );
 }
@@ -499,25 +546,28 @@ export default function BoilerCoolingWaterPage() {
               id={industrialAnchors.boiler}
             >
               <div className="boiler-card-inner">
-                <div className="boiler-card-topline">
-                  <span className="boiler-card-num-badge">01</span>
-                  <span className="boiler-card-icon-pill" aria-hidden="true">
-                    <Gauge size={18} />
-                  </span>
+                <div className="boiler-card-icon-box" aria-hidden="true">
+                  <Gauge size={22} className="boiler-card-svg" />
                 </div>
-                <h3 className="boiler-card-title">Boiler water</h3>
-                <p className="boiler-card-desc">
-                  Boilers heat water to produce steam. Treatment categories for these
-                  systems are considered in the context of water chemistry and
-                  operating conditions.
-                </p>
-                <div
-                  className="boiler-card-tags"
-                  aria-label="Boiler water contexts"
-                >
-                  <span className="boiler-card-tag">Steam generation</span>
-                  <span className="boiler-card-tag">Boiler-water systems</span>
-                  <span className="boiler-card-tag">Plant operations</span>
+                <div className="boiler-card-content">
+                  <h3 className="boiler-card-title">Boiler water</h3>
+                  <p className="boiler-card-desc">
+                    Boilers heat water to produce steam. Treatment categories for these
+                    systems are considered in the context of water chemistry and
+                    operating conditions.
+                  </p>
+                  <div
+                    className="boiler-card-tags"
+                    aria-label="Boiler water contexts"
+                  >
+                    <span className="boiler-card-tag">Steam generation</span>
+                    <span className="boiler-card-tag">Boiler-water systems</span>
+                    <span className="boiler-card-tag">Plant operations</span>
+                  </div>
+                  <Link href="#products" className="boiler-card-link">
+                    <span>Explore boiler water products</span>
+                    <ArrowRight size={14} aria-hidden="true" />
+                  </Link>
                 </div>
               </div>
 
@@ -530,8 +580,10 @@ export default function BoilerCoolingWaterPage() {
                 />
               </div>
 
-              {/* Bottom decorative wave splash */}
-              <CardWaterSplash className="boiler-card-water-splash" />
+              {/* Bottom decorative flowing wave */}
+              <div className="boiler-card-decor-wrap" aria-hidden="true">
+                <BoilerCardFlowDecor />
+              </div>
             </article>
 
             {/* CARD 02 - COOLING WATER */}
@@ -540,24 +592,27 @@ export default function BoilerCoolingWaterPage() {
               id={industrialAnchors.cooling}
             >
               <div className="boiler-card-inner">
-                <div className="boiler-card-topline">
-                  <span className="boiler-card-num-badge">02</span>
-                  <span className="boiler-card-icon-pill" aria-hidden="true">
-                    <Waves size={18} />
-                  </span>
+                <div className="boiler-card-icon-box" aria-hidden="true">
+                  <Waves size={22} className="boiler-card-svg" />
                 </div>
-                <h3 className="boiler-card-title">Cooling water</h3>
-                <p className="boiler-card-desc">
-                  Cooling loops circulate water to carry heat away from equipment.
-                  System design and water quality shape the operating context.
-                </p>
-                <div
-                  className="boiler-card-tags"
-                  aria-label="Cooling water contexts"
-                >
-                  <span className="boiler-card-tag">Recirculating systems</span>
-                  <span className="boiler-card-tag">Open loops</span>
-                  <span className="boiler-card-tag">Closed loops</span>
+                <div className="boiler-card-content">
+                  <h3 className="boiler-card-title">Cooling water</h3>
+                  <p className="boiler-card-desc">
+                    Cooling loops circulate water to carry heat away from equipment.
+                    System design and water quality shape the operating context.
+                  </p>
+                  <div
+                    className="boiler-card-tags"
+                    aria-label="Cooling water contexts"
+                  >
+                    <span className="boiler-card-tag">Recirculating systems</span>
+                    <span className="boiler-card-tag">Open loops</span>
+                    <span className="boiler-card-tag">Closed loops</span>
+                  </div>
+                  <Link href="#products" className="boiler-card-link">
+                    <span>Explore cooling water products</span>
+                    <ArrowRight size={14} aria-hidden="true" />
+                  </Link>
                 </div>
               </div>
 
@@ -570,8 +625,10 @@ export default function BoilerCoolingWaterPage() {
                 />
               </div>
 
-              {/* Bottom decorative wave splash */}
-              <CardWaterSplash className="boiler-card-water-splash" />
+              {/* Bottom decorative flowing wave */}
+              <div className="boiler-card-decor-wrap" aria-hidden="true">
+                <CoolingCardFlowDecor />
+              </div>
             </article>
           </div>
 

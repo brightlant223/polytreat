@@ -5273,7 +5273,7 @@ html[data-theme="dark"] .footer-credit a,
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -1px;
   height: 102px;
   pointer-events: none;
   z-index: 1;
@@ -5294,7 +5294,8 @@ html[data-theme="dark"] .footer-credit a,
 }
 
 .industries-area-card:hover .industries-card-decor-svg {
-  transform: translateY(-2px) scale(1.01);
+  transform: none;
+  opacity: 1;
 }
 
 /* ==========================================================================
@@ -28060,61 +28061,96 @@ main {
   gap: 1.5rem;
 }
 
+/* Card Container - Compact, Clean & Balanced */
 .industrial-water-page .industrial-approach-card {
   position: relative;
   overflow: hidden;
   background: #FFFFFF;
-  border: 1px solid #E2EBF6;
+  border: 1.5px solid #E2EBF6;
   border-radius: 18px;
-  padding: 1.85rem 2rem 2rem;
-  box-shadow: 0 4px 24px rgba(16, 33, 59, 0.04);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  padding: 1.5rem 1.65rem 1.6rem;
+  box-shadow: 0 4px 16px rgba(16, 33, 59, 0.04);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .industrial-water-page .industrial-approach-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.14);
-  border-color: #BAE6FD;
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.12), 0 3px 8px rgba(16, 33, 59, 0.04);
+  border-color: #7DD3FC;
 }
 
 .industrial-water-page .industrial-approach-card-inner {
   display: flex;
   align-items: flex-start;
-  gap: 1.35rem;
+  gap: 1.15rem;
   position: relative;
   z-index: 2;
 }
 
+/* Icon Box */
 .industrial-water-page .industrial-approach-icon-box {
-  width: 54px;
-  height: 54px;
+  width: 50px;
+  height: 50px;
   border-radius: 14px;
   background: #E0F2FE;
-  border: 1px solid #BAE6FD;
+  border: 1.5px solid #BAE6FD;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #0284C7;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease,
+              box-shadow 0.25s ease;
+}
+
+.industrial-water-page .industrial-approach-card:hover .industrial-approach-icon-box {
+  transform: scale(1.06);
+  background: #0284C7;
+  border-color: #0284C7;
+  color: #FFFFFF;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.28);
+}
+
+.industrial-water-page .industrial-approach-svg {
+  transition: transform 0.25s ease;
+}
+
+.industrial-water-page .industrial-approach-card:hover .industrial-approach-svg {
+  transform: scale(1.04);
 }
 
 .industrial-water-page .industrial-approach-content {
   flex-grow: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .industrial-water-page .industrial-approach-card-title {
-  margin: 0 0 0.45rem;
-  font-size: 1.3rem;
-  font-weight: 800;
+  margin: 0 0 0.35rem;
+  font-size: 1.22rem;
+  font-weight: 850;
   color: #10213B;
   letter-spacing: -0.025em;
+  transition: color 0.2s ease;
+}
+
+.industrial-water-page .industrial-approach-card:hover .industrial-approach-card-title {
+  color: #0284C7;
 }
 
 .industrial-water-page .industrial-approach-card-desc {
-  margin: 0 0 0.95rem;
-  font-size: 0.86rem;
-  line-height: 1.55;
+  margin: 0 0 0.65rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: #5B6E88;
 }
 
@@ -28122,34 +28158,43 @@ main {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.35rem 0.6rem;
-  margin-bottom: 1.25rem;
+  gap: 0.3rem 0.55rem;
+  margin-bottom: 0.75rem;
 }
 
 .industrial-water-page .industrial-approach-tag-item {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #1E3A5F;
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.55rem;
+  transition: color 0.2s ease;
+}
+
+.industrial-water-page .industrial-approach-card:hover .industrial-approach-tag-item {
+  color: #0C4A6E;
 }
 
 .industrial-water-page .industrial-approach-tag-pipe {
-  color: #A0B7D2;
+  color: #CBD5E1;
   font-weight: 400;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
 }
 
 .industrial-water-page .industrial-approach-card-link {
+  position: relative;
+  z-index: 3;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   width: fit-content;
-  font-size: 0.88rem;
-  font-weight: 700;
+  margin-top: 0.2rem;
+  font-size: 0.86rem;
+  font-weight: 750;
   color: #0284C7;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .industrial-water-page .industrial-approach-card-link:hover {
@@ -28161,7 +28206,38 @@ main {
 }
 
 .industrial-water-page .industrial-approach-card:hover .industrial-approach-card-link svg {
-  transform: translateX(3px);
+  transform: translateX(4px);
+}
+
+/* Card Decorative Background Waves & Connected Flow Graphics */
+.industrial-water-page .industrial-card-decor-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 86px;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.industrial-water-page .industrial-card-decor-svg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.3s ease, opacity 0.25s ease;
+  opacity: 0.85;
+}
+
+.industrial-water-page .industrial-approach-card:hover .industrial-card-decor-svg {
+  transform: none;
+  opacity: 1;
 }
 
 /* --------------------------------------------------------------------------
@@ -29162,95 +29238,150 @@ main {
   margin-top: 1.25rem;
 }
 
+/* Boiler & Cooling System Cards (.boiler-system-card) - Icon at Top-Left, Proper Spacing */
 .boiler-cooling-page .boiler-system-card {
   position: relative;
   background: #FFFFFF;
-  border: 1.5px solid #DCE9F6;
+  border: 1.5px solid #E2EBF6;
   border-radius: 20px;
-  padding: 2.2rem 2.2rem 2.2rem;
+  padding: 1.75rem 2rem 1.85rem;
   overflow: hidden;
-  box-shadow: 0 6px 25px rgba(2, 132, 199, 0.04);
+  box-shadow: 0 4px 18px rgba(16, 33, 59, 0.04);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 330px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  min-height: 290px;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
 }
 
 .boiler-cooling-page .boiler-system-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(2, 132, 199, 0.10);
-  border-color: #BAE6FD;
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(2, 132, 199, 0.14), 0 4px 12px rgba(16, 33, 59, 0.04);
+  border-color: #7DD3FC;
 }
 
 .boiler-cooling-page .boiler-card-inner {
   position: relative;
   z-index: 2;
-  max-width: 60%;
-}
-
-.boiler-cooling-page .boiler-card-topline {
+  max-width: 62%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
-.boiler-cooling-page .boiler-card-num-badge {
-  background: #0284C7;
-  color: #FFFFFF;
-  font-weight: 800;
-  font-size: 0.85rem;
-  padding: 0.28rem 0.85rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.22);
-}
-
-.boiler-cooling-page .boiler-card-icon-pill {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: #EAF3F8;
+/* Icon Box Shifted to Top-Left */
+.boiler-cooling-page .boiler-card-icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: #E0F2FE;
+  border: 1.5px solid #BAE6FD;
   color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #D6E8FC;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.25s ease;
+}
+
+.boiler-cooling-page .boiler-system-card:hover .boiler-card-icon-box {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  border-color: #0284C7;
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.28);
+}
+
+.boiler-cooling-page .boiler-card-svg {
+  transition: transform 0.25s ease;
+}
+
+.boiler-cooling-page .boiler-system-card:hover .boiler-card-svg {
+  transform: scale(1.05);
+}
+
+.boiler-cooling-page .boiler-card-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .boiler-cooling-page .boiler-card-title {
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   font-weight: 850;
   color: #10213B;
-  margin: 0 0 0.65rem;
+  margin: 0 0 0.45rem;
   letter-spacing: -0.025em;
+  transition: color 0.2s ease;
+}
+
+.boiler-cooling-page .boiler-system-card:hover .boiler-card-title {
+  color: #0284C7;
 }
 
 .boiler-cooling-page .boiler-card-desc {
-  font-size: 0.88rem;
-  line-height: 1.6;
+  font-size: 0.86rem;
+  line-height: 1.55;
   color: #5B6E88;
-  margin: 0 0 1.4rem;
+  margin: 0 0 0.85rem;
 }
 
 .boiler-cooling-page .boiler-card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
 }
 
 .boiler-cooling-page .boiler-card-tag {
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-size: 0.76rem;
+  font-weight: 650;
   color: #1E3A5F;
-  background: #F3F8FD;
-  border: 1px solid #D6E6F5;
-  padding: 0.32rem 0.8rem;
+  background: #F4F8FD;
+  border: 1px solid #DCEBF8;
+  padding: 0.26rem 0.7rem;
   border-radius: 999px;
   white-space: nowrap;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
-/* Equipment Cutout on Right Side */
+.boiler-cooling-page .boiler-system-card:hover .boiler-card-tag {
+  border-color: #BAE6FD;
+}
+
+.boiler-cooling-page .boiler-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.86rem;
+  font-weight: 750;
+  color: #0284C7;
+  text-decoration: none;
+  margin-top: 0.15rem;
+  transition: color 0.2s ease;
+}
+
+.boiler-cooling-page .boiler-card-link:hover {
+  color: #0369A1;
+}
+
+.boiler-cooling-page .boiler-card-link svg {
+  transition: transform 0.22s ease;
+}
+
+.boiler-cooling-page .boiler-system-card:hover .boiler-card-link svg {
+  transform: translateX(4px);
+}
+
+/* Equipment Cutout on Right Side with smooth hover float */
 .boiler-cooling-page .boiler-card-image-wrap {
   position: absolute;
   right: 1.25rem;
@@ -29263,25 +29394,49 @@ main {
   justify-content: center;
   pointer-events: none;
   z-index: 3;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.boiler-cooling-page .boiler-system-card:hover .boiler-card-image-wrap {
+  transform: translateY(-50%) scale(1.04);
 }
 
 .boiler-cooling-page .boiler-card-img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 10px 18px rgba(2, 132, 199, 0.10));
+  filter: drop-shadow(0 10px 20px rgba(2, 132, 199, 0.12));
 }
 
-.boiler-cooling-page .boiler-card-water-splash {
+/* Baseline Decorative Flowing Wave */
+.boiler-cooling-page .boiler-card-decor-wrap {
   position: absolute;
-  bottom: 0;
+  left: 0;
   right: 0;
-  width: 140px;
-  height: 75px;
-  object-fit: cover;
+  bottom: -1px;
+  height: 78px;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.85;
+  overflow: hidden;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.boiler-cooling-page .boiler-card-decor-svg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.88;
+  transition: transform 0.3s ease, opacity 0.25s ease;
+}
+
+.boiler-cooling-page .boiler-system-card:hover .boiler-card-decor-svg {
+  transform: none;
+  opacity: 1;
 }
 
 .boiler-cooling-page .boiler-back-link-wrap {
@@ -30957,128 +31112,201 @@ main {
   margin-bottom: 1.5rem;
 }
 
+/* RO & Effluent Process Cards (.ro-process-card) - Icon at Top-Left, Proper Spacing */
 .ro-effluent-page .ro-process-card {
   position: relative;
   background: #FFFFFF;
-  border: 1.5px solid #DCE9F6;
+  border: 1.5px solid #E2EBF6;
   border-radius: 20px;
-  padding: 2.2rem 2.2rem 2.2rem;
+  padding: 1.75rem 2rem 1.85rem;
   overflow: hidden;
-  box-shadow: 0 6px 25px rgba(2, 132, 199, 0.04);
+  box-shadow: 0 4px 18px rgba(16, 33, 59, 0.04);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 330px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  min-height: 290px;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
 }
 
 .ro-effluent-page .ro-process-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(2, 132, 199, 0.10);
-  border-color: #BAE6FD;
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(2, 132, 199, 0.14), 0 4px 12px rgba(16, 33, 59, 0.04);
+  border-color: #7DD3FC;
 }
 
 .ro-effluent-page .ro-card-inner {
   position: relative;
   z-index: 2;
-  max-width: 60%;
-}
-
-.ro-effluent-page .ro-card-topline {
+  max-width: 62%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
-.ro-effluent-page .ro-card-num-badge {
-  background: #0284C7;
-  color: #FFFFFF;
-  font-size: 0.8rem;
-  font-weight: 800;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+/* Icon Box Shifted to Top-Left */
+.ro-effluent-page .ro-card-icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+  border: 1.5px solid #BAE6FD;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
-}
-
-.ro-effluent-page .ro-card-icon-pill {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: #EAF3F8;
-  border: 1px solid #D6E8FC;
   color: #0284C7;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.10);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.25s ease;
+}
+
+.ro-effluent-page .ro-process-card:hover .ro-card-icon-box {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  border-color: #0284C7;
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.28);
+}
+
+.ro-effluent-page .ro-card-svg {
+  transition: transform 0.25s ease;
+}
+
+.ro-effluent-page .ro-process-card:hover .ro-card-svg {
+  transform: scale(1.05);
+}
+
+.ro-effluent-page .ro-card-content {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  width: 100%;
 }
 
 .ro-effluent-page .ro-card-title {
-  margin: 0 0 0.55rem;
+  font-size: 1.35rem;
+  font-weight: 850;
   color: #10213B;
-  font-size: clamp(1.25rem, 1.65vw, 1.45rem);
-  font-weight: 800;
-  line-height: 1.25;
+  margin: 0 0 0.45rem;
+  letter-spacing: -0.025em;
+  transition: color 0.2s ease;
+}
+
+.ro-effluent-page .ro-process-card:hover .ro-card-title {
+  color: #0284C7;
 }
 
 .ro-effluent-page .ro-card-desc {
-  margin: 0 0 1.25rem;
-  color: #52677F;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   line-height: 1.55;
+  color: #5B6E88;
+  margin: 0 0 0.85rem;
 }
 
 .ro-effluent-page .ro-card-tags {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
 }
 
 .ro-effluent-page .ro-card-tag {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #0284C7;
-  background: #F0F7FD;
-  border: 1px solid #D6E8FC;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #0369A1;
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
   padding: 0.25rem 0.65rem;
-  border-radius: 6px;
+  border-radius: 7px;
+  letter-spacing: -0.01em;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-/* Card Visual Wrap (Floating equipment on right, matching Boiler & Cooling) */
+.ro-effluent-page .ro-process-card:hover .ro-card-tag {
+  background: #E0F2FE;
+  border-color: #7DD3FC;
+  color: #0284C7;
+}
+
+/* Explore Link Direct to Products */
+.ro-effluent-page .ro-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: #0284C7;
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.ro-effluent-page .ro-card-link:hover {
+  color: #0369A1;
+  transform: translateX(3px);
+}
+
+/* Image Wrap Right-Aligned */
 .ro-effluent-page .ro-card-image-wrap {
   position: absolute;
   right: 1.25rem;
   top: 50%;
   transform: translateY(-46%);
   width: 215px;
-  height: 180px;
+  height: 175px;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
   z-index: 3;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ro-effluent-page .ro-process-card:hover .ro-card-image-wrap {
+  transform: translateY(-50%) scale(1.04);
 }
 
 .ro-effluent-page .ro-card-img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 10px 18px rgba(2, 132, 199, 0.10));
+  filter: drop-shadow(0 10px 20px rgba(2, 132, 199, 0.12));
 }
 
-.ro-effluent-page .ro-card-water-splash {
+/* Baseline Decorative Flowing Wave */
+.ro-effluent-page .ro-card-decor-wrap {
   position: absolute;
-  bottom: 0;
+  left: 0;
   right: 0;
-  width: 140px;
-  height: 75px;
+  bottom: -1px;
+  height: 78px;
   pointer-events: none;
-  z-index: 0;
-  opacity: 0.85;
+  z-index: 1;
+  overflow: hidden;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.ro-effluent-page .ro-card-decor-svg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.88;
+  transition: opacity 0.25s ease;
+}
+
+.ro-effluent-page .ro-process-card:hover .ro-card-decor-svg {
+  transform: none;
+  opacity: 1;
 }
 
 .ro-effluent-page .ro-process-note {
@@ -31728,8 +31956,13 @@ main {
   }
 
   .ro-effluent-page .ro-card-image-wrap {
-    height: 165px;
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
     margin: 1.35rem auto 0;
+    width: 100%;
+    height: 165px;
   }
 
   .ro-effluent-page .ro-benefits-section {
@@ -33335,18 +33568,1440 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 .specialty-overview-page .industrial-approach-card {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  padding: 1.5rem 1.65rem 1.6rem;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+}
+
+.specialty-overview-page .industrial-approach-card:hover {
+  transform: translateY(-4px);
+}
+
+.specialty-overview-page .industrial-approach-card-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .specialty-overview-page .industrial-approach-card-link {
-  margin-top: auto;
-  padding-top: 0.85rem;
+  position: relative;
+  z-index: 3;
+  margin-top: 0.3rem;
+  padding-top: 0;
+}
+
+/* Card Decorative Background Waves & Connected Flow Graphics */
+.specialty-overview-page .specialty-card-decor-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 86px;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.specialty-overview-page .specialty-card-decor-svg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.3s ease, opacity 0.25s ease;
+  opacity: 0.85;
+}
+
+.specialty-overview-page .industrial-approach-card:hover .specialty-card-decor-svg {
+  transform: none;
+  opacity: 1;
 }
 
 @media (max-width: 1024px) {
   .specialty-overview-page .specialty-approach-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Flagship Specialty Products - Distinct Visual Color Identities
+   COROSIL (Amber/Rust) | POLYDOR-WS (Emerald/Bio) | POLYKLIN (Arctic Cyan)
+   ========================================================================== */
+
+/* --- 1. Overview Page Card Themes --- */
+
+/* COROSIL: Amber / Industrial Rust & Copper */
+.specialty-overview-page .specialty-card-amber:hover {
+  border-color: #FDE68A;
+  box-shadow: 0 14px 36px rgba(217, 119, 6, 0.16);
+}
+
+.specialty-overview-page .specialty-icon-amber {
+  background: #FEF3C7;
+  border: 1px solid #FDE68A;
+  color: #D97706;
+}
+
+.specialty-overview-page .specialty-category-amber {
+  color: #D97706;
+}
+
+.specialty-overview-page .specialty-tags-amber .industrial-approach-tag-item {
+  color: #78350F;
+}
+
+.specialty-overview-page .specialty-tags-amber .industrial-approach-tag-pipe {
+  color: #FBBF24;
+}
+
+.specialty-overview-page .specialty-link-amber {
+  color: #D97706;
+}
+
+.specialty-overview-page .specialty-link-amber:hover {
+  color: #B45309;
+}
+
+/* POLYDOR-WS: Botanical Emerald / Green Bio-Teal */
+.specialty-overview-page .specialty-card-emerald:hover {
+  border-color: #A7F3D0;
+  box-shadow: 0 14px 36px rgba(5, 150, 105, 0.16);
+}
+
+.specialty-overview-page .specialty-icon-emerald {
+  background: #D1FAE5;
+  border: 1px solid #A7F3D0;
+  color: #059669;
+}
+
+.specialty-overview-page .specialty-category-emerald {
+  color: #059669;
+}
+
+.specialty-overview-page .specialty-tags-emerald .industrial-approach-tag-item {
+  color: #064E3B;
+}
+
+.specialty-overview-page .specialty-tags-emerald .industrial-approach-tag-pipe {
+  color: #6EE7B7;
+}
+
+.specialty-overview-page .specialty-link-emerald {
+  color: #059669;
+}
+
+.specialty-overview-page .specialty-link-emerald:hover {
+  color: #047857;
+}
+
+/* POLYKLIN: Arctic Frost Cyan */
+.specialty-overview-page .specialty-card-cyan:hover {
+  border-color: #BAE6FD;
+  box-shadow: 0 14px 36px rgba(2, 132, 199, 0.16);
+}
+
+.specialty-overview-page .specialty-icon-cyan {
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
+  color: #0284C7;
+}
+
+.specialty-overview-page .specialty-category-cyan {
+  color: #0284C7;
+}
+
+.specialty-overview-page .specialty-tags-cyan .industrial-approach-tag-item {
+  color: #10213B;
+}
+
+.specialty-overview-page .specialty-tags-cyan .industrial-approach-tag-pipe {
+  color: #93C5FD;
+}
+
+.specialty-overview-page .specialty-link-cyan {
+  color: #0284C7;
+}
+
+.specialty-overview-page .specialty-link-cyan:hover {
+  color: #0369A1;
+}
+
+/* --- 2. Individual Product Detail Page Themes --- */
+
+/* COROSIL THEME */
+.specialty-theme-corosil .specialty-product-hero {
+  background:
+    radial-gradient(ellipse at 86% 10%, rgba(251, 191, 36, 0.22), transparent 36%),
+    radial-gradient(ellipse at 4% 96%, rgba(217, 119, 6, 0.10), transparent 34%),
+    linear-gradient(120deg, #FFFDF8 0%, #FFFFFF 58%, #FEF8EC 100%);
+}
+
+.specialty-theme-corosil .specialty-product-breadcrumbs a {
+  color: #D97706;
+}
+
+.specialty-theme-corosil .specialty-product-copy .eyebrow {
+  color: #D97706;
+}
+
+.specialty-theme-corosil .specialty-product-actions .btn-accent {
+  background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+  border-color: #B45309;
+  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.28);
+}
+
+.specialty-theme-corosil .specialty-product-actions .btn-accent:hover {
+  background: linear-gradient(135deg, #B45309 0%, #92400E 100%);
+  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.36);
+  transform: translateY(-1px);
+}
+
+.specialty-theme-corosil .specialty-product-back {
+  color: #D97706;
+}
+
+.specialty-theme-corosil .specialty-product-back:hover {
+  color: #B45309;
+}
+
+.specialty-theme-corosil .specialty-product-figure {
+  border-color: rgba(253, 230, 138, 0.8);
+  background:
+    radial-gradient(ellipse at 70% 18%, rgba(255, 255, 255, 0.95), transparent 55%),
+    linear-gradient(140deg, #FEF3C7 0%, #FDE68A 57%, #FFFBEB 100%);
+  box-shadow: 0 24px 60px rgba(180, 83, 9, 0.12);
+}
+
+.specialty-theme-corosil .specialty-product-figure-icon {
+  color: #D97706;
+  border-color: rgba(253, 230, 138, 0.9);
+  box-shadow: 0 14px 34px rgba(217, 119, 6, 0.18);
+}
+
+.specialty-theme-corosil .specialty-product-kicker {
+  color: #D97706;
+}
+
+.specialty-theme-corosil .specialty-product-step-number {
+  background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+  color: #FFFFFF;
+}
+
+.specialty-theme-corosil .specialty-product-features h3 svg,
+.specialty-theme-corosil .specialty-product-handling-card h3 svg {
+  color: #D97706;
+}
+
+.specialty-theme-corosil .specialty-product-features li::before,
+.specialty-theme-corosil .specialty-product-handling-card ul li::before,
+.specialty-theme-corosil .specialty-product-applications-layout li::before {
+  background: #D97706;
+}
+
+.specialty-theme-corosil .specialty-product-info-layout>a {
+  color: #D97706;
+}
+
+
+/* POLYDOR-WS THEME */
+.specialty-theme-polydor .specialty-product-hero {
+  background:
+    radial-gradient(ellipse at 86% 10%, rgba(167, 243, 208, 0.28), transparent 36%),
+    radial-gradient(ellipse at 4% 96%, rgba(5, 150, 105, 0.10), transparent 34%),
+    linear-gradient(120deg, #F5FAF7 0%, #FFFFFF 58%, #EFF8F4 100%);
+}
+
+.specialty-theme-polydor .specialty-product-breadcrumbs a {
+  color: #059669;
+}
+
+.specialty-theme-polydor .specialty-product-copy .eyebrow {
+  color: #059669;
+}
+
+.specialty-theme-polydor .specialty-product-actions .btn-accent {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  border-color: #047857;
+  box-shadow: 0 6px 18px rgba(5, 150, 105, 0.28);
+}
+
+.specialty-theme-polydor .specialty-product-actions .btn-accent:hover {
+  background: linear-gradient(135deg, #047857 0%, #065F46 100%);
+  box-shadow: 0 8px 24px rgba(5, 150, 105, 0.36);
+  transform: translateY(-1px);
+}
+
+.specialty-theme-polydor .specialty-product-back {
+  color: #059669;
+}
+
+.specialty-theme-polydor .specialty-product-back:hover {
+  color: #047857;
+}
+
+.specialty-theme-polydor .specialty-product-figure {
+  border-color: rgba(167, 243, 208, 0.85);
+  background:
+    radial-gradient(ellipse at 70% 18%, rgba(255, 255, 255, 0.95), transparent 55%),
+    linear-gradient(140deg, #D1FAE5 0%, #A7F3D0 57%, #ECFDF5 100%);
+  box-shadow: 0 24px 60px rgba(4, 120, 87, 0.12);
+}
+
+.specialty-theme-polydor .specialty-product-figure-icon {
+  color: #059669;
+  border-color: rgba(167, 243, 208, 0.9);
+  box-shadow: 0 14px 34px rgba(5, 150, 105, 0.18);
+}
+
+.specialty-theme-polydor .specialty-product-kicker {
+  color: #059669;
+}
+
+.specialty-theme-polydor .specialty-product-step-number {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #FFFFFF;
+}
+
+.specialty-theme-polydor .specialty-product-features h3 svg,
+.specialty-theme-polydor .specialty-product-handling-card h3 svg,
+.specialty-theme-polydor .specialty-product-area-card h3 svg {
+  color: #059669;
+}
+
+.specialty-theme-polydor .specialty-product-features li::before,
+.specialty-theme-polydor .specialty-product-handling-card ul li::before,
+.specialty-theme-polydor .specialty-product-area-card li::before,
+.specialty-theme-polydor .specialty-product-applications-layout li::before {
+  background: #059669;
+}
+
+.specialty-theme-polydor .specialty-product-info-layout>a {
+  color: #059669;
+}
+
+
+/* POLYKLIN THEME */
+.specialty-theme-polyklin .specialty-product-hero {
+  background:
+    radial-gradient(ellipse at 86% 10%, rgba(186, 230, 253, 0.35), transparent 36%),
+    radial-gradient(ellipse at 4% 96%, rgba(2, 132, 199, 0.10), transparent 34%),
+    linear-gradient(120deg, #F0F9FF 0%, #FFFFFF 58%, #E0F2FE 100%);
+}
+
+.specialty-theme-polyklin .specialty-product-breadcrumbs a {
+  color: #0284C7;
+}
+
+.specialty-theme-polyklin .specialty-product-copy .eyebrow {
+  color: #0284C7;
+}
+
+.specialty-theme-polyklin .specialty-product-actions .btn-accent {
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  border-color: #0369A1;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.28);
+}
+
+.specialty-theme-polyklin .specialty-product-actions .btn-accent:hover {
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.36);
+  transform: translateY(-1px);
+}
+
+.specialty-theme-polyklin .specialty-product-back {
+  color: #0284C7;
+}
+
+.specialty-theme-polyklin .specialty-product-back:hover {
+  color: #0369A1;
+}
+
+.specialty-theme-polyklin .specialty-product-figure {
+  border-color: rgba(186, 230, 253, 0.85);
+  background:
+    radial-gradient(ellipse at 70% 18%, rgba(255, 255, 255, 0.95), transparent 55%),
+    linear-gradient(140deg, #E0F2FE 0%, #BAE6FD 57%, #F0F9FF 100%);
+  box-shadow: 0 24px 60px rgba(3, 105, 161, 0.12);
+}
+
+.specialty-theme-polyklin .specialty-product-figure-icon {
+  color: #0284C7;
+  border-color: rgba(186, 230, 253, 0.9);
+  box-shadow: 0 14px 34px rgba(2, 132, 199, 0.18);
+}
+
+.specialty-theme-polyklin .specialty-product-kicker {
+  color: #0284C7;
+}
+
+.specialty-theme-polyklin .specialty-product-step-number {
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  color: #FFFFFF;
+}
+
+.specialty-theme-polyklin .specialty-product-features h3 svg,
+.specialty-theme-polyklin .specialty-product-handling-card h3 svg,
+.specialty-theme-polyklin .specialty-product-equipment-card h3 svg {
+  color: #0284C7;
+}
+
+.specialty-theme-polyklin .specialty-product-features li::before,
+.specialty-theme-polyklin .specialty-product-handling-card ul li::before,
+.specialty-theme-polyklin .specialty-product-applications-layout li::before {
+  background: #0284C7;
+}
+
+.specialty-theme-polyklin .specialty-product-info-layout>a {
+  color: #0284C7;
+}
+
+/* ==========================================================================
+   COROSIL Product Detail Page (.corosil-detail-page)
+   Industrial Amber / Copper Metallurgy Theme
+   ========================================================================== */
+
+.corosil-detail-page {
+  background-color: #FFFFFF;
+  color: #10213B;
+}
+
+/* --- 1. HERO SECTION --- */
+.corosil-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 88% 12%, rgba(251, 191, 36, 0.28), transparent 42%),
+    radial-gradient(ellipse at 6% 94%, rgba(217, 119, 6, 0.12), transparent 36%),
+    linear-gradient(130deg, #FFFDF9 0%, #FFFFFF 52%, #FEF8EC 100%);
+  padding: 1.6rem 0 0;
+}
+
+.corosil-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 2rem;
+  font-size: 0.8rem;
+  color: #78350F;
+}
+
+.corosil-breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #B45309;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.corosil-breadcrumb-item:hover {
+  color: #D97706;
+}
+
+.corosil-breadcrumb-separator {
+  color: #FBBF24;
+}
+
+.corosil-breadcrumb-current {
+  color: #92400E;
+  font-weight: 600;
+}
+
+.corosil-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 2.8rem;
+}
+
+.corosil-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.38rem 0.85rem;
+  border-radius: 999px;
+  background: #FEF3C7;
+  border: 1px solid #FDE68A;
+  color: #B45309;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.1rem;
+}
+
+.corosil-title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 900;
+  color: #10213B;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.corosil-subtitle {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 800;
+  color: #D97706;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.corosil-desc {
+  max-width: 620px;
+  margin: 0 0 2rem;
+  color: #475569;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.corosil-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn-corosil-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.65rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+  border: 1px solid #B45309;
+  color: #FFFFFF !important;
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-corosil-primary:hover {
+  background: linear-gradient(135deg, #B45309 0%, #92400E 100%);
+  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.38);
+  transform: translateY(-2px);
+  color: #FFFFFF !important;
+}
+
+.btn-corosil-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1.5px solid #FDE68A;
+  color: #92400E !important;
+  font-size: 0.9rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-corosil-secondary:hover {
+  background: #FEF3C7;
+  border-color: #D97706;
+  transform: translateY(-1px);
+}
+
+/* Hero Visual Badge Frame */
+.corosil-hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.corosil-visual-frame {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  padding: 2.4rem 2rem 1.8rem;
+  border-radius: 24px;
+  border: 1.5px solid #FDE68A;
+  background:
+    radial-gradient(ellipse at 75% 20%, rgba(255, 255, 255, 0.95), transparent 55%),
+    linear-gradient(145deg, #FEF8EC 0%, #FFFBEB 55%, #FEF3C7 100%);
+  box-shadow: 0 20px 50px rgba(180, 83, 9, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.corosil-visual-grid {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(217, 119, 6, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217, 119, 6, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.corosil-visual-badge {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.corosil-badge-icon {
+  color: #D97706;
+  padding: 0.9rem;
+  background: #FFFFFF;
+  border: 1.5px solid #FDE68A;
+  border-radius: 20px;
+  box-shadow: 0 10px 24px rgba(217, 119, 6, 0.18);
+  margin-bottom: 1.1rem;
+}
+
+.corosil-badge-title {
+  font-size: 1.25rem;
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.corosil-badge-meta {
+  font-size: 0.8rem;
+  font-weight: 750;
+  color: #B45309;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.corosil-visual-stats {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.9rem 0.5rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(253, 230, 138, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.corosil-vstat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.corosil-vstat-val {
+  font-size: 0.98rem;
+  font-weight: 850;
+  color: #B45309;
+}
+
+.corosil-vstat-lbl {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #78350F;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.corosil-vstat-divider {
+  width: 1px;
+  height: 28px;
+  background: #FDE68A;
+}
+
+/* Key Facts Strip */
+.corosil-facts-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  padding: 1.5rem 0 2rem;
+  border-top: 1px solid rgba(253, 230, 138, 0.8);
+}
+
+.corosil-fact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.corosil-fact-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #B45309;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.corosil-fact-value {
+  font-size: 0.95rem;
+  font-weight: 750;
+  color: #10213B;
+}
+
+/* Hero Wave */
+.corosil-hero-wave-wrap {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: 1rem;
+}
+
+.corosil-hero-wave-svg {
+  display: block;
+  width: 100%;
+  height: clamp(48px, 6vw, 75px);
+}
+
+/* --- 2. PROBLEMS & METALLURGY CHALLENGE --- */
+.corosil-problems-section {
+  padding: clamp(3rem, 5vw, 4.5rem) 0;
+  background: linear-gradient(180deg, #FFFDF9 0%, #FFFFFF 100%);
+}
+
+.corosil-problems-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 3.8rem);
+}
+
+.corosil-chemistry-card {
+  border: 1.5px solid #FDE68A;
+  border-radius: 22px;
+  padding: 2rem;
+  background: linear-gradient(150deg, #FFFFFF, #FEFBF6);
+  box-shadow: 0 12px 36px rgba(180, 83, 9, 0.08);
+}
+
+.corosil-card-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #D97706;
+  margin-bottom: 0.5rem;
+}
+
+.corosil-chemistry-title {
+  margin: 0 0 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.corosil-reaction-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.corosil-reaction-step {
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  background: #FFFFFF;
+}
+
+.corosil-reaction-step.is-passivated {
+  border-color: #FDE68A;
+  background: #FFFBEB;
+}
+
+.corosil-step-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  margin-bottom: 0.4rem;
+}
+
+.corosil-step-tag.is-unstable {
+  background: #FEE2E2;
+  color: #B91C1C;
+}
+
+.corosil-step-tag.is-stable {
+  background: #D1FAE5;
+  color: #047857;
+}
+
+.corosil-formula {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 850;
+  color: #10213B;
+  font-family: var(--font-mono, monospace);
+  margin-bottom: 0.2rem;
+}
+
+.corosil-formula-desc {
+  font-size: 0.8rem;
+  color: #64748B;
+  line-height: 1.4;
+}
+
+.corosil-reaction-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #D97706;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.corosil-chemistry-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: #78350F;
+  line-height: 1.5;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #FDE68A;
+}
+
+.corosil-section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #D97706;
+  margin-bottom: 0.6rem;
+}
+
+.corosil-eyebrow-bar {
+  display: inline-block;
+  width: 18px;
+  height: 3px;
+  border-radius: 2px;
+  background: #D97706;
+}
+
+.corosil-section-title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.corosil-section-sub {
+  margin: 0 0 1.8rem;
+  color: #5B6E88;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.corosil-checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.corosil-checklist-col {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.corosil-checklist-col li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.corosil-check-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #FEF3C7;
+  border: 1px solid #FDE68A;
+  color: #D97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.1rem;
+}
+
+/* --- 3. APPLICATION PROTOCOL STEPS --- */
+.corosil-steps-section {
+  padding: clamp(3rem, 5vw, 4.5rem) 0;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
+}
+
+.corosil-section-header {
+  max-width: 680px;
+  margin-bottom: 2.8rem;
+}
+
+.corosil-kicker {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #D97706;
+  margin-bottom: 0.45rem;
+}
+
+.corosil-section-header h2 {
+  margin: 0 0 0.8rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
+}
+
+.corosil-section-header p {
+  margin: 0;
+  color: #5B6E88;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.corosil-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.corosil-step-card {
+  position: relative;
+  border: 1.5px solid #FDE68A;
+  border-radius: 20px;
+  padding: 2rem 1.8rem;
+  background: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(180, 83, 9, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.corosil-step-card:hover {
+  transform: translateY(-4px);
+  border-color: #F59E0B;
+  box-shadow: 0 14px 34px rgba(217, 119, 6, 0.16);
+}
+
+.corosil-step-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.corosil-step-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+  padding: 0.35rem 0.75rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(217, 119, 6, 0.25);
+}
+
+.corosil-step-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #FEF3C7;
+  border: 1px solid #FDE68A;
+  color: #D97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.corosil-step-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.2rem;
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.02em;
+}
+
+.corosil-step-subtitle {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 750;
+  color: #B45309;
+  margin-bottom: 0.9rem;
+}
+
+.corosil-step-desc {
+  margin: 0;
+  color: #5B6E88;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* --- 4. PHYSICAL DATA & SPECIFICATIONS --- */
+.corosil-specs-section {
+  padding: clamp(3rem, 5vw, 4.5rem) 0;
+  background: #FDFBF7;
+  border-top: 1px solid #FDE68A;
+  border-bottom: 1px solid #FDE68A;
+}
+
+.corosil-specs-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.15fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 3.8rem);
+}
+
+.corosil-specs-intro h2 {
+  margin: 0.3rem 0 0.8rem;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.corosil-specs-intro p {
+  color: #5B6E88;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+.corosil-specs-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.corosil-highlight-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  background: #FFFFFF;
+  border: 1px solid #FDE68A;
+  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.05);
+}
+
+.corosil-highlight-icon {
+  color: #D97706;
+  flex-shrink: 0;
+}
+
+.corosil-hl-title {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #10213B;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.corosil-hl-desc {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #B45309;
+}
+
+.corosil-specs-table-wrap {
+  overflow: hidden;
+  border: 1.5px solid #FDE68A;
+  border-radius: 18px;
+  background: #FFFFFF;
+  box-shadow: 0 8px 26px rgba(180, 83, 9, 0.06);
+}
+
+.corosil-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.corosil-specs-table thead tr {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  border-bottom: 1.5px solid #FDE68A;
+}
+
+.corosil-specs-table th {
+  padding: 1rem 1.35rem;
+  font-size: 0.78rem;
+  font-weight: 850;
+  color: #78350F;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.corosil-specs-table tbody tr {
+  border-bottom: 1px solid #FEF3C7;
+  transition: background 0.15s ease;
+}
+
+.corosil-specs-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.corosil-specs-table tbody tr:hover {
+  background: #FFFDF9;
+}
+
+.corosil-spec-label {
+  padding: 0.85rem 1.35rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.corosil-spec-val {
+  padding: 0.85rem 1.35rem;
+  font-size: 0.9rem;
+  font-weight: 750;
+  color: #10213B;
+}
+
+/* --- 5. FINISHING SYSTEM COMPATIBILITY --- */
+.corosil-systems-section {
+  padding: clamp(3rem, 5vw, 4.5rem) 0;
+  background: #FFFFFF;
+}
+
+.corosil-systems-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.corosil-system-card {
+  border: 1px solid #FDE68A;
+  border-radius: 16px;
+  padding: 1.35rem 1.5rem;
+  background: linear-gradient(145deg, #FFFFFF, #FFFDF9);
+  box-shadow: 0 4px 16px rgba(180, 83, 9, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.corosil-system-card:hover {
+  transform: translateY(-3px);
+  border-color: #D97706;
+  box-shadow: 0 10px 24px rgba(217, 119, 6, 0.12);
+}
+
+.corosil-system-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.corosil-system-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #D97706;
+  box-shadow: 0 0 0 3px #FEF3C7;
+  flex-shrink: 0;
+}
+
+.corosil-system-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.015em;
+}
+
+.corosil-system-desc {
+  margin: 0;
+  font-size: 0.84rem;
+  color: #5B6E88;
+  line-height: 1.5;
+}
+
+/* --- 6. TARGET SUBSTRATES & APPLICATIONS --- */
+.corosil-apps-section {
+  padding: clamp(3rem, 5vw, 4.5rem) 0;
+  background: #FFFDF9;
+  border-top: 1px solid #FEF3C7;
+}
+
+.corosil-apps-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 3.8rem);
+}
+
+.corosil-apps-intro h2 {
+  margin: 0.3rem 0 0.8rem;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.corosil-apps-intro p {
+  color: #5B6E88;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.corosil-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.corosil-app-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  background: #FFFFFF;
+  border: 1px solid #FDE68A;
+  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.04);
+  font-size: 0.9rem;
+  font-weight: 750;
+  color: #10213B;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.corosil-app-card:hover {
+  transform: translateY(-2px);
+  border-color: #D97706;
+}
+
+.corosil-app-check {
+  color: #D97706;
+  flex-shrink: 0;
+}
+
+/* --- 7. HANDLING & PRECAUTIONS --- */
+.corosil-handling-section {
+  padding: clamp(3rem, 5vw, 4.5rem) 0;
+  background: #FFFFFF;
+}
+
+.corosil-handling-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.corosil-handling-card {
+  border: 1.5px solid #FDE68A;
+  border-radius: 20px;
+  padding: 1.8rem 2rem;
+  background: #FFFDF9;
+}
+
+.corosil-handling-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1.25rem;
+  font-size: 1.15rem;
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.02em;
+}
+
+.corosil-caution-icon {
+  color: #D97706;
+}
+
+.corosil-info-icon {
+  color: #B45309;
+}
+
+.corosil-caution-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.corosil-caution-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.corosil-caution-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #D97706;
+}
+
+.corosil-handling-card.is-note {
+  background: linear-gradient(145deg, #FEFBF6, #FFFFFF);
+}
+
+.corosil-handling-card.is-note p {
+  margin: 0 0 1rem;
+  color: #5B6E88;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.corosil-sds-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #D97706;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.corosil-sds-link:hover {
+  color: #B45309;
+  transform: translateX(3px);
+}
+
+/* --- 8. CTA ENQUIRY BAND --- */
+.corosil-cta-section {
+  padding: 0 0 clamp(3.5rem, 6vw, 5rem);
+  background: #FFFFFF;
+}
+
+.corosil-cta-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(2rem, 4vw, 3rem) clamp(2rem, 4vw, 3.5rem);
+  border-radius: 24px;
+  border: 1.5px solid #FDE68A;
+  background:
+    radial-gradient(ellipse at 90% 20%, rgba(251, 191, 36, 0.35), transparent 45%),
+    linear-gradient(130deg, #FEF3C7 0%, #FFFBEB 55%, #FEF8EC 100%);
+  box-shadow: 0 18px 45px rgba(180, 83, 9, 0.1);
+}
+
+.corosil-cta-content {
+  max-width: 650px;
+}
+
+.corosil-cta-kicker {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #B45309;
+  margin-bottom: 0.4rem;
+}
+
+.corosil-cta-card h2 {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.corosil-cta-card p {
+  margin: 0;
+  color: #78350F;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.corosil-cta-actions {
+  flex-shrink: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .corosil-hero-layout,
+  .corosil-problems-layout,
+  .corosil-specs-layout,
+  .corosil-apps-layout {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .corosil-steps-grid,
+  .corosil-systems-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .corosil-cta-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .corosil-facts-strip {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .corosil-checklist-grid,
+  .corosil-steps-grid,
+  .corosil-systems-grid,
+  .corosil-apps-grid,
+  .corosil-handling-grid {
     grid-template-columns: 1fr;
   }
 }

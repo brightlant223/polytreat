@@ -21,61 +21,329 @@ export const metadata: Metadata = {
     "Explore PolyTreat's specialty product range: COROSIL rust converter primer, POLYDOR-WS molecular odour neutraliser, and POLYKLIN AHU and FCU coil cleaning compound, plus further industrial specialty lines.",
 };
 
-function CardWaterSplash({ className = "" }: { className?: string }) {
+function CorosilIndustrialDecor() {
   return (
     <svg
-      viewBox="0 0 120 70"
+      className="specialty-card-decor-svg"
+      viewBox="0 0 360 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
+      preserveAspectRatio="none"
     >
       <defs>
-        <linearGradient id="spec-card-splash-drop" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#0284C7" stopOpacity="0.8" />
-          <stop offset="100%" stopColor="#0369A1" stopOpacity="0.6" />
+        <linearGradient id="corosil-wave-bg" x1="0" y1="50" x2="360" y2="50" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#FDE68A" stopOpacity="0.32" />
+          <stop offset="0.6" stopColor="#D97706" stopOpacity="0.30" />
+          <stop offset="1" stopColor="#B45309" stopOpacity="0.38" />
         </linearGradient>
-        <linearGradient id="spec-card-splash-ring" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#0284C7" stopOpacity="0.32" />
-          <stop offset="100%" stopColor="#BAE6FD" stopOpacity="0.1" />
+        <linearGradient id="corosil-wave-fg" x1="0" y1="65" x2="360" y2="65" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#FEF3C7" stopOpacity="0.65" />
+          <stop offset="0.5" stopColor="#D97706" stopOpacity="0.78" />
+          <stop offset="1" stopColor="#92400E" stopOpacity="0.90" />
         </linearGradient>
-        <linearGradient id="spec-card-splash-pool" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.45" />
-          <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.2" />
+        <linearGradient id="corosil-bldg-grad" x1="310" y1="15" x2="350" y2="85" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#D97706" />
+          <stop offset="0.6" stopColor="#B45309" />
+          <stop offset="1" stopColor="#78350F" />
+        </linearGradient>
+        <linearGradient id="corosil-tank-grad" x1="275" y1="30" x2="305" y2="80" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#F59E0B" stopOpacity="0.95" />
+          <stop offset="1" stopColor="#B45309" stopOpacity="0.9" />
         </linearGradient>
       </defs>
 
-      {/* Soft corner water pool */}
-      <path d="M45 70 C70 50 95 48 120 54 L120 70 Z" fill="url(#spec-card-splash-pool)" />
-
-      {/* Concentric ripple arcs emanating from corner */}
+      {/* Background ambient amber wave */}
       <path
-        d="M20 70 C20 42 62 18 120 22"
-        stroke="url(#spec-card-splash-ring)"
+        d="M0 64 C65 52 135 74 205 60 C250 48 285 56 360 44 V100 H0 Z"
+        fill="url(#corosil-wave-bg)"
+      />
+
+      {/* Industrial Chemical Metallurgy & Structural Steel Facility */}
+
+      {/* Chemical Processing Silo / Pressure Vessel */}
+      <rect x="282" y="38" width="24" height="38" rx="5" fill="url(#corosil-tank-grad)" opacity="0.85" />
+      <line x1="282" y1="48" x2="306" y2="48" stroke="#FDE68A" strokeWidth="1" opacity="0.6" />
+      <line x1="282" y1="58" x2="306" y2="58" stroke="#FDE68A" strokeWidth="1" opacity="0.6" />
+      {/* Tank dome cap */}
+      <path d="M282 38 C282 32 306 32 306 38 Z" fill="#D97706" opacity="0.9" />
+
+      {/* Industrial Distillation / Refractory Tower */}
+      <path
+        d="M312 22 L328 14 L344 22 V75 H312 Z"
+        fill="url(#corosil-bldg-grad)"
+        opacity="0.88"
+      />
+      {/* Tower industrial spire */}
+      <line x1="328" y1="6" x2="328" y2="14" stroke="#D97706" strokeWidth="1.8" strokeLinecap="round" />
+      <circle cx="328" cy="6" r="1.8" fill="#FDE68A" />
+
+      {/* Matrix windows on tower */}
+      <rect x="317" y="26" width="5" height="6" rx="1" fill="#FDE68A" opacity="0.75" />
+      <rect x="326" y="26" width="5" height="6" rx="1" fill="#FDE68A" opacity="0.75" />
+      <rect x="334" y="26" width="5" height="6" rx="1" fill="#FDE68A" opacity="0.75" />
+
+      <rect x="317" y="36" width="5" height="6" rx="1" fill="#FDE68A" opacity="0.75" />
+      <rect x="326" y="36" width="5" height="6" rx="1" fill="#FDE68A" opacity="0.75" />
+      <rect x="334" y="36" width="5" height="6" rx="1" fill="#FDE68A" opacity="0.75" />
+
+      <rect x="317" y="46" width="5" height="6" rx="1" fill="#FDE68A" opacity="0.75" />
+      <rect x="326" y="46" width="5" height="6" rx="1" fill="#FDE68A" opacity="0.75" />
+      <rect x="334" y="46" width="5" height="6" rx="1" fill="#FDE68A" opacity="0.75" />
+
+      {/* Structural Steel Girder / Industrial Truss Framework */}
+      <line x1="242" y1="20" x2="242" y2="72" stroke="#B45309" strokeWidth="1.6" />
+      <line x1="248" y1="20" x2="248" y2="72" stroke="#B45309" strokeWidth="1.6" />
+      {/* Truss diagonal X-braces */}
+      <line x1="242" y1="28" x2="248" y2="36" stroke="#FDE68A" strokeWidth="1" opacity="0.7" />
+      <line x1="248" y1="28" x2="242" y2="36" stroke="#FDE68A" strokeWidth="1" opacity="0.7" />
+      <line x1="242" y1="40" x2="248" y2="48" stroke="#FDE68A" strokeWidth="1" opacity="0.7" />
+      <line x1="248" y1="40" x2="242" y2="48" stroke="#FDE68A" strokeWidth="1" opacity="0.7" />
+      <line x1="242" y1="52" x2="248" y2="60" stroke="#FDE68A" strokeWidth="1" opacity="0.7" />
+      <line x1="248" y1="52" x2="242" y2="60" stroke="#FDE68A" strokeWidth="1" opacity="0.7" />
+
+      {/* Overhead horizontal girder arm */}
+      <line x1="228" y1="20" x2="280" y2="20" stroke="#B45309" strokeWidth="2" strokeLinecap="round" />
+      <path d="M241 20 L245 10 L249 20" stroke="#B45309" strokeWidth="1.5" fill="none" />
+      <line x1="245" y1="10" x2="272" y2="20" stroke="#FDE68A" strokeWidth="1" opacity="0.8" />
+      <line x1="245" y1="10" x2="229" y2="20" stroke="#FDE68A" strokeWidth="1" opacity="0.8" />
+
+      {/* Main Flowing Wave merging directly across the structural base */}
+      <path
+        d="M0 72 C60 62 130 80 195 70 C235 64 265 67 360 60 V100 H0 Z"
+        fill="url(#corosil-wave-fg)"
+      />
+
+      {/* Protective Chemical Conversion Sub-surface Flow Lines */}
+      <path
+        d="M170 78 C215 72 250 76 295 68"
+        stroke="#FDE68A"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        className="decor-flow-line"
+        opacity="0.7"
+      />
+      <path
+        d="M195 86 C235 80 275 82 325 76"
+        stroke="#FEF3C7"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        className="decor-flow-line"
+        opacity="0.5"
+      />
+    </svg>
+  );
+}
+
+function PolydorWsEnvironmentalDecor() {
+  return (
+    <svg
+      className="specialty-card-decor-svg"
+      viewBox="0 0 360 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <linearGradient id="polydor-wave-bg" x1="0" y1="50" x2="360" y2="50" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#A7F3D0" stopOpacity="0.30" />
+          <stop offset="0.6" stopColor="#059669" stopOpacity="0.30" />
+          <stop offset="1" stopColor="#047857" stopOpacity="0.38" />
+        </linearGradient>
+        <linearGradient id="polydor-wave-fg" x1="0" y1="65" x2="360" y2="65" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#D1FAE5" stopOpacity="0.65" />
+          <stop offset="0.5" stopColor="#059669" stopOpacity="0.78" />
+          <stop offset="1" stopColor="#065F46" stopOpacity="0.90" />
+        </linearGradient>
+        <linearGradient id="polydor-bldg-grad" x1="310" y1="18" x2="350" y2="85" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#059669" />
+          <stop offset="0.6" stopColor="#047857" />
+          <stop offset="1" stopColor="#064E3B" />
+        </linearGradient>
+        <linearGradient id="polydor-dome-grad" x1="270" y1="35" x2="310" y2="80" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#34D399" stopOpacity="0.95" />
+          <stop offset="1" stopColor="#047857" stopOpacity="0.9" />
+        </linearGradient>
+      </defs>
+
+      {/* Background ambient emerald wave */}
+      <path
+        d="M0 64 C65 52 135 74 205 60 C250 48 285 56 360 44 V100 H0 Z"
+        fill="url(#polydor-wave-bg)"
+      />
+
+      {/* Environmental Odour Abatement & Bio-Processing Plant */}
+
+      {/* Bio-Digester Geodesic Dome */}
+      <path
+        d="M268 70 C268 48 304 48 304 70 Z"
+        fill="url(#polydor-dome-grad)"
+        opacity="0.85"
+      />
+      {/* Geodesic Dome rib lines */}
+      <path d="M286 48 V70" stroke="#A7F3D0" strokeWidth="1" opacity="0.65" />
+      <path d="M276 54 C281 60 286 64 286 70" stroke="#A7F3D0" strokeWidth="1" opacity="0.5" />
+      <path d="M296 54 C291 60 286 64 286 70" stroke="#A7F3D0" strokeWidth="1" opacity="0.5" />
+
+      {/* Eco-Scrubber Tower / Filtration Column */}
+      <rect x="312" y="24" width="22" height="52" rx="4" fill="url(#polydor-bldg-grad)" opacity="0.9" />
+      {/* Scrubber fine aeration louvres */}
+      <line x1="316" y1="32" x2="330" y2="32" stroke="#A7F3D0" strokeWidth="1" opacity="0.75" />
+      <line x1="316" y1="38" x2="330" y2="38" stroke="#A7F3D0" strokeWidth="1" opacity="0.75" />
+      <line x1="316" y1="44" x2="330" y2="44" stroke="#A7F3D0" strokeWidth="1" opacity="0.75" />
+      <line x1="316" y1="50" x2="330" y2="50" stroke="#A7F3D0" strokeWidth="1" opacity="0.75" />
+      <line x1="316" y1="56" x2="330" y2="56" stroke="#A7F3D0" strokeWidth="1" opacity="0.75" />
+
+      {/* Aeration Cowl on scrubber top */}
+      <path d="M316 24 L323 16 L330 24 Z" fill="#047857" />
+      <line x1="323" y1="16" x2="323" y2="10" stroke="#34D399" strokeWidth="1.5" strokeLinecap="round" />
+
+      {/* Clean molecular dispersion wavefronts */}
+      <path
+        d="M327 12 C335 8 346 9 354 15"
+        stroke="#A7F3D0"
         strokeWidth="1.5"
-        strokeDasharray="3 3"
+        strokeDasharray="2 2"
+        opacity="0.85"
       />
+      <circle cx="340" cy="8" r="2.2" fill="#34D399" opacity="0.8" />
+      <circle cx="355" cy="12" r="1.8" fill="#A7F3D0" opacity="0.7" />
+
+      {/* Organic Botanical / Environmental silhouette accent */}
       <path
-        d="M50 70 C50 50 80 34 120 38"
-        stroke="url(#spec-card-splash-ring)"
-        strokeWidth="1.8"
+        d="M246 64 C244 52 254 44 262 48 C266 58 256 66 246 64 Z"
+        fill="#059669"
+        opacity="0.75"
       />
+      <line x1="247" y1="63" x2="258" y2="50" stroke="#A7F3D0" strokeWidth="1" opacity="0.7" />
+
+      {/* Main Flowing Bio-Wave merging across the base */}
       <path
-        d="M78 70 C78 58 96 48 120 50"
-        stroke="url(#spec-card-splash-ring)"
-        strokeWidth="2"
+        d="M0 72 C60 62 130 80 195 70 C235 64 265 67 360 60 V100 H0 Z"
+        fill="url(#polydor-wave-fg)"
       />
 
-      {/* Dynamic water splash droplets */}
+      {/* Eco-Purification Sub-surface Flow Lines */}
       <path
-        d="M84 34 C80 28 78 20 83 14 C87 8 94 11 96 18 C98 26 90 32 84 34 Z"
-        fill="url(#spec-card-splash-drop)"
+        d="M170 78 C215 72 250 76 295 68"
+        stroke="#A7F3D0"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        className="decor-flow-line"
+        opacity="0.7"
       />
-      <circle cx="66" cy="22" r="3.5" fill="url(#spec-card-splash-drop)" />
-      <circle cx="52" cy="36" r="2.5" fill="#BAE6FD" fillOpacity="0.75" />
-      <circle cx="75" cy="10" r="2" fill="#0284C7" fillOpacity="0.5" />
-      <circle cx="100" cy="26" r="4" fill="url(#spec-card-splash-drop)" />
-      <circle cx="94" cy="44" r="1.8" fill="#BAE6FD" fillOpacity="0.8" />
+      <path
+        d="M195 86 C235 80 275 82 325 76"
+        stroke="#D1FAE5"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        className="decor-flow-line"
+        opacity="0.5"
+      />
+    </svg>
+  );
+}
+
+function PolyklinHvacDecor() {
+  return (
+    <svg
+      className="specialty-card-decor-svg"
+      viewBox="0 0 360 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <linearGradient id="polyklin-wave-bg" x1="0" y1="50" x2="360" y2="50" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#BAE6FD" stopOpacity="0.32" />
+          <stop offset="0.6" stopColor="#0284C7" stopOpacity="0.32" />
+          <stop offset="1" stopColor="#0369A1" stopOpacity="0.38" />
+        </linearGradient>
+        <linearGradient id="polyklin-wave-fg" x1="0" y1="65" x2="360" y2="65" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#E0F2FE" stopOpacity="0.65" />
+          <stop offset="0.5" stopColor="#0284C7" stopOpacity="0.78" />
+          <stop offset="1" stopColor="#075985" stopOpacity="0.90" />
+        </linearGradient>
+        <linearGradient id="polyklin-bldg-grad" x1="290" y1="20" x2="350" y2="85" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#0284C7" />
+          <stop offset="0.6" stopColor="#0369A1" />
+          <stop offset="1" stopColor="#0C4A6E" />
+        </linearGradient>
+        <linearGradient id="polyklin-coil-grad" x1="250" y1="35" x2="285" y2="80" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#38BDF8" stopOpacity="0.9" />
+          <stop offset="1" stopColor="#0369A1" stopOpacity="0.9" />
+        </linearGradient>
+      </defs>
+
+      {/* Background ambient cyan wave */}
+      <path
+        d="M0 64 C65 52 135 74 205 60 C250 48 285 56 360 44 V100 H0 Z"
+        fill="url(#polyklin-wave-bg)"
+      />
+
+      {/* Commercial HVAC Rooftop Plant & Heat Exchanger System */}
+
+      {/* Heat Exchanger Coil Unit / Condenser Bank */}
+      <rect x="254" y="38" width="28" height="36" rx="3" fill="url(#polyklin-coil-grad)" opacity="0.88" />
+      {/* Precision Micro-Fin Slits */}
+      <line x1="259" y1="42" x2="259" y2="70" stroke="#BAE6FD" strokeWidth="1" opacity="0.7" />
+      <line x1="264" y1="42" x2="264" y2="70" stroke="#BAE6FD" strokeWidth="1" opacity="0.7" />
+      <line x1="269" y1="42" x2="269" y2="70" stroke="#BAE6FD" strokeWidth="1" opacity="0.7" />
+      <line x1="274" y1="42" x2="274" y2="70" stroke="#BAE6FD" strokeWidth="1" opacity="0.7" />
+
+      {/* Main Rooftop Air Handling Unit (AHU) Cabinet */}
+      <rect x="290" y="26" width="56" height="48" rx="4" fill="url(#polyklin-bldg-grad)" opacity="0.9" />
+
+      {/* AHU Intake Louvers / Air Grille */}
+      <line x1="296" y1="34" x2="340" y2="34" stroke="#BAE6FD" strokeWidth="1.2" opacity="0.75" />
+      <line x1="296" y1="40" x2="340" y2="40" stroke="#BAE6FD" strokeWidth="1.2" opacity="0.75" />
+      <line x1="296" y1="46" x2="340" y2="46" stroke="#BAE6FD" strokeWidth="1.2" opacity="0.75" />
+      <line x1="296" y1="52" x2="340" y2="52" stroke="#BAE6FD" strokeWidth="1.2" opacity="0.75" />
+      <line x1="296" y1="58" x2="340" y2="58" stroke="#BAE6FD" strokeWidth="1.2" opacity="0.75" />
+
+      {/* Rooftop Axial Fan Cowl & Exhaust Duct */}
+      <path d="M308 26 C308 17 328 17 328 26 Z" fill="#0369A1" />
+      <ellipse cx="318" cy="22" rx="7" ry="2.5" fill="#BAE6FD" opacity="0.8" />
+      <line x1="318" y1="16" x2="318" y2="8" stroke="#38BDF8" strokeWidth="1.5" strokeLinecap="round" />
+
+      {/* Laminar Aerodynamic Airflow Streamlines flowing across the card */}
+      <path
+        d="M228 44 C255 38 275 48 304 42"
+        stroke="#BAE6FD"
+        strokeWidth="1.6"
+        strokeDasharray="4 2.5"
+        opacity="0.8"
+      />
+      <path
+        d="M215 54 C245 50 268 58 296 52"
+        stroke="#38BDF8"
+        strokeWidth="1.4"
+        strokeDasharray="3 2"
+        opacity="0.7"
+      />
+
+      {/* Main Flowing Cooling Wave merging across the base */}
+      <path
+        d="M0 72 C60 62 130 80 195 70 C235 64 265 67 360 60 V100 H0 Z"
+        fill="url(#polyklin-wave-fg)"
+      />
+
+      {/* Cool Refrigeration Sub-surface Flow Lines */}
+      <path
+        d="M170 78 C215 72 250 76 295 68"
+        stroke="#38BDF8"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        className="decor-flow-line"
+        opacity="0.7"
+      />
+      <path
+        d="M195 86 C235 80 275 82 325 76"
+        stroke="#BAE6FD"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        className="decor-flow-line"
+        opacity="0.5"
+      />
     </svg>
   );
 }
@@ -92,11 +360,22 @@ const problemChecklistCol2 = [
   "Equipment requiring contractor-grade spray-and-rinse maintenance programmes.",
 ];
 
-const flagshipCards = [
+const flagshipCards: Array<{
+  slug: string;
+  name: string;
+  category: string;
+  theme: "amber" | "emerald" | "cyan";
+  description: string;
+  tags: string[];
+  linkText: string;
+  href: string;
+  icon: typeof ShieldCheck;
+}> = [
   {
     slug: "corosil",
     name: "COROSIL",
-    category: "Corrosion control · Rust converter primer",
+    category: "Corrosion control · Rust converter",
+    theme: "amber",
     description:
       "A water-based rust inhibitor and converter primer that chemically transforms iron oxides into stable metallo-organic complexes, creating an adherent foundation for compatible paint systems.",
     tags: [
@@ -114,6 +393,7 @@ const flagshipCards = [
     slug: "polydor-ws",
     name: "POLYDOR-WS",
     category: "Molecular odour neutralisation",
+    theme: "emerald",
     description:
       "Broad-spectrum chemical odour neutraliser that permanently alters foul molecules (amines, mercaptans, H₂S gas) into non-odorous adducts without masking perfumes. Non-toxic & EPA aligned.",
     tags: [
@@ -131,6 +411,7 @@ const flagshipCards = [
     slug: "polyklin",
     name: "POLYKLIN",
     category: "HVAC & refrigeration care",
+    theme: "cyan",
     description:
       "Professional coil cleaning compound for contaminated AHU, FCU, evaporator, and condenser coils that loosens stubborn grime, oxidation, and dirt via spray-and-rinse application.",
     tags: [
@@ -378,7 +659,7 @@ export default function SpecialtyPage() {
         </div>
       </section>
 
-      {/* 3. FLAGSHIP SPECIALTY PRODUCTS */}
+      {/* 3. FLAGSHIP SPECIALTY PRODUCTS - DISTINCT COLOR IDENTITIES */}
       <section
         className="industrial-approach-section"
         id="specialty-categories"
@@ -409,19 +690,24 @@ export default function SpecialtyPage() {
             {flagshipCards.map((card) => {
               const Icon = card.icon;
               return (
-                <article className="industrial-approach-card" key={card.slug}>
+                <article
+                  className={`industrial-approach-card specialty-card-${card.theme}`}
+                  key={card.slug}
+                >
                   <div className="industrial-approach-card-inner">
-                    <div className="industrial-approach-icon-box">
+                    <div className={`industrial-approach-icon-box specialty-icon-${card.theme}`}>
                       <Icon size={26} className="industrial-approach-svg" />
                     </div>
                     <div className="industrial-approach-content">
-                      <span className="specialty-card-category">{card.category}</span>
+                      <span className={`specialty-card-category specialty-category-${card.theme}`}>
+                        {card.category}
+                      </span>
                       <h3 className="industrial-approach-card-title">{card.name}</h3>
                       <p className="industrial-approach-card-desc">
                         {card.description}
                       </p>
                       <div
-                        className="industrial-approach-tags"
+                        className={`industrial-approach-tags specialty-tags-${card.theme}`}
                         aria-label={`${card.name} characteristics`}
                       >
                         {card.tags.map((tag, idx) => (
@@ -438,13 +724,20 @@ export default function SpecialtyPage() {
                           </span>
                         ))}
                       </div>
-                      <Link href={card.href} className="industrial-approach-card-link">
+                      <Link
+                        href={card.href}
+                        className={`industrial-approach-card-link specialty-link-${card.theme}`}
+                      >
                         <span>{card.linkText}</span>
                         <ArrowRight size={15} aria-hidden="true" />
                       </Link>
                     </div>
                   </div>
-                  <CardWaterSplash className="industrial-card-water-splash" />
+                  <div className="specialty-card-decor-wrap" aria-hidden="true">
+                    {card.slug === "corosil" && <CorosilIndustrialDecor />}
+                    {card.slug === "polydor-ws" && <PolydorWsEnvironmentalDecor />}
+                    {card.slug === "polyklin" && <PolyklinHvacDecor />}
+                  </div>
                 </article>
               );
             })}
