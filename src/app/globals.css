@@ -5860,7 +5860,10 @@ body:has(.industrial-water-page) .footer-bottom {
     box-shadow: 0 4px 14px rgba(8, 121, 232, 0.1) !important;
   }
 
-  .industries-section-heading {
+  /* Equal specificity with the base .industries-section-heading.industries-env-heading
+     rule (0-2-0) is required here — a single-class selector (0-1-0) silently loses,
+     leaving the 320px minmax() floor in place and clipping the heading off-screen. */
+  .industries-section-heading.industries-env-heading {
     grid-template-columns: 1fr;
     gap: 0.75rem;
   }
