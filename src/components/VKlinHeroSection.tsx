@@ -9,6 +9,7 @@ import {
   Droplets,
   Leaf,
   Maximize2,
+  MessageCircle,
   RefreshCw,
   ShieldCheck,
   Sparkles,
@@ -20,42 +21,42 @@ const heroCategories = [
   {
     id: "floor-surface",
     title: "Floor & surface care",
-    image: "/images/home/categories/cat-floor-surface.jpg",
+    image: "/images/home/categories/cat-floor-surface-v2.webp",
     href: "/vklin/products#floor-surface",
     icon: Sparkles,
   },
   {
     id: "hand-hygiene",
     title: "Hand care & hygiene",
-    image: "/images/home/categories/cat-hand-hygiene.jpg",
+    image: "/images/home/categories/cat-hand-hygiene-v2.webp",
     href: "/vklin/products#hand-hygiene",
     icon: Droplets,
   },
   {
     id: "dishwashing",
     title: "Dishwashing",
-    image: "/images/home/categories/cat-dishwashing.jpg",
+    image: "/images/home/categories/cat-dishwashing-v2.webp",
     href: "/vklin/products#dishwashing",
     icon: Utensils,
   },
   {
     id: "glass-window",
     title: "Glass & window care",
-    image: "/images/home/categories/cat-glass-window.jpg",
+    image: "/images/home/categories/cat-glass-window-v2.webp",
     href: "/vklin/products#glass-care",
     icon: Maximize2,
   },
   {
     id: "bathroom-toilet",
     title: "Bathroom & toilet care",
-    image: "/images/home/categories/cat-bathroom-toilet.jpg",
+    image: "/images/home/categories/cat-bathroom-toilet-v2.webp",
     href: "/vklin/products#toilet-care",
     icon: ShieldCheck,
   },
   {
     id: "odour-air",
     title: "Odour & air care",
-    image: "/images/home/categories/cat-odour-air.jpg",
+    image: "/images/home/categories/cat-odour-air-v2.webp",
     href: "/specialty/polydor-ws",
     icon: Wind,
     badge: "POLYDOR",
@@ -63,56 +64,16 @@ const heroCategories = [
   {
     id: "natural-wellness",
     title: "Natural wellness",
-    image: "/images/home/categories/cat-natural-wellness.jpg",
+    image: "/images/home/categories/cat-natural-wellness-v2.webp",
     href: "/vklin/products/herbal-mosquito-repellent",
     icon: Leaf,
   },
 ];
 
-
-
-const heroSlides = [
-  {
-    id: "lineup",
-    image: "/images/home/vklin-hero-showcase.jpg",
-    alt: "V-Klin Complete Range of Cleaning Products",
-    title: "Complete Care Lineup",
-    tag: "10 Formulated Care Products",
-  },
-  {
-    id: "floor",
-    image: "/images/home/hero-slide-floor.jpg",
-    alt: "V-Klin Golden Floor Cleaner & Protector Lemon on Marble Floor",
-    title: "Floor & Surface Care",
-    tag: "Mirror-Polished Living Spaces",
-  },
-  {
-    id: "kitchen",
-    image: "/images/home/hero-slide-kitchen.jpg",
-    alt: "V-Klin Lemon Dishwash Liquid Gel & Multipurpose Cleaner on Quartz Countertop",
-    title: "Kitchen & Utensils",
-    tag: "1-Drop Grease Cutter Action",
-  },
-  {
-    id: "bathroom",
-    image: "/images/home/hero-slide-bathroom.jpg",
-    alt: "V-Klin Power Plus Toilet Cleaner & Streak-Free Glass Cleaner",
-    title: "Bathroom & Glass Care",
-    tag: "Porcelain & Crystal Clarity",
-  },
-  {
-    id: "herbal",
-    image: "/images/home/hero-slide-herbal.jpg",
-    alt: "V-Klin Herbal Mosquito Repellent & Room Freshener with Pure Botanicals",
-    title: "Herbal Wellness & Freshness",
-    tag: "Pure Neem & Citronella Shield",
-  },
-];
-
 const heroTitles = [
   { line1: "Complete Cleaning &", line2: "Care Solutions" },
-  { line1: "Sparkling Floor &", line2: "Surface Hygiene" },
   { line1: "Tough Stain & 99.9%", line2: "Germ Protection" },
+  { line1: "Sparkling Floor &", line2: "Surface Hygiene" },
   { line1: "Grease-Cutting Utensils &", line2: "Kitchen Care" },
   { line1: "Streak-Free Glass &", line2: "Mirror Shine" },
   { line1: "Molecular Odour &", line2: "Herbal Freshness" },
@@ -121,17 +82,7 @@ const heroTitles = [
 export default function VKlinHeroSection() {
   const [titleIdx, setTitleIdx] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [slideIdx, setSlideIdx] = useState(0);
   const transitionTimeout = useRef<number | null>(null);
-
-  useEffect(() => {
-    const slideTimer = setInterval(() => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      setSlideIdx((prev) => (prev + 1) % heroSlides.length);
-    }, 4000);
-
-    return () => clearInterval(slideTimer);
-  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -141,7 +92,7 @@ export default function VKlinHeroSection() {
         setTitleIdx((prev) => (prev + 1) % heroTitles.length);
         setIsTransitioning(false);
       }, 350);
-    }, 3200);
+    }, 4500);
 
     return () => {
       clearInterval(timer);
@@ -153,13 +104,14 @@ export default function VKlinHeroSection() {
 
   return (
     <section className="vklin-hero-wrap" aria-labelledby="vklin-hero-title">
-      {/* Soft Ambient Background Elements */}
+      {/* Ambient Faint-Blue Sky & Window Light Glows */}
       <div className="vklin-hero-bg-glow" aria-hidden="true" />
+      <div className="vklin-hero-ambient-soft" aria-hidden="true" />
 
       <div className="hp-hero-container">
-        {/* Main 2-Column Hero */}
+        {/* Main 2-Column Wide Split Layout Matching Reference 2 */}
         <div className="vklin-hero-grid">
-          {/* Left Column: Heading, Lead & Value Badges */}
+          {/* Left Column: Heading, Lead, Dual CTA Buttons & 4 Value Icons */}
           <div className="vklin-hero-copy">
             <div className="vklin-hero-eyebrow">
               <span className="vklin-eyebrow-accent" aria-hidden="true" />
@@ -177,14 +129,21 @@ export default function VKlinHeroSection() {
               Powerful, safe and eco-friendly products for hygiene, freshness and everyday care.
             </p>
 
-            {/* CTAs: 90% V-Klin + 10% Polydor Specialty */}
+            {/* CTAs: Primary Explore + Contact Us + Polydor Specialty Pill */}
             <div className="vklin-hero-actions">
-              <Link href="/vklin/products" className="vklin-hero-btn-primary">
-                <span>Explore Products</span>
-                <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
-              </Link>
+              <div className="vklin-btn-group">
+                <Link href="/vklin/products" className="vklin-hero-btn-primary">
+                  <span>Explore Products</span>
+                  <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
+                </Link>
 
-              {/* 10% Polydor Molecular Odour Control & Repellent Spotlight */}
+                <Link href="/contact" className="vklin-hero-btn-secondary">
+                  <MessageCircle size={17} strokeWidth={2.2} aria-hidden="true" />
+                  <span>Contact Us</span>
+                </Link>
+              </div>
+
+              {/* Polydor Molecular Odour Control & Repellent Spotlight from Reference 1 */}
               <Link
                 href="/specialty/polydor-ws"
                 className="vklin-hero-polydor-badge"
@@ -198,7 +157,7 @@ export default function VKlinHeroSection() {
               </Link>
             </div>
 
-            {/* 4 Trust & Feature Badges */}
+            {/* 4 Feature Hallmarks with Circular Outlined Light-Blue Rings */}
             <div className="vklin-hero-features" aria-label="Product hallmarks">
               <div className="vklin-feat-item">
                 <span className="vklin-feat-icon-wrap" aria-hidden="true">
@@ -244,98 +203,58 @@ export default function VKlinHeroSection() {
             </div>
           </div>
 
-          {/* Right Column: V-Klin Product Lineup Commercial Carousel (5 Rotating HD Images) */}
+          {/* Right Column: Grand Unobstructed Product Lineup Showcase Matching Reference 2 */}
           <div className="vklin-hero-visual-wrap">
             <div className="vklin-hero-visual-card">
-              {/* 5 Rotating HD Commercial Scenes */}
-              <div className="vklin-hero-slider-track">
-                {heroSlides.map((slide, index) => {
-                  const isActive = slideIdx === index;
-                  return (
-                    <div
-                      key={slide.id}
-                      className={`vklin-hero-slide ${isActive ? "is-active" : ""}`}
-                      aria-hidden={!isActive}
-                    >
-                      <Image
-                        src={slide.image}
-                        alt={slide.alt}
-                        width={1280}
-                        height={720}
-                        priority={index === 0}
-                        className="vklin-hero-image"
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Dynamic Badge Updating with Active Scene */}
-              <div className="vklin-hero-visual-badge">
-                <span className="vklin-brand-pill">
-                  <Image
-                    src="/vklin-logo.webp"
-                    alt="V-Klin Logo"
-                    width={48}
-                    height={20}
-                    className="vklin-pill-logo"
-                  />
-                  <span>{heroSlides[slideIdx].tag}</span>
-                </span>
-              </div>
-
-              {/* 5 Sleek Carousel Navigation Indicators */}
-              <div className="vklin-hero-dots-nav" aria-label="Hero slide navigation">
-                {heroSlides.map((slide, index) => (
-                  <button
-                    key={slide.id}
-                    type="button"
-                    className={`vklin-hero-dot ${slideIdx === index ? "is-active" : ""}`}
-                    onClick={() => setSlideIdx(index)}
-                    aria-label={`Go to slide ${index + 1}: ${slide.title}`}
-                  />
-                ))}
-              </div>
+              <Image
+                src="/images/home/vklin-showcase-reference2.webp"
+                alt="V-Klin Complete Cleaning & Care Solutions Lineup"
+                width={1600}
+                height={765}
+                priority
+                className="vklin-hero-image"
+              />
             </div>
           </div>
         </div>
 
-        {/* Bottom Category Grid (7 Interactive Cards matching reference) */}
-        <div className="vklin-categories-track" role="navigation" aria-label="Product categories">
-          {heroCategories.map((cat) => {
-            const Icon = cat.icon;
-            return (
-              <Link
-                key={cat.id}
-                href={cat.href}
-                className="vklin-cat-card"
-                title={`Explore ${cat.title}`}
-              >
-                <div className="vklin-cat-thumb-box">
-                  <Image
-                    src={cat.image}
-                    alt={cat.title}
-                    width={140}
-                    height={115}
-                    className="vklin-cat-img"
-                  />
-                  {cat.badge && (
-                    <span className="vklin-cat-badge">{cat.badge}</span>
-                  )}
-                </div>
+        {/* Bottom Category Grid Inside Frosted Wave Shelf Tray (7 Cards Matching Reference 2) */}
+        <div className="vklin-shelf-wrapper">
+          <div className="vklin-categories-track" role="navigation" aria-label="Product categories">
+            {heroCategories.map((cat) => {
+              const Icon = cat.icon;
+              return (
+                <Link
+                  key={cat.id}
+                  href={cat.href}
+                  className="vklin-cat-card"
+                  title={`Explore ${cat.title}`}
+                >
+                  <div className="vklin-cat-thumb-box">
+                    <Image
+                      src={cat.image}
+                      alt={cat.title}
+                      width={400}
+                      height={250}
+                      className="vklin-cat-img"
+                    />
+                    {cat.badge && (
+                      <span className="vklin-cat-badge">{cat.badge}</span>
+                    )}
+                  </div>
 
-                <div className="vklin-cat-footer">
-                  <span className="vklin-cat-icon">
-                    <Icon size={15} strokeWidth={2.2} aria-hidden="true" />
-                  </span>
-                  <span className="vklin-cat-title">{cat.title}</span>
-                </div>
-              </Link>
-            );
-          })}
+                  <div className="vklin-cat-footer">
+                    <span className="vklin-cat-icon">
+                      <Icon size={16} strokeWidth={2.2} aria-hidden="true" />
+                    </span>
+                    <span className="vklin-cat-title">{cat.title}</span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
