@@ -60,7 +60,6 @@ const heroCategories = [
     image: "/images/home/categories/cat-odour-air-v2.webp",
     href: "/specialty/polydor-ws",
     icon: Wind,
-    badge: "POLYDOR",
   },
   {
     id: "natural-wellness",
@@ -230,9 +229,6 @@ export default function VKlinHeroSection() {
                       height={250}
                       className="vklin-cat-img"
                     />
-                    {cat.badge && (
-                      <span className="vklin-cat-badge">{cat.badge}</span>
-                    )}
                   </div>
 
                   <div className="vklin-cat-footer">
