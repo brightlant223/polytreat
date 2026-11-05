@@ -1,0 +1,1577 @@
+/* ==========================================================================
+   POLYDOR-WS Product Detail Page (.polydor-detail-page)
+   Matching Corosil Premium Styling, Design System & Layout
+   ========================================================================== */
+
+.polydor-detail-page {
+  background-color: #FFFFFF;
+  color: #10213B;
+}
+
+/* --- 1. HERO SECTION --- */
+.polydor-hero {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 75% 20%, #E0F2FE 0%, #EDF7FD 45%, #F8FBFE 100%);
+  padding: clamp(2rem, 3.5vw, 3rem) 0 0;
+  border-bottom: 1px solid rgba(186, 230, 253, 0.6);
+}
+
+.polydor-hero-bg-glow {
+  position: absolute;
+  top: -150px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(2, 132, 199, 0.08) 50%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.polydor-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  color: #0C4A6E;
+}
+
+.polydor-breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #0369A1;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.polydor-breadcrumb-item:hover {
+  color: #0284C7;
+}
+
+.polydor-breadcrumb-separator {
+  color: #38BDF8;
+}
+
+.polydor-breadcrumb-current {
+  color: #075985;
+  font-weight: 600;
+}
+
+.polydor-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(380px, 0.98fr);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 3.8rem);
+  margin-bottom: 1.4rem;
+}
+
+.polydor-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.38rem 0.85rem;
+  border-radius: 999px;
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
+  color: #0369A1;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.65rem;
+}
+
+.polydor-title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 900;
+  color: #10213B;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.polydor-subtitle {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 800;
+  color: #0284C7;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.polydor-desc {
+  max-width: 620px;
+  margin: 0 0 1.25rem;
+  color: #475569;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.polydor-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn-polydor-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.65rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  border: 1px solid #0369A1;
+  color: #FFFFFF !important;
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-polydor-primary:hover {
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.38);
+  transform: translateY(-2px);
+  color: #FFFFFF !important;
+}
+
+.btn-polydor-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1.5px solid #BAE6FD;
+  color: #075985 !important;
+  font-size: 0.9rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-polydor-secondary:hover {
+  background: #E0F2FE;
+  border-color: #0284C7;
+  transform: translateY(-1px);
+}
+
+.btn-polydor-anchor {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1.5px solid #BAE6FD;
+  color: #0284C7 !important;
+  font-size: 0.9rem;
+  font-weight: 750;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+  transition: all 0.2s ease;
+}
+
+.btn-polydor-anchor:hover {
+  background: #E0F2FE;
+  border-color: #0284C7;
+  color: #0369A1 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.16);
+}
+
+.btn-polydor-anchor .lucide {
+  color: #0284C7;
+  transition: transform 0.2s ease;
+}
+
+.btn-polydor-anchor:hover .lucide {
+  transform: scale(1.15);
+}
+
+/* --- HERO VISUAL CARD (MATCHING COROSIL HERO VISUAL) --- */
+.polydor-hero-visual-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.polydor-hero-visual-card {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  border-radius: 26px;
+  border: 4px solid #FFFFFF;
+  background: #FFFFFF;
+  box-shadow:
+    0 16px 42px rgba(2, 132, 199, 0.14),
+    0 4px 14px rgba(11, 25, 44, 0.06);
+  overflow: hidden;
+  aspect-ratio: 16 / 9.2;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.polydor-hero-visual-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 22px 50px rgba(2, 132, 199, 0.20),
+    0 8px 20px rgba(11, 25, 44, 0.10);
+}
+
+.polydor-visual-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 500ms ease, transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.04);
+}
+
+.polydor-visual-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.polydor-visual-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.polydor-product-contain-backdrop {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, #FFFFFF 0%, #F0F7FF 55%, #E0F2FE 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.2rem;
+}
+
+.polydor-visual-contain-img {
+  max-width: 85%;
+  max-height: 85%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 35px rgba(2, 132, 199, 0.32));
+  transition: transform 0.4s ease;
+}
+
+.polydor-hero-visual-card:hover .polydor-visual-contain-img {
+  transform: scale(1.05);
+}
+
+.polydor-hero-visual-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 6;
+}
+
+.polydor-brand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.polydor-pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38BDF8;
+  box-shadow: 0 0 8px #38BDF8;
+}
+
+.polydor-pill-sep {
+  opacity: 0.6;
+}
+
+.polydor-visual-tabs {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.28rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.polydor-visual-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  padding: 0.32rem 0.75rem;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  color: #94A3B8;
+  font-size: 0.74rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.polydor-visual-tab-btn:hover {
+  color: #FFFFFF;
+}
+
+.polydor-visual-tab-btn.is-active {
+  background: #0284C7;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+}
+
+/* Floating Stats Card Overlay */
+.polydor-floating-stats-card {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.85rem 1.25rem;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(11, 37, 69, 0.16), 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.polydor-hero-visual-card:hover .polydor-floating-stats-card {
+  transform: translateY(-2px);
+  border-color: #BAE6FD;
+  box-shadow: 0 18px 40px rgba(2, 132, 199, 0.2);
+}
+
+.polydor-fstat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.polydor-fstat-val {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #0369A1;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.polydor-fstat-lbl {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #0C4A6E;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+}
+
+.polydor-fstat-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(186, 230, 253, 0.9);
+}
+
+/* --- HALLMARK FEATURES SECTION --- */
+.polydor-features-section {
+  margin-top: 1.35rem;
+  padding-bottom: 0.65rem;
+  position: relative;
+  z-index: 3;
+}
+
+.polydor-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+
+.polydor-feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.95rem;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid #E2EBF6;
+  border-radius: 18px;
+  padding: 1.25rem 1.3rem;
+  box-shadow: 0 4px 16px rgba(16, 33, 59, 0.04);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background 0.25s ease;
+  cursor: default;
+}
+
+.polydor-feature-card:hover {
+  transform: translateY(-5px);
+  border-color: #7DD3FC;
+  box-shadow: 0 14px 30px rgba(2, 132, 199, 0.14), 0 3px 8px rgba(16, 33, 59, 0.04);
+  background: #FFFFFF;
+}
+
+.polydor-feat-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: #E0F2FE;
+  border: 1.5px solid #BAE6FD;
+  color: #0284C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.25s ease;
+}
+
+.polydor-feature-card:hover .polydor-feat-icon-box {
+  transform: scale(1.1) rotate(2deg);
+  background: #0284C7;
+  border-color: #0284C7;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+}
+
+.polydor-feat-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.polydor-feat-title {
+  font-size: 0.95rem;
+  font-weight: 850;
+  color: #10213B;
+  margin: 0 0 0.25rem;
+  letter-spacing: -0.015em;
+  transition: color 0.2s ease;
+}
+
+.polydor-feature-card:hover .polydor-feat-title {
+  color: #0284C7;
+}
+
+.polydor-feat-desc {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #64748B;
+  margin: 0;
+}
+
+/* Key Facts Strip */
+.polydor-facts-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0.85rem 0 1.15rem;
+  border-top: 1px solid rgba(186, 230, 253, 0.8);
+}
+
+.polydor-fact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.polydor-fact-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #0369A1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.polydor-fact-value {
+  font-size: 0.95rem;
+  font-weight: 750;
+  color: #10213B;
+}
+
+/* Hero Wave */
+.polydor-hero-wave-wrap {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: 1rem;
+}
+
+.polydor-hero-wave-svg {
+  display: block;
+  width: 100%;
+  height: clamp(48px, 6vw, 75px);
+}
+
+/* --- 2. PROBLEMS & REACTION MECHANISM --- */
+.polydor-problems-section {
+  padding: clamp(2rem, 3.5vw, 3rem) 0;
+  background: linear-gradient(180deg, #F8FBFE 0%, #FFFFFF 100%);
+}
+
+.polydor-problems-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.polydor-chemistry-card {
+  border: 1.5px solid #BAE6FD;
+  border-radius: 20px;
+  padding: 1.35rem 1.6rem;
+  background: linear-gradient(150deg, #FFFFFF, #F0F7FF);
+  box-shadow: 0 12px 36px rgba(2, 132, 199, 0.08);
+}
+
+.polydor-card-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0284C7;
+  margin-bottom: 0.5rem;
+}
+
+.polydor-chemistry-title {
+  margin: 0 0 0.95rem;
+  font-size: 1.25rem;
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.polydor-reaction-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.polydor-reaction-step {
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 0.75rem 0.95rem;
+  background: #FFFFFF;
+}
+
+.polydor-reaction-step.is-passivated {
+  border-color: #BAE6FD;
+  background: #F0F7FF;
+}
+
+.polydor-step-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  margin-bottom: 0.4rem;
+}
+
+.polydor-step-tag.is-unstable {
+  background: #FEE2E2;
+  color: #B91C1C;
+}
+
+.polydor-step-tag.is-stable {
+  background: #D1FAE5;
+  color: #047857;
+}
+
+.polydor-formula {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 850;
+  color: #10213B;
+  font-family: var(--font-mono, monospace);
+  margin-bottom: 0.2rem;
+}
+
+.polydor-formula-desc {
+  font-size: 0.8rem;
+  color: #64748B;
+  line-height: 1.4;
+}
+
+.polydor-reaction-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #0284C7;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.polydor-chemistry-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: #0C4A6E;
+  line-height: 1.5;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #BAE6FD;
+}
+
+.polydor-section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0284C7;
+  margin-bottom: 0.6rem;
+}
+
+.polydor-eyebrow-bar {
+  display: inline-block;
+  width: 18px;
+  height: 3px;
+  border-radius: 2px;
+  background: #0284C7;
+}
+
+.polydor-section-title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.polydor-section-sub {
+  margin: 0 0 1rem;
+  color: #5B6E88;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.polydor-checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.polydor-checklist-col {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.polydor-checklist-col li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #334155;
+  padding: 0.85rem 1rem;
+  background: #FFFFFF;
+  border: 1.5px solid #E2EBF6;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(16, 33, 59, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.polydor-checklist-col li:hover {
+  transform: translateY(-2px);
+  border-color: #7DD3FC;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.08);
+}
+
+.polydor-check-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
+  color: #0284C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.1rem;
+}
+
+/* --- 3. APPLICATION PROTOCOL STEPS --- */
+.polydor-steps-section {
+  padding: clamp(2rem, 3.5vw, 3rem) 0;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FBFE 100%);
+}
+
+.polydor-section-header {
+  max-width: 680px;
+  margin-bottom: 1.6rem;
+}
+
+.polydor-kicker {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0284C7;
+  margin-bottom: 0.45rem;
+}
+
+.polydor-section-header h2 {
+  margin: 0 0 0.8rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
+}
+
+.polydor-section-header p {
+  margin: 0;
+  color: #5B6E88;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.polydor-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.polydor-step-card {
+  position: relative;
+  border: 1.5px solid #BAE6FD;
+  border-radius: 18px;
+  padding: 1.35rem 1.4rem;
+  background: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.polydor-step-card:hover {
+  transform: translateY(-4px);
+  border-color: #0EA5E9;
+  box-shadow: 0 14px 34px rgba(2, 132, 199, 0.16);
+}
+
+.polydor-step-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.polydor-step-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  padding: 0.35rem 0.75rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
+}
+
+.polydor-step-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
+  color: #0284C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.polydor-step-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.2rem;
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.02em;
+}
+
+.polydor-step-subtitle {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 750;
+  color: #0369A1;
+  margin-bottom: 0.9rem;
+}
+
+.polydor-step-desc {
+  margin: 0;
+  color: #5B6E88;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* --- Dedicated Video Showcase in Application Protocol --- */
+.btn-polydor-video {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1.5px solid #BAE6FD;
+  color: #0284C7 !important;
+  font-size: 0.9rem;
+  font-weight: 750;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+  transition: all 0.2s ease;
+}
+
+.btn-polydor-video:hover {
+  background: #E0F2FE;
+  border-color: #0284C7;
+  color: #0369A1 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.16);
+}
+
+.btn-polydor-video .lucide {
+  color: #0284C7;
+  transition: transform 0.2s ease;
+}
+
+.btn-polydor-video:hover .lucide {
+  transform: scale(1.15);
+}
+
+.polydor-video-showcase-wrap {
+  margin-top: 1.85rem;
+  padding: clamp(1.4rem, 2.5vw, 2rem);
+  background: radial-gradient(circle at 15% 15%, #F0F7FF 0%, #FFFFFF 65%, #EDF7FD 100%);
+  border: 1.5px solid #BAE6FD;
+  border-radius: 28px;
+  box-shadow: 0 16px 45px rgba(2, 132, 199, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.polydor-video-showcase-wrap::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -100px;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, rgba(2, 132, 199, 0.05) 50%, transparent 70%);
+  filter: blur(45px);
+  pointer-events: none;
+}
+
+.polydor-video-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.polydor-video-player-card {
+  border-radius: 22px;
+  overflow: hidden;
+  background: #0B192C;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 50px -10px rgba(11, 37, 69, 0.25), 0 0 0 1px rgba(186, 230, 253, 0.7);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.polydor-video-player-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 65px -10px rgba(2, 132, 199, 0.28), 0 0 0 2px #38BDF8;
+}
+
+.polydor-video-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.polydor-video-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+}
+
+.polydor-video-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #EF4444;
+  box-shadow: 0 0 8px #EF4444;
+  animation: polydorPulse 2s infinite;
+}
+
+@keyframes polydorPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.polydor-video-res-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.15);
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.polydor-video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.polydor-application-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.polydor-video-caption {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.25rem;
+  background: rgba(15, 23, 42, 0.94);
+  color: #94A3B8;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.polydor-video-caption-icon {
+  color: #38BDF8;
+  flex-shrink: 0;
+}
+
+.polydor-video-insights {
+  display: flex;
+  flex-direction: column;
+}
+
+.polydor-video-insights-title {
+  margin: 0.4rem 0 0.75rem;
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.025em;
+  line-height: 1.22;
+}
+
+.polydor-video-insights-desc {
+  margin: 0 0 1.5rem;
+  font-size: 0.92rem;
+  color: #5B6E88;
+  line-height: 1.6;
+}
+
+.polydor-video-tips-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.polydor-video-tip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.95rem;
+  padding: 0.95rem 1.15rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid #BAE6FD;
+  border-radius: 16px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.polydor-video-tip-item:hover {
+  transform: translateX(4px);
+  border-color: #0284C7;
+  background: #FFFFFF;
+  box-shadow: 0 8px 22px rgba(2, 132, 199, 0.1);
+}
+
+.polydor-tip-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
+  color: #0284C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.polydor-tip-title {
+  margin: 0 0 0.2rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #10213B;
+  letter-spacing: -0.01em;
+}
+
+.polydor-tip-desc {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #64748B;
+  line-height: 1.45;
+}
+
+/* --- 4. PHYSICAL DATA & SPECIFICATIONS --- */
+.polydor-specs-section {
+  padding: clamp(2rem, 3.5vw, 3rem) 0;
+  background: #F5F9FE;
+  border-top: 1px solid #BAE6FD;
+  border-bottom: 1px solid #BAE6FD;
+}
+
+.polydor-specs-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.15fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 3.8rem);
+}
+
+.polydor-specs-intro h2 {
+  margin: 0.3rem 0 0.8rem;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.polydor-specs-intro p {
+  color: #5B6E88;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.polydor-specs-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.polydor-highlight-box {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  background: #FFFFFF;
+  border: 1px solid #BAE6FD;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.05);
+}
+
+.polydor-highlight-icon {
+  color: #0284C7;
+  flex-shrink: 0;
+}
+
+.polydor-hl-title {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #10213B;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.polydor-hl-desc {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0369A1;
+}
+
+.polydor-specs-table-wrap {
+  overflow: hidden;
+  border: 1.5px solid #BAE6FD;
+  border-radius: 18px;
+  background: #FFFFFF;
+  box-shadow: 0 8px 26px rgba(2, 132, 199, 0.06);
+}
+
+.polydor-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.polydor-specs-table thead tr {
+  background: linear-gradient(135deg, #F0F7FF 0%, #E0F2FE 100%);
+  border-bottom: 1.5px solid #BAE6FD;
+}
+
+.polydor-specs-table th {
+  padding: 1rem 1.35rem;
+  font-size: 0.78rem;
+  font-weight: 850;
+  color: #0C4A6E;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.polydor-specs-table tbody tr {
+  border-bottom: 1px solid #E0F2FE;
+  transition: background 0.15s ease;
+}
+
+.polydor-specs-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.polydor-specs-table tbody tr:hover {
+  background: #F8FBFE;
+}
+
+.polydor-spec-label {
+  padding: 0.85rem 1.35rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.polydor-spec-val {
+  padding: 0.85rem 1.35rem;
+  font-size: 0.9rem;
+  font-weight: 750;
+  color: #10213B;
+}
+
+/* --- 5. APPLICATION SETTINGS & GROUPS --- */
+.polydor-systems-section {
+  padding: clamp(2rem, 3.5vw, 3rem) 0;
+  background: #FFFFFF;
+}
+
+.polydor-systems-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.polydor-system-card {
+  border: 1px solid #BAE6FD;
+  border-radius: 16px;
+  padding: 1.25rem 1.35rem;
+  background: linear-gradient(145deg, #FFFFFF, #F8FBFE);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.polydor-system-card:hover {
+  transform: translateY(-3px);
+  border-color: #0284C7;
+  box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12);
+}
+
+.polydor-system-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.polydor-system-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #0284C7;
+  box-shadow: 0 0 0 3px #E0F2FE;
+  flex-shrink: 0;
+}
+
+.polydor-system-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.015em;
+}
+
+.polydor-system-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.polydor-system-list li {
+  position: relative;
+  padding-left: 1.15rem;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: #5B6E88;
+}
+
+.polydor-system-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #0284C7;
+}
+
+/* --- 6. TARGET SUBSTRATES & APPLICATIONS --- */
+.polydor-apps-section {
+  padding: clamp(2rem, 3.5vw, 3rem) 0;
+  background: #F8FBFE;
+  border-top: 1px solid #E0F2FE;
+}
+
+.polydor-apps-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 3.8rem);
+}
+
+.polydor-apps-intro h2 {
+  margin: 0.3rem 0 0.8rem;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.polydor-apps-intro p {
+  color: #5B6E88;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.polydor-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.polydor-app-card {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  background: #FFFFFF;
+  border: 1px solid #BAE6FD;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.04);
+  font-size: 0.9rem;
+  font-weight: 750;
+  color: #10213B;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.polydor-app-card:hover {
+  transform: translateY(-2px);
+  border-color: #0284C7;
+}
+
+.polydor-app-check {
+  color: #0284C7;
+  flex-shrink: 0;
+}
+
+/* --- 7. HANDLING & PRECAUTIONS + REGULATORY NOTE --- */
+.polydor-handling-section {
+  padding: clamp(2rem, 3.5vw, 3rem) 0;
+  background: #FFFFFF;
+}
+
+.polydor-handling-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.polydor-handling-card {
+  border: 1.5px solid #BAE6FD;
+  border-radius: 18px;
+  padding: 1.35rem 1.5rem;
+  background: #F8FBFE;
+}
+
+.polydor-handling-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1.25rem;
+  font-size: 1.15rem;
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.02em;
+}
+
+.polydor-caution-icon {
+  color: #0284C7;
+}
+
+.polydor-info-icon {
+  color: #0369A1;
+}
+
+.polydor-caution-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.polydor-caution-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.polydor-caution-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0284C7;
+}
+
+.polydor-handling-card.is-note {
+  background: linear-gradient(145deg, #F0F7FF, #FFFFFF);
+}
+
+.polydor-handling-card.is-note p {
+  margin: 0 0 1rem;
+  color: #5B6E88;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.polydor-sds-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #0284C7;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.polydor-sds-link:hover {
+  color: #0369A1;
+  transform: translateX(3px);
+}
+
+/* --- 8. CTA ENQUIRY BAND --- */
+.polydor-cta-section {
+  padding: 0 0 clamp(3.5rem, 6vw, 5rem);
+  background: #FFFFFF;
+}
+
+.polydor-cta-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(2rem, 4vw, 3rem) clamp(2rem, 4vw, 3.5rem);
+  border-radius: 24px;
+  border: 1.5px solid #BAE6FD;
+  background:
+    radial-gradient(ellipse at 90% 20%, rgba(56, 189, 248, 0.35), transparent 45%),
+    linear-gradient(130deg, #E0F2FE 0%, #F0F7FF 55%, #EDF7FD 100%);
+  box-shadow: 0 18px 45px rgba(2, 132, 199, 0.1);
+}
+
+.polydor-cta-content {
+  max-width: 650px;
+}
+
+.polydor-cta-kicker {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0369A1;
+  margin-bottom: 0.4rem;
+}
+
+.polydor-cta-card h2 {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.polydor-cta-card p {
+  margin: 0;
+  color: #0C4A6E;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.polydor-cta-actions {
+  flex-shrink: 0;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 1024px) {
+  .polydor-hero-layout,
+  .polydor-problems-layout,
+  .polydor-specs-layout,
+  .polydor-apps-layout {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .polydor-features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .polydor-steps-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .polydor-systems-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .polydor-video-grid {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .polydor-cta-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .polydor-facts-strip {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .polydor-checklist-grid,
+  .polydor-steps-grid,
+  .polydor-systems-grid,
+  .polydor-apps-grid,
+  .polydor-handling-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .polydor-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .polydor-hero-visual-card {
+    border-radius: 18px;
+    border-width: 3px;
+    aspect-ratio: 16 / 9.2;
+    min-height: auto;
+  }
+
+  .polydor-floating-stats-card {
+    padding: 0.65rem 0.6rem;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+  }
+
+  .polydor-fstat-val {
+    font-size: 0.9rem;
+  }
+
+  .polydor-fstat-lbl {
+    font-size: 0.62rem;
+  }
+}
+
