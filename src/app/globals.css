@@ -36754,11 +36754,6 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 @media (max-width: 640px) {
-<<<<<<< HEAD
-=======
-
-  .corosil-hero-visual-card,
->>>>>>> 4972fde (Updated V-Klin website design)
   .specialty-hero-visual-card {
     border-radius: 18px;
     border-width: 3px;
@@ -37164,7 +37159,6 @@ body:has(.construction-solution-page) .footer-bottom {
     padding: 0.32rem 0.72rem;
     gap: 0.4rem;
   }
-<<<<<<< HEAD
 }
 
 /* ==========================================================================
