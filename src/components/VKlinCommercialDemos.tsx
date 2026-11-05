@@ -4,14 +4,20 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
+  AlertTriangle,
   ArrowRight,
   ArrowUpRight,
   CheckCircle2,
+  Leaf,
+  Maximize,
   MessageCircle,
+  Pause,
+  Play,
+  ShoppingCart,
   Sparkles,
+  Trophy,
   Volume2,
   VolumeX,
-  XCircle,
 } from "lucide-react";
 
 interface DemoItem {
@@ -134,20 +140,80 @@ const cleaningDemos: DemoItem[] = [
   },
 ];
 
+/* Custom SVG Icons Matching Reference Image 2 */
+function TabIcon({ id, isActive }: { id: string; isActive: boolean }) {
+  const stroke = isActive ? "#FFFFFF" : "#0284C7";
+  const fill = isActive ? "#FFFFFF" : "#0284C7";
+
+  switch (id) {
+    case "floor-care":
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m3 21 7-7" />
+          <path d="m14 10 7-7" />
+          <path d="M14 6l4 4" />
+          <path d="M7 13l4 4" />
+          <path d="M3 21l3-1 2 2-1 3-4-4Z" fill={fill} fillOpacity="0.15" />
+        </svg>
+      );
+    case "toilet-care":
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M7 2h10v5H7z" />
+          <path d="M6 7h12a3 3 0 0 1 3 3v2a6 6 0 0 1-6 6h-6a6 6 0 0 1-6-6v-2a3 3 0 0 1 3-3z" fill={fill} fillOpacity="0.12" />
+          <path d="M9 18v4" />
+          <path d="M15 18v4" />
+          <path d="M7 22h10" />
+        </svg>
+      );
+    case "dishwash":
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <ellipse cx="12" cy="14" rx="9" ry="5" fill={fill} fillOpacity="0.12" />
+          <ellipse cx="12" cy="14" rx="6" ry="3" />
+          <circle cx="16" cy="6" r="2.5" fill={fill} />
+          <circle cx="11" cy="5" r="1.5" />
+          <circle cx="19" cy="8" r="1" />
+        </svg>
+      );
+    case "glass-cleaner":
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="18" height="18" x="3" y="3" rx="2" />
+          <path d="M3 12h18" />
+          <path d="M12 3v18" />
+          <circle cx="7.5" cy="7.5" r="1" fill={fill} />
+          <circle cx="16.5" cy="16.5" r="1" fill={fill} />
+        </svg>
+      );
+    case "odour-pest":
+    default:
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M9.59 4.59A2 2 0 1 1 11 8H2" />
+          <path d="M12.59 19.41A2 2 0 1 0 14 16H2" />
+          <path d="M17.73 7.73A2.5 2.5 0 1 1 19.5 12H2" />
+        </svg>
+      );
+  }
+}
+
 export default function VKlinCommercialDemos() {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(1); // Default to Toilet Hygiene matching Reference Image 2
   const [isMuted, setIsMuted] = useState(true);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(45);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const activeDemo = cleaningDemos[activeTab];
 
-  // Advance to next tab when the full 10-second video ends
+  // Advance to next tab when video ends
   const handleVideoEnded = () => {
     setActiveTab((prev) => (prev + 1) % cleaningDemos.length);
   };
 
-  // Full 10.5-second timer fallback so the entire 10-second commercial plays
+  // Full 10.5-second timer fallback
   useEffect(() => {
     const autoTimer = setInterval(() => {
       setActiveTab((prev) => (prev + 1) % cleaningDemos.length);
@@ -156,14 +222,29 @@ export default function VKlinCommercialDemos() {
     return () => clearInterval(autoTimer);
   }, [activeTab]);
 
-  // Continuous uninterrupted video autoplay on active tab switch
+  // Video autoplay on active tab switch
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
     video.muted = isMuted;
     video.currentTime = 0;
-    video.play().catch(() => {});
+    video
+      .play()
+      .then(() => setIsPlaying(true))
+      .catch(() => setIsPlaying(false));
   }, [activeTab, isMuted]);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
 
   const toggleMute = () => {
     if (!videoRef.current) return;
@@ -172,11 +253,32 @@ export default function VKlinCommercialDemos() {
     setIsMuted(newMuted);
   };
 
-  const pauseFromFocus = () => setIsPaused(true);
-  const resumeFromBlur = (event: React.FocusEvent<HTMLElement>) => {
-    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-      setIsPaused(false);
+  const handleTimeUpdate = () => {
+    if (!videoRef.current) return;
+    setCurrentTime(videoRef.current.currentTime);
+    if (videoRef.current.duration && !isNaN(videoRef.current.duration)) {
+      setDuration(videoRef.current.duration);
     }
+  };
+
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const time = parseFloat(e.target.value);
+    if (!videoRef.current) return;
+    videoRef.current.currentTime = time;
+    setCurrentTime(time);
+  };
+
+  const toggleFullscreen = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.requestFullscreen) {
+      videoRef.current.requestFullscreen();
+    }
+  };
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
   };
 
   const handleTabKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -201,33 +303,80 @@ export default function VKlinCommercialDemos() {
 
   return (
     <section
-      className="hp-section hp-section-tint vklin-mini-section"
+      className="vklin-demo-ref-section"
       id="cleaning-demos"
       aria-labelledby="action-demos-title"
     >
-      <div className="hp-hero-container">
-        {/* Compact, Refined Section Heading (80% Scale) */}
-        <div className="vklin-mini-header hp-reveal">
-          <div className="vklin-mini-eyebrow">
-            <span className="vklin-mini-dot" aria-hidden="true" />
+      {/* Decorative Atmosphere: Blue Water Ripples, Droplets & Green Leaves */}
+      <div className="vklin-ref-ambient-decor" aria-hidden="true">
+        {/* Top Right: Water Splash Droplets, Leaf & Official V-Klin Badge */}
+        <div className="vklin-ref-decor-top-right">
+          <svg className="vklin-ref-bubbles-svg" viewBox="0 0 200 120" fill="none">
+            <circle cx="45" cy="45" r="9" stroke="#38BDF8" strokeWidth="2.5" fill="#E0F2FE" fillOpacity="0.45" />
+            <circle cx="75" cy="22" r="14" stroke="#0284C7" strokeWidth="2" fill="#BAE6FD" fillOpacity="0.3" />
+            <circle cx="115" cy="65" r="7" stroke="#38BDF8" strokeWidth="1.8" fill="#E0F2FE" fillOpacity="0.4" />
+            <circle cx="140" cy="30" r="18" stroke="#0284C7" strokeWidth="2.5" fill="#BAE6FD" fillOpacity="0.25" />
+            <circle cx="175" cy="55" r="10" stroke="#38BDF8" strokeWidth="2" fill="#E0F2FE" fillOpacity="0.35" />
+            <path d="M85 35 C100 10, 135 15, 145 40 C135 60, 105 55, 85 35 Z" fill="#22C55E" fillOpacity="0.85" />
+            <path d="M92 37 Q 115 32, 138 38" stroke="#15803D" strokeWidth="1.2" strokeLinecap="round" />
+          </svg>
+          <div className="vklin-ref-top-logo-badge">
+            <Image
+              src="/vklin-logo.webp"
+              alt="V-Klin Clean Care Logo"
+              width={110}
+              height={50}
+              className="vklin-ref-brand-logo"
+            />
+          </div>
+        </div>
+
+        {/* Bottom Wave Swooshes */}
+        <div className="vklin-ref-bottom-wave-left">
+          <svg viewBox="0 0 280 120" fill="none">
+            <path d="M-20 120 C60 110, 120 70, 180 50 C230 35, 270 55, 290 80" stroke="#BAE6FD" strokeWidth="18" strokeLinecap="round" opacity="0.4" />
+            <path d="M-10 120 C50 100, 100 80, 160 65 C210 50, 240 70, 260 90" stroke="#38BDF8" strokeWidth="8" strokeLinecap="round" opacity="0.6" />
+            <path d="M20 75 C35 50, 65 55, 75 75 C65 95, 35 90, 20 75 Z" fill="#22C55E" fillOpacity="0.9" />
+          </svg>
+        </div>
+
+        <div className="vklin-ref-bottom-wave-right">
+          <svg viewBox="0 0 260 120" fill="none">
+            <path d="M-10 60 C50 40, 110 55, 170 85 C210 105, 250 100, 280 80" stroke="#BAE6FD" strokeWidth="16" strokeLinecap="round" opacity="0.45" />
+            <path d="M10 75 C60 60, 120 75, 180 95 C220 110, 250 105, 270 95" stroke="#38BDF8" strokeWidth="7" strokeLinecap="round" opacity="0.65" />
+          </svg>
+        </div>
+      </div>
+
+      <div className="hp-hero-container vklin-ref-container">
+        {/* Header: Exact Matching Eyebrow Pill, Underline Accent & Bold Typography */}
+        <div className="vklin-ref-header">
+          <div className="vklin-ref-eyebrow">
+            <Sparkles size={14} className="vklin-ref-eyebrow-spark" aria-hidden="true" />
             <span>REAL PROBLEMS, PROVEN ACTION</span>
           </div>
 
-          <h2 id="action-demos-title" className="vklin-mini-title">
-            See How V-Klin Solves Everyday Cleaning Problems
+          <h2 id="action-demos-title" className="vklin-ref-title">
+            See How{" "}
+            <span className="vklin-ref-title-word">
+              V-Klin
+              <svg className="vklin-ref-swoosh" viewBox="0 0 95 14" fill="none" aria-hidden="true">
+                <path d="M2 9C25 13 65 14 93 3" stroke="#22C55E" strokeWidth="4.5" strokeLinecap="round" />
+              </svg>
+            </span>{" "}
+            Solves Everyday Cleaning Problems
           </h2>
 
-          <p className="vklin-mini-lead">
+          <p className="vklin-ref-lead">
             Continuous commercial demonstrations showing instant visible results across floors, kitchens, bathrooms, and molecular air care.
           </p>
         </div>
 
-        {/* Unified, Sleek Segmented Tab Bar (Fits All 5 In 1 Clean Row) */}
+        {/* 5-Category Floating White Pill Nav Bar Matching Reference Image 2 */}
         <div
-          className="vklin-mini-tab-bar"
+          className="vklin-ref-nav-pill-bar"
           role="tablist"
           aria-label="Cleaning demonstrations"
-
           onKeyDown={handleTabKeyDown}
         >
           {cleaningDemos.map((demo, idx) => {
@@ -240,42 +389,57 @@ export default function VKlinCommercialDemos() {
                 role="tab"
                 aria-selected={isActive}
                 aria-controls="cleaning-demos-panel"
-                className={`vklin-mini-tab-item ${isActive ? "is-active" : ""}`}
+                className={`vklin-ref-nav-item ${isActive ? "is-active" : ""}`}
                 onClick={() => setActiveTab(idx)}
               >
-                <span className="vklin-mini-tab-num">{`0${idx + 1}`}</span>
-                <span className="vklin-mini-tab-text">
-                  <strong>{demo.tabLabel}</strong>
-                  <small>{demo.tabSubtitle}</small>
+                <span className="vklin-ref-tab-icon-wrap" aria-hidden="true">
+                  <TabIcon id={demo.id} isActive={isActive} />
                 </span>
-                {isActive && <span className="vklin-mini-tab-progress" aria-hidden="true" />}
+
+                <span className="vklin-ref-tab-meta">
+                  <span className="vklin-ref-tab-topline">
+                    <span className="vklin-ref-tab-num">{`0${idx + 1}`}</span>
+                    <strong className="vklin-ref-tab-label">{demo.tabLabel}</strong>
+                  </span>
+                  <small className="vklin-ref-tab-sub">{demo.tabSubtitle}</small>
+                </span>
+
+                {/* Downward Pointer Triangle Arrow on Active Tab */}
+                {isActive && <span className="vklin-ref-active-arrow" aria-hidden="true" />}
               </button>
             );
           })}
         </div>
 
-        {/* Compact, Luxury Demonstration Stage Box */}
+        {/* Grand Demonstration Stage Showcase Card */}
         <div
-          className="vklin-mini-stage hp-reveal-scale"
+          className="vklin-ref-stage-card"
           role="tabpanel"
           id="cleaning-demos-panel"
           aria-labelledby={`demo-tab-${activeDemo.id}`}
-
         >
-          {/* Slim Top Bar */}
-          <div className="vklin-mini-topbar">
-            <div className="vklin-mini-stage-badge">
-              <Sparkles size={13} className="vklin-mini-spark" aria-hidden="true" />
-              <span>{activeDemo.comparisonBrand}</span>
+          {/* Solid Blue Topbar Header with Category Action & Green Leaf Badge */}
+          <div className="vklin-ref-stage-topbar">
+            <div className="vklin-ref-topbar-left">
+              <span className="vklin-ref-topbar-icon" aria-hidden="true">
+                <TabIcon id={activeDemo.id} isActive={true} />
+              </span>
+              <span className="vklin-ref-topbar-title">{activeDemo.comparisonBrand}</span>
             </div>
-            <span className="vklin-mini-highlight-pill">{activeDemo.badgeText}</span>
+
+            <div className="vklin-ref-topbar-right">
+              <span className="vklin-ref-topbar-pill">
+                <Leaf size={14} className="vklin-ref-leaf-icon" aria-hidden="true" />
+                <span>{activeDemo.badgeText}</span>
+              </span>
+            </div>
           </div>
 
-          {/* 2-Column Balanced Grid */}
-          <div className="vklin-mini-grid">
-            {/* Left Column: 16:9 Video Theatre + Sleek Product Bar */}
-            <div className="vklin-mini-video-col">
-              <div className="vklin-mini-player-box">
+          {/* 2-Column Split Layout: Large Video on Left, Neat Organized Columns on Right */}
+          <div className="vklin-ref-card-body">
+            {/* Left Column: Prominent Video Player + Featured Formula Bar */}
+            <div className="vklin-ref-video-col">
+              <div className="vklin-ref-video-wrapper">
                 <video
                   key={activeDemo.demoVideoSrc}
                   ref={videoRef}
@@ -285,94 +449,142 @@ export default function VKlinCommercialDemos() {
                   playsInline
                   preload="auto"
                   onEnded={handleVideoEnded}
-                  className="vklin-mini-video-el"
+                  onTimeUpdate={handleTimeUpdate}
+                  className="vklin-ref-video-element"
                 />
 
-                {/* Micro Live Badge */}
-                <div className="vklin-mini-live-pill">
-                  <span className="vklin-mini-live-dot" aria-hidden="true" />
+                {/* Top-Left: DEMO PLAYING Badge with Red Live Indicator */}
+                <div className="vklin-ref-live-badge">
+                  <span className="vklin-ref-live-red-dot" aria-hidden="true" />
                   <span>DEMO PLAYING</span>
                 </div>
 
-                {/* Sound Toggle */}
+                {/* Top-Right: Metric Badge */}
+                <div className="vklin-ref-metric-badge">
+                  <span className="vklin-ref-metric-val">{activeDemo.metricValue}</span>
+                  <span className="vklin-ref-metric-lbl">{activeDemo.metricLabel}</span>
+                </div>
+
+                {/* Center: Large Play/Pause Toggle Overlay Button */}
                 <button
                   type="button"
-                  className="vklin-mini-sound-btn"
-                  onClick={toggleMute}
-                  aria-label={isMuted ? "Unmute commercial audio" : "Mute commercial audio"}
-                  title={isMuted ? "Click to unmute" : "Click to mute"}
+                  className="vklin-ref-center-play-btn"
+                  onClick={togglePlay}
+                  aria-label={isPlaying ? "Pause video demo" : "Play video demo"}
                 >
-                  {isMuted ? (
-                    <VolumeX size={15} aria-hidden="true" />
+                  {isPlaying ? (
+                    <Pause size={24} fill="#FFFFFF" color="#FFFFFF" />
                   ) : (
-                    <Volume2 size={15} aria-hidden="true" />
+                    <Play size={24} fill="#FFFFFF" color="#FFFFFF" className="vklin-ref-play-triangle" />
                   )}
-                  <span>{isMuted ? "Muted" : "Sound On"}</span>
                 </button>
 
-                {/* Metric Chip */}
-                <div className="vklin-mini-metric-chip">
-                  <span className="vklin-mini-metric-num">{activeDemo.metricValue}</span>
-                  <span className="vklin-mini-metric-txt">{activeDemo.metricLabel}</span>
+                {/* Bottom Video Controls Scrub Bar */}
+                <div className="vklin-ref-controls-bar">
+                  <button
+                    type="button"
+                    className="vklin-ref-ctrl-icon-btn"
+                    onClick={togglePlay}
+                    aria-label={isPlaying ? "Pause" : "Play"}
+                  >
+                    {isPlaying ? <Pause size={14} fill="#FFFFFF" /> : <Play size={14} fill="#FFFFFF" />}
+                  </button>
+
+                  <span className="vklin-ref-time-txt">
+                    {formatTime(currentTime)} / {formatTime(duration)}
+                  </span>
+
+                  <input
+                    type="range"
+                    min="0"
+                    max={duration || 10}
+                    step="0.1"
+                    value={currentTime}
+                    onChange={handleSeek}
+                    className="vklin-ref-scrubber"
+                    aria-label="Video seek scrubber"
+                  />
+
+                  <button
+                    type="button"
+                    className="vklin-ref-ctrl-icon-btn"
+                    onClick={toggleMute}
+                    aria-label={isMuted ? "Unmute audio" : "Mute audio"}
+                    title={isMuted ? "Unmute" : "Mute"}
+                  >
+                    {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
+                  </button>
+
+                  <button
+                    type="button"
+                    className="vklin-ref-ctrl-icon-btn"
+                    onClick={toggleFullscreen}
+                    aria-label="Toggle fullscreen"
+                  >
+                    <Maximize size={14} />
+                  </button>
                 </div>
               </div>
 
-              {/* Compact Featured Product Highlight Bar */}
-              <div className="vklin-mini-product-bar">
-                <div className="vklin-mini-prod-thumb">
+              {/* Featured Formula Highlight Card Directly Below Video */}
+              <div className="vklin-ref-featured-card">
+                <div className="vklin-ref-featured-thumb">
                   <Image
                     src={activeDemo.bottleImage}
                     alt={activeDemo.productName}
-                    width={52}
-                    height={52}
-                    className="vklin-mini-prod-img"
+                    width={56}
+                    height={56}
+                    className="vklin-ref-featured-img"
                   />
                 </div>
-                <div className="vklin-mini-prod-meta">
-                  <span className="vklin-mini-prod-eyebrow">FEATURED FORMULA</span>
-                  <h4 className="vklin-mini-prod-name">{activeDemo.productName}</h4>
-                  <p className="vklin-mini-prod-sub">{activeDemo.tabSubtitle}</p>
+
+                <div className="vklin-ref-featured-meta">
+                  <span className="vklin-ref-featured-eyebrow">FEATURED FORMULA</span>
+                  <h4 className="vklin-ref-featured-name">{activeDemo.productName}</h4>
+                  <p className="vklin-ref-featured-sub">{activeDemo.tabSubtitle}</p>
                 </div>
-                <div className="vklin-mini-prod-cta">
-                  <Link href={activeDemo.productHref} className="vklin-mini-prod-link">
+
+                <div className="vklin-ref-featured-action">
+                  <Link href={activeDemo.productHref} className="vklin-ref-details-pill">
                     <span>Details</span>
-                    <ArrowRight size={13} aria-hidden="true" />
+                    <ArrowRight size={13} strokeWidth={2.4} aria-hidden="true" />
                   </Link>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Modern Problem vs Solution Showcase Card */}
-            <div className="vklin-mini-content-col">
-              {/* Dual Before / After Comparison Strip */}
-              <div className="vklin-mini-compare-box">
-                {/* Problem Row */}
-                <div className="vklin-mini-row-problem">
-                  <div className="vklin-mini-row-badge is-problem">
-                    <XCircle size={13} aria-hidden="true" />
-                    <span>THE PROBLEM</span>
-                  </div>
-                  <p className="vklin-mini-row-text">{activeDemo.problemSummary}</p>
+            {/* Right Column: Problem, V-Klin Action, Key Proven Results & CTA Buttons */}
+            <div className="vklin-ref-content-col">
+              {/* 1. THE PROBLEM Box (Red/Pink Theme) */}
+              <div className="vklin-ref-problem-card">
+                <div className="vklin-ref-problem-pill">
+                  <AlertTriangle size={14} strokeWidth={2.4} aria-hidden="true" />
+                  <span>THE PROBLEM</span>
                 </div>
-
-                {/* Solution Row */}
-                <div className="vklin-mini-row-solution">
-                  <div className="vklin-mini-row-badge is-solution">
-                    <CheckCircle2 size={13} aria-hidden="true" />
-                    <span>V-KLIN ACTION</span>
-                  </div>
-                  <p className="vklin-mini-row-text is-bold">{activeDemo.solutionSummary}</p>
-                </div>
+                <p className="vklin-ref-problem-desc">{activeDemo.problemSummary}</p>
               </div>
 
-              {/* 3 Compact Action Checklist Highlights */}
-              <div className="vklin-mini-action-box">
-                <span className="vklin-mini-action-title">KEY PROVEN RESULTS</span>
-                <ul className="vklin-mini-action-list" aria-label="Action benefits">
+              {/* 2. V-KLIN ACTION Box (Mint Green Theme) */}
+              <div className="vklin-ref-action-card">
+                <div className="vklin-ref-action-pill">
+                  <CheckCircle2 size={14} strokeWidth={2.4} aria-hidden="true" />
+                  <span>V-KLIN ACTION</span>
+                </div>
+                <p className="vklin-ref-action-desc">{activeDemo.solutionSummary}</p>
+              </div>
+
+              {/* 3. KEY PROVEN RESULTS Box (White/Ice-Blue Elevated Box) */}
+              <div className="vklin-ref-results-card">
+                <div className="vklin-ref-results-header">
+                  <Trophy size={16} className="vklin-ref-trophy-icon" aria-hidden="true" />
+                  <span>KEY PROVEN RESULTS</span>
+                </div>
+
+                <ul className="vklin-ref-results-list" aria-label="Key proven results">
                   {activeDemo.actionPoints.map((point) => (
-                    <li key={point} className="vklin-mini-action-item">
-                      <span className="vklin-mini-check-icon" aria-hidden="true">
-                        <CheckCircle2 size={13} strokeWidth={2.6} />
+                    <li key={point} className="vklin-ref-results-item">
+                      <span className="vklin-ref-check-wrap" aria-hidden="true">
+                        <CheckCircle2 size={16} strokeWidth={2.6} className="vklin-ref-check-green" />
                       </span>
                       <span>{point}</span>
                     </li>
@@ -380,11 +592,12 @@ export default function VKlinCommercialDemos() {
                 </ul>
               </div>
 
-              {/* Sleek Action Buttons Footer */}
-              <div className="vklin-mini-stage-foot">
-                <Link href={activeDemo.productHref} className="vklin-mini-btn-primary">
+              {/* 4. Dual CTA Action Buttons (Bottom Right) */}
+              <div className="vklin-ref-btn-row">
+                <Link href={activeDemo.productHref} className="vklin-ref-btn-primary">
+                  <ShoppingCart size={17} strokeWidth={2.2} aria-hidden="true" />
                   <span>Explore Formula</span>
-                  <ArrowRight size={14} strokeWidth={2.4} aria-hidden="true" />
+                  <ArrowRight size={15} strokeWidth={2.4} aria-hidden="true" />
                 </Link>
 
                 <a
@@ -393,11 +606,11 @@ export default function VKlinCommercialDemos() {
                   )}%20and%20would%20like%20to%20order%20or%20get%20pricing.`}
                   target="_blank"
                   rel="noreferrer"
-                  className="vklin-mini-btn-whatsapp"
+                  className="vklin-ref-btn-whatsapp"
                 >
-                  <MessageCircle size={15} aria-hidden="true" />
+                  <MessageCircle size={17} strokeWidth={2.2} aria-hidden="true" />
                   <span>Enquire / Bulk Order</span>
-                  <ArrowUpRight size={12} aria-hidden="true" />
+                  <ArrowUpRight size={14} strokeWidth={2.4} aria-hidden="true" />
                 </a>
               </div>
             </div>
