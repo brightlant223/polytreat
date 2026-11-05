@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
+  AppWindow,
   ArrowDown,
   ArrowRight,
   Droplets,
-  GlassWater,
   Hand,
   House,
   Leaf,
   ShowerHead,
-  Sparkles,
   Wind,
 } from "lucide-react";
 
@@ -45,7 +44,7 @@ const categories = [
   {
     id: "glass-care",
     number: "04",
-    icon: GlassWater,
+    icon: AppWindow,
     title: "Glass & window care",
     description: "Products for glass, mirrors and appliance surfaces.",
   },
@@ -75,79 +74,96 @@ const categories = [
 export default function VKlinPage() {
   return (
     <main className="vklin-page">
+      {/* Spacious Hero Section with Modern Typography & 3D Podium Showcase */}
       <section className="vklin-page-hero" aria-labelledby="vklin-page-title">
-        <div className="container vklin-page-hero-layout">
+        <div className="vklin-container vklin-page-hero-layout">
           <div className="vklin-page-copy">
-            <span className="eyebrow eyebrow-green">
-              <Sparkles size={15} aria-hidden="true" /> PolyTreat home &amp; facility care
-            </span>
+            <div className="vklin-eyebrow-wrap">
+              <span className="eyebrow eyebrow-green">
+                <Leaf size={14} className="vklin-eyebrow-leaf" aria-hidden="true" />
+                <span>PolyTreat home &amp; facility care</span>
+              </span>
+              <span className="vklin-eyebrow-line" aria-hidden="true" />
+            </div>
+
             <h1 id="vklin-page-title">
-              Everyday cleaning, <span>under V-Klin.</span>
+              Everyday cleaning,<br />
+              <span>under V-Klin.</span>
             </h1>
+
             <p>
               V-Klin brings together PolyTreat&apos;s cleaning products for homes and shared
               spaces, with categories organised around familiar cleaning tasks.
             </p>
+
             <div className="vklin-page-actions">
-              <Link className="btn btn-vklin" href="#vklin-categories">
-                Explore care categories <ArrowDown size={16} aria-hidden="true" />
+              <Link className="btn btn-vklin-primary" href="#vklin-categories">
+                <span>Explore care categories</span>
+                <ArrowDown size={15} aria-hidden="true" />
               </Link>
-              <Link className="vklin-page-text-link" href="/vklin/products">
-                View the product range <ArrowRight size={15} aria-hidden="true" />
+              <Link className="btn btn-vklin-secondary" href="/vklin/products">
+                <span>View the product range</span>
+                <ArrowRight size={15} aria-hidden="true" />
               </Link>
             </div>
           </div>
 
-          <div className="vklin-page-brand-card" aria-label="V-Klin brand">
-            <div className="vklin-page-brand-orbit vklin-page-brand-orbit-one" aria-hidden="true" />
-            <div className="vklin-page-brand-orbit vklin-page-brand-orbit-two" aria-hidden="true" />
-            <div className="vklin-page-logo-wrap">
+          {/* Right Column: Premium V-Klin 3D Podium & Logo Showcase */}
+          <div className="vklin-hero-showcase-wrap" aria-label="V-Klin brand showcase">
+            <div className="vklin-hero-showcase-card">
               <Image
-                src="/vklin-logo.webp"
-                alt="V-Klin"
-                width={480}
-                height={320}
+                src="/images/home/vklin-hero-showcase-perfect.webp"
+                alt="V-Klin Home & Facility Care Premium Showcase"
+                width={1088}
+                height={740}
                 priority
-                sizes="(max-width: 760px) 72vw, 340px"
+                className="vklin-showcase-img"
               />
-            </div>
-            <div className="vklin-page-brand-caption">
-              <span className="vklin-page-brand-dot" aria-hidden="true" />
-              <span>Home &amp; facility care</span>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Seven Cleaning Categories Section (All 7 in 1 Clean Horizontal Row on Desktop) */}
       <section
         className="section vklin-page-categories"
         id="vklin-categories"
         aria-labelledby="vklin-categories-title"
       >
-        <div className="container">
-          <div className="section-heading section-heading-split vklin-page-section-heading">
-            <div>
-              <span className="eyebrow eyebrow-green">The care range</span>
+        <div className="vklin-container">
+          <div className="vklin-categories-header">
+            <div className="vklin-categories-head-left">
+              <div className="vklin-eyebrow-wrap">
+                <span className="eyebrow eyebrow-green">THE CARE RANGE</span>
+                <span className="vklin-eyebrow-line" aria-hidden="true" />
+              </div>
               <h2 id="vklin-categories-title">Find your cleaning category.</h2>
             </div>
-            <p>
-              A clear starting point for everyday cleaning across homes, workplaces and
-              shared facilities.
-            </p>
+
+            <div className="vklin-categories-head-right">
+              <span className="vklin-head-divider" aria-hidden="true" />
+              <p>
+                A clear starting point for everyday cleaning across homes, workplaces and
+                shared facilities.
+              </p>
+            </div>
           </div>
 
-          <div className="vklin-page-category-grid">
+          {/* 7 Category Cards in ONE Horizontal Row on Desktop */}
+          <div className="vklin-category-row-7" role="list">
             {categories.map(({ id, number, icon: Icon, title, description }) => (
               <Link
-                className="vklin-page-category-card"
+                className="vklin-cat-7-card"
                 href={`/vklin/products#${id}`}
                 key={id}
+                role="listitem"
+                title={`Explore ${title}`}
               >
-                <div className="vklin-page-category-topline">
-                  <span className="vklin-page-category-icon">
-                    <Icon size={20} strokeWidth={1.8} aria-hidden="true" />
+                <div className="vklin-cat-7-topline">
+                  <span className="vklin-cat-7-icon">
+                    <Icon size={18} strokeWidth={2} aria-hidden="true" />
                   </span>
-                  <span className="vklin-page-category-number">{number}</span>
+                  <span className="vklin-cat-7-number">{number}</span>
                 </div>
                 <h3>{title}</h3>
                 <p>{description}</p>
@@ -155,11 +171,15 @@ export default function VKlinPage() {
             ))}
           </div>
 
+          {/* Bottom Range Note Bar */}
           <div className="vklin-page-range-note">
-            <span className="vklin-page-range-mark"><Droplets size={19} aria-hidden="true" /></span>
+            <span className="vklin-page-range-mark">
+              <Droplets size={17} strokeWidth={2.2} aria-hidden="true" />
+            </span>
             <p>Looking for a product or the right category for your site?</p>
-            <Link href="/vklin/products">
-              Browse products <ArrowRight size={15} aria-hidden="true" />
+            <Link href="/vklin/products" className="vklin-range-browse-btn">
+              <span>Browse products</span>
+              <ArrowRight size={14} strokeWidth={2.4} aria-hidden="true" />
             </Link>
           </div>
         </div>

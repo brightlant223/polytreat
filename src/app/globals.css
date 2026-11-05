@@ -4969,6 +4969,7 @@ html[data-theme="dark"] .footer-credit a,
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(-8px);
   }
@@ -5682,6 +5683,7 @@ body:has(.industrial-water-page) .footer-bottom {
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -5693,6 +5695,7 @@ body:has(.industrial-water-page) .footer-bottom {
     opacity: 0;
     transform: scale(0.97) translateY(14px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -6264,6 +6267,7 @@ body:has(.industrial-water-page) .footer-bottom {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .industries-hero-copy,
   .industries-hero-visual-wrap,
   .industries-area-card,
@@ -12933,396 +12937,501 @@ body:has(.contact-page) .footer-credit a {
   }
 }
 
-/* Dedicated V-Klin overview */
+/* ========================================================================== */
+/* V-KLIN OVERVIEW PAGE (EXACT REDESIGN MATCHING REFERENCE IMAGE 2)          */
+/* ========================================================================== */
 .vklin-page {
-  --vklin-ink: #12372b;
-  --vklin-muted: #5f766e;
-  background: #fff;
+  --vklin-ink: #0C2E1F;
+  --vklin-accent: #0E7041;
+  --vklin-green-light: #22C55E;
+  --vklin-muted: #4B6354;
+  --vklin-card-border: rgba(220, 240, 228, 0.95);
+  background: radial-gradient(ellipse 65% 55% at 85% 15%, rgba(195, 235, 212, 0.55) 0%, rgba(225, 245, 235, 0.25) 55%, transparent 80%),
+    radial-gradient(ellipse 55% 45% at 8% 22%, rgba(215, 243, 228, 0.45) 0%, transparent 65%),
+    linear-gradient(180deg, #F2FAF5 0%, #F8FCFA 24%, #FFFFFF 52%, #F6FAF7 100%);
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
 }
 
+/* Botanical Corner Leaf Overlays matching Image 2 */
+.vklin-ambient-leaf {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  user-select: none;
+}
+
+.vklin-ambient-leaf img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Spacious Container for V-Klin Page Matching High-End Proportions */
+.vklin-container {
+  width: 100%;
+  max-width: 1540px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 3.5vw, 3.5rem);
+  padding-right: clamp(1.25rem, 3.5vw, 3.5rem);
+}
+
+/* Spacious Hero Section with Modern Typography & 3D Podium Showcase */
 .vklin-page-hero {
   position: relative;
-  overflow: hidden;
-  padding: clamp(3.25rem, 6vw, 5.5rem) 0;
-  background:
-    radial-gradient(ellipse at 82% 44%, rgba(16, 185, 129, 0.13), transparent 34%),
-    linear-gradient(112deg, #f3fbf7 0%, #fff 53%, #effaf5 100%);
-}
-
-.vklin-page-hero::after {
-  position: absolute;
-  right: -8rem;
-  bottom: -14rem;
-  width: 31rem;
-  height: 31rem;
-  border: 1px solid rgba(5, 150, 105, 0.12);
-  border-radius: 50%;
-  content: "";
-  pointer-events: none;
+  padding: clamp(3.6rem, 6vw, 5.5rem) 0 clamp(2.5rem, 4.5vw, 3.8rem);
+  overflow: visible;
 }
 
 .vklin-page-hero-layout {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(270px, 0.72fr);
+  grid-template-columns: minmax(0, 1fr) minmax(380px, 1.05fr);
   align-items: center;
-  gap: clamp(2rem, 7vw, 6.5rem);
+  gap: clamp(2rem, 4.5vw, 5rem);
 }
 
+/* Eyebrow with green leaf and horizontal rule */
+.vklin-eyebrow-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.95rem;
+}
+
+.vklin-eyebrow-wrap .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #0E7041;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.vklin-eyebrow-leaf {
+  color: #16A34A;
+  flex-shrink: 0;
+}
+
+.vklin-eyebrow-line {
+  width: 34px;
+  height: 1.5px;
+  background: #22C55E;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+/* Hero Typography */
 .vklin-page-copy h1 {
   max-width: 680px;
-  margin: 0.9rem 0 1rem;
+  margin: 0 0 1.25rem 0;
   color: var(--vklin-ink);
-  font-size: clamp(2.55rem, 5.25vw, 4.65rem);
-  line-height: 1.04;
-  letter-spacing: -0.055em;
+  font-size: clamp(2.85rem, 5.2vw, 4.5rem);
+  font-weight: 850;
+  line-height: 1.06;
+  letter-spacing: -0.04em;
 }
 
 .vklin-page-copy h1 span {
-  color: #07815f;
+  color: #0C2E1F;
 }
 
 .vklin-page-copy>p {
-  max-width: 590px;
+  max-width: 530px;
   color: var(--vklin-muted);
-  font-size: clamp(0.98rem, 1.35vw, 1.12rem);
-  line-height: 1.7;
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.65;
+  margin: 0 0 2rem 0;
+  font-weight: 450;
 }
 
+/* Hero Dual Pill Action Buttons */
 .vklin-page-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem 1.35rem;
-  margin-top: 1.65rem;
+  gap: 0.95rem;
 }
 
-.vklin-page-text-link,
-.vklin-page-range-note a {
+.btn-vklin-primary {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  color: #087c5c;
-  font-size: 0.88rem;
-  font-weight: 700;
-}
-
-.vklin-page-text-link:hover,
-.vklin-page-range-note a:hover {
-  color: #045c43;
-}
-
-.vklin-page-brand-card {
-  position: relative;
-  display: grid;
-  min-height: 300px;
-  overflow: hidden;
-  place-items: center;
-  border: 1px solid rgba(133, 197, 165, 0.5);
-  border-radius: 28px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(224, 246, 234, 0.84));
-  box-shadow: 0 24px 65px rgba(21, 93, 63, 0.09);
-}
-
-.vklin-page-brand-orbit {
-  position: absolute;
-  width: 245px;
-  height: 245px;
-  border: 1px solid rgba(5, 150, 105, 0.12);
-  border-radius: 50%;
-}
-
-.vklin-page-brand-orbit-one {
-  transform: scale(1.28);
-}
-
-.vklin-page-brand-orbit-two {
-  transform: scale(1.65);
-}
-
-.vklin-page-logo-wrap {
-  position: relative;
-  width: min(74%, 300px);
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  border-radius: 18px;
-  background: #fff;
-  box-shadow: 0 14px 40px rgba(16, 91, 65, 0.11);
-}
-
-.vklin-page-logo-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.vklin-page-brand-caption {
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  border: 1px solid #d8eee2;
-  border-radius: 999px;
-  padding: 0.45rem 0.75rem;
-  background: rgba(255, 255, 255, 0.9);
-  color: #486d5b;
-  font-size: 0.7rem;
-  font-weight: 700;
-}
-
-.vklin-page-brand-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #0aa879;
-  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12);
-}
-
-.vklin-page-categories {
-  padding-top: clamp(3rem, 5vw, 4.5rem);
-  padding-bottom: clamp(3rem, 5vw, 4.5rem);
-  background: #fff;
-}
-
-.vklin-page-section-heading {
-  align-items: end;
-  margin-bottom: 1.7rem;
-}
-
-.vklin-page-section-heading h2 {
-  margin-top: 0.55rem;
-  color: var(--vklin-ink);
-  font-size: clamp(1.8rem, 3.3vw, 2.65rem);
-  letter-spacing: -0.04em;
-}
-
-.vklin-page-section-heading>p {
-  max-width: 390px;
-  color: var(--vklin-muted);
+  justify-content: center;
+  gap: 0.55rem;
+  background: #0E7041;
+  color: #FFFFFF !important;
   font-size: 0.94rem;
-  line-height: 1.65;
+  font-weight: 700;
+  padding: 0.85rem 2rem;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(14, 112, 65, 0.28);
+  text-decoration: none;
+  transition: all 220ms ease;
+  border: 1px solid transparent;
 }
 
-.vklin-page-category-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.9rem;
+.btn-vklin-primary:hover {
+  background: #095732;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(14, 112, 65, 0.38);
+  color: #FFFFFF !important;
+  text-decoration: none;
 }
 
-.vklin-page-category-card {
+.btn-vklin-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  background: #FFFFFF;
+  color: #0E7041 !important;
+  font-size: 0.94rem;
+  font-weight: 700;
+  padding: 0.85rem 1.95rem;
+  border-radius: 999px;
+  border: 1.5px solid #0E7041;
+  box-shadow: 0 2px 10px rgba(14, 112, 65, 0.05);
+  text-decoration: none;
+  transition: all 220ms ease;
+}
+
+.btn-vklin-secondary:hover {
+  background: #F0FDF4;
+  border-color: #0E7041;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(14, 112, 65, 0.12);
+  color: #0E7041 !important;
+  text-decoration: none;
+}
+
+/* Right Column 3D Showcase Card */
+.vklin-hero-showcase-wrap {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.vklin-hero-showcase-card {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 400ms ease;
+}
+
+.vklin-hero-showcase-card:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.vklin-showcase-img {
+  width: 100%;
+  height: auto;
   display: block;
-  min-height: 180px;
-  border: 1px solid #deeee5;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 36px rgba(14, 112, 65, 0.08));
+}
+
+/* -------------------------------------------------------------------------- */
+/* Categories Section — Matching Image 2 Split Heading & 7 Cards in 1 Row     */
+/* -------------------------------------------------------------------------- */
+.vklin-page-categories {
+  padding-top: clamp(2.5rem, 4.5vw, 4rem);
+  padding-bottom: clamp(4rem, 6vw, 6rem);
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.vklin-categories-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.8rem;
+  margin-bottom: clamp(1.8rem, 3vw, 2.6rem);
+  flex-wrap: wrap;
+}
+
+.vklin-categories-head-left h2 {
+  color: var(--vklin-ink);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 850;
+  letter-spacing: -0.035em;
+  margin: 0;
+  line-height: 1.12;
+}
+
+.vklin-categories-head-right {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  max-width: 440px;
+}
+
+.vklin-head-divider {
+  width: 2px;
+  height: 40px;
+  background: #22C55E;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.vklin-categories-head-right p {
+  color: var(--vklin-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 450;
+}
+
+/* 7 Clean Category Cards in ONE Horizontal Row on Desktop */
+.vklin-category-row-7 {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: clamp(0.65rem, 0.95vw, 1.15rem);
+  margin-bottom: 2rem;
+}
+
+.vklin-cat-7-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 185px;
+  background: #FFFFFF;
+  border: 1px solid var(--vklin-card-border);
   border-radius: 16px;
-  padding: 1.1rem 1.1rem 1.2rem;
-  background: linear-gradient(150deg, #fff, #f7fcf9);
+  padding: clamp(1rem, 1.35vw, 1.35rem) clamp(0.85rem, 1.1vw, 1.15rem);
   color: inherit;
   text-decoration: none;
-  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  box-shadow: 0 4px 18px rgba(12, 46, 31, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+  position: relative;
 }
 
-.vklin-page-category-card:hover {
-  transform: translateY(-3px);
-  border-color: #a8d7bd;
-  box-shadow: 0 12px 28px rgba(21, 93, 63, 0.08);
+.vklin-cat-7-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(34, 197, 94, 0.6);
+  box-shadow: 0 12px 28px rgba(14, 112, 65, 0.12);
+  text-decoration: none;
 }
 
-.vklin-page-category-card:focus-visible {
-  outline: 3px solid #07815f;
+.vklin-cat-7-card:focus-visible {
+  outline: 3px solid #0E7041;
   outline-offset: 3px;
 }
 
-.vklin-page-category-topline {
+.vklin-cat-7-topline {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 0.85rem;
 }
 
-.vklin-page-category-icon,
-.vklin-page-range-mark {
-  display: grid;
-  width: 39px;
-  height: 39px;
-  place-items: center;
-  border: 1px solid #d5eee0;
-  border-radius: 12px;
-  background: #effaf4;
-  color: #07815f;
+.vklin-cat-7-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #F0FDF4;
+  border: 1px solid rgba(34, 197, 94, 0.28);
+  color: #0E7041;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.vklin-page-category-number {
-  color: #91a99b;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
-}
-
-.vklin-page-category-card h3 {
-  margin-top: 1.05rem;
-  color: var(--vklin-ink);
-  font-size: 1rem;
-  letter-spacing: -0.02em;
-}
-
-.vklin-page-category-card p {
-  margin-top: 0.35rem;
-  color: var(--vklin-muted);
+.vklin-cat-7-number {
   font-size: 0.8rem;
-  line-height: 1.55;
+  font-weight: 750;
+  color: #0C2E1F;
+  letter-spacing: 0.04em;
 }
 
+.vklin-cat-7-card h3 {
+  font-size: clamp(0.86rem, 1.05vw, 0.98rem);
+  font-weight: 800;
+  color: var(--vklin-ink);
+  line-height: 1.25;
+  margin: 0.85rem 0 0.4rem 0;
+  letter-spacing: -0.015em;
+}
+
+.vklin-cat-7-card p {
+  font-size: clamp(0.72rem, 0.82vw, 0.79rem);
+  line-height: 1.48;
+  color: #526E5D;
+  margin: 0;
+}
+
+/* Translucent Mint Range Note Bar */
 .vklin-page-range-note {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  margin-top: 1rem;
-  border: 1px solid #dcefe4;
+  gap: 0.95rem;
+  border: 1px solid rgba(187, 247, 208, 0.9);
   border-radius: 14px;
-  padding: 0.85rem 1rem;
-  background: #f7fcf9;
+  padding: 0.85rem 1.4rem;
+  background: rgba(240, 253, 244, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.vklin-page-range-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: #DCFCE7;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #0E7041;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .vklin-page-range-note p {
   flex: 1;
-  color: #557466;
-  font-size: 0.83rem;
+  color: #2D523E;
+  font-size: 0.86rem;
+  font-weight: 500;
+  margin: 0;
 }
 
-.vklin-page-range-mark {
-  width: 35px;
-  height: 35px;
-  flex: 0 0 auto;
-  border-radius: 10px;
+.vklin-range-browse-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #0E7041;
+  font-size: 0.84rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: all 180ms ease;
 }
 
-.vklin-page-range-note a {
-  flex: 0 0 auto;
-  font-size: 0.82rem;
+.vklin-range-browse-btn:hover {
+  color: #095732;
+  transform: translateX(3px);
+  text-decoration: none;
 }
 
-@media (max-width: 1100px) {
-  .vklin-page-category-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+/* -------------------------------------------------------------------------- */
+/* Responsive Media Queries                                                   */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 1180px) {
+  .vklin-category-row-7 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.85rem;
   }
 }
 
 @media (max-width: 900px) {
   .vklin-page-hero-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.7fr);
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.95fr);
     gap: 2rem;
   }
 
-  .vklin-page-brand-card {
-    min-height: 250px;
-  }
-
-  .vklin-page-category-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .vklin-category-row-7 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .vklin-page-hero {
-    padding: 2.6rem 0 2.2rem;
+    padding: 2.8rem 0 2rem;
   }
 
   .vklin-page-hero-layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.6rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: left;
   }
 
   .vklin-page-copy h1 {
-    max-width: 540px;
-    font-size: clamp(2.35rem, 10.5vw, 3.5rem);
+    font-size: clamp(2.2rem, 8vw, 3rem);
+    margin-bottom: 0.95rem;
   }
 
   .vklin-page-copy>p {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .vklin-hero-showcase-wrap {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .vklin-categories-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .vklin-head-divider {
+    display: none;
+  }
+
+  .vklin-category-row-7 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .vklin-cat-7-card {
+    min-height: 165px;
+    padding: 1rem 0.85rem 1.1rem;
   }
 
   .vklin-page-actions {
-    gap: 0.8rem 1rem;
-    margin-top: 1.25rem;
+    width: 100%;
   }
 
-  .vklin-page-brand-card {
-    min-height: 205px;
-    border-radius: 22px;
-  }
-
-  .vklin-page-brand-orbit {
-    width: 175px;
-    height: 175px;
-  }
-
-  .vklin-page-logo-wrap {
-    width: min(66%, 230px);
-  }
-
-  .vklin-page-section-heading {
-    margin-bottom: 1.2rem;
-  }
-
-  .vklin-page-section-heading h2 {
-    font-size: 1.8rem;
-  }
-
-  .vklin-page-category-grid {
-    gap: 0.65rem;
-  }
-
-  .vklin-page-category-card {
-    min-height: 165px;
-    padding: 0.85rem;
-  }
-
-  .vklin-page-category-card h3 {
-    font-size: 0.91rem;
-  }
-
-  .vklin-page-category-card p {
-    font-size: 0.75rem;
+  .btn-vklin-primary,
+  .btn-vklin-secondary {
+    flex: 1 1 100%;
   }
 
   .vklin-page-range-note {
     flex-wrap: wrap;
-    gap: 0.65rem;
+    gap: 0.75rem;
   }
 
   .vklin-page-range-note p {
-    flex-basis: calc(100% - 48px);
+    flex-basis: calc(100% - 46px);
   }
 
-  .vklin-page-range-note a {
-    margin-left: 2.9rem;
+  .vklin-range-browse-btn {
+    margin-left: 2.6rem;
   }
 }
 
-@media (max-width: 370px) {
-  .vklin-page-category-grid {
-    grid-template-columns: minmax(0, 1fr);
+@media (max-width: 480px) {
+  .vklin-category-row-7 {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
   }
 
-  .vklin-page-category-card {
-    min-height: 0;
-  }
-
-  .vklin-page-actions .btn {
-    width: 100%;
-    justify-content: center;
+  .vklin-cat-7-card {
+    min-height: auto;
+    padding: 0.85rem 0.85rem 0.9rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .vklin-page-category-card {
-    transition: none;
-  }
 
-  .vklin-page-category-card:hover {
-    transform: none;
+  .vklin-cat-7-card,
+  .vklin-hero-showcase-card,
+  .btn-vklin-primary,
+  .btn-vklin-secondary {
+    transition: none;
+    transform: none !important;
   }
 }
 
@@ -24266,7 +24375,7 @@ a.hp-contact-card:hover svg:last-child {
   }
 
   .hp-expanded-description {
-    font-size: 0.79rem !important;
+    font-size: 0.78rem !important;
     line-height: 1.44 !important;
   }
 
@@ -25088,6 +25197,7 @@ main {
     line-height: 1.34 !important;
   }
 }
+
 /* ------------------------------------------------------------------ */
 /* POLYDOR REAL-WORLD WORK APPLICATION GRID                           */
 /* ------------------------------------------------------------------ */
@@ -25258,26 +25368,26 @@ main {
   }
 
   /* 5th (feature) card centered across the row */
-  .hp-vklin-cards-grid > li:last-child {
+  .hp-vklin-cards-grid>li:last-child {
     grid-column: span 2;
     display: flex;
     justify-content: center;
   }
 
-  .hp-vklin-cards-grid > li:last-child .hp-vklin-item-card {
+  .hp-vklin-cards-grid>li:last-child .hp-vklin-item-card {
     max-width: 250px;
   }
 }
 
 /* 5th (feature) card centered across the row on tablet widths (4-col grid) */
 @media (min-width: 481px) and (max-width: 1023px) {
-  .hp-vklin-cards-grid > li:last-child {
+  .hp-vklin-cards-grid>li:last-child {
     grid-column: 1 / -1;
     display: flex;
     justify-content: center;
   }
 
-  .hp-vklin-cards-grid > li:last-child .hp-vklin-item-card {
+  .hp-vklin-cards-grid>li:last-child .hp-vklin-item-card {
     max-width: 320px;
   }
 }
@@ -25424,15 +25534,19 @@ main {
     padding: 1.5rem 1.15rem;
     margin-top: 2rem;
   }
+
   .hp-polydor-work-title {
     font-size: 1.25rem;
   }
+
   .hp-vklin-shelf-container {
     margin-top: 2rem;
   }
+
   .hp-vklin-products-showcase {
     padding: 1.5rem 1.15rem;
   }
+
   .hp-vklin-showcase-head h3 {
     font-size: 1.25rem;
   }
@@ -26527,6 +26641,7 @@ main {
     gap: 1.75rem;
     padding: 1.5rem;
   }
+
   .vklin-demo-player-box {
     min-height: 340px;
   }
@@ -26536,16 +26651,20 @@ main {
   .vklin-action-section {
     padding: 2.5rem 0;
   }
+
   .vklin-stage-topbar {
     padding: 0.85rem 1.15rem;
   }
+
   .vklin-stage-grid {
     padding: 1.15rem;
   }
+
   .vklin-stage-foot {
     flex-direction: column;
     align-items: stretch;
   }
+
   .vklin-demo-explore-btn,
   .vklin-demo-whatsapp-btn {
     width: 100%;
@@ -26690,8 +26809,9 @@ main {
 }
 
 @media (max-width: 380px) {
+
   /* Drop the tagline, keep the V-Klin logo pill + dots only */
-  .vklin-brand-pill > span:last-child {
+  .vklin-brand-pill>span:last-child {
     display: none !important;
   }
 }
@@ -26750,6 +26870,7 @@ main {
   0% {
     width: 0%;
   }
+
   100% {
     width: 100%;
   }
@@ -26785,10 +26906,13 @@ main {
 }
 
 @keyframes vklin-dot-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.4;
     transform: scale(1.3);
@@ -26984,6 +27108,7 @@ main {
   0% {
     width: 0%;
   }
+
   100% {
     width: 100%;
   }
@@ -27044,10 +27169,10 @@ main {
 
 /* Grid/flex children must never force the track wider than the stage on
    narrow screens (min-width: auto lets intrinsic content blow out "1fr"). */
-.vklin-mini-grid > *,
-.vklin-mini-video-col > *,
-.vklin-mini-content-col > *,
-.vklin-mini-stage-foot > * {
+.vklin-mini-grid>*,
+.vklin-mini-video-col>*,
+.vklin-mini-content-col>*,
+.vklin-mini-stage-foot>* {
   min-width: 0;
 }
 
@@ -27434,18 +27559,22 @@ main {
     gap: 1.25rem;
     padding: 1.15rem;
   }
+
   .vklin-mini-stage-foot {
     flex-direction: column;
     align-items: stretch;
   }
+
   .vklin-mini-tab-item {
     min-width: 124px;
     padding: 0.45rem 0.65rem;
     gap: 0.5rem;
   }
+
   .vklin-mini-tab-text strong {
     font-size: 0.76rem;
   }
+
   .vklin-mini-tab-text small {
     font-size: 0.63rem;
   }
@@ -28151,8 +28280,8 @@ main {
   padding: 1.5rem 1.65rem 1.6rem;
   box-shadow: 0 4px 16px rgba(16, 33, 59, 0.04);
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease;
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease;
   display: flex;
   flex-direction: column;
 }
@@ -28185,10 +28314,10 @@ main {
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.2s ease,
-              border-color 0.2s ease,
-              color 0.2s ease,
-              box-shadow 0.25s ease;
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.25s ease;
 }
 
 .industrial-water-page .industrial-approach-card:hover .industrial-approach-icon-box {
@@ -29254,9 +29383,9 @@ main {
   padding: 1.2rem 1.25rem;
   box-shadow: 0 4px 16px rgba(16, 33, 59, 0.04);
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease,
-              background 0.25s ease;
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease,
+    background 0.25s ease;
   cursor: default;
 }
 
@@ -29281,10 +29410,10 @@ main {
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.2s ease,
-              color 0.2s ease,
-              border-color 0.2s ease,
-              box-shadow 0.25s ease;
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.25s ease;
 }
 
 .boiler-cooling-page .boiler-feature-col:hover .boiler-feature-icon-box {
@@ -29433,8 +29562,8 @@ main {
   justify-content: space-between;
   min-height: 290px;
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease;
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease;
 }
 
 .boiler-cooling-page .boiler-system-card:hover {
@@ -29467,10 +29596,10 @@ main {
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.2s ease,
-              color 0.2s ease,
-              border-color 0.2s ease,
-              box-shadow 0.25s ease;
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.25s ease;
 }
 
 .boiler-cooling-page .boiler-system-card:hover .boiler-card-icon-box {
@@ -29749,6 +29878,7 @@ main {
   color: #059669;
   border-color: #A7F3D0;
 }
+
 .boiler-cooling-page .boiler-benefit-card.color-green:hover {
   border-color: #A7F3D0;
   box-shadow: 0 10px 28px rgba(5, 150, 105, 0.14);
@@ -29759,6 +29889,7 @@ main {
   color: #E11D48;
   border-color: #FECDD3;
 }
+
 .boiler-cooling-page .boiler-benefit-card.color-red:hover {
   border-color: #FECDD3;
   box-shadow: 0 10px 28px rgba(225, 29, 72, 0.14);
@@ -29769,6 +29900,7 @@ main {
   color: #D97706;
   border-color: #FDE68A;
 }
+
 .boiler-cooling-page .boiler-benefit-card.color-orange:hover {
   border-color: #FDE68A;
   box-shadow: 0 10px 28px rgba(217, 119, 6, 0.14);
@@ -29779,6 +29911,7 @@ main {
   color: #0284C7;
   border-color: #BAE6FD;
 }
+
 .boiler-cooling-page .boiler-benefit-card.color-blue:hover {
   border-color: #BAE6FD;
   box-shadow: 0 10px 28px rgba(2, 132, 199, 0.14);
@@ -29877,12 +30010,14 @@ main {
   color: #059669;
   border: 1px solid #A7F3D0;
 }
+
 .boiler-cooling-page .boiler-timeline-step.color-green .boiler-step-circle-box {
   border-color: #10B981;
   color: #059669;
   background: #F0FDF4;
   box-shadow: 0 6px 18px rgba(5, 150, 105, 0.10);
 }
+
 .boiler-cooling-page .boiler-timeline-step.color-green:hover .boiler-step-circle-box {
   border-color: #059669;
   background: #ECFDF5;
@@ -29894,12 +30029,14 @@ main {
   color: #E11D48;
   border: 1px solid #FECDD3;
 }
+
 .boiler-cooling-page .boiler-timeline-step.color-red .boiler-step-circle-box {
   border-color: #F43F5E;
   color: #E11D48;
   background: #FFF1F2;
   box-shadow: 0 6px 18px rgba(225, 29, 72, 0.10);
 }
+
 .boiler-cooling-page .boiler-timeline-step.color-red:hover .boiler-step-circle-box {
   border-color: #E11D48;
   background: #FFE4E6;
@@ -29911,12 +30048,14 @@ main {
   color: #D97706;
   border: 1px solid #FDE68A;
 }
+
 .boiler-cooling-page .boiler-timeline-step.color-orange .boiler-step-circle-box {
   border-color: #F59E0B;
   color: #D97706;
   background: #FFFDF0;
   box-shadow: 0 6px 18px rgba(217, 119, 6, 0.10);
 }
+
 .boiler-cooling-page .boiler-timeline-step.color-orange:hover .boiler-step-circle-box {
   border-color: #D97706;
   background: #FFFBEB;
@@ -29928,12 +30067,14 @@ main {
   color: #0284C7;
   border: 1px solid #BAE6FD;
 }
+
 .boiler-cooling-page .boiler-timeline-step.color-blue .boiler-step-circle-box {
   border-color: #0284C7;
   color: #0284C7;
   background: #F4F8FD;
   box-shadow: 0 6px 18px rgba(2, 132, 199, 0.10);
 }
+
 .boiler-cooling-page .boiler-timeline-step.color-blue:hover .boiler-step-circle-box {
   border-color: #0369A1;
   background: #EAF3F8;
@@ -30768,17 +30909,17 @@ main {
   }
 
   .boiler-cooling-page .boiler-product-arrow-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #0284C7;
-  color: #FFFFFF;
-  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-}
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #0284C7;
+    color: #FFFFFF;
+    box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
 }
 
 @media (max-width: 360px) {
@@ -30836,6 +30977,7 @@ main {
 /* rely on JS to add .is-visible).                                      */
 /* ------------------------------------------------------------------ */
 @media (scripting: none) {
+
   .hp-reveal,
   .hp-reveal-scale,
   .hp-reveal-section {
@@ -30844,7 +30986,7 @@ main {
     animation: none !important;
   }
 
-  .hp-stagger > * {
+  .hp-stagger>* {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
@@ -31161,9 +31303,9 @@ main {
   padding: 1.2rem 1.25rem;
   box-shadow: 0 4px 16px rgba(16, 33, 59, 0.04);
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease,
-              background 0.25s ease;
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease,
+    background 0.25s ease;
   cursor: default;
 }
 
@@ -31192,10 +31334,10 @@ main {
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.2s ease,
-              color 0.2s ease,
-              border-color 0.2s ease,
-              box-shadow 0.25s ease;
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.25s ease;
 }
 
 .ro-effluent-page .ro-feature-col:hover .ro-feature-icon-box {
@@ -31339,8 +31481,8 @@ main {
   justify-content: space-between;
   min-height: 290px;
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease;
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease;
 }
 
 .ro-effluent-page .ro-process-card:hover {
@@ -31373,10 +31515,10 @@ main {
   flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(2, 132, 199, 0.10);
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.2s ease,
-              color 0.2s ease,
-              border-color 0.2s ease,
-              box-shadow 0.25s ease;
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.25s ease;
 }
 
 .ro-effluent-page .ro-process-card:hover .ro-card-icon-box {
@@ -31652,6 +31794,7 @@ main {
   color: #059669;
   border-color: #A7F3D0;
 }
+
 .ro-effluent-page .ro-benefit-card.color-green:hover {
   border-color: #A7F3D0;
   box-shadow: 0 10px 28px rgba(5, 150, 105, 0.14);
@@ -31662,6 +31805,7 @@ main {
   color: #E11D48;
   border-color: #FECDD3;
 }
+
 .ro-effluent-page .ro-benefit-card.color-red:hover {
   border-color: #FECDD3;
   box-shadow: 0 10px 28px rgba(225, 29, 72, 0.14);
@@ -31672,6 +31816,7 @@ main {
   color: #D97706;
   border-color: #FDE68A;
 }
+
 .ro-effluent-page .ro-benefit-card.color-orange:hover {
   border-color: #FDE68A;
   box-shadow: 0 10px 28px rgba(217, 119, 6, 0.14);
@@ -31682,6 +31827,7 @@ main {
   color: #0284C7;
   border-color: #BAE6FD;
 }
+
 .ro-effluent-page .ro-benefit-card.color-blue:hover {
   border-color: #BAE6FD;
   box-shadow: 0 10px 28px rgba(2, 132, 199, 0.14);
@@ -31793,12 +31939,14 @@ main {
   color: #059669;
   border: 1px solid #A7F3D0;
 }
+
 .ro-effluent-page .ro-timeline-step.color-green .ro-step-circle-box {
   border-color: #10B981;
   color: #059669;
   background: #F0FDF4;
   box-shadow: 0 6px 18px rgba(5, 150, 105, 0.10);
 }
+
 .ro-effluent-page .ro-timeline-step.color-green:hover .ro-step-circle-box {
   border-color: #059669;
   background: #ECFDF5;
@@ -31810,12 +31958,14 @@ main {
   color: #E11D48;
   border: 1px solid #FECDD3;
 }
+
 .ro-effluent-page .ro-timeline-step.color-red .ro-step-circle-box {
   border-color: #F43F5E;
   color: #E11D48;
   background: #FFF1F2;
   box-shadow: 0 6px 18px rgba(225, 29, 72, 0.10);
 }
+
 .ro-effluent-page .ro-timeline-step.color-red:hover .ro-step-circle-box {
   border-color: #E11D48;
   background: #FFE4E6;
@@ -31827,12 +31977,14 @@ main {
   color: #D97706;
   border: 1px solid #FDE68A;
 }
+
 .ro-effluent-page .ro-timeline-step.color-orange .ro-step-circle-box {
   border-color: #F59E0B;
   color: #D97706;
   background: #FFFDF0;
   box-shadow: 0 6px 18px rgba(217, 119, 6, 0.10);
 }
+
 .ro-effluent-page .ro-timeline-step.color-orange:hover .ro-step-circle-box {
   border-color: #D97706;
   background: #FFFBEB;
@@ -31844,12 +31996,14 @@ main {
   color: #0284C7;
   border: 1px solid #BAE6FD;
 }
+
 .ro-effluent-page .ro-timeline-step.color-blue .ro-step-circle-box {
   border-color: #0284C7;
   color: #0284C7;
   background: #F4F8FD;
   box-shadow: 0 6px 18px rgba(2, 132, 199, 0.10);
 }
+
 .ro-effluent-page .ro-timeline-step.color-blue:hover .ro-step-circle-box {
   border-color: #0369A1;
   background: #EAF3F8;
@@ -32559,17 +32713,17 @@ main {
   }
 
   .ro-effluent-page .ro-product-arrow-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #0284C7;
-  color: #FFFFFF;
-  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-}
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #0284C7;
+    color: #FFFFFF;
+    box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
 }
 
 @media (max-width: 360px) {
@@ -32625,6 +32779,7 @@ main {
    1024-1279px (nav content > available width). Compact the bar in this band
    only; >=1280px keeps the enlarged layout untouched. */
 @media (min-width: 1024px) and (max-width: 1279px) {
+
   .nav-trigger,
   .nav-direct-link {
     font-size: 0.85rem !important;
@@ -33085,7 +33240,7 @@ body:has(.construction-solution-page) .footer-bottom {
   transition: background-color 0.2s ease;
 }
 
-.construction-solution-page .construction-feature-col + .construction-feature-col {
+.construction-solution-page .construction-feature-col+.construction-feature-col {
   border-left: 1px solid #E2EBF6;
 }
 
@@ -33735,7 +33890,7 @@ body:has(.construction-solution-page) .footer-bottom {
     border-radius: 16px;
   }
 
-  .construction-solution-page .construction-feature-col + .construction-feature-col {
+  .construction-solution-page .construction-feature-col+.construction-feature-col {
     border-left: none;
     border-top: 1px solid #E2EBF6;
   }
@@ -33854,8 +34009,8 @@ body:has(.construction-solution-page) .footer-bottom {
   flex-direction: column;
   padding: 1.5rem 1.65rem 1.6rem;
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease;
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease;
 }
 
 .specialty-overview-page .industrial-approach-card:hover {
@@ -34188,9 +34343,9 @@ body:has(.construction-solution-page) .footer-bottom {
   padding: 1.2rem 1.25rem;
   box-shadow: 0 4px 16px rgba(16, 33, 59, 0.04);
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease,
-              background 0.25s ease;
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease,
+    background 0.25s ease;
   cursor: default;
 }
 
@@ -34214,10 +34369,10 @@ body:has(.construction-solution-page) .footer-bottom {
   justify-content: center;
   flex-shrink: 0;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.2s ease,
-              color 0.2s ease,
-              border-color 0.2s ease,
-              box-shadow 0.25s ease;
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.25s ease;
 }
 
 .specialty-feature-card:hover .specialty-feat-icon-box {
@@ -34271,8 +34426,8 @@ body:has(.construction-solution-page) .footer-bottom {
   padding: 1.6rem 1.75rem 1.75rem;
   box-shadow: 0 4px 18px rgba(16, 33, 59, 0.04);
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease;
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease;
   display: flex;
   flex-direction: column;
 }
@@ -34931,6 +35086,7 @@ body:has(.construction-solution-page) .footer-bottom {
   height: 28px;
   background: #BAE6FD;
 }
+
 /* Key Facts Strip */
 .corosil-facts-strip {
   display: grid;
@@ -35682,6 +35838,7 @@ body:has(.construction-solution-page) .footer-bottom {
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
+
   .corosil-hero-layout,
   .corosil-problems-layout,
   .corosil-specs-layout,
@@ -35888,9 +36045,9 @@ body:has(.construction-solution-page) .footer-bottom {
   padding: 1.25rem 1.3rem;
   box-shadow: 0 4px 16px rgba(16, 33, 59, 0.04);
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease,
-              background 0.25s ease;
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease,
+    background 0.25s ease;
   cursor: default;
 }
 
@@ -35914,10 +36071,10 @@ body:has(.construction-solution-page) .footer-bottom {
   justify-content: center;
   flex-shrink: 0;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.2s ease,
-              color 0.2s ease,
-              border-color 0.2s ease,
-              box-shadow 0.25s ease;
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.25s ease;
 }
 
 .corosil-feature-card:hover .corosil-feat-icon-box {
@@ -36077,8 +36234,17 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 @keyframes corosilPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.85); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
 }
 
 .corosil-video-res-badge {
@@ -36401,6 +36567,11 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 @media (max-width: 640px) {
+<<<<<<< HEAD
+=======
+
+  .corosil-hero-visual-card,
+>>>>>>> 4972fde (Updated V-Klin website design)
   .specialty-hero-visual-card {
     border-radius: 18px;
     border-width: 3px;
@@ -36551,8 +36722,17 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 @keyframes specVideoPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.85); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
 }
 
 .specialty-video-badge {
@@ -36782,6 +36962,7 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 @media (max-width: 640px) {
+
   .industrial-hero-visual-badge,
   .boiler-hero-visual-badge,
   .ro-hero-visual-badge {
@@ -36796,6 +36977,7 @@ body:has(.construction-solution-page) .footer-bottom {
     padding: 0.32rem 0.72rem;
     gap: 0.4rem;
   }
+<<<<<<< HEAD
 }
 
 /* ==========================================================================
@@ -37092,3 +37274,6 @@ body:has(.construction-solution-page) .footer-bottom {
     justify-content: center;
   }
 }
+=======
+}
+>>>>>>> 4972fde (Updated V-Klin website design)
