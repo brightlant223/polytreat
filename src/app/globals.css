@@ -32714,11 +32714,60 @@ body:has(.construction-solution-page) .footer-bottom {
   position: relative;
   overflow: hidden;
   padding: 2.2rem 0 clamp(5.25rem, 7.5vw, 6.75rem);
-  background:
-    radial-gradient(ellipse 65% 60% at 75% 35%, rgba(186, 230, 253, 0.45) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 50% at 20% 30%, rgba(224, 242, 254, 0.5) 0%, transparent 60%),
-    linear-gradient(135deg, #f0f7fd 0%, #f9fcff 45%, #ebf5fe 100%);
+  background-color: #f0f7fd;
   border-bottom: 1px solid rgba(186, 230, 253, 0.4);
+}
+
+/* Hero Realistic Industrial Background Layer */
+.construction-solution-page .construction-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.65;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Page 1 - Construction & Surface Protection */
+.construction-solution-page.construction-chemistry-page .construction-hero::before,
+.construction-hero.construction-chemistry-hero::before {
+  background-image: url("/images/solutions/construction-hero-bg.jpg");
+  background-position: center 25%;
+}
+
+/* Page 2 - Waterproofing, Repair & Coatings */
+.construction-solution-page.waterproofing-page .construction-hero::before,
+.construction-hero.waterproofing-hero::before {
+  background-image: url("/images/solutions/waterproofing-hero-bg.jpg");
+  background-position: center 30%;
+}
+
+/* Page 3 - Flooring & Joint Sealing */
+.construction-solution-page.flooring-page .construction-hero::before,
+.construction-hero.flooring-hero::before {
+  background-image: url("/images/solutions/flooring-hero-bg.jpg");
+  background-position: center 40%;
+}
+
+/* Hero Soft White & Light-Blue Glass Gradient Overlay (Image 2 reference) */
+.construction-solution-page .construction-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 65% 60% at 75% 35%, rgba(186, 230, 253, 0.35) 0%, transparent 70%),
+    linear-gradient(
+      90deg,
+      rgba(244, 249, 254, 0.94) 0%,
+      rgba(240, 247, 253, 0.88) 38%,
+      rgba(235, 245, 252, 0.58) 68%,
+      rgba(220, 238, 250, 0.62) 100%
+    );
+  pointer-events: none;
+  z-index: 1;
 }
 
 .construction-solution-page .construction-hero-container {
@@ -33553,6 +33602,16 @@ body:has(.construction-solution-page) .footer-bottom {
 
 /* Mobile & Tablet Transition (960px and below) */
 @media (max-width: 960px) {
+  .construction-solution-page .construction-hero::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(244, 249, 254, 0.94) 0%,
+        rgba(240, 247, 253, 0.88) 50%,
+        rgba(224, 240, 252, 0.75) 100%
+      );
+  }
+
   .construction-solution-page .construction-hero-layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
@@ -33614,6 +33673,21 @@ body:has(.construction-solution-page) .footer-bottom {
 @media (max-width: 640px) {
   .construction-solution-page .construction-hero {
     padding: 1.25rem 0 clamp(4.5rem, 9vw, 5.5rem);
+  }
+
+  .construction-solution-page .construction-hero::before {
+    opacity: 0.55;
+    background-position: center top;
+  }
+
+  .construction-solution-page .construction-hero::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(244, 249, 254, 0.96) 0%,
+        rgba(240, 247, 253, 0.92) 55%,
+        rgba(224, 240, 252, 0.80) 100%
+      );
   }
 
   .construction-solution-page .construction-hero-copy h1 {

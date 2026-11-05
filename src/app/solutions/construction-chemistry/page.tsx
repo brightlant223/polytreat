@@ -203,7 +203,7 @@ export default function ConstructionChemistryPage() {
     <main className="construction-solution-page construction-chemistry-page">
       {/* 1. HERO SECTION */}
       <section
-        className="construction-hero"
+        className="construction-hero construction-chemistry-hero"
         aria-labelledby="construction-chemistry-title"
       >
         <div className="container construction-hero-container">

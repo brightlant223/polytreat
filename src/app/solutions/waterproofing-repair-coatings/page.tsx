@@ -194,7 +194,7 @@ export default function WaterproofingRepairCoatingsPage() {
     <main className="construction-solution-page waterproofing-page">
       {/* 1. HERO SECTION */}
       <section
-        className="construction-hero"
+        className="construction-hero waterproofing-hero"
         aria-labelledby="waterproofing-title"
       >
         <div className="container construction-hero-container">

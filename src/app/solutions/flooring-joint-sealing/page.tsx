@@ -195,7 +195,7 @@ export default function FlooringJointSealingPage() {
     <main className="construction-solution-page flooring-page">
       {/* 1. HERO SECTION */}
       <section
-        className="construction-hero"
+        className="construction-hero flooring-hero"
         aria-labelledby="flooring-joint-title"
       >
         <div className="container construction-hero-container">
