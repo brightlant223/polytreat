@@ -207,7 +207,7 @@ export default function VKlinHeroSection() {
           <div className="vklin-hero-visual-wrap">
             <div className="vklin-hero-visual-card">
               <Image
-                src="/images/home/vklin-showcase-reference2.webp"
+                src="/images/home/vklin-clean-showcase-hd.jpg"
                 alt="V-Klin Complete Cleaning & Care Solutions Lineup"
                 width={1600}
                 height={765}
