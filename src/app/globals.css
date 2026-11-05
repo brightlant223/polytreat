@@ -13176,9 +13176,12 @@ body:has(.contact-page) .footer-credit a {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(380px, 1.05fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
   align-items: center;
-  gap: clamp(2rem, 4.5vw, 5rem);
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+  max-width: 1220px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Eyebrow with green leaf and horizontal rule */
@@ -13216,10 +13219,10 @@ body:has(.contact-page) .footer-credit a {
 
 /* Hero Typography */
 .vklin-page-copy h1 {
-  max-width: 680px;
+  max-width: 580px;
   margin: 0 0 1.25rem 0;
   color: var(--vklin-ink);
-  font-size: clamp(2.85rem, 5.2vw, 4.5rem);
+  font-size: clamp(2.65rem, 4.4vw, 4.15rem);
   font-weight: 850;
   line-height: 1.06;
   letter-spacing: -0.04em;
@@ -13230,10 +13233,10 @@ body:has(.contact-page) .footer-credit a {
 }
 
 .vklin-page-copy>p {
-  max-width: 530px;
+  max-width: 500px;
   color: var(--vklin-muted);
-  font-size: clamp(1rem, 1.2vw, 1.12rem);
-  line-height: 1.65;
+  font-size: clamp(0.98rem, 1.15vw, 1.08rem);
+  line-height: 1.6;
   margin: 0 0 2rem 0;
   font-weight: 450;
 }
@@ -13301,7 +13304,7 @@ body:has(.contact-page) .footer-credit a {
 .vklin-hero-showcase-wrap {
   position: relative;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
 }
@@ -13309,7 +13312,7 @@ body:has(.contact-page) .footer-credit a {
 .vklin-hero-showcase-card {
   position: relative;
   width: 100%;
-  max-width: 640px;
+  max-width: 540px;
   display: flex;
   justify-content: center;
   align-items: center;
