@@ -5,6 +5,11 @@ import Image from "next/image";
 
 export const heroSlides = [
   {
+    id: "complete-lineup",
+    title: "V-Klin Complete Household Cleaning Lineup",
+    src: "/images/home/V-Klin Complete Household Cleaning Lineup.jpg",
+  },
+  {
     id: "marble-countertop",
     title: "V-Klin Cleaning Products on Marble Countertop",
     src: "/images/home/V-Klin Cleaning Products on Marble Countertop.png",
@@ -98,3 +103,4 @@ export default function VKlinHeroCarousel({
     </div>
   );
 }
+
