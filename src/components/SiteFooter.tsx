@@ -184,7 +184,7 @@ export default function SiteFooter() {
                   />
                 </Link>
                 <p className={styles.tagline}>
-                  Applied chemistry for industrial water, construction, and everyday facility care.
+                  Applied formulations for industrial water, construction, and everyday facility care.
                 </p>
 
                 <div className={styles.socialBlock}>

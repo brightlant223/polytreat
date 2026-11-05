@@ -148,7 +148,7 @@ export default function SpecialtyHeroSection() {
           <div className="specialty-hero-copy">
             <div className="specialty-hero-eyebrow">
               <FlaskConical size={14} aria-hidden="true" />
-              <span>SPECIALTY CHEMISTRIES &amp; FORMULATIONS</span>
+              <span>SPECIALTY FORMULATIONS &amp; SOLUTIONS</span>
             </div>
 
             {/* Synchronized Headline (changes at exact same time as image) */}

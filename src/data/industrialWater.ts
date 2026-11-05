@@ -122,7 +122,7 @@ export const industrialChallenges: IndustrialChallenge[] = [
     manages: [
       "Mineral scaling on membrane surfaces",
       "Fouling and biofilm build-up across the membrane stack",
-      "Feedwater chemistry that is scaling or corrosive to the membrane",
+      "Feedwater composition that is scaling or corrosive to the membrane",
       "Cleaning routines, whether the system stays running or is taken offline",
     ],
   },

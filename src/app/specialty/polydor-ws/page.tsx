@@ -267,9 +267,9 @@ export default function PolydorWsPage() {
         <div className="container">
           <div className="polydor-problems-layout">
             <div className="polydor-problems-visual-col">
-              <div className="polydor-chemistry-card">
+              <div className="polydor-neutralisation-card">
                 <span className="polydor-card-kicker">Chemical Adduct Mechanism</span>
-                <h3 className="polydor-chemistry-title">From Volatile Odour to Stable Non-Odorous Adduct</h3>
+                <h3 className="polydor-neutralisation-title">From Volatile Odour to Stable Non-Odorous Adduct</h3>
                 <div className="polydor-reaction-flow">
                   <div className="polydor-reaction-step">
                     <span className="polydor-step-tag is-unstable">Malodorous State</span>
@@ -286,7 +286,7 @@ export default function PolydorWsPage() {
                     <span className="polydor-formula-desc">Stable, non-volatile molecular complexes permanently stripped of malodour</span>
                   </div>
                 </div>
-                <div className="polydor-chemistry-note">
+                <div className="polydor-neutralisation-note">
                   <Info size={14} aria-hidden="true" />
                   <span>Permanently alters molecular dipole bonds rather than temporarily fatiguing olfactory receptors.</span>
                 </div>

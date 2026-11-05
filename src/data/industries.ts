@@ -47,7 +47,7 @@ export type IndustrySector = {
  * sector names only. The 2022 website published a list of around eighty-five
  * customer organisations, and those names are deliberately not republished:
  * most of those relationships are decades old and each name would need
- * current written approval. The sectors describe where the chemistry
+ * current written approval. The sectors describe where the formulations
  * applies, not who buys it.
  */
 export const operatingEnvironments: OperatingEnvironment[] = [
@@ -71,7 +71,7 @@ export const operatingEnvironments: OperatingEnvironment[] = [
       "Water and building services sit alongside construction applications such as waterproofing, concrete repair, protective coatings, flooring, and joints.",
     contexts: ["Building water services", "Waterproofing", "Protective surface", "Concrete repair"],
     link: "/solutions/construction-chemistry",
-    linkLabel: "Browse construction chemistry",
+    linkLabel: "Browse construction solutions",
   },
   {
     id: "facilities-institutions",
@@ -96,7 +96,7 @@ export const productMapGroups: ProductMapGroup[] = [
   {
     id: "industrial-water",
     title: "Industrial water & process",
-    summary: "Water treatment chemistry for the systems that run a plant.",
+    summary: "Water treatment solutions for the systems that run a plant.",
     items: [
       { label: "Cooling water", href: "/solutions/boiler-cooling-water#cooling-water" },
       { label: "Boiler water", href: "/solutions/boiler-cooling-water#boiler-water" },
@@ -167,7 +167,7 @@ export const industrySectors: IndustrySector[] = [
     id: "chemicals",
     title: "Chemicals, synthetics & paints",
     description:
-      "Process chemistry, paint preservation and corrosion control on steel and equipment.",
+      "Process formulations, paint preservation and corrosion control on steel and equipment.",
     areas: [
       { label: "Paint preservatives", href: "/solutions/industrial-water#other-categories" },
       { label: "Rust conversion (COROSIL)", href: "/specialty/corosil" },
@@ -178,7 +178,7 @@ export const industrySectors: IndustrySector[] = [
     id: "beverage",
     title: "Breweries, distilleries & beverage",
     description:
-      "Wastewater odour control, process water chemistry and steam for continuous plants.",
+      "Wastewater odour control, process water treatment and steam for continuous plants.",
     areas: [
       { label: "Odour control (POLYDOR-WS)", href: "/specialty/polydor-ws" },
       { label: "Effluent treatment", href: "/solutions/ro-effluent#effluent-treatment" },
@@ -189,7 +189,7 @@ export const industrySectors: IndustrySector[] = [
     id: "food",
     title: "Dairy, poultry & food processing",
     description:
-      "Hygiene chemistry for shared spaces, plus odour control where waste is handled.",
+      "Hygiene formulations for shared spaces, plus odour control where waste is handled.",
     areas: [
       { label: "V-Klin cleaning range", href: "/vklin/products" },
       { label: "Odour control (POLYDOR-WS)", href: "/specialty/polydor-ws" },
@@ -214,7 +214,7 @@ export const industrySectors: IndustrySector[] = [
       "Cleaning ranges for shared rooms, and protective coating systems for the building.",
     areas: [
       { label: "V-Klin cleaning range", href: "/vklin/products" },
-      { label: "Construction chemistry", href: "/solutions/construction-chemistry" },
+      { label: "Construction & surface protection", href: "/solutions/construction-chemistry" },
     ],
   },
   {
@@ -268,7 +268,7 @@ export const industrySectors: IndustrySector[] = [
     areas: [
       { label: "Rust conversion (COROSIL)", href: "/specialty/corosil" },
       { label: "Boiler & cooling water", href: "/solutions/boiler-cooling-water" },
-      { label: "Construction chemistry", href: "/solutions/construction-chemistry" },
+      { label: "Construction & surface protection", href: "/solutions/construction-chemistry" },
     ],
   },
   {

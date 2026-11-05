@@ -8,7 +8,7 @@ import { locationSites } from "@/data/locations";
 export const metadata: Metadata = {
   title: "Contact PolyTreat | PolyTreat Chemicals Pvt. Ltd.",
   description:
-    "Contact PolyTreat about industrial water treatment, construction chemistry, and V-Klin cleaning and facility-care products.",
+    "Contact PolyTreat about industrial water treatment, construction solutions, and V-Klin cleaning and facility-care products.",
 };
 
 const locations = locationSites.map((site) => ({
@@ -34,7 +34,7 @@ export default function ContactPage() {
               <span className="contact-hero-highlight">your requirement.</span>
             </h1>
             <p>
-              Get in touch about industrial water treatment, construction chemistry, or V-Klin
+              Get in touch about industrial water treatment, construction solutions, or V-Klin
               cleaning and facility care.
             </p>
             <a href="#contact-form" className="contact-reference-hero-link">

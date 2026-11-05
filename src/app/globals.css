@@ -34987,7 +34987,7 @@ body:has(.construction-solution-page) .footer-bottom {
   gap: clamp(2rem, 4vw, 3.5rem);
 }
 
-.corosil-chemistry-card {
+.corosil-conversion-card {
   border: 1.5px solid #BAE6FD;
   border-radius: 20px;
   padding: 1.35rem 1.6rem;
@@ -35005,7 +35005,7 @@ body:has(.construction-solution-page) .footer-bottom {
   margin-bottom: 0.5rem;
 }
 
-.corosil-chemistry-title {
+.corosil-conversion-title {
   margin: 0 0 0.95rem;
   font-size: 1.25rem;
   font-weight: 850;
@@ -35079,7 +35079,7 @@ body:has(.construction-solution-page) .footer-bottom {
   font-weight: 800;
 }
 
-.corosil-chemistry-note {
+.corosil-conversion-note {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
@@ -36210,6 +36210,8 @@ body:has(.construction-solution-page) .footer-bottom {
 .corosil-hero-visual-wrap {
   position: relative;
   width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
 .corosil-hero-visual-card {
@@ -36218,17 +36220,18 @@ body:has(.construction-solution-page) .footer-bottom {
   width: 100%;
   border-radius: 26px;
   border: 4px solid #FFFFFF;
-  background: #FFFFFF;
+  background: #0B192C;
   box-shadow:
     0 16px 42px rgba(2, 132, 199, 0.14),
     0 4px 14px rgba(11, 25, 44, 0.06);
   overflow: hidden;
-  aspect-ratio: 16 / 9.2;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  aspect-ratio: 16 / 10.8;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.25s ease;
 }
 
 .corosil-hero-visual-card:hover {
   transform: translateY(-4px);
+  border-color: #BAE6FD;
   box-shadow:
     0 22px 50px rgba(2, 132, 199, 0.20),
     0 8px 20px rgba(11, 25, 44, 0.10);
@@ -36255,40 +36258,20 @@ body:has(.construction-solution-page) .footer-bottom {
   object-fit: cover;
   object-position: center;
   display: block;
-}
-
-/* Product Contain Backdrop inside Frame */
-.corosil-product-contain-backdrop {
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(circle at 50% 50%, #FFFFFF 0%, #F0F7FF 55%, #E0F2FE 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2.2rem;
-}
-
-.corosil-visual-contain-img {
-  max-width: 85%;
-  max-height: 85%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 20px 35px rgba(2, 132, 199, 0.32));
   transition: transform 0.4s ease;
 }
 
-.corosil-hero-visual-card:hover .corosil-visual-contain-img {
-  transform: scale(1.05);
+.corosil-hero-visual-card:hover .corosil-visual-cover-img {
+  transform: scale(1.03);
 }
 
-/* Floating Brand Pill (Top-Left) */
+/* Floating Brand Pill (Bottom-Left matching Specialty Product Tag) */
 .corosil-hero-visual-badge {
   position: absolute;
-  top: 18px;
-  left: 18px;
+  bottom: 16px;
+  left: 16px;
   z-index: 6;
+  pointer-events: none;
 }
 
 .corosil-brand-pill {
@@ -36418,12 +36401,23 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 @media (max-width: 640px) {
-  .corosil-hero-visual-card,
   .specialty-hero-visual-card {
     border-radius: 18px;
     border-width: 3px;
     aspect-ratio: 16 / 9.2;
     min-height: auto;
+  }
+
+  .corosil-hero-visual-card {
+    border-radius: 18px;
+    border-width: 3px;
+    aspect-ratio: 16 / 10.8;
+    min-height: auto;
+  }
+
+  .corosil-hero-visual-badge {
+    bottom: 12px;
+    left: 12px;
   }
 
   .corosil-floating-stats-card {
@@ -36801,5 +36795,300 @@ body:has(.construction-solution-page) .footer-bottom {
     font-size: 0.72rem;
     padding: 0.32rem 0.72rem;
     gap: 0.4rem;
+  }
+}
+
+/* ==========================================================================
+   SPECIALTY THREE PRODUCTS · ONE SOLUTION ALTERNATING SHOWCASE
+   ========================================================================== */
+.specialty-showcase-section {
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+  background: #F8FAFC;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid #E2EBF6;
+  border-bottom: 1px solid #E2EBF6;
+}
+
+.specialty-showcase-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+/* Alternating Card Container */
+.specialty-showcase-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 3.8rem);
+  background: #FFFFFF;
+  border: 1.5px solid #E2EBF6;
+  border-radius: 28px;
+  padding: clamp(1.75rem, 3.5vw, 2.5rem);
+  box-shadow: 0 4px 20px rgba(16, 33, 59, 0.04);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.specialty-showcase-card:hover {
+  transform: translateY(-4px);
+  border-color: #BAE6FD;
+  box-shadow: 0 16px 42px rgba(2, 132, 199, 0.12), 0 4px 14px rgba(16, 33, 59, 0.04);
+}
+
+/* Reversed Layout: Left Content, Right Image */
+.specialty-showcase-card.is-reversed {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+}
+
+.specialty-showcase-card.is-reversed .specialty-showcase-content-col {
+  order: 1;
+}
+
+.specialty-showcase-card.is-reversed .specialty-showcase-visual-col {
+  order: 2;
+}
+
+/* Visual Column */
+.specialty-showcase-visual-col {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image Frame: Matching Industrial Water Hero Aspect Ratio & Styling */
+.specialty-showcase-figure-wrap {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  border-radius: 26px;
+  border: 4px solid #FFFFFF;
+  background: #0B192C;
+  box-shadow:
+    0 16px 42px rgba(2, 132, 199, 0.14),
+    0 4px 14px rgba(11, 25, 44, 0.06);
+  overflow: hidden;
+  aspect-ratio: 16 / 10.8;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.25s ease;
+}
+
+.specialty-showcase-card:hover .specialty-showcase-figure-wrap {
+  transform: translateY(-4px);
+  border-color: #BAE6FD;
+  box-shadow:
+    0 22px 50px rgba(2, 132, 199, 0.20),
+    0 8px 20px rgba(11, 25, 44, 0.10);
+}
+
+.specialty-showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.specialty-showcase-card:hover .specialty-showcase-img {
+  transform: scale(1.03);
+}
+
+/* Floating Brand Tag Badge */
+.specialty-showcase-image-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.specialty-showcase-card:hover .specialty-showcase-image-badge .specialty-brand-pill {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 8px 22px rgba(2, 132, 199, 0.32);
+  transform: translateY(-1px);
+}
+
+/* Content Column */
+.specialty-showcase-content-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.specialty-showcase-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.specialty-showcase-icon-box {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
+  color: #0284C7;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.specialty-showcase-card:hover .specialty-showcase-icon-box {
+  background: #0284C7;
+  border-color: #0284C7;
+  color: #FFFFFF;
+  transform: scale(1.08);
+}
+
+.specialty-showcase-category {
+  font-size: 0.8rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0369A1;
+}
+
+.specialty-showcase-card-title {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.85rem, 2.8vw, 2.35rem);
+  font-weight: 850;
+  color: #10213B;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  transition: color 0.2s ease;
+}
+
+.specialty-showcase-card:hover .specialty-showcase-card-title {
+  color: #0284C7;
+}
+
+.specialty-showcase-subtitle {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0284C7;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.01em;
+}
+
+.specialty-showcase-desc {
+  margin: 0 0 1.25rem;
+  color: #475569;
+  font-size: 0.90rem;
+  line-height: 1.6;
+}
+
+/* Bullet Highlights Grid */
+.specialty-showcase-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.specialty-showcase-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 650;
+  color: #1E3A5F;
+  background: #F8FBFE;
+  border: 1px solid #E2EBF6;
+  border-radius: 10px;
+  padding: 0.45rem 0.75rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.specialty-showcase-card:hover .specialty-showcase-highlight-item {
+  border-color: #BAE6FD;
+  background: #FFFFFF;
+}
+
+.specialty-showcase-check {
+  color: #0284C7;
+  flex-shrink: 0;
+}
+
+/* Characteristic Tags */
+.specialty-showcase-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.specialty-showcase-tag-pill {
+  font-size: 0.74rem;
+  font-weight: 650;
+  color: #0369A1;
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
+  border-radius: 999px;
+  padding: 0.22rem 0.65rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.specialty-showcase-card:hover .specialty-showcase-tag-pill {
+  border-color: #7DD3FC;
+  background: #F0F9FF;
+}
+
+/* Action Buttons */
+.specialty-showcase-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .specialty-showcase-card,
+  .specialty-showcase-card.is-reversed {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 1.5rem 1.35rem;
+  }
+
+  .specialty-showcase-card.is-reversed .specialty-showcase-content-col {
+    order: 2;
+  }
+
+  .specialty-showcase-card.is-reversed .specialty-showcase-visual-col {
+    order: 1;
+  }
+
+  .specialty-showcase-figure-wrap {
+    border-radius: 20px;
+    border-width: 3px;
+  }
+}
+
+@media (max-width: 640px) {
+  .specialty-showcase-highlights {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .specialty-showcase-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .specialty-showcase-actions .btn {
+    width: 100%;
+    justify-content: center;
   }
 }

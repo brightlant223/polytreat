@@ -471,14 +471,14 @@ export default function IndustriesPage() {
               </span>
 
               <h1 id="industries-page-title">
-                Chemistry for plants,{" "}<br className="industries-hero-br-desktop" />
+                Formulations for plants,{" "}<br className="industries-hero-br-desktop" />
                 infrastructure, and{" "}<br className="industries-hero-br-desktop" />
                 <span className="industries-highlight">shared facilities.</span>
               </h1>
 
               <p>
                 PolyTreat makes water treatment, construction and protection, specialty
-                and cleaning chemistry. Start with the setting you work in, then follow
+                and cleaning formulations. Start with the setting you work in, then follow
                 the range that serves it.
               </p>
 

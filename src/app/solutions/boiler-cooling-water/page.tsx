@@ -81,7 +81,7 @@ const treatmentSteps = [
   {
     number: "01",
     icon: Droplets,
-    title: "Analyse Water Chemistry",
+    title: "Analyse Water Parameters",
     color: "green",
   },
   {
@@ -188,7 +188,7 @@ function LaboratoryFlaskDesign({ type = "scale-inhibitors" }: { type?: string })
         strokeLinecap="round"
       />
 
-      {/* Rising Chemistry Micro-Bubbles */}
+      {/* Rising Micro-Bubbles */}
       <circle cx="42" cy="74" r="2" fill="#ffffff" fillOpacity="0.75" />
       <circle cx="54" cy="67" r="2.5" fill="#ffffff" fillOpacity="0.65" />
       <circle cx="46" cy="83" r="1.5" fill="#ffffff" fillOpacity="0.8" />
@@ -533,7 +533,7 @@ export default function BoilerCoolingWaterPage() {
             <div className="boiler-section-header-right">
               <span className="boiler-header-divider" aria-hidden="true" />
               <p>
-                Start with the system type. Water chemistry and operating conditions
+                Start with the system type. Water composition and operating conditions
                 inform the technical discussion for each application.
               </p>
             </div>
@@ -553,7 +553,7 @@ export default function BoilerCoolingWaterPage() {
                   <h3 className="boiler-card-title">Boiler water</h3>
                   <p className="boiler-card-desc">
                     Boilers heat water to produce steam. Treatment categories for these
-                    systems are considered in the context of water chemistry and
+                    systems are considered in the context of water composition and
                     operating conditions.
                   </p>
                   <div

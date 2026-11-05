@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
-/* 5 Realistic Industrial Chemistry Slides & Verified Local Imagery   */
+/* 5 Realistic Industrial Water & Specialty Slides & Verified Local Imagery */
 /* ------------------------------------------------------------------ */
 const industrialSlides = [
   {
@@ -32,7 +32,7 @@ const industrialSlides = [
     chipBadge: "Water Treatment Systems",
     image: "/images/home/industrial-steam-boilers-water-treatment.jpg",
     alt: "Modern industrial steam boiler facility with high-pressure vessel, combustion burner, piping manifold, and chemical water treatment systems",
-    lead: "Water treatment chemistry for critical plant systems: boilers, cooling towers, reverse osmosis, and effluent.",
+    lead: "Water treatment formulations for critical plant systems: boilers, cooling towers, reverse osmosis, and effluent.",
     poster: "/images/home/industrial-steam-boilers-water-treatment.jpg",
     icon: Droplets,
   },

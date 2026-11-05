@@ -186,7 +186,7 @@ export const industrialFamilies: IndustrialFamily[] = [
     id: "automotive-chemicals",
     name: "Automotive chemicals",
     eyebrow: "Industrial water & process · Automotive",
-    title: "Cooling-system chemistry for vehicles.",
+    title: "Cooling-system formulations for vehicles.",
     summary:
       "The industrial catalogue lists an automotive line alongside the water-treatment and process families. It is a small family, and this page says so rather than padding it out.",
     productForm: "Liquid grade",

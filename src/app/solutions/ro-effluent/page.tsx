@@ -291,7 +291,7 @@ function LaboratoryFlaskDesign({ type = "ro-scale-inhibitors" }: { type?: string
         strokeLinecap="round"
       />
 
-      {/* Rising Chemistry Micro-Bubbles */}
+      {/* Rising Micro-Bubbles */}
       <circle cx="42" cy="74" r="2" fill="#ffffff" fillOpacity="0.75" />
       <circle cx="54" cy="67" r="2.5" fill="#ffffff" fillOpacity="0.65" />
       <circle cx="46" cy="83" r="1.5" fill="#ffffff" fillOpacity="0.8" />

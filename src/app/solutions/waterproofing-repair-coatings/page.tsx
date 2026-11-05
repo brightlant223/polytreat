@@ -20,7 +20,7 @@ import {
 export const metadata: Metadata = {
   title: "Waterproofing, Repair & Coatings | PolyTreat Chemicals",
   description:
-    "Explore PolyTreat's advanced construction chemistry for elastomeric waterproofing membranes, polymer concrete repair, and protective exterior building coatings.",
+    "Explore PolyTreat's advanced construction formulations for elastomeric waterproofing membranes, polymer concrete repair, and protective exterior building coatings.",
 };
 
 function CardWaterSplash({ className = "" }: { className?: string }) {
@@ -376,7 +376,7 @@ export default function WaterproofingRepairCoatingsPage() {
                 <span>Problem &amp; solution</span>
               </div>
               <h2 id="waterproofing-challenges-title" className="construction-problems-title">
-                Water penetration and concrete deterioration require targeted chemistry.
+                Water penetration and concrete deterioration require targeted formulations.
               </h2>
 
               <div className="construction-problems-checklist">

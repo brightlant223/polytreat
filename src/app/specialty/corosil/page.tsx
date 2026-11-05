@@ -248,9 +248,9 @@ export default function CorosilPage() {
         <div className="container">
           <div className="corosil-problems-layout">
             <div className="corosil-problems-visual-col">
-              <div className="corosil-chemistry-card">
+              <div className="corosil-conversion-card">
                 <span className="corosil-card-kicker">Chemical Conversion Mechanism</span>
-                <h3 className="corosil-chemistry-title">From Active Rust to Stable Passivated Complex</h3>
+                <h3 className="corosil-conversion-title">From Active Rust to Stable Passivated Complex</h3>
                 <div className="corosil-reaction-flow">
                   <div className="corosil-reaction-step">
                     <span className="corosil-step-tag is-unstable">Corrosive State</span>
@@ -267,7 +267,7 @@ export default function CorosilPage() {
                     <span className="corosil-formula-desc">Dense, insoluble blue-black barrier primer</span>
                   </div>
                 </div>
-                <div className="corosil-chemistry-note">
+                <div className="corosil-conversion-note">
                   <Info size={14} aria-hidden="true" />
                   <span>Eliminates microscopic moisture paths that trigger ongoing subsurface oxidation.</span>
                 </div>

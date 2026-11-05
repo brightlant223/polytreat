@@ -19,9 +19,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Construction Chemistry & Surface Protection | PolyTreat Chemicals",
+  title: "Construction Solutions & Surface Protection | PolyTreat Chemicals",
   description:
-    "Explore PolyTreat's advanced construction chemistry categories for structural waterproofing, polymer concrete repair, protective coatings, industrial flooring and joint sealing.",
+    "Explore PolyTreat's advanced construction solutions and formulations for structural waterproofing, polymer concrete repair, protective coatings, industrial flooring and joint sealing.",
 };
 
 function CardWaterSplash({ className = "" }: { className?: string }) {

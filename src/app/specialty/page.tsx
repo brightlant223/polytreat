@@ -91,9 +91,20 @@ const flagshipCards = [
   {
     slug: "corosil",
     name: "COROSIL",
+    badgeTitle: "COROSIL®",
+    badgeTag: "Rust Converter & Primer Base",
     category: "Corrosion control · Rust converter",
+    subtitle: "Single-Coat Iron Oxide Passivation & Heavy-Duty Primer Base",
+    image: "/images/specialty/corosil-product.webp",
+    alt: "COROSIL metallo-organic rust converter primer packaging container",
     description:
-      "A water-based rust inhibitor and converter primer that chemically transforms iron oxides into stable metallo-organic complexes, creating an adherent foundation for compatible paint systems.",
+      "A high-performance water-based rust converter that chemically reacts with iron oxides, converting active rust into a stable, inert metallo-organic protective complex. Provides an adherent, corrosion-resistant primer base for epoxy, polyurethane, and enamel topcoats without heavy sandblasting.",
+    highlights: [
+      "Converts active rust without sandblasting",
+      "Forms adherent metallo-organic passive layer",
+      "Compatible base for epoxy & PU topcoats",
+      "Water-based, zero flash-point & low VOC",
+    ],
     tags: [
       "Rust converter",
       "Single-coat",
@@ -101,16 +112,27 @@ const flagshipCards = [
       "Ferrous metal",
       "Primer base",
     ],
-    linkText: "See the COROSIL range",
+    linkText: "Explore COROSIL Range",
     href: "/specialty/corosil",
     icon: ShieldCheck,
   },
   {
     slug: "polydor-ws",
     name: "POLYDOR-WS",
+    badgeTitle: "POLYDOR-WS®",
+    badgeTag: "Molecular Odour Neutraliser",
     category: "Molecular odour neutralisation",
+    subtitle: "Permanent Chemical Adduct Formation (Non-Masking)",
+    image: "/images/specialty/polydor-product.webp",
+    alt: "POLYDOR-WS industrial molecular odour neutraliser formulation canister",
     description:
-      "Broad-spectrum chemical odour neutraliser that permanently alters foul molecules (amines, mercaptans, H₂S gas) into non-odorous adducts without masking perfumes. Non-toxic & EPA aligned.",
+      "Broad-spectrum chemical odour neutraliser engineered for wastewater plants, sludge dewatering, and solid waste facilities. Reacts directly with mercaptans, amines, and hydrogen sulphide (H₂S) to form stable, non-odorous adducts without synthetic masking perfumes. Aligned with EPA non-hazardous criteria.",
+    highlights: [
+      "Permanent adduct bond (no masking perfumes)",
+      "Neutralises H₂S, amines, mercaptans & skatole",
+      "Safe for biological ETP and STP processes",
+      "Ultra-high dilution economics (1:200 to 1:1000)",
+    ],
     tags: [
       "Chemical neutralisation",
       "H₂S & amines",
@@ -118,16 +140,27 @@ const flagshipCards = [
       "EPA criteria aligned",
       "High dilution",
     ],
-    linkText: "See the POLYDOR-WS range",
+    linkText: "Explore POLYDOR-WS Range",
     href: "/specialty/polydor-ws",
     icon: Wind,
   },
   {
     slug: "polyklin",
     name: "POLYKLIN",
+    badgeTitle: "POLYKLIN®",
+    badgeTag: "HVAC Coil Cleaning Compound",
     category: "HVAC & refrigeration care",
+    subtitle: "Restores Coil Airflow Volume & Thermal Heat Transfer",
+    image: "/images/specialty/polyklin-product.webp",
+    alt: "POLYKLIN commercial coil cleaning chemical canister for AHU and FCU",
     description:
-      "Professional coil cleaning compound for contaminated AHU, FCU, evaporator, and condenser coils that loosens stubborn grime, oxidation, and dirt via spray-and-rinse application.",
+      "Professional-grade coil cleaner specially formulated for contaminated AHU, FCU, evaporator, and condenser fin packs. Swiftly breaks down greasy particulate, atmospheric grime, and oxidation through a rapid spray-and-rinse routine, immediately restoring airflow volume and thermal efficiency.",
+    highlights: [
+      "Rapid spray-and-rinse penetration",
+      "Loosens heavy grease, dirt & atmospheric oxidation",
+      "Non-corrosive to aluminium fins & copper tubing",
+      "Restores CFM airflow and lowers chiller kWh draw",
+    ],
     tags: [
       "Coil cleaner",
       "Spray & rinse",
@@ -135,7 +168,7 @@ const flagshipCards = [
       "Evaporators",
       "Contractor grade",
     ],
-    linkText: "See the POLYKLIN range",
+    linkText: "Explore POLYKLIN Range",
     href: "/specialty/polyklin",
     icon: Snowflake,
   },
@@ -153,7 +186,7 @@ const catalogueRows = [
   {
     title: "Swimming-pool biocides",
     description:
-      "Specialised microbicides and sanitising chemistry for commercial swimming pool water quality and algae control.",
+      "Specialised microbicides and sanitising formulations for commercial swimming pool water quality and algae control.",
     badges: ["Algae control", "Microbial control", "Water clarity"],
     href: "/contact#contact-form",
     icon: Droplets,
@@ -206,7 +239,7 @@ export default function SpecialtyPage() {
                 <span>Targeted problem solving</span>
               </div>
               <h2 id="specialty-problems-title" className="industrial-problems-title">
-                Every problem demands a chemistry built specifically for it.
+                Every problem demands a formulation built specifically for it.
               </h2>
 
               <div className="industrial-problems-checklist">
@@ -236,9 +269,9 @@ export default function SpecialtyPage() {
         </div>
       </section>
 
-      {/* 3. FLAGSHIP SPECIALTY PRODUCTS - SIMPLE BLUE COLOR THEME */}
+      {/* 3. FLAGSHIP SPECIALTY PRODUCTS - THREE PRODUCTS, ONE TARGETED SOLUTION */}
       <section
-        className="industrial-approach-section"
+        className="specialty-showcase-section"
         id="specialty-categories"
         aria-labelledby="specialty-approach-title"
       >
@@ -247,71 +280,99 @@ export default function SpecialtyPage() {
             <div className="industrial-section-header-left">
               <div className="industrial-section-eyebrow">
                 <span className="industrial-eyebrow-bar" aria-hidden="true" />
-                <span>Flagship specialty chemistries</span>
+                <span>Flagship specialty formulations</span>
               </div>
               <h2 id="specialty-approach-title" className="industrial-section-title">
-                Three dedicated problem-solvers.
+                Three products. One targeted solution.
               </h2>
             </div>
             <div className="industrial-section-header-right">
               <span className="industrial-header-divider" aria-hidden="true" />
               <p>
-                Each product is engineered from the ground up to solve a defined
-                challenge—surface corrosion conversion, molecular odour neutralisation,
-                or HVAC coil decontamination.
+                Each formulation is engineered from the ground up to solve a defined
+                industrial operational challenge—steel rust conversion, molecular odour
+                neutralisation, or HVAC coil efficiency restoration.
               </p>
             </div>
           </div>
 
-          <div className="specialty-approach-grid">
-            {flagshipCards.map((card) => {
+          {/* Alternating 1-2-1 Zigzag Showcase */}
+          <div className="specialty-showcase-list">
+            {flagshipCards.map((card, index) => {
               const Icon = card.icon;
+              // Row 0 = Left Image, Right Content
+              // Row 1 = Left Content, Right Image (isReversed)
+              // Row 2 = Left Image, Right Content
+              const isReversed = index === 1;
               return (
                 <article
-                  className="industrial-approach-card specialty-simple-blue-card"
+                  className={`specialty-showcase-card ${isReversed ? "is-reversed" : ""}`}
                   key={card.slug}
+                  id={card.slug}
                 >
-                  <div className="industrial-approach-card-inner">
-                    <div className="industrial-approach-icon-box">
-                      <Icon size={24} className="industrial-approach-svg" />
-                    </div>
-                    <div className="industrial-approach-content">
-                      <span className="specialty-card-category">
-                        {card.category}
-                      </span>
-                      <h3 className="industrial-approach-card-title">{card.name}</h3>
-                      <p className="industrial-approach-card-desc">
-                        {card.description}
-                      </p>
-                      <div
-                        className="industrial-approach-tags"
-                        aria-label={`${card.name} characteristics`}
-                      >
-                        {card.tags.map((tag, idx) => (
-                          <span key={tag} className="industrial-approach-tag-item">
-                            {tag}
-                            {idx < card.tags.length - 1 && (
-                              <span
-                                className="industrial-approach-tag-pipe"
-                                aria-hidden="true"
-                              >
-                                |
-                              </span>
-                            )}
-                          </span>
-                        ))}
+                  {/* Visual Column (Image + Frame + Specialty Brand Tag) */}
+                  <div className="specialty-showcase-visual-col">
+                    <div className="specialty-showcase-figure-wrap">
+                      <div className="specialty-showcase-image-badge">
+                        <span className="specialty-brand-pill">
+                          <span className="specialty-pill-dot" aria-hidden="true" />
+                          <strong>{card.badgeTitle}</strong>
+                          <span className="specialty-pill-sep">·</span>
+                          <span>{card.badgeTag}</span>
+                        </span>
                       </div>
-                      <Link
-                        href={card.href}
-                        className="industrial-approach-card-link"
-                      >
+                      <img
+                        src={card.image}
+                        alt={card.alt}
+                        className="specialty-showcase-img"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Content Column */}
+                  <div className="specialty-showcase-content-col">
+                    <div className="specialty-showcase-eyebrow">
+                      <div className="specialty-showcase-icon-box" aria-hidden="true">
+                        <Icon size={16} />
+                      </div>
+                      <span className="specialty-showcase-category">{card.category}</span>
+                    </div>
+
+                    <h3 className="specialty-showcase-card-title">{card.name}</h3>
+                    <div className="specialty-showcase-subtitle">{card.subtitle}</div>
+
+                    <p className="specialty-showcase-desc">{card.description}</p>
+
+                    {/* Key Formulation Highlights */}
+                    <div className="specialty-showcase-highlights">
+                      {card.highlights.map((item) => (
+                        <div key={item} className="specialty-showcase-highlight-item">
+                          <Check size={14} className="specialty-showcase-check" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Characteristic Tags */}
+                    <div className="specialty-showcase-tags">
+                      {card.tags.map((tag) => (
+                        <span key={tag} className="specialty-showcase-tag-pill">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* CTAs */}
+                    <div className="specialty-showcase-actions">
+                      <Link href={card.href} className="btn btn-industrial-primary">
                         <span>{card.linkText}</span>
                         <ArrowRight size={15} aria-hidden="true" />
                       </Link>
+                      <Link href="/contact#contact-form" className="btn btn-industrial-secondary">
+                        <span>Discuss Application</span>
+                      </Link>
                     </div>
-                  </div>
-                  <div className="specialty-card-decor-wrap" aria-hidden="true">
-                    <SpecialtyCardFlowDecor />
                   </div>
                 </article>
               );
@@ -320,7 +381,7 @@ export default function SpecialtyPage() {
         </div>
       </section>
 
-      {/* 3B. SPECIALTY CHEMISTRIES IN ACTION (ALL-IN-ONE VIDEO SHOWCASE) */}
+      {/* 3B. SPECIALTY FORMULATIONS IN ACTION (ALL-IN-ONE VIDEO SHOWCASE) */}
       <section
         className="specialty-video-section"
         id="specialty-video-showcase"
@@ -337,7 +398,7 @@ export default function SpecialtyPage() {
                     <Play size={13} fill="currentColor" />
                     <span>Specialty Formulations in Action</span>
                   </div>
-                  <span className="specialty-video-badge">3 Chemistries · HD 1080p</span>
+                  <span className="specialty-video-badge">3 Formulations · HD 1080p</span>
                 </div>
                 <div className="specialty-video-viewport">
                   <video
@@ -364,7 +425,7 @@ export default function SpecialtyPage() {
                   <span>Field Demonstration</span>
                 </div>
                 <h3 id="specialty-video-title" className="specialty-video-heading">
-                  Watch PolyTreat specialty chemistries solve real maintenance challenges.
+                  Watch PolyTreat specialty formulations solve real maintenance challenges.
                 </h3>
                 <p className="specialty-video-lead">
                   From chemical rust chelation on structural steel to molecular odour neutralization
