@@ -222,9 +222,11 @@ export default function FlooringJointSealingPage() {
               </div>
 
               <h1 id="flooring-joint-title">
-                Industrial flooring systems and{" "}
+                High-Performance Industrial{" "}
                 <br className="industrial-hero-br-desktop" />
-                <span className="construction-hero-highlight">precision joint sealing solutions.</span>
+                <span className="construction-hero-highlight">
+                  Flooring &amp; Joint Solutions.
+                </span>
               </h1>
 
               <div className="construction-hero-accent-line" aria-hidden="true" />

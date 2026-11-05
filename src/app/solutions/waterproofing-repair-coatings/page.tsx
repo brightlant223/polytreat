@@ -221,9 +221,12 @@ export default function WaterproofingRepairCoatingsPage() {
               </div>
 
               <h1 id="waterproofing-title">
-                Waterproofing, concrete repair and{" "}
+                Complete Building Protection{" "}
                 <br className="industrial-hero-br-desktop" />
-                <span className="construction-hero-highlight">protective building coatings.</span>
+                Through{" "}
+                <span className="construction-hero-highlight">
+                  Waterproofing &amp; Repair.
+                </span>
               </h1>
 
               <div className="construction-hero-accent-line" aria-hidden="true" />

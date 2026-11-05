@@ -230,11 +230,11 @@ export default function ConstructionChemistryPage() {
               </div>
 
               <h1 id="construction-chemistry-title">
-                Construction chemistry for{" "}
+                Advanced Solutions for{" "}
                 <br className="industrial-hero-br-desktop" />
-                waterproofing, repair and{" "}
-                <br className="industrial-hero-br-desktop" />
-                <span className="construction-hero-highlight">protected surfaces.</span>
+                <span className="construction-hero-highlight">
+                  Stronger, Protected Structures.
+                </span>
               </h1>
 
               <div className="construction-hero-accent-line" aria-hidden="true" />

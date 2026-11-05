@@ -32834,7 +32834,7 @@ body:has(.construction-solution-page) .footer-bottom {
 
 /* Left Copy */
 .construction-solution-page .construction-hero-copy {
-  max-width: 580px;
+  max-width: 610px;
 }
 
 .construction-solution-page .construction-eyebrow-badge {
@@ -32856,9 +32856,9 @@ body:has(.construction-solution-page) .footer-bottom {
 .construction-solution-page .construction-hero-copy h1 {
   margin: 0 0 0.85rem;
   color: #10213B;
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-size: clamp(2.1rem, 3.6vw, 3.15rem);
   font-weight: 850;
-  line-height: 1.18;
+  line-height: 1.16;
   letter-spacing: -0.025em;
   word-break: normal;
   overflow-wrap: break-word;
