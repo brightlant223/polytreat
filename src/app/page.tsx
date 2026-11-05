@@ -218,49 +218,6 @@ export default function Home() {
 
       <VKlinCommercialDemos />
 
-      {/* Complete business map */}
-      <section className="hp-section" id="range-map" aria-labelledby="range-map-title">
-        <div className="container">
-          <div className="hp-section-heading">
-            <div>
-              <h2 id="range-map-title">Every product area, at a glance.</h2>
-            </div>
-            <p>
-              {rangeProductAreaCount} product areas across the four ranges, each one
-              documented on its own page, so nothing here is a dead end.
-            </p>
-          </div>
-
-          <div className="hp-map-grid hp-stagger">
-            {productMapGroups.map((group) => (
-              <div className={`hp-map-group hp-map-${group.id}`} key={group.id}>
-                <div className="hp-map-group-head">
-                  <h3>{group.title}</h3>
-                  <span className="hp-map-group-summary">{group.summary}</span>
-                </div>
-                <ul className="hp-map-pills">
-                  {group.items.map((item) => (
-                    <li key={`${group.id}-${item.label}`}>
-                      <Link href={item.href}>
-                        <span>{item.label}</span>
-                        <ArrowUpRight size={13} aria-hidden="true" />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="hp-section-foot hp-section-foot-center">
-            <span>The industries page shows the full map with sector contexts.</span>
-            <Link className="text-link" href="/industries">
-              Open the product map <ArrowRight size={15} aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Applications */}
       <section className="hp-section hp-section-tint" id="applications" aria-labelledby="applications-title">
         <div className="container hp-applications-layout">
@@ -599,6 +556,49 @@ export default function Home() {
           </ul>
         </div>
 
+        </div>
+      </section>
+
+      {/* Complete business map */}
+      <section className="hp-section" id="range-map" aria-labelledby="range-map-title">
+        <div className="container">
+          <div className="hp-section-heading">
+            <div>
+              <h2 id="range-map-title">Every product area, at a glance.</h2>
+            </div>
+            <p>
+              {rangeProductAreaCount} product areas across the four ranges, each one
+              documented on its own page, so nothing here is a dead end.
+            </p>
+          </div>
+
+          <div className="hp-map-grid hp-stagger">
+            {productMapGroups.map((group) => (
+              <div className={`hp-map-group hp-map-${group.id}`} key={group.id}>
+                <div className="hp-map-group-head">
+                  <h3>{group.title}</h3>
+                  <span className="hp-map-group-summary">{group.summary}</span>
+                </div>
+                <ul className="hp-map-pills">
+                  {group.items.map((item) => (
+                    <li key={`${group.id}-${item.label}`}>
+                      <Link href={item.href}>
+                        <span>{item.label}</span>
+                        <ArrowUpRight size={13} aria-hidden="true" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="hp-section-foot hp-section-foot-center">
+            <span>The industries page shows the full map with sector contexts.</span>
+            <Link className="text-link" href="/industries">
+              Open the product map <ArrowRight size={15} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
 
