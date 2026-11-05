@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import VKlinHeroCarousel from "@/components/VKlinHeroCarousel";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -203,18 +204,9 @@ export default function VKlinHeroSection() {
             </div>
           </div>
 
-          {/* Right Column: Grand Unobstructed Product Lineup Showcase Matching Reference 2 */}
+          {/* Right Column: Grand Unobstructed Product Lineup Showcase Carousel */}
           <div className="vklin-hero-visual-wrap">
-            <div className="vklin-hero-visual-card">
-              <Image
-                src="/images/home/vklin-clean-showcase-hd.jpg"
-                alt="V-Klin Complete Cleaning & Care Solutions Lineup"
-                width={1600}
-                height={765}
-                priority
-                className="vklin-hero-image"
-              />
-            </div>
+            <VKlinHeroCarousel />
           </div>
         </div>
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import VKlinHeroCarousel from "@/components/VKlinHeroCarousel";
 import {
   AppWindow,
   ArrowDown,
@@ -108,18 +109,9 @@ export default function VKlinPage() {
             </div>
           </div>
 
-          {/* Right Column: Premium V-Klin 3D Podium & Logo Showcase */}
+          {/* Right Column: Premium V-Klin Product Lineup Carousel Showcase */}
           <div className="vklin-hero-showcase-wrap" aria-label="V-Klin brand showcase">
-            <div className="vklin-hero-showcase-card">
-              <Image
-                src="/images/home/vklin-hero-showcase-perfect.webp"
-                alt="V-Klin Home & Facility Care Premium Showcase"
-                width={1088}
-                height={740}
-                priority
-                className="vklin-showcase-img"
-              />
-            </div>
+            <VKlinHeroCarousel />
           </div>
         </div>
       </section>
