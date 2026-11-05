@@ -307,47 +307,6 @@ export default function VKlinCommercialDemos() {
       id="cleaning-demos"
       aria-labelledby="action-demos-title"
     >
-      {/* Decorative Atmosphere: Blue Water Ripples, Droplets & Green Leaves */}
-      <div className="vklin-ref-ambient-decor" aria-hidden="true">
-        {/* Top Right: Water Splash Droplets, Leaf & Official V-Klin Badge */}
-        <div className="vklin-ref-decor-top-right">
-          <svg className="vklin-ref-bubbles-svg" viewBox="0 0 200 120" fill="none">
-            <circle cx="45" cy="45" r="9" stroke="#38BDF8" strokeWidth="2.5" fill="#E0F2FE" fillOpacity="0.45" />
-            <circle cx="75" cy="22" r="14" stroke="#0284C7" strokeWidth="2" fill="#BAE6FD" fillOpacity="0.3" />
-            <circle cx="115" cy="65" r="7" stroke="#38BDF8" strokeWidth="1.8" fill="#E0F2FE" fillOpacity="0.4" />
-            <circle cx="140" cy="30" r="18" stroke="#0284C7" strokeWidth="2.5" fill="#BAE6FD" fillOpacity="0.25" />
-            <circle cx="175" cy="55" r="10" stroke="#38BDF8" strokeWidth="2" fill="#E0F2FE" fillOpacity="0.35" />
-            <path d="M85 35 C100 10, 135 15, 145 40 C135 60, 105 55, 85 35 Z" fill="#22C55E" fillOpacity="0.85" />
-            <path d="M92 37 Q 115 32, 138 38" stroke="#15803D" strokeWidth="1.2" strokeLinecap="round" />
-          </svg>
-          <div className="vklin-ref-top-logo-badge">
-            <Image
-              src="/vklin-logo.webp"
-              alt="V-Klin Clean Care Logo"
-              width={110}
-              height={50}
-              className="vklin-ref-brand-logo"
-            />
-          </div>
-        </div>
-
-        {/* Bottom Wave Swooshes */}
-        <div className="vklin-ref-bottom-wave-left">
-          <svg viewBox="0 0 280 120" fill="none">
-            <path d="M-20 120 C60 110, 120 70, 180 50 C230 35, 270 55, 290 80" stroke="#BAE6FD" strokeWidth="18" strokeLinecap="round" opacity="0.4" />
-            <path d="M-10 120 C50 100, 100 80, 160 65 C210 50, 240 70, 260 90" stroke="#38BDF8" strokeWidth="8" strokeLinecap="round" opacity="0.6" />
-            <path d="M20 75 C35 50, 65 55, 75 75 C65 95, 35 90, 20 75 Z" fill="#22C55E" fillOpacity="0.9" />
-          </svg>
-        </div>
-
-        <div className="vklin-ref-bottom-wave-right">
-          <svg viewBox="0 0 260 120" fill="none">
-            <path d="M-10 60 C50 40, 110 55, 170 85 C210 105, 250 100, 280 80" stroke="#BAE6FD" strokeWidth="16" strokeLinecap="round" opacity="0.45" />
-            <path d="M10 75 C60 60, 120 75, 180 95 C220 110, 250 105, 270 95" stroke="#38BDF8" strokeWidth="7" strokeLinecap="round" opacity="0.65" />
-          </svg>
-        </div>
-      </div>
-
       <div className="hp-hero-container vklin-ref-container">
         {/* Header: Exact Matching Eyebrow Pill, Underline Accent & Bold Typography */}
         <div className="vklin-ref-header">
