@@ -33101,13 +33101,11 @@ body:has(.construction-solution-page) .footer-bottom {
   inset: 0;
   background:
     radial-gradient(ellipse 65% 60% at 75% 35%, rgba(186, 230, 253, 0.35) 0%, transparent 70%),
-    linear-gradient(
-      90deg,
+    linear-gradient(90deg,
       rgba(244, 249, 254, 0.94) 0%,
       rgba(240, 247, 253, 0.88) 38%,
       rgba(235, 245, 252, 0.58) 68%,
-      rgba(220, 238, 250, 0.62) 100%
-    );
+      rgba(220, 238, 250, 0.62) 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -33946,12 +33944,10 @@ body:has(.construction-solution-page) .footer-bottom {
 @media (max-width: 960px) {
   .construction-solution-page .construction-hero::after {
     background:
-      linear-gradient(
-        180deg,
+      linear-gradient(180deg,
         rgba(244, 249, 254, 0.94) 0%,
         rgba(240, 247, 253, 0.88) 50%,
-        rgba(224, 240, 252, 0.75) 100%
-      );
+        rgba(224, 240, 252, 0.75) 100%);
   }
 
   .construction-solution-page .construction-hero-layout {
@@ -34024,12 +34020,10 @@ body:has(.construction-solution-page) .footer-bottom {
 
   .construction-solution-page .construction-hero::after {
     background:
-      linear-gradient(
-        180deg,
+      linear-gradient(180deg,
         rgba(244, 249, 254, 0.96) 0%,
         rgba(240, 247, 253, 0.92) 55%,
-        rgba(224, 240, 252, 0.80) 100%
-      );
+        rgba(224, 240, 252, 0.80) 100%);
   }
 
   .construction-solution-page .construction-hero-copy h1 {
@@ -36754,12 +36748,9 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 @media (max-width: 640px) {
-<<<<<<< HEAD
-=======
 
-  .corosil-hero-visual-card,
->>>>>>> 4972fde (Updated V-Klin website design)
-  .specialty-hero-visual-card {
+  <<<<<<< HEAD=======.corosil-hero-visual-card,
+  >>>>>>>4972fde (Updated V-Klin website design) .specialty-hero-visual-card {
     border-radius: 18px;
     border-width: 3px;
     aspect-ratio: 16 / 9.2;
@@ -37164,7 +37155,7 @@ body:has(.construction-solution-page) .footer-bottom {
     padding: 0.32rem 0.72rem;
     gap: 0.4rem;
   }
-<<<<<<< HEAD
+
 }
 
 /* ==========================================================================
@@ -37197,8 +37188,8 @@ body:has(.construction-solution-page) .footer-bottom {
   padding: clamp(1.75rem, 3.5vw, 2.5rem);
   box-shadow: 0 4px 20px rgba(16, 33, 59, 0.04);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease;
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease;
   position: relative;
   overflow: hidden;
 }
@@ -37422,6 +37413,7 @@ body:has(.construction-solution-page) .footer-bottom {
 
 /* Responsive adjustments */
 @media (max-width: 960px) {
+
   .specialty-showcase-card,
   .specialty-showcase-card.is-reversed {
     grid-template-columns: 1fr;
