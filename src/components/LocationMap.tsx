@@ -36,22 +36,32 @@ export default function LocationMap({ locations }: LocationMapProps) {
   return (
     <div className="contact-reference-map">
       <div className="contact-reference-map-toolbar">
-        <div className="contact-reference-map-options" role="group" aria-label="Choose a location to view on the map">
+        <div
+          className="contact-reference-map-options"
+          role="group"
+          aria-label="Choose a location to view on the map"
+        >
           {locations.map(({ id, title }) => (
             <button
               aria-pressed={activeLocation.id === id}
-              className={activeLocation.id === id ? "is-active" : ""}
+              className={`contact-map-tab-btn ${activeLocation.id === id ? "is-active" : ""}`}
               key={id}
               onClick={() => setActiveId(id)}
               type="button"
             >
-              <MapPin size={14} aria-hidden="true" />
-              {title}
+              <MapPin size={14} className="contact-map-tab-pin" aria-hidden="true" />
+              <span>{title}</span>
             </button>
           ))}
         </div>
-        <a href={directionsUrl} target="_blank" rel="noreferrer">
-          Open in Maps <ArrowUpRight size={15} aria-hidden="true" />
+        <a
+          href={directionsUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="contact-map-open-link"
+        >
+          <span>Open in Maps</span>
+          <ArrowUpRight size={15} aria-hidden="true" />
         </a>
       </div>
       <div className="contact-reference-map-frame">
