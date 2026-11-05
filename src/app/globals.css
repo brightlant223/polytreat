@@ -26902,8 +26902,7 @@ main {
 
 
 /* ================================================================== */
-/* ================================================================== */
-/* V-KLIN HERO 3-IMAGE ROTATING CAROUSEL                              */
+/* V-KLIN HERO 4-IMAGE ROTATING CAROUSEL                              */
 /* ================================================================== */
 
 .vklin-hero-visual-card,
@@ -26913,37 +26912,39 @@ main {
   aspect-ratio: 16 / 9 !important;
   border-radius: 26px !important;
   overflow: hidden !important;
-  background: #0B192C !important;
-  box-shadow: 0 24px 60px -10px rgba(11, 37, 69, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.8) !important;
+  background: #FFFFFF !important;
+  border: 2px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 16px 45px rgba(15, 23, 42, 0.08), 0 4px 16px rgba(2, 132, 199, 0.06) !important;
 }
 
 .vklin-hero-slider-track {
-  position: relative !important;
+  display: grid !important;
+  grid-template-areas: "slide" !important;
   width: 100% !important;
-  height: 100% !important;
+  position: relative !important;
 }
 
 .vklin-hero-slide {
-  position: absolute !important;
-  inset: 0 !important;
+  grid-area: slide !important;
+  width: 100% !important;
   opacity: 0 !important;
-  transform: scale(1.02) !important;
-  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 900ms cubic-bezier(0.16, 1, 0.3, 1) !important;
   pointer-events: none !important;
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .vklin-hero-slide.is-active {
   opacity: 1 !important;
-  transform: scale(1) !important;
   pointer-events: auto !important;
-  z-index: 1 !important;
+  z-index: 2 !important;
 }
 
 .vklin-hero-slide .vklin-hero-image {
   width: 100% !important;
-  height: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
   object-fit: cover !important;
   display: block !important;
+  border-radius: 26px !important;
 }
 
 .vklin-hero-dots-nav {

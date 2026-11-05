@@ -7,22 +7,22 @@ export const heroSlides = [
   {
     id: "complete-lineup",
     title: "V-Klin Complete Household Cleaning Lineup",
-    src: "/images/home/V-Klin Complete Household Cleaning Lineup.jpg",
+    src: "/images/home/vklin-hero-slide-1.jpg",
   },
   {
     id: "marble-countertop",
     title: "V-Klin Cleaning Products on Marble Countertop",
-    src: "/images/home/V-Klin Cleaning Products on Marble Countertop.png",
+    src: "/images/home/vklin-hero-slide-2.png",
   },
   {
     id: "kitchen-bathroom",
     title: "V-Klin Clean Kitchen and Bathroom Essentials",
-    src: "/images/home/V-Klin Clean Kitchen and Bathroom Essentials.png",
+    src: "/images/home/vklin-hero-slide-3.png",
   },
   {
     id: "floor-care",
     title: "V-Klin Floor Care Collection",
-    src: "/images/home/V-Klin Floor Care Collection.png",
+    src: "/images/home/vklin-hero-slide-4.png",
   },
 ];
 
@@ -49,12 +49,26 @@ export default function VKlinHeroCarousel({
 
   return (
     <div
-      className={`vklin-hero-carousel-container ${className}`}
+      className={`vklin-hero-visual-card vklin-hero-carousel-container ${className}`}
       role="region"
       aria-roledescription="carousel"
       aria-label="V-Klin Product Showcase Slideshow"
+      style={{
+        position: "relative",
+        width: "100%",
+        borderRadius: "26px",
+        overflow: "hidden",
+      }}
     >
-      <div className="vklin-hero-slider-track">
+      <div
+        className="vklin-hero-slider-track"
+        style={{
+          display: "grid",
+          gridTemplateAreas: '"slide"',
+          width: "100%",
+          position: "relative",
+        }}
+      >
         {heroSlides.map((slide, idx) => {
           const isActive = idx === slideIdx;
           return (
@@ -65,14 +79,31 @@ export default function VKlinHeroCarousel({
               role="group"
               aria-roledescription="slide"
               aria-label={`${idx + 1} of ${heroSlides.length}: ${slide.title}`}
+              style={{
+                gridArea: "slide",
+                width: "100%",
+                opacity: isActive ? 1 : 0,
+                pointerEvents: isActive ? "auto" : "none",
+                transition: "opacity 600ms cubic-bezier(0.16, 1, 0.3, 1)",
+                zIndex: isActive ? 2 : 1,
+              }}
             >
               <Image
                 src={slide.src}
                 alt={slide.title}
-                fill
+                width={1600}
+                height={900}
                 priority={idx === 0}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 680px"
+                unoptimized
                 className="vklin-hero-image"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  aspectRatio: "16 / 9",
+                  objectFit: "cover",
+                  display: "block",
+                  borderRadius: "26px",
+                }}
               />
             </div>
           );
@@ -84,6 +115,16 @@ export default function VKlinHeroCarousel({
         className="vklin-hero-dots-nav"
         role="tablist"
         aria-label="Select slide"
+        style={{
+          position: "absolute",
+          bottom: "16px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          zIndex: 10,
+        }}
       >
         {heroSlides.map((slide, idx) => {
           const isActive = idx === slideIdx;
@@ -103,4 +144,3 @@ export default function VKlinHeroCarousel({
     </div>
   );
 }
-
