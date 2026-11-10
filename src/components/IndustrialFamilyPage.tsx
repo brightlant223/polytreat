@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Home, MessageCircle } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { IndustrialFamily } from "@/data/industrialFamilies";
+import { CtaWaterSplashDesign } from "@/components/CtaWaterSplashDesign";
 
 /**
  * Shared renderer for the industrial product families that do not have a
@@ -28,6 +29,14 @@ export default function IndustrialFamilyPage({
   figureImage?: { src: string; alt: string; caption: string };
 }) {
   const isSingle = family.categories.length === 1;
+  const hasModernSolutionTheme =
+    family.id === "paint-preservatives" || family.id === "sugar-process-chemicals";
+  const waveIds = {
+    back: `family-wave-back-${family.id}`,
+    mid: `family-wave-mid-${family.id}`,
+    front: `family-wave-front-${family.id}`,
+    shine: `family-wave-shine-${family.id}`,
+  };
   const heroClasses = ["industrial-family-page", mainClassName].filter(Boolean).join(" ");
 
   return (
@@ -35,7 +44,10 @@ export default function IndustrialFamilyPage({
       <section className="industrial-family-hero" aria-labelledby="family-title">
         <div className="container">
           <nav className="industrial-family-breadcrumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
+            <Link href="/" className={hasModernSolutionTheme ? "industrial-family-breadcrumb-home" : undefined}>
+              {hasModernSolutionTheme && <Home size={13} aria-hidden="true" />}
+              <span>Home</span>
+            </Link>
             <span aria-hidden="true">/</span>
             <span>Solutions</span>
             <span aria-hidden="true">/</span>
@@ -50,18 +62,30 @@ export default function IndustrialFamilyPage({
                 <Icon size={15} aria-hidden="true" /> {family.eyebrow}
               </span>
               <h1 id="family-title">{family.title}</h1>
+              {hasModernSolutionTheme && (
+                <div className="family-hero-accent-line" aria-hidden="true" />
+              )}
               <p>{family.summary}</p>
               <div className="industrial-family-actions">
                 <Link className="btn btn-accent" href="#family-categories">
-                  Explore the categories <ArrowRight size={17} aria-hidden="true" />
+                  <span>Explore the categories</span>
+                  <ArrowRight size={17} aria-hidden="true" />
                 </Link>
                 <Link className="industrial-family-text-link" href="/contact#contact-form">
-                  Discuss an application
+                  <span>Discuss an application</span>
+                  {hasModernSolutionTheme && <MessageCircle size={16} aria-hidden="true" />}
                 </Link>
               </div>
             </div>
 
             <div className={figureImage ? "industrial-family-figure-image" : "industrial-family-figure"} aria-hidden={!figureImage}>
+              {hasModernSolutionTheme && (
+                <div className="family-hero-backdrop-shape" aria-hidden="true">
+                  <div className="family-hero-backdrop-glow" />
+                  <div className="family-hero-backdrop-frame" />
+                  <div className="family-hero-backdrop-dots" />
+                </div>
+              )}
               {figureImage ? (
                 <figure className="industrial-water-figure">
                   <Image
@@ -100,6 +124,64 @@ export default function IndustrialFamilyPage({
             </div>
           </dl>
         </div>
+
+        {hasModernSolutionTheme && (
+          <div className="family-hero-wave-bottom" aria-hidden="true">
+            <svg
+              className="family-hero-wave-svg"
+              viewBox="0 0 1440 96"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <linearGradient id={waveIds.back} x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.45" />
+                  <stop offset="40%" stopColor="#D5E8F3" stopOpacity="0.65" />
+                  <stop offset="70%" stopColor="#BAE6FD" stopOpacity="0.55" />
+                  <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.45" />
+                </linearGradient>
+                <linearGradient id={waveIds.mid} x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#0284C7" stopOpacity="0.35" />
+                  <stop offset="30%" stopColor="#0369A1" stopOpacity="0.48" />
+                  <stop offset="70%" stopColor="#0284C7" stopOpacity="0.4" />
+                  <stop offset="100%" stopColor="#0369A1" stopOpacity="0.45" />
+                </linearGradient>
+                <linearGradient id={waveIds.front} x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#0284C7" stopOpacity="0.75" />
+                  <stop offset="30%" stopColor="#0369A1" stopOpacity="0.65" />
+                  <stop offset="70%" stopColor="#BAE6FD" stopOpacity="0.35" />
+                  <stop offset="100%" stopColor="#FFFFFF" stopOpacity="1" />
+                </linearGradient>
+                <linearGradient id={waveIds.shine} x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+                  <stop offset="35%" stopColor="#BAE6FD" stopOpacity="0.9" />
+                  <stop offset="70%" stopColor="#ffffff" stopOpacity="0.85" />
+                  <stop offset="100%" stopColor="#BAE6FD" stopOpacity="0.7" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M0,22 C240,54 480,6 720,36 C960,66 1200,12 1440,30 L1440,96 L0,96 Z"
+                fill={`url(#${waveIds.back})`}
+              />
+              <path
+                d="M0,42 C280,12 560,58 840,28 C1120,4 1300,44 1440,36 L1440,96 L0,96 Z"
+                fill={`url(#${waveIds.mid})`}
+              />
+              <path
+                d="M0,58 C220,36 460,68 700,46 C940,24 1180,56 1440,44 L1440,96 L0,96 Z"
+                fill={`url(#${waveIds.front})`}
+              />
+              <path
+                d="M0,58 C220,36 460,68 700,46 C940,24 1180,56 1440,44"
+                stroke={`url(#${waveIds.shine})`}
+                strokeWidth="2.5"
+                fill="none"
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
+        )}
       </section>
 
       <section
@@ -152,18 +234,22 @@ export default function IndustrialFamilyPage({
       </section>
 
       <section className="industrial-family-contact" aria-labelledby="family-contact-title">
-        <div className="container industrial-family-contact-inner">
-          <div>
-            <span className="eyebrow">Working on a {family.name.toLowerCase()} requirement?</span>
-            <h2 id="family-contact-title">Share the process and the conditions.</h2>
-            <p>
-              The application, the operating conditions and the material involved
-              help the team point you to the right category.
-            </p>
+        <div className="container">
+          <div className="industrial-family-contact-inner">
+            <div className={hasModernSolutionTheme ? "family-cta-content" : undefined}>
+              <span className="eyebrow">Working on a {family.name.toLowerCase()} requirement?</span>
+              <h2 id="family-contact-title">Share the process and the conditions.</h2>
+              <p>
+                The application, the operating conditions and the material involved
+                help the team point you to the right category.
+              </p>
+            </div>
+            <Link className="btn btn-accent" href="/contact#contact-form">
+              <span>Discuss your application</span>
+              <ArrowRight size={17} aria-hidden="true" />
+            </Link>
+            {hasModernSolutionTheme && <CtaWaterSplashDesign />}
           </div>
-          <Link className="btn btn-accent" href="/contact#contact-form">
-            Discuss your application <ArrowRight size={17} aria-hidden="true" />
-          </Link>
         </div>
       </section>
     </main>
