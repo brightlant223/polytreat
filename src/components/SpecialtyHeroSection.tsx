@@ -212,7 +212,7 @@ export default function SpecialtyHeroSection() {
                   <span className="specialty-pill-dot" aria-hidden="true" />
                   <strong>{active.badgeTitle}</strong>
                   <span className="specialty-pill-sep">·</span>
-                  <span>{active.tag}</span>
+                  <span className="specialty-pill-sub">{active.tag}</span>
                 </span>
               </div>
 

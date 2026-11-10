@@ -318,7 +318,7 @@ export default function SpecialtyPage() {
                           <span className="specialty-pill-dot" aria-hidden="true" />
                           <strong>{card.badgeTitle}</strong>
                           <span className="specialty-pill-sep">·</span>
-                          <span>{card.badgeTag}</span>
+                          <span className="specialty-pill-sub">{card.badgeTag}</span>
                         </span>
                       </div>
                       <img

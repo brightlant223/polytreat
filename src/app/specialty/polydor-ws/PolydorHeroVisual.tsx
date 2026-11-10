@@ -34,13 +34,13 @@ export default function PolydorHeroVisual() {
           />
         </div>
 
-        {/* Floating Brand Pill (Top-Left) */}
+        {/* Floating Brand Pill (Bottom-Left, matching Corosil & Specialty Product tag) */}
         <div className="polydor-hero-visual-badge">
           <span className="polydor-brand-pill">
             <span className="polydor-pill-dot" aria-hidden="true" />
             <strong>POLYDOR-WS®</strong>
             <span className="polydor-pill-sep">·</span>
-            <span>Odour Neutraliser</span>
+            <span className="polydor-pill-sub">Odour Neutraliser</span>
           </span>
         </div>
 
@@ -66,24 +66,6 @@ export default function PolydorHeroVisual() {
             <Package size={13} />
             <span>Product</span>
           </button>
-        </div>
-
-        {/* Floating Stats Card (Bottom Overlay: Dilution, Eco-status, Mechanism) */}
-        <div className="polydor-floating-stats-card" aria-label="Key Product Highlights">
-          <div className="polydor-fstat-item">
-            <span className="polydor-fstat-val">1:20 – 1:1000</span>
-            <span className="polydor-fstat-lbl">Dilution Range</span>
-          </div>
-          <div className="polydor-fstat-divider" aria-hidden="true" />
-          <div className="polydor-fstat-item">
-            <span className="polydor-fstat-val">EPA Aligned</span>
-            <span className="polydor-fstat-lbl">Eco Criteria</span>
-          </div>
-          <div className="polydor-fstat-divider" aria-hidden="true" />
-          <div className="polydor-fstat-item">
-            <span className="polydor-fstat-val">Adduct Form</span>
-            <span className="polydor-fstat-lbl">Neutralisation</span>
-          </div>
         </div>
       </div>
     </div>

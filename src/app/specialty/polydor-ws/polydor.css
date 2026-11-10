@@ -6,6 +6,7 @@
 .polydor-detail-page {
   background-color: #FFFFFF;
   color: #10213B;
+  overflow-x: hidden;
 }
 
 /* --- 1. HERO SECTION --- */
@@ -197,9 +198,14 @@
 }
 
 /* --- HERO VISUAL CARD (MATCHING COROSIL HERO VISUAL) --- */
+.polydor-hero-copy {
+  min-width: 0;
+}
+
 .polydor-hero-visual-wrap {
   position: relative;
   width: 100%;
+  min-width: 0;
 }
 
 .polydor-hero-visual-card {
@@ -273,15 +279,19 @@
 
 .polydor-hero-visual-badge {
   position: absolute;
-  top: 18px;
-  left: 18px;
+  bottom: 16px;
+  left: 16px;
+  max-width: calc(100% - 32px);
   z-index: 6;
+  pointer-events: none;
 }
 
 .polydor-brand-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  max-width: 100%;
+  white-space: nowrap;
   background: rgba(15, 23, 42, 0.88);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -297,6 +307,7 @@
 .polydor-pill-dot {
   width: 7px;
   height: 7px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: #38BDF8;
   box-shadow: 0 0 8px #38BDF8;
@@ -304,6 +315,12 @@
 
 .polydor-pill-sep {
   opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.polydor-pill-sub {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .polydor-visual-tabs {
@@ -705,6 +722,7 @@
 }
 
 .polydor-checklist-col li {
+  min-width: 0;
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
@@ -921,6 +939,7 @@
 }
 
 .polydor-video-player-card {
+  min-width: 0;
   border-radius: 22px;
   overflow: hidden;
   background: #0B192C;
@@ -1014,6 +1033,7 @@
 }
 
 .polydor-video-insights {
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
@@ -1505,7 +1525,7 @@
   .polydor-problems-layout,
   .polydor-specs-layout,
   .polydor-apps-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2.2rem;
   }
 
@@ -1522,7 +1542,7 @@
   }
 
   .polydor-video-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2.2rem;
   }
 
@@ -1533,8 +1553,21 @@
 }
 
 @media (max-width: 768px) {
+  .polydor-hero {
+    background: radial-gradient(ellipse 90% 38% at 85% 6%, #E4F4FE 0%, #F4FAFF 52%, #F8FBFE 100%);
+  }
+
+  .polydor-hero-bg-glow {
+    top: -90px;
+    right: -80px;
+    width: 320px;
+    height: 320px;
+    filter: blur(38px);
+    opacity: 0.72;
+  }
+
   .polydor-facts-strip {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 0.9rem;
   }
 
@@ -1543,35 +1576,217 @@
   .polydor-systems-grid,
   .polydor-apps-grid,
   .polydor-handling-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
 @media (max-width: 640px) {
+  .polydor-hero {
+    padding: 1.5rem 0 0;
+    background: radial-gradient(ellipse 85% 32% at 88% 4%, #E6F5FE 0%, #F5FAFF 48%, #F8FBFE 100%);
+  }
+
+  .polydor-hero-bg-glow {
+    top: -70px;
+    right: -70px;
+    width: 220px;
+    height: 220px;
+    filter: blur(30px);
+    opacity: 0.58;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, rgba(2, 132, 199, 0.06) 48%, transparent 70%);
+  }
+
+  .polydor-video-showcase-wrap::before {
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    filter: blur(28px);
+    opacity: 0.55;
+  }
+
+  .polydor-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    max-width: 100%;
+  }
+
+  .polydor-title {
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
+  }
+
+  .polydor-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-polydor-primary,
+  .btn-polydor-video,
+  .btn-polydor-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
   .polydor-features-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .polydor-feature-card {
+    padding: 0.95rem 1rem;
   }
 
   .polydor-hero-visual-card {
     border-radius: 18px;
     border-width: 3px;
-    aspect-ratio: 16 / 9.2;
+    aspect-ratio: 16 / 10.8;
     min-height: auto;
   }
 
-  .polydor-floating-stats-card {
-    padding: 0.65rem 0.6rem;
-    bottom: 12px;
-    left: 12px;
-    right: 12px;
+  .polydor-hero-visual-badge {
+    bottom: 10px;
+    left: 10px;
+    max-width: calc(100% - 20px);
   }
 
-  .polydor-fstat-val {
-    font-size: 0.9rem;
+  .polydor-brand-pill {
+    font-size: 0.68rem;
+    padding: 0.28rem 0.62rem;
+    gap: 0.35rem;
   }
 
-  .polydor-fstat-lbl {
+  .polydor-pill-sep,
+  .polydor-pill-sub {
+    display: none;
+  }
+
+  .polydor-visual-tabs {
+    top: 10px;
+    right: 10px;
+    padding: 0.22rem;
+    gap: 0.2rem;
+  }
+
+  .polydor-visual-tab-btn {
+    padding: 0.26rem 0.55rem;
+    font-size: 0.68rem;
+    gap: 0.25rem;
+  }
+
+  .polydor-neutralisation-card {
+    padding: 1.15rem 1.2rem;
+    border-radius: 16px;
+  }
+
+  .polydor-step-card,
+  .polydor-system-card,
+  .polydor-app-card,
+  .polydor-handling-card {
+    padding: 1.25rem 1.15rem;
+    border-radius: 16px;
+  }
+
+  .polydor-video-showcase-wrap {
+    padding: 1.15rem 1rem;
+    border-radius: 20px;
+  }
+
+  .polydor-video-player-card {
+    border-radius: 16px;
+  }
+
+  .polydor-video-header {
+    padding: 0.65rem 0.85rem;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .polydor-video-pill {
+    font-size: 0.68rem;
+  }
+
+  .polydor-video-res-badge {
     font-size: 0.62rem;
+    padding: 0.16rem 0.42rem;
+  }
+
+  .polydor-video-caption {
+    padding: 0.72rem 0.9rem;
+    font-size: 0.75rem;
+  }
+
+  .polydor-video-tip-item {
+    padding: 0.8rem 0.95rem;
+    gap: 0.7rem;
+  }
+
+  .polydor-specs-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 16px;
+  }
+
+  .polydor-specs-table th,
+  .polydor-spec-label,
+  .polydor-spec-val {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.84rem;
+  }
+
+  .polydor-detail-page .industries-contact-band {
+    padding-top: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .polydor-hero-bg-glow {
+    top: -55px;
+    right: -55px;
+    width: 170px;
+    height: 170px;
+    filter: blur(24px);
+    opacity: 0.5;
+  }
+
+  .polydor-neutralisation-card {
+    padding: 1.05rem 1rem;
+  }
+
+  .polydor-formula {
+    font-size: 0.95rem;
+  }
+
+  .polydor-specs-table th,
+  .polydor-spec-label,
+  .polydor-spec-val {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .polydor-brand-pill {
+    font-size: 0.62rem;
+    padding: 0.22rem 0.52rem;
+    gap: 0.3rem;
+  }
+
+  .polydor-visual-tab-btn {
+    padding: 0.22rem 0.48rem;
+    font-size: 0.64rem;
+  }
+}
+
+@media (hover: none) {
+  .polydor-hero-visual-card:hover,
+  .polydor-hero-visual-card:hover .polydor-visual-contain-img,
+  .polydor-feature-card:hover,
+  .polydor-checklist-col li:hover,
+  .polydor-step-card:hover,
+  .polydor-video-player-card:hover,
+  .polydor-video-tip-item:hover,
+  .polydor-system-card:hover,
+  .polydor-app-card:hover {
+    transform: none !important;
   }
 }
 

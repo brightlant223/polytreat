@@ -34,13 +34,13 @@ export default function PolyklinHeroVisual() {
           />
         </div>
 
-        {/* Floating Brand Pill (Top-Left) */}
+        {/* Floating Brand Pill (Bottom-Left, matching Corosil & Specialty Product tag) */}
         <div className="polyklin-hero-visual-badge">
           <span className="polyklin-brand-pill">
             <span className="polyklin-pill-dot" aria-hidden="true" />
             <strong>POLYKLIN®</strong>
             <span className="polyklin-pill-sep">·</span>
-            <span>Coil Cleaner</span>
+            <span className="polyklin-pill-sub">Coil Cleaner</span>
           </span>
         </div>
 
@@ -66,24 +66,6 @@ export default function PolyklinHeroVisual() {
             <Package size={13} />
             <span>Product</span>
           </button>
-        </div>
-
-        {/* Floating Stats Card (Bottom Overlay: Mix ratio, Rinse dwell, Pack sizing) */}
-        <div className="polyklin-floating-stats-card" aria-label="Key Product Highlights">
-          <div className="polyklin-fstat-item">
-            <span className="polyklin-fstat-val">1:1 Ratio</span>
-            <span className="polyklin-fstat-lbl">Mix with Water</span>
-          </div>
-          <div className="polyklin-fstat-divider" aria-hidden="true" />
-          <div className="polyklin-fstat-item">
-            <span className="polyklin-fstat-val">5–10 Min</span>
-            <span className="polyklin-fstat-lbl">Rinse Dwell</span>
-          </div>
-          <div className="polyklin-fstat-divider" aria-hidden="true" />
-          <div className="polyklin-fstat-item">
-            <span className="polyklin-fstat-val">35–200 kg</span>
-            <span className="polyklin-fstat-lbl">Pack Sizes</span>
-          </div>
         </div>
       </div>
     </div>

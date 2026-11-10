@@ -40,7 +40,7 @@ export default function CorosilHeroVisual() {
             <span className="corosil-pill-dot" aria-hidden="true" />
             <strong>COROSIL®</strong>
             <span className="corosil-pill-sep">·</span>
-            <span>Rust Converter & Primer Base</span>
+            <span className="corosil-pill-sub">Rust Converter & Primer Base</span>
           </span>
         </div>
 

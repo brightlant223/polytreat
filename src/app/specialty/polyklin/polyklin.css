@@ -6,6 +6,7 @@
 .polyklin-detail-page {
   background-color: #FFFFFF;
   color: #10213B;
+  overflow-x: hidden;
 }
 
 /* --- 1. HERO SECTION --- */
@@ -197,9 +198,14 @@
 }
 
 /* --- HERO VISUAL CARD --- */
+.polyklin-hero-copy {
+  min-width: 0;
+}
+
 .polyklin-hero-visual-wrap {
   position: relative;
   width: 100%;
+  min-width: 0;
 }
 
 .polyklin-hero-visual-card {
@@ -273,15 +279,19 @@
 
 .polyklin-hero-visual-badge {
   position: absolute;
-  top: 18px;
-  left: 18px;
+  bottom: 16px;
+  left: 16px;
+  max-width: calc(100% - 32px);
   z-index: 6;
+  pointer-events: none;
 }
 
 .polyklin-brand-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  max-width: 100%;
+  white-space: nowrap;
   background: rgba(15, 23, 42, 0.88);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -297,6 +307,7 @@
 .polyklin-pill-dot {
   width: 7px;
   height: 7px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: #38BDF8;
   box-shadow: 0 0 8px #38BDF8;
@@ -304,6 +315,12 @@
 
 .polyklin-pill-sep {
   opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.polyklin-pill-sub {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .polyklin-visual-tabs {
@@ -705,6 +722,7 @@
 }
 
 .polyklin-checklist-col li {
+  min-width: 0;
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
@@ -888,6 +906,7 @@
 }
 
 .polyklin-video-player-card {
+  min-width: 0;
   border-radius: 22px;
   overflow: hidden;
   background: #0B192C;
@@ -981,6 +1000,7 @@
 }
 
 .polyklin-video-insights {
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
@@ -1451,7 +1471,7 @@
   .polyklin-problems-layout,
   .polyklin-specs-layout,
   .polyklin-apps-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2.2rem;
   }
 
@@ -1468,7 +1488,7 @@
   }
 
   .polyklin-video-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2.2rem;
   }
 
@@ -1479,8 +1499,21 @@
 }
 
 @media (max-width: 768px) {
+  .polyklin-hero {
+    background: radial-gradient(ellipse 90% 38% at 85% 6%, #E4F4FE 0%, #F4FAFF 52%, #F8FBFE 100%);
+  }
+
+  .polyklin-hero-bg-glow {
+    top: -90px;
+    right: -80px;
+    width: 320px;
+    height: 320px;
+    filter: blur(38px);
+    opacity: 0.72;
+  }
+
   .polyklin-facts-strip {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 0.9rem;
   }
 
@@ -1489,35 +1522,217 @@
   .polyklin-equipment-grid,
   .polyklin-apps-grid,
   .polyklin-handling-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
 @media (max-width: 640px) {
+  .polyklin-hero {
+    padding: 1.5rem 0 0;
+    background: radial-gradient(ellipse 85% 32% at 88% 4%, #E6F5FE 0%, #F5FAFF 48%, #F8FBFE 100%);
+  }
+
+  .polyklin-hero-bg-glow {
+    top: -70px;
+    right: -70px;
+    width: 220px;
+    height: 220px;
+    filter: blur(30px);
+    opacity: 0.58;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, rgba(2, 132, 199, 0.06) 48%, transparent 70%);
+  }
+
+  .polyklin-video-showcase-wrap::before {
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    filter: blur(28px);
+    opacity: 0.55;
+  }
+
+  .polyklin-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    max-width: 100%;
+  }
+
+  .polyklin-title {
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
+  }
+
+  .polyklin-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-polyklin-primary,
+  .btn-polyklin-video,
+  .btn-polyklin-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
   .polyklin-features-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .polyklin-feature-card {
+    padding: 0.95rem 1rem;
   }
 
   .polyklin-hero-visual-card {
     border-radius: 18px;
     border-width: 3px;
-    aspect-ratio: 16 / 9.2;
+    aspect-ratio: 16 / 10.8;
     min-height: auto;
   }
 
-  .polyklin-floating-stats-card {
-    padding: 0.65rem 0.6rem;
-    bottom: 12px;
-    left: 12px;
-    right: 12px;
+  .polyklin-hero-visual-badge {
+    bottom: 10px;
+    left: 10px;
+    max-width: calc(100% - 20px);
   }
 
-  .polyklin-fstat-val {
-    font-size: 0.9rem;
+  .polyklin-brand-pill {
+    font-size: 0.68rem;
+    padding: 0.28rem 0.62rem;
+    gap: 0.35rem;
   }
 
-  .polyklin-fstat-lbl {
+  .polyklin-pill-sep,
+  .polyklin-pill-sub {
+    display: none;
+  }
+
+  .polyklin-visual-tabs {
+    top: 10px;
+    right: 10px;
+    padding: 0.22rem;
+    gap: 0.2rem;
+  }
+
+  .polyklin-visual-tab-btn {
+    padding: 0.26rem 0.55rem;
+    font-size: 0.68rem;
+    gap: 0.25rem;
+  }
+
+  .polyklin-maintenance-card {
+    padding: 1.15rem 1.2rem;
+    border-radius: 16px;
+  }
+
+  .polyklin-step-card,
+  .polyklin-equipment-card,
+  .polyklin-app-card,
+  .polyklin-handling-card {
+    padding: 1.25rem 1.15rem;
+    border-radius: 16px;
+  }
+
+  .polyklin-video-showcase-wrap {
+    padding: 1.15rem 1rem;
+    border-radius: 20px;
+  }
+
+  .polyklin-video-player-card {
+    border-radius: 16px;
+  }
+
+  .polyklin-video-header {
+    padding: 0.65rem 0.85rem;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .polyklin-video-pill {
+    font-size: 0.68rem;
+  }
+
+  .polyklin-video-res-badge {
     font-size: 0.62rem;
+    padding: 0.16rem 0.42rem;
+  }
+
+  .polyklin-video-caption {
+    padding: 0.72rem 0.9rem;
+    font-size: 0.75rem;
+  }
+
+  .polyklin-video-tip-item {
+    padding: 0.8rem 0.95rem;
+    gap: 0.7rem;
+  }
+
+  .polyklin-specs-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 16px;
+  }
+
+  .polyklin-specs-table th,
+  .polyklin-spec-label,
+  .polyklin-spec-val {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.84rem;
+  }
+
+  .polyklin-detail-page .industries-contact-band {
+    padding-top: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .polyklin-hero-bg-glow {
+    top: -55px;
+    right: -55px;
+    width: 170px;
+    height: 170px;
+    filter: blur(24px);
+    opacity: 0.5;
+  }
+
+  .polyklin-maintenance-card {
+    padding: 1.05rem 1rem;
+  }
+
+  .polyklin-formula {
+    font-size: 0.95rem;
+  }
+
+  .polyklin-specs-table th,
+  .polyklin-spec-label,
+  .polyklin-spec-val {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .polyklin-brand-pill {
+    font-size: 0.62rem;
+    padding: 0.22rem 0.52rem;
+    gap: 0.3rem;
+  }
+
+  .polyklin-visual-tab-btn {
+    padding: 0.22rem 0.48rem;
+    font-size: 0.64rem;
+  }
+}
+
+@media (hover: none) {
+  .polyklin-hero-visual-card:hover,
+  .polyklin-hero-visual-card:hover .polyklin-visual-contain-img,
+  .polyklin-feature-card:hover,
+  .polyklin-checklist-col li:hover,
+  .polyklin-step-card:hover,
+  .polyklin-video-player-card:hover,
+  .polyklin-video-tip-item:hover,
+  .polyklin-equipment-card:hover,
+  .polyklin-app-card:hover {
+    transform: none !important;
   }
 }
 
