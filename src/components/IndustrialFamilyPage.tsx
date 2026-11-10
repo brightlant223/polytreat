@@ -30,7 +30,10 @@ export default function IndustrialFamilyPage({
 }) {
   const isSingle = family.categories.length === 1;
   const hasModernSolutionTheme =
-    family.id === "paint-preservatives" || family.id === "sugar-process-chemicals";
+    family.id === "paint-preservatives" ||
+    family.id === "sugar-process-chemicals" ||
+    family.id === "fireside-treatment" ||
+    family.id === "automotive-chemicals";
   const waveIds = {
     back: `family-wave-back-${family.id}`,
     mid: `family-wave-mid-${family.id}`,
