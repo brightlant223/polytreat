@@ -35,16 +35,16 @@ function CardWaterSplash({ className = "" }: { className?: string }) {
     >
       <defs>
         <linearGradient id="const-splash-drop-1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#1769A6" stopOpacity="0.8" />
-          <stop offset="100%" stopColor="#1C5F91" stopOpacity="0.6" />
+          <stop offset="0%" stopColor="#0284C7" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#0369A1" stopOpacity="0.6" />
         </linearGradient>
         <linearGradient id="const-splash-ring-1" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#1769A6" stopOpacity="0.32" />
-          <stop offset="100%" stopColor="#B9D9E8" stopOpacity="0.1" />
+          <stop offset="0%" stopColor="#0284C7" stopOpacity="0.32" />
+          <stop offset="100%" stopColor="#BAE6FD" stopOpacity="0.1" />
         </linearGradient>
         <linearGradient id="const-splash-pool-1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#B9D9E8" stopOpacity="0.45" />
-          <stop offset="100%" stopColor="#EAF3F8" stopOpacity="0.2" />
+          <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.2" />
         </linearGradient>
       </defs>
       <path d="M45 70 C70 50 95 48 120 54 L120 70 Z" fill="url(#const-splash-pool-1)" />
@@ -69,10 +69,10 @@ function CardWaterSplash({ className = "" }: { className?: string }) {
         fill="url(#const-splash-drop-1)"
       />
       <circle cx="66" cy="22" r="3.5" fill="url(#const-splash-drop-1)" />
-      <circle cx="52" cy="36" r="2.5" fill="#B9D9E8" fillOpacity="0.75" />
-      <circle cx="75" cy="10" r="2" fill="#1769A6" fillOpacity="0.5" />
+      <circle cx="52" cy="36" r="2.5" fill="#BAE6FD" fillOpacity="0.75" />
+      <circle cx="75" cy="10" r="2" fill="#0284C7" fillOpacity="0.5" />
       <circle cx="100" cy="26" r="4" fill="url(#const-splash-drop-1)" />
-      <circle cx="94" cy="44" r="1.8" fill="#B9D9E8" fillOpacity="0.8" />
+      <circle cx="94" cy="44" r="1.8" fill="#BAE6FD" fillOpacity="0.8" />
     </svg>
   );
 }
@@ -289,28 +289,28 @@ export default function ConstructionChemistryPage() {
           >
             <defs>
               <linearGradient id="const-wave-back-1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#B9D9E8" stopOpacity="0.5" />
-                <stop offset="40%" stopColor="#D5E8F3" stopOpacity="0.7" />
-                <stop offset="70%" stopColor="#B9D9E8" stopOpacity="0.55" />
-                <stop offset="100%" stopColor="#EAF3F8" stopOpacity="0.45" />
+                <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.45" />
+                <stop offset="40%" stopColor="#D5E8F3" stopOpacity="0.65" />
+                <stop offset="70%" stopColor="#BAE6FD" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.45" />
               </linearGradient>
               <linearGradient id="const-wave-mid-1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#1769A6" stopOpacity="0.4" />
-                <stop offset="30%" stopColor="#1C5F91" stopOpacity="0.55" />
-                <stop offset="70%" stopColor="#1769A6" stopOpacity="0.45" />
-                <stop offset="100%" stopColor="#1C5F91" stopOpacity="0.5" />
+                <stop offset="0%" stopColor="#0284C7" stopOpacity="0.35" />
+                <stop offset="30%" stopColor="#0369A1" stopOpacity="0.48" />
+                <stop offset="70%" stopColor="#0284C7" stopOpacity="0.4" />
+                <stop offset="100%" stopColor="#0369A1" stopOpacity="0.45" />
               </linearGradient>
               <linearGradient id="const-wave-front-1" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#1769A6" stopOpacity="0.8" />
-                <stop offset="25%" stopColor="#1C5F91" stopOpacity="0.7" />
-                <stop offset="65%" stopColor="#B9D9E8" stopOpacity="0.4" />
+                <stop offset="0%" stopColor="#0284C7" stopOpacity="0.75" />
+                <stop offset="30%" stopColor="#0369A1" stopOpacity="0.65" />
+                <stop offset="70%" stopColor="#BAE6FD" stopOpacity="0.35" />
                 <stop offset="100%" stopColor="#F4F8FD" stopOpacity="1" />
               </linearGradient>
               <linearGradient id="const-wave-shine-1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.7" />
-                <stop offset="35%" stopColor="#EAF3F8" stopOpacity="0.9" />
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+                <stop offset="35%" stopColor="#BAE6FD" stopOpacity="0.9" />
                 <stop offset="70%" stopColor="#ffffff" stopOpacity="0.85" />
-                <stop offset="100%" stopColor="#EAF3F8" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="#BAE6FD" stopOpacity="0.7" />
               </linearGradient>
             </defs>
             <path
