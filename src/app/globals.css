@@ -30866,6 +30866,11 @@ main {
     height: 165px;
   }
 
+  /* Prevent boiler equipment image from jumping high on mobile hover */
+  .boiler-cooling-page .boiler-system-card:hover .boiler-card-image-wrap {
+    transform: translateY(-2px) scale(1.02);
+  }
+
   .boiler-cooling-page .boiler-benefits-section {
     padding: 2.5rem 0;
   }
@@ -31101,6 +31106,10 @@ main {
     height: 145px;
     max-width: 200px;
     margin: 1.1rem auto 0;
+  }
+
+  .boiler-cooling-page .boiler-system-card:hover .boiler-card-image-wrap {
+    transform: translateY(-2px) scale(1.02);
   }
 
   .boiler-cooling-page .boiler-card-water-splash {
@@ -31423,7 +31432,7 @@ main {
   border-radius: 999px;
   background: rgba(2, 132, 199, 0.08);
   border: 1px solid rgba(2, 132, 199, 0.22);
-  color: #0284C7;
+  color: #0369A1;
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -31431,7 +31440,7 @@ main {
 }
 
 .ro-effluent-page .ro-hero-badge-icon {
-  color: #0284C7;
+  color: #0369A1;
   flex-shrink: 0;
 }
 
@@ -31715,6 +31724,7 @@ main {
 .ro-effluent-page .ro-process-section {
   padding: clamp(1.25rem, 2.2vw, 2rem) 0 clamp(2.5rem, 4vw, 3.5rem);
   background: #FFFFFF;
+  scroll-margin-top: 5.5rem;
 }
 
 .ro-effluent-page .ro-section-header {
@@ -31800,14 +31810,15 @@ main {
   margin-bottom: 1.5rem;
 }
 
-/* RO & Effluent Process Cards (.ro-process-card) - Icon at Top-Left, Proper Spacing */
+/* RO & Effluent Process Cards (.ro-process-card) - Framed Image & Text Side-by-Side (Zero Overlap) */
 .ro-effluent-page .ro-process-card {
   position: relative;
   background: #FFFFFF;
   border: 1.5px solid #E2EBF6;
   border-radius: 20px;
-  padding: 1.75rem 2rem 1.85rem;
+  padding: 1.65rem 1.75rem 3.85rem;
   overflow: hidden;
+  scroll-margin-top: 5.5rem;
   box-shadow: 0 4px 18px rgba(16, 33, 59, 0.04);
   display: flex;
   flex-direction: column;
@@ -31824,14 +31835,25 @@ main {
   border-color: #7DD3FC;
 }
 
+.ro-effluent-page .ro-card-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.35rem;
+  width: 100%;
+}
+
 .ro-effluent-page .ro-card-inner {
   position: relative;
   z-index: 2;
-  max-width: 62%;
+  flex: 1 1 0%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 0.9rem;
 }
 
 /* Icon Box Shifted to Top-Left */
@@ -31905,14 +31927,15 @@ main {
 }
 
 .ro-effluent-page .ro-card-tag {
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: #0369A1;
   background: #F0F9FF;
   border: 1px solid #BAE6FD;
-  padding: 0.25rem 0.65rem;
-  border-radius: 7px;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
   letter-spacing: -0.01em;
+  white-space: nowrap;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -31939,31 +31962,40 @@ main {
   transform: translateX(3px);
 }
 
-/* Image Wrap Right-Aligned */
+/* Image Wrap Right-Aligned In-Flow Frame (Prevents overlapping text or bottom wave) */
 .ro-effluent-page .ro-card-image-wrap {
-  position: absolute;
-  right: 1.25rem;
-  top: 50%;
-  transform: translateY(-46%);
-  width: 215px;
-  height: 175px;
+  position: relative;
+  right: auto;
+  top: auto;
+  transform: none;
+  flex: 0 0 210px;
+  width: 210px;
+  height: 165px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid #DCE9F6;
+  background: #F4F8FD;
+  box-shadow: 0 8px 22px rgba(2, 132, 199, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  z-index: 3;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.25s ease;
 }
 
 .ro-effluent-page .ro-process-card:hover .ro-card-image-wrap {
-  transform: translateY(-50%) scale(1.04);
+  transform: translateY(-3px) scale(1.02);
+  border-color: #BAE6FD;
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.18);
 }
 
 .ro-effluent-page .ro-card-img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 10px 20px rgba(2, 132, 199, 0.12));
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 /* Baseline Decorative Flowing Wave */
@@ -31972,7 +32004,7 @@ main {
   left: 0;
   right: 0;
   bottom: -1px;
-  height: 78px;
+  height: 54px;
   pointer-events: none;
   z-index: 1;
   overflow: hidden;
@@ -31988,7 +32020,7 @@ main {
   width: 100%;
   height: 100%;
   display: block;
-  opacity: 0.88;
+  opacity: 0.72;
   transition: opacity 0.25s ease;
 }
 
@@ -32054,7 +32086,7 @@ main {
   border-radius: 999px;
   background: #FFFFFF;
   border: 1px solid #BAE6FD;
-  color: #0284C7;
+  color: #0369A1;
   font-size: 0.78rem;
   font-weight: 700;
   margin-bottom: 0.6rem;
@@ -32146,13 +32178,13 @@ main {
 
 .ro-effluent-page .ro-benefit-card.color-orange .ro-benefit-icon-box {
   background: #FFFBEB;
-  color: #D97706;
+  color: #B45309;
   border-color: #FDE68A;
 }
 
 .ro-effluent-page .ro-benefit-card.color-orange:hover {
   border-color: #FDE68A;
-  box-shadow: 0 10px 28px rgba(217, 119, 6, 0.14);
+  box-shadow: 0 10px 28px rgba(180, 83, 9, 0.14);
 }
 
 .ro-effluent-page .ro-benefit-card.color-blue .ro-benefit-icon-box {
@@ -32307,26 +32339,26 @@ main {
 
 .ro-effluent-page .ro-timeline-step.color-orange .ro-step-num-pill {
   background: #FFFBEB;
-  color: #D97706;
+  color: #B45309;
   border: 1px solid #FDE68A;
 }
 
 .ro-effluent-page .ro-timeline-step.color-orange .ro-step-circle-box {
   border-color: #F59E0B;
-  color: #D97706;
+  color: #B45309;
   background: #FFFDF0;
-  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.10);
+  box-shadow: 0 6px 18px rgba(180, 83, 9, 0.10);
 }
 
 .ro-effluent-page .ro-timeline-step.color-orange:hover .ro-step-circle-box {
-  border-color: #D97706;
+  border-color: #B45309;
   background: #FFFBEB;
-  box-shadow: 0 10px 24px rgba(217, 119, 6, 0.22);
+  box-shadow: 0 10px 24px rgba(180, 83, 9, 0.22);
 }
 
 .ro-effluent-page .ro-timeline-step.color-blue .ro-step-num-pill {
   background: #EAF3F8;
-  color: #0284C7;
+  color: #0369A1;
   border: 1px solid #BAE6FD;
 }
 
@@ -32352,7 +32384,7 @@ main {
 }
 
 .ro-effluent-page .ro-timeline-arrow {
-  color: #BAE6FD;
+  color: #7DD3FC;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32367,6 +32399,7 @@ main {
   padding: clamp(2.5rem, 4vw, 3.8rem) 0;
   background: linear-gradient(180deg, #F8FBFE 0%, #FFFFFF 100%);
   border-top: 1px solid #E8F1F8;
+  scroll-margin-top: 5.5rem;
 }
 
 .ro-effluent-page .ro-eyebrow-bar {
@@ -32451,17 +32484,17 @@ main {
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.ro-effluent-page .ro-product-card:hover .ro-product-arrow-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #0284C7;
+.ro-effluent-page .ro-product-card:hover .ro-product-arrow-btn,
+.ro-effluent-page .ro-product-arrow-btn:hover {
+  background: #0369A1;
   color: #FFFFFF;
-  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.38);
+}
+
+.ro-effluent-page .industries-contact-band {
+  padding: 1.5rem 0 3.8rem;
+  background: #FFFFFF;
 }
 
 /* --------------------------------------------------------------------------
@@ -32469,8 +32502,15 @@ main {
    -------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
   .ro-effluent-page .ro-products-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.25rem;
+  }
+
+  .ro-effluent-page .ro-product-card {
+    flex: 0 1 calc(33.333% - 0.85rem);
+    min-width: 240px;
   }
 
   .ro-effluent-page .ro-features-strip {
@@ -32481,6 +32521,21 @@ main {
   .ro-effluent-page .ro-benefits-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
+  }
+}
+
+@media (max-width: 1120px) {
+  .ro-effluent-page .ro-card-body {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.15rem;
+  }
+
+  .ro-effluent-page .ro-card-image-wrap {
+    flex: none;
+    width: 100%;
+    height: 185px;
+    margin: 0;
   }
 }
 
@@ -32510,19 +32565,27 @@ main {
     gap: 1.25rem;
   }
 
+  .ro-effluent-page .ro-card-body {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.35rem;
+  }
+
   .ro-effluent-page .ro-card-inner {
-    max-width: 100%;
-    margin-bottom: 1.25rem;
+    flex: 1 1 0%;
+    min-width: 0;
+    margin-bottom: 0;
   }
 
   .ro-effluent-page .ro-card-image-wrap {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    width: 100%;
-    height: 160px;
-    margin: 0 auto;
+    flex: 0 0 220px;
+    width: 220px;
+    height: 170px;
+    margin: 0;
+  }
+
+  .ro-effluent-page .ro-process-card:hover .ro-card-image-wrap {
+    transform: translateY(-2px) scale(1.02);
   }
 
   .ro-effluent-page .ro-benefits-grid {
@@ -32563,7 +32626,7 @@ main {
     display: flex !important;
     position: absolute;
     right: -13px;
-    top: 52px;
+    top: 64px;
     transform: translate(50%, -50%);
     z-index: 4;
     color: #0284C7;
@@ -32640,7 +32703,13 @@ main {
   }
 
   .ro-effluent-page .ro-process-card {
-    padding: 1.6rem 1.35rem 1.75rem;
+    padding: 1.5rem 1.35rem 3.5rem;
+  }
+
+  .ro-effluent-page .ro-card-body {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.1rem;
   }
 
   .ro-effluent-page .ro-card-inner {
@@ -32648,13 +32717,15 @@ main {
   }
 
   .ro-effluent-page .ro-card-image-wrap {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    margin: 1.35rem auto 0;
+    flex: none;
     width: 100%;
-    height: 165px;
+    max-width: 380px;
+    height: 185px;
+    margin: 0 auto;
+  }
+
+  .ro-effluent-page .ro-process-card:hover .ro-card-image-wrap {
+    transform: translateY(-2px) scale(1.02);
   }
 
   .ro-effluent-page .ro-benefits-section {
@@ -32722,7 +32793,7 @@ main {
     display: flex !important;
     position: absolute;
     right: -11px;
-    top: 50px;
+    top: 58px;
     transform: translate(50%, -50%);
     width: 26px;
     height: 26px;
@@ -32739,8 +32810,12 @@ main {
   }
 
   .ro-effluent-page .ro-products-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
+  }
+
+  .ro-effluent-page .ro-product-card {
+    flex: 0 1 calc(50% - 0.5rem);
+    min-width: 220px;
   }
 
   .ro-effluent-page .ro-section-title {
@@ -32769,7 +32844,7 @@ main {
   }
 
   .ro-effluent-page .ro-process-card {
-    padding: 1.35rem 1.15rem 1.5rem;
+    padding: 1.35rem 1.15rem 3.25rem;
     border-radius: 16px;
     min-height: auto;
   }
@@ -32900,9 +32975,17 @@ main {
   }
 
   .ro-effluent-page .ro-card-image-wrap {
-    height: 145px;
-    max-width: 200px;
-    margin: 1.1rem auto 0;
+    height: 165px;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .ro-effluent-page .ro-card-decor-wrap {
+    height: 44px;
+  }
+
+  .ro-effluent-page .ro-process-card:hover .ro-card-image-wrap {
+    transform: translateY(-2px) scale(1.02);
   }
 
   .ro-effluent-page .ro-card-water-splash {
@@ -32998,7 +33081,7 @@ main {
     display: flex !important;
     position: absolute;
     right: -9px;
-    top: 46px;
+    top: 54px;
     transform: translate(50%, -50%);
     width: 24px;
     height: 24px;
@@ -33015,12 +33098,15 @@ main {
   }
 
   .ro-effluent-page .ro-products-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 0.9rem;
     margin-top: 1.25rem;
   }
 
   .ro-effluent-page .ro-product-card {
+    flex: 1 1 100%;
+    min-width: 0;
+    width: 100%;
     padding: 1.25rem 1rem 1.35rem;
     border-radius: 14px;
   }
@@ -33043,19 +33129,6 @@ main {
     font-size: 0.78rem;
     line-height: 1.4;
     margin-bottom: 0.95rem;
-  }
-
-  .ro-effluent-page .ro-product-arrow-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: #0284C7;
-    color: #FFFFFF;
-    box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
-    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   }
 }
 
@@ -33091,7 +33164,7 @@ main {
     display: flex !important;
     position: absolute;
     right: -7px;
-    top: 42px;
+    top: 50px;
     transform: translate(50%, -50%);
     width: 22px;
     height: 22px;
@@ -37233,6 +37306,7 @@ body:has(.construction-solution-page) .footer-bottom {
   position: absolute;
   bottom: 16px;
   left: 16px;
+  max-width: calc(100% - 32px);
   z-index: 6;
   pointer-events: none;
 }
@@ -37253,6 +37327,8 @@ body:has(.construction-solution-page) .footer-bottom {
   padding: 0.42rem 0.88rem;
   border-radius: 9999px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  max-width: 100%;
   transition: transform 0.25s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease;
 }
 
@@ -37271,6 +37347,15 @@ body:has(.construction-solution-page) .footer-bottom {
 .boiler-pill-sep,
 .ro-pill-sep {
   opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.industrial-pill-sub,
+.boiler-pill-sub,
+.ro-pill-sub {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .industrial-water-figure-wrap:hover .industrial-brand-pill,
@@ -37288,16 +37373,53 @@ body:has(.construction-solution-page) .footer-bottom {
   .industrial-hero-visual-badge,
   .boiler-hero-visual-badge,
   .ro-hero-visual-badge {
-    bottom: 12px;
-    left: 12px;
+    bottom: 10px;
+    left: 10px;
+    max-width: calc(100% - 20px);
   }
 
   .industrial-brand-pill,
   .boiler-brand-pill,
   .ro-brand-pill {
-    font-size: 0.72rem;
-    padding: 0.32rem 0.72rem;
-    gap: 0.4rem;
+    font-size: 0.68rem;
+    padding: 0.26rem 0.62rem;
+    gap: 0.35rem;
+    white-space: nowrap;
+  }
+
+  .industrial-pill-dot,
+  .boiler-pill-dot,
+  .ro-pill-dot {
+    width: 5.5px;
+    height: 5.5px;
+  }
+
+  /* Prevent badge from being too big and wrapping into 2 rows on mobile */
+  .industrial-pill-sep,
+  .boiler-pill-sep,
+  .ro-pill-sep,
+  .industrial-pill-sub,
+  .boiler-pill-sub,
+  .ro-pill-sub {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .industrial-brand-pill,
+  .boiler-brand-pill,
+  .ro-brand-pill {
+    font-size: 0.62rem;
+    padding: 0.22rem 0.52rem;
+    gap: 0.3rem;
+  }
+}
+
+/* Touch device failsafe: prevent card images from jumping up when tapped on mobile */
+@media (hover: none) {
+  .boiler-cooling-page .boiler-system-card:hover .boiler-card-image-wrap,
+  .ro-effluent-page .ro-process-card:hover .ro-card-image-wrap {
+    transform: none !important;
   }
 }
 

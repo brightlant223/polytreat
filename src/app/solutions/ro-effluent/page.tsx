@@ -106,35 +106,30 @@ const productCards = [
     id: "ro-scale-inhibitors",
     title: "RO Scale Inhibitors",
     description: "Prevent scale formation and maintain membrane performance.",
-    image: "/images/solutions/product-scale-inhibitors.png",
     href: `#${industrialAnchors.ro}`,
   },
   {
     id: "ro-membrane-cleaners",
     title: "RO Membrane Cleaners",
     description: "Remove inorganic, organic and bio-fouling deposits.",
-    image: "/images/solutions/product-corrosion-inhibitors.png",
     href: `#${industrialAnchors.ro}`,
   },
   {
     id: "biocides",
     title: "Biocides",
     description: "Control microbial growth in RO and water reuse systems.",
-    image: "/images/solutions/product-dispersants.png",
     href: `#${industrialAnchors.ro}`,
   },
   {
     id: "coagulants-flocculants",
     title: "Coagulants & Flocculants",
     description: "Destabilise and aggregate suspended solids for removal.",
-    image: "/images/solutions/product-biocides.png",
     href: `#${industrialAnchors.effluent}`,
   },
   {
     id: "effluent-conditioning",
     title: "Effluent Conditioning",
     description: "pH control, clarifiers and sludge dewatering aids.",
-    image: "/images/solutions/product-auxiliary-treatments.png",
     href: "/contact#contact-form",
   },
 ];
@@ -412,7 +407,7 @@ export default function RoEffluentPage() {
                     <span className="ro-pill-dot" aria-hidden="true" />
                     <strong>RO &amp; Effluent Reclamation</strong>
                     <span className="ro-pill-sep">·</span>
-                    <span>Membrane Separation &amp; ETP Reclamation</span>
+                    <span className="ro-pill-sub">Membrane Separation &amp; ETP Reclamation</span>
                   </span>
                 </div>
                 <img
@@ -539,38 +534,40 @@ export default function RoEffluentPage() {
               className="ro-process-card"
               id={industrialAnchors.ro}
             >
-              <div className="ro-card-inner">
-                <div className="ro-card-icon-box" aria-hidden="true">
-                  <Filter size={22} className="ro-card-svg" />
-                </div>
-                <div className="ro-card-content">
-                  <h3 className="ro-card-title">Reverse-osmosis systems</h3>
-                  <p className="ro-card-desc">
-                    The product catalogue lists categories for membrane scale
-                    control, cleaning, and microbiological control in RO systems.
-                  </p>
-                  <div
-                    className="ro-card-tags"
-                    aria-label="Reverse-osmosis contexts"
-                  >
-                    <span className="ro-card-tag">Membrane systems</span>
-                    <span className="ro-card-tag">Scale control</span>
-                    <span className="ro-card-tag">Membrane cleaning</span>
+              <div className="ro-card-body">
+                <div className="ro-card-inner">
+                  <div className="ro-card-icon-box" aria-hidden="true">
+                    <Filter size={22} className="ro-card-svg" />
                   </div>
-                  <Link href="#products" className="ro-card-link">
-                    <span>Explore reverse osmosis products</span>
-                    <ArrowRight size={14} aria-hidden="true" />
-                  </Link>
+                  <div className="ro-card-content">
+                    <h3 className="ro-card-title">Reverse-osmosis systems</h3>
+                    <p className="ro-card-desc">
+                      The product catalogue lists categories for membrane scale
+                      control, cleaning, and microbiological control in RO systems.
+                    </p>
+                    <div
+                      className="ro-card-tags"
+                      aria-label="Reverse-osmosis contexts"
+                    >
+                      <span className="ro-card-tag">Membrane systems</span>
+                      <span className="ro-card-tag">Scale control</span>
+                      <span className="ro-card-tag">Membrane cleaning</span>
+                    </div>
+                    <Link href="#products" className="ro-card-link">
+                      <span>Explore reverse osmosis products</span>
+                      <ArrowRight size={14} aria-hidden="true" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
 
-              {/* RO membrane skid rack equipment image */}
-              <div className="ro-card-image-wrap" aria-hidden="true">
-                <img
-                  src="/images/solutions/ro-card-membrane.png"
-                  alt=""
-                  className="ro-card-img"
-                />
+                {/* RO membrane skid rack equipment image */}
+                <div className="ro-card-image-wrap" aria-hidden="true">
+                  <img
+                    src="/images/solutions/ro-card-membrane.png"
+                    alt=""
+                    className="ro-card-img"
+                  />
+                </div>
               </div>
 
               {/* Bottom decorative flowing wave */}
@@ -584,38 +581,40 @@ export default function RoEffluentPage() {
               className="ro-process-card"
               id={industrialAnchors.effluent}
             >
-              <div className="ro-card-inner">
-                <div className="ro-card-icon-box" aria-hidden="true">
-                  <Factory size={22} className="ro-card-svg" />
-                </div>
-                <div className="ro-card-content">
-                  <h3 className="ro-card-title">Effluent treatment</h3>
-                  <p className="ro-card-desc">
-                    Effluent-treatment categories include products described for
-                    coagulation, flocculation, and sludge dewatering processes.
-                  </p>
-                  <div
-                    className="ro-card-tags"
-                    aria-label="Effluent treatment contexts"
-                  >
-                    <span className="ro-card-tag">Process wastewater</span>
-                    <span className="ro-card-tag">Particle separation</span>
-                    <span className="ro-card-tag">Sludge handling</span>
+              <div className="ro-card-body">
+                <div className="ro-card-inner">
+                  <div className="ro-card-icon-box" aria-hidden="true">
+                    <Factory size={22} className="ro-card-svg" />
                   </div>
-                  <Link href="#products" className="ro-card-link">
-                    <span>Explore effluent treatment products</span>
-                    <ArrowRight size={14} aria-hidden="true" />
-                  </Link>
+                  <div className="ro-card-content">
+                    <h3 className="ro-card-title">Effluent treatment</h3>
+                    <p className="ro-card-desc">
+                      Effluent-treatment categories include products described for
+                      coagulation, flocculation, and sludge dewatering processes.
+                    </p>
+                    <div
+                      className="ro-card-tags"
+                      aria-label="Effluent treatment contexts"
+                    >
+                      <span className="ro-card-tag">Process wastewater</span>
+                      <span className="ro-card-tag">Particle separation</span>
+                      <span className="ro-card-tag">Sludge handling</span>
+                    </div>
+                    <Link href="#products" className="ro-card-link">
+                      <span>Explore effluent treatment products</span>
+                      <ArrowRight size={14} aria-hidden="true" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
 
-              {/* Effluent treatment clarifier plant image */}
-              <div className="ro-card-image-wrap" aria-hidden="true">
-                <img
-                  src="/images/solutions/effluent-card-clarifier.png"
-                  alt=""
-                  className="ro-card-img"
-                />
+                {/* Effluent treatment clarifier plant image */}
+                <div className="ro-card-image-wrap" aria-hidden="true">
+                  <img
+                    src="/images/solutions/effluent-card-clarifier.png"
+                    alt=""
+                    className="ro-card-img"
+                  />
+                </div>
               </div>
 
               {/* Bottom decorative flowing wave */}

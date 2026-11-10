@@ -550,7 +550,7 @@
   gap: clamp(2rem, 4vw, 3.5rem);
 }
 
-.polyklin-chemistry-card {
+.polyklin-maintenance-card {
   border: 1.5px solid #BAE6FD;
   border-radius: 20px;
   padding: 1.35rem 1.6rem;
@@ -568,7 +568,7 @@
   margin-bottom: 0.5rem;
 }
 
-.polyklin-chemistry-title {
+.polyklin-maintenance-title {
   margin: 0 0 0.95rem;
   font-size: 1.25rem;
   font-weight: 850;
@@ -642,7 +642,7 @@
   font-weight: 800;
 }
 
-.polyklin-chemistry-note {
+.polyklin-maintenance-note {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;

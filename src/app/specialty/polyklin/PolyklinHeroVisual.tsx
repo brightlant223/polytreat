@@ -16,7 +16,7 @@ export default function PolyklinHeroVisual() {
           aria-hidden={activeTab !== "application"}
         >
           <img
-            src="/images/specialty/polyklin-hvac-coils.jpg"
+            src="/images/specialty/polyklin-hero.webp"
             alt="POLYKLIN AHU and FCU coil cleaning compound application"
             className="polyklin-visual-cover-img"
           />
@@ -27,13 +27,11 @@ export default function PolyklinHeroVisual() {
           className={`polyklin-visual-slide is-product ${activeTab === "product" ? "is-active" : ""}`}
           aria-hidden={activeTab !== "product"}
         >
-          <div className="polyklin-product-contain-backdrop">
-            <img
-              src="/images/specialty/polyklin-product.webp"
-              alt="POLYKLIN Product Packaging Container"
-              className="polyklin-visual-contain-img"
-            />
-          </div>
+          <img
+            src="/images/specialty/polyklin-product.webp"
+            alt="POLYKLIN Product Packaging Container"
+            className="polyklin-visual-cover-img"
+          />
         </div>
 
         {/* Floating Brand Pill (Top-Left) */}

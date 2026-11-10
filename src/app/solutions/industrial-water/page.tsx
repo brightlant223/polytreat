@@ -617,7 +617,7 @@ export default function IndustrialWaterPage() {
                     <span className="industrial-pill-dot" aria-hidden="true" />
                     <strong>RO &amp; Membrane Plant</strong>
                     <span className="industrial-pill-sep">·</span>
-                    <span>Industrial Process Demineralisation</span>
+                    <span className="industrial-pill-sub">Industrial Process Demineralisation</span>
                   </span>
                 </div>
                 <img
@@ -719,7 +719,7 @@ export default function IndustrialWaterPage() {
                     <span className="industrial-pill-dot" aria-hidden="true" />
                     <strong>Filtration &amp; Pre-Treatment</strong>
                     <span className="industrial-pill-sep">·</span>
-                    <span>Multi-Tier Media Vessels</span>
+                    <span className="industrial-pill-sub">Multi-Tier Media Vessels</span>
                   </span>
                 </div>
                 <img

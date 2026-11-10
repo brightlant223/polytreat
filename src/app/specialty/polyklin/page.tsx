@@ -275,9 +275,9 @@ export default function PolyklinPage() {
         <div className="container">
           <div className="polyklin-problems-layout">
             <div className="polyklin-problems-visual-col">
-              <div className="polyklin-chemistry-card">
+              <div className="polyklin-maintenance-card">
                 <span className="polyklin-card-kicker">Coil Maintenance Mechanism</span>
-                <h3 className="polyklin-chemistry-title">Restoring Thermal Heat Transfer &amp; Airflow</h3>
+                <h3 className="polyklin-maintenance-title">Restoring Thermal Heat Transfer &amp; Airflow</h3>
                 <div className="polyklin-reaction-flow">
                   <div className="polyklin-reaction-step">
                     <span className="polyklin-step-tag is-unstable">Restricted Airflow</span>
@@ -294,7 +294,7 @@ export default function PolyklinPage() {
                     <span className="polyklin-formula-desc">Rinsed clean after 5–10 minutes to maintain optimal heat absorption and release</span>
                   </div>
                 </div>
-                <div className="polyklin-chemistry-note">
+                <div className="polyklin-maintenance-note">
                   <Info size={14} aria-hidden="true" />
                   <span>An air conditioner moves heat using coils. Routine coil cleaning is part of routine HVAC maintenance.</span>
                 </div>

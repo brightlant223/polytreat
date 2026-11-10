@@ -414,7 +414,7 @@ export default function BoilerCoolingWaterPage() {
                     <span className="boiler-pill-dot" aria-hidden="true" />
                     <strong>Boiler &amp; Cooling Systems</strong>
                     <span className="boiler-pill-sep">·</span>
-                    <span>Steam Generation &amp; Heat Exchange</span>
+                    <span className="boiler-pill-sub">Steam Generation &amp; Heat Exchange</span>
                   </span>
                 </div>
                 <img

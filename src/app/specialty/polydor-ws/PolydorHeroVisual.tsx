@@ -16,7 +16,7 @@ export default function PolydorHeroVisual() {
           aria-hidden={activeTab !== "application"}
         >
           <img
-            src="/images/specialty/polydor-odour-control.jpg"
+            src="/images/specialty/polydor-hero.webp"
             alt="POLYDOR-WS molecular odour neutraliser application"
             className="polydor-visual-cover-img"
           />
@@ -27,13 +27,11 @@ export default function PolydorHeroVisual() {
           className={`polydor-visual-slide is-product ${activeTab === "product" ? "is-active" : ""}`}
           aria-hidden={activeTab !== "product"}
         >
-          <div className="polydor-product-contain-backdrop">
-            <img
-              src="/images/specialty/polydor-crop.jpg"
-              alt="POLYDOR-WS Product Packaging Container"
-              className="polydor-visual-contain-img"
-            />
-          </div>
+          <img
+            src="/images/specialty/polydor-product.webp"
+            alt="POLYDOR-WS Product Packaging Container"
+            className="polydor-visual-cover-img"
+          />
         </div>
 
         {/* Floating Brand Pill (Top-Left) */}
