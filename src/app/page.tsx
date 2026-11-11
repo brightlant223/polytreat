@@ -176,6 +176,7 @@ const vklinFeaturedProducts = [
 export default function Home() {
   return (
     <main className="hp-home">
+      {/* 1. Clean Spaces, Healthy Living (Hero Section) */}
       <VKlinHeroSection />
       <ScrollReveal />
 
@@ -214,9 +215,161 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 2. Meet V-Klin. Care for everyday spaces. & 3. Popular V-Klin Formulations in Daily Use */}
+      <section className="hp-section hp-section-vklin hp-reveal-section" id="vklin" aria-labelledby="vklin-title">
+        {/* Decorative soft mint wave backdrop */}
+        <div className="hp-vklin-decor" aria-hidden="true" />
+
+        {/* 2. Meet V-Klin. Care for everyday spaces */}
+        <div className="container hp-vklin-layout">
+          <div className="hp-vklin-copy hp-reveal">
+            <div className="hp-vklin-identity">
+              <span className="hp-vklin-logo-pill">
+                <Image
+                  src="/vklin-logo.webp"
+                  alt="V-Klin brand logo"
+                  width={110}
+                  height={38}
+                  className="hp-vklin-logo"
+                />
+              </span>
+              <span className="eyebrow eyebrow-green hp-vklin-eyebrow">
+                <Leaf size={15} strokeWidth={2.4} aria-hidden="true" />
+                <span>A PolyTreat brand</span>
+              </span>
+            </div>
+
+            <h2 id="vklin-title" className="hp-vklin-title">
+              Meet V-Klin. Care<br />
+              for everyday spaces.
+            </h2>
+
+            <p className="hp-vklin-lead">
+              V-Klin brings PolyTreat&apos;s formulated cleaning range to homes, workplaces,
+              and shared facilities, organized by the task each product handles.
+            </p>
+
+            <ul className="hp-vklin-cats-grid" aria-label="V-Klin categories">
+              {vklinProductGroups.map(({ id, title }) => (
+                <li key={id} className="hp-vklin-cat-item">
+                  <span className="hp-cat-check" aria-hidden="true">
+                    <Check size={13} strokeWidth={2.8} />
+                  </span>
+                  <Link href={`/vklin/products#${id}`} className="hp-cat-link">
+                    {title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <div className="hp-vklin-actions">
+              <Link className="hp-btn-vklin-primary" href="/vklin">
+                <span>Explore V-Klin</span>
+                <ArrowRight size={17} strokeWidth={2.2} aria-hidden="true" />
+              </Link>
+              <Link className="hp-vklin-link-secondary" href="/vklin/products">
+                <span>See all {vklinProductCount} products</span>
+                <ArrowRight size={15} strokeWidth={2.2} aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+
+          <VKlinVideoPlayer />
+        </div>
+
+        {/* 3. Popular V-Klin Formulations in Daily Use */}
+        <div className="container hp-vklin-shelf-container">
+          <div className="hp-vklin-products-showcase hp-reveal">
+            <div className="hp-vklin-showcase-head">
+              <span className="hp-vklin-showcase-eyebrow">
+                <Sparkles size={13} strokeWidth={2.4} aria-hidden="true" />
+                The V-Klin shelf
+              </span>
+              <h3>Popular V-Klin Formulations in Daily Use</h3>
+              <p>Everyday cleaning solutions formulated for homes, institutions, and facilities.</p>
+            </div>
+
+            <ul className="hp-vklin-cards-grid">
+              {vklinFeaturedProducts.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`hp-vklin-item-card${item.badge ? " hp-vklin-item-highlight" : ""}`}
+                    aria-label={`View ${item.name} product details`}
+                  >
+                    {item.badge && (
+                      <span className="hp-vklin-botanical-pill">{item.badge}</span>
+                    )}
+                    <span className="hp-vklin-thumb-box">
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        width={180}
+                        height={180}
+                        className="hp-vklin-thumb"
+                      />
+                    </span>
+                    <span className="hp-vklin-item-name">{item.name}</span>
+                    <span className="hp-vklin-item-desc">{item.tagline}</span>
+                    <span className="hp-vklin-card-link">
+                      View product
+                      <ArrowRight size={14} strokeWidth={2.4} aria-hidden="true" />
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Every product area, at a glance. */}
+      <section className="hp-section hp-section-range-map" id="range-map" aria-labelledby="range-map-title">
+        <div className="container">
+          <div className="hp-section-heading">
+            <div>
+              <h2 id="range-map-title">Every product area, at a glance.</h2>
+            </div>
+            <p>
+              {rangeProductAreaCount} product areas across the four ranges, each one
+              documented on its own page, so nothing here is a dead end.
+            </p>
+          </div>
+
+          <div className="hp-map-grid hp-stagger">
+            {productMapGroups.map((group) => (
+              <div className={`hp-map-group hp-map-${group.id}`} key={group.id}>
+                <div className="hp-map-group-head">
+                  <h3>{group.title}</h3>
+                  <span className="hp-map-group-summary">{group.summary}</span>
+                </div>
+                <ul className="hp-map-pills">
+                  {group.items.map((item) => (
+                    <li key={`${group.id}-${item.label}`}>
+                      <Link href={item.href}>
+                        <span>{item.label}</span>
+                        <ArrowUpRight size={13} aria-hidden="true" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="hp-section-foot hp-section-foot-center">
+            <span>The industries page shows the full map with sector contexts.</span>
+            <Link className="text-link" href="/industries">
+              Open the product map <ArrowRight size={15} aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. See How V-Klin Solves Everyday Cleaning Problems */}
       <VKlinCommercialDemos />
 
-      {/* Applications */}
+      {/* 6. Where our products go to work. */}
       <section className="hp-section hp-section-tint" id="applications" aria-labelledby="applications-title">
         <div className="container hp-applications-layout">
           <div className="hp-applications-image">
@@ -270,7 +423,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Flagship specialty products */}
+      {/* 7. Specialty products, in detail. & 8. Real-world applications. */}
       <section className="hp-section hp-section-flagship" id="flagship" aria-labelledby="flagship-title">
         <div className="container">
           {/* Reference Image 2 Modern Section Header */}
@@ -382,8 +535,7 @@ export default function Home() {
             })}
           </div>
 
-          
-          {/* Real-World Work Showcase for POLYDOR (From Technical Brochures) */}
+          {/* 8. Real-world applications */}
           <div className="hp-polydor-work-box hp-reveal">
             <div className="hp-polydor-work-head">
               <span className="eyebrow eyebrow-teal">Real-world applications</span>
@@ -449,158 +601,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* V-Klin brand spotlight */}
-      <section className="hp-section hp-section-vklin hp-reveal-section" id="vklin" aria-labelledby="vklin-title">
-        {/* Decorative soft mint wave backdrop */}
-        <div className="hp-vklin-decor" aria-hidden="true" />
-
-        <div className="container hp-vklin-layout">
-          <div className="hp-vklin-copy hp-reveal">
-            <div className="hp-vklin-identity">
-              <span className="hp-vklin-logo-pill">
-                <Image
-                  src="/vklin-logo.webp"
-                  alt="V-Klin brand logo"
-                  width={110}
-                  height={38}
-                  className="hp-vklin-logo"
-                />
-              </span>
-              <span className="eyebrow eyebrow-green hp-vklin-eyebrow">
-                <Leaf size={15} strokeWidth={2.4} aria-hidden="true" />
-                <span>A PolyTreat brand</span>
-              </span>
-            </div>
-
-            <h2 id="vklin-title" className="hp-vklin-title">
-              Meet V-Klin. Care<br />
-              for everyday spaces.
-            </h2>
-
-            <p className="hp-vklin-lead">
-              V-Klin brings PolyTreat&apos;s formulated cleaning range to homes, workplaces,
-              and shared facilities, organized by the task each product handles.
-            </p>
-
-            <ul className="hp-vklin-cats-grid" aria-label="V-Klin categories">
-              {vklinProductGroups.map(({ id, title }) => (
-                <li key={id} className="hp-vklin-cat-item">
-                  <span className="hp-cat-check" aria-hidden="true">
-                    <Check size={13} strokeWidth={2.8} />
-                  </span>
-                  <Link href={`/vklin/products#${id}`} className="hp-cat-link">
-                    {title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            <div className="hp-vklin-actions">
-              <Link className="hp-btn-vklin-primary" href="/vklin">
-                <span>Explore V-Klin</span>
-                <ArrowRight size={17} strokeWidth={2.2} aria-hidden="true" />
-              </Link>
-              <Link className="hp-vklin-link-secondary" href="/vklin/products">
-                <span>See all {vklinProductCount} products</span>
-                <ArrowRight size={15} strokeWidth={2.2} aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
-
-          <VKlinVideoPlayer />
-        </div>
-        <div className="container hp-vklin-shelf-container">
-          
-        {/* V-Klin Popular Everyday Products Shelf (Real Bottles & Real Tasks) */}
-        <div className="hp-vklin-products-showcase hp-reveal">
-          <div className="hp-vklin-showcase-head">
-            <span className="hp-vklin-showcase-eyebrow">
-              <Sparkles size={13} strokeWidth={2.4} aria-hidden="true" />
-              The V-Klin shelf
-            </span>
-            <h3>Popular V-Klin Formulations in Daily Use</h3>
-            <p>Everyday cleaning solutions formulated for homes, institutions, and facilities.</p>
-          </div>
-
-          <ul className="hp-vklin-cards-grid">
-            {vklinFeaturedProducts.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={`hp-vklin-item-card${item.badge ? " hp-vklin-item-highlight" : ""}`}
-                  aria-label={`View ${item.name} product details`}
-                >
-                  {item.badge && (
-                    <span className="hp-vklin-botanical-pill">{item.badge}</span>
-                  )}
-                  <span className="hp-vklin-thumb-box">
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      width={180}
-                      height={180}
-                      className="hp-vklin-thumb"
-                    />
-                  </span>
-                  <span className="hp-vklin-item-name">{item.name}</span>
-                  <span className="hp-vklin-item-desc">{item.tagline}</span>
-                  <span className="hp-vklin-card-link">
-                    View product
-                    <ArrowRight size={14} strokeWidth={2.4} aria-hidden="true" />
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        </div>
-      </section>
-
-      {/* Complete business map */}
-      <section className="hp-section hp-section-range-map" id="range-map" aria-labelledby="range-map-title">
-        <div className="container">
-          <div className="hp-section-heading">
-            <div>
-              <h2 id="range-map-title">Every product area, at a glance.</h2>
-            </div>
-            <p>
-              {rangeProductAreaCount} product areas across the four ranges, each one
-              documented on its own page, so nothing here is a dead end.
-            </p>
-          </div>
-
-          <div className="hp-map-grid hp-stagger">
-            {productMapGroups.map((group) => (
-              <div className={`hp-map-group hp-map-${group.id}`} key={group.id}>
-                <div className="hp-map-group-head">
-                  <h3>{group.title}</h3>
-                  <span className="hp-map-group-summary">{group.summary}</span>
-                </div>
-                <ul className="hp-map-pills">
-                  {group.items.map((item) => (
-                    <li key={`${group.id}-${item.label}`}>
-                      <Link href={item.href}>
-                        <span>{item.label}</span>
-                        <ArrowUpRight size={13} aria-hidden="true" />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="hp-section-foot hp-section-foot-center">
-            <span>The industries page shows the full map with sector contexts.</span>
-            <Link className="text-link" href="/industries">
-              Open the product map <ArrowRight size={15} aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Since 1987 — company story + PQRS */}
+      {/* 9. A manufacturer first, since 1987. */}
       <section className="hp-section hp-section-story" id="story" aria-labelledby="story-title">
         <div className="container">
           <div className="hp-story-layout">
@@ -671,7 +672,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* "Tell us what you work with" CTA Section */}
+      {/* 10. Have a specific site or system in mind? (Contact Section) */}
       <section
         className="industries-contact-band hp-industries-cta-band"
         id="application-cta"

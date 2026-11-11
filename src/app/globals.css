@@ -16471,7 +16471,7 @@ body:has(.contact-page) .footer-credit a {
   overflow-x: hidden;
 }
 
-:is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-hero > .container {
+:is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-hero>.container {
   position: relative;
   z-index: 4;
 }
@@ -16565,7 +16565,7 @@ body:has(.contact-page) .footer-credit a {
   margin: 0.75rem 0 0.95rem;
 }
 
-:is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-hero-copy > p {
+:is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-hero-copy>p {
   max-width: 510px;
   margin: 0 0 1.4rem;
   color: #475569;
@@ -16786,7 +16786,7 @@ body:has(.contact-page) .footer-credit a {
   box-shadow: 0 12px 32px rgba(2, 132, 199, 0.08);
 }
 
-:is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-facts div + div {
+:is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-facts div+div {
   border-left: 1px solid #E2EBF6;
   padding-left: 1.25rem;
 }
@@ -16833,7 +16833,7 @@ body:has(.contact-page) .footer-credit a {
   letter-spacing: -0.025em;
 }
 
-:is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-heading > p {
+:is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-heading>p {
   color: #5B6E88;
   font-size: 0.9rem;
   line-height: 1.62;
@@ -16903,7 +16903,7 @@ body:has(.contact-page) .footer-credit a {
   color: #0284C7;
 }
 
-:is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-card > p {
+:is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-card>p {
   color: #5B6E88;
   font-size: 0.87rem;
   line-height: 1.6;
@@ -17095,7 +17095,7 @@ body:has(.contact-page) .footer-credit a {
     padding: 1rem 1.1rem;
   }
 
-  :is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-facts div + div {
+  :is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-facts div+div {
     border-left: none;
     border-top: 1px solid #E2EBF6;
     padding-left: 0;
@@ -17132,7 +17132,7 @@ body:has(.contact-page) .footer-credit a {
     margin: 0.6rem 0 0.85rem;
   }
 
-  :is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-hero-copy > p {
+  :is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-hero-copy>p {
     font-size: 0.88rem;
     line-height: 1.52;
     margin-bottom: 1.2rem;
@@ -17233,6 +17233,7 @@ body:has(.contact-page) .footer-credit a {
 }
 
 @media (hover: none) {
+
   :is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-water-figure:hover,
   :is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-card:hover {
     transform: none !important;
@@ -25829,17 +25830,6 @@ main {
     min-height: 180px !important;
     height: 185px !important;
     border-radius: 14px !important;
-  }
-
-  /* Hide "Every product area, at a glance" (Complete business map) completely on mobile view */
-  #range-map,
-  .hp-section-range-map {
-    display: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    height: 0 !important;
-    min-height: 0 !important;
-    border: none !important;
   }
 
   .hp-map-grid {
@@ -35292,6 +35282,7 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 @media (hover: none) {
+
   .construction-solution-page .construction-feature-col:hover,
   .construction-solution-page .construction-feature-col:hover .construction-feature-icon-box,
   .construction-solution-page .construction-figure-wrap:hover,
@@ -38799,6 +38790,7 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 @media (max-width: 380px) {
+
   .industrial-brand-pill,
   .boiler-brand-pill,
   .ro-brand-pill,
@@ -38811,6 +38803,7 @@ body:has(.construction-solution-page) .footer-bottom {
 
 /* Touch device failsafe: prevent card/hero images from jumping up when tapped on mobile */
 @media (hover: none) {
+
   .boiler-cooling-page .boiler-system-card:hover .boiler-card-image-wrap,
   .ro-effluent-page .ro-process-card:hover .ro-card-image-wrap,
   .ro-effluent-page .ro-hero-figure-wrap:hover,
@@ -39151,6 +39144,7 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 @media (max-width: 480px) {
+
   .specialty-showcase-card,
   .specialty-showcase-card.is-reversed {
     padding: 1.05rem 0.95rem 1.2rem;
