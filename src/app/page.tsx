@@ -560,7 +560,7 @@ export default function Home() {
       </section>
 
       {/* Complete business map */}
-      <section className="hp-section" id="range-map" aria-labelledby="range-map-title">
+      <section className="hp-section hp-section-range-map" id="range-map" aria-labelledby="range-map-title">
         <div className="container">
           <div className="hp-section-heading">
             <div>
