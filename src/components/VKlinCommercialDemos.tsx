@@ -205,8 +205,21 @@ export default function VKlinCommercialDemos() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(45);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const activeDemo = cleaningDemos[activeTab];
+
+  // Smoothly center active tab in horizontal scroll track on mobile
+  useEffect(() => {
+    const activeEl = tabRefs.current[activeTab];
+    if (activeEl) {
+      activeEl.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  }, [activeTab]);
 
   // Advance to next tab when video ends
   const handleVideoEnded = () => {
@@ -343,6 +356,9 @@ export default function VKlinCommercialDemos() {
             return (
               <button
                 key={demo.id}
+                ref={(el) => {
+                  tabRefs.current[idx] = el;
+                }}
                 id={`demo-tab-${demo.id}`}
                 type="button"
                 role="tab"

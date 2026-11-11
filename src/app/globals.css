@@ -28072,6 +28072,8 @@ main {
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .vklin-ref-nav-pill-bar::-webkit-scrollbar {
@@ -28079,8 +28081,6 @@ main {
 }
 
 .vklin-ref-nav-item {
-  flex: 1;
-  min-width: 138px;
   display: flex;
   align-items: center;
   gap: 0.65rem;
@@ -28092,6 +28092,13 @@ main {
   position: relative;
   transition: all 220ms ease;
   text-align: left;
+}
+
+@media (min-width: 1025px) {
+  .vklin-ref-nav-item {
+    flex: 1 1 0;
+    min-width: 0;
+  }
 }
 
 .vklin-ref-nav-item:hover {
@@ -28713,29 +28720,178 @@ main {
   .vklin-ref-video-wrapper {
     aspect-ratio: 16 / 9;
   }
-}
 
-@media (max-width: 768px) {
-  .vklin-ref-btn-row {
-    flex-direction: column;
-    align-items: stretch;
+  .vklin-ref-nav-pill-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0.4rem 0.55rem;
+    gap: 0.5rem;
+    border-radius: 999px;
+    scroll-padding: 0 0.5rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .vklin-ref-nav-pill-bar::-webkit-scrollbar {
+    display: none;
   }
 
   .vklin-ref-nav-item {
-    min-width: 125px;
-    padding: 0.45rem 0.7rem;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: max-content !important;
+    scroll-snap-align: center;
+    padding: 0.5rem 0.85rem;
+    border-radius: 999px;
+    gap: 0.55rem;
+  }
+
+  .vklin-ref-active-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .vklin-ref-container {
+    padding: 0 0.85rem;
+  }
+
+  .vklin-ref-header {
+    margin-bottom: 1.1rem;
+  }
+
+  .vklin-ref-title {
+    font-size: clamp(1.45rem, 5.5vw, 1.85rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .vklin-ref-lead {
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  .vklin-ref-nav-pill-bar {
+    padding: 0.35rem 0.45rem;
     gap: 0.45rem;
+    border-radius: 999px;
+    margin-bottom: 1.15rem;
+    scroll-padding: 0 0.45rem;
+    border-width: 1px;
+    box-shadow: 0 4px 16px rgba(2, 132, 199, 0.06);
+  }
+
+  .vklin-ref-nav-item {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: max-content !important;
+    padding: 0.45rem 0.8rem;
+    gap: 0.5rem;
+    border-radius: 999px;
+  }
+
+  .vklin-ref-tab-icon-wrap {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    border-radius: 8px;
+  }
+
+  .vklin-ref-tab-icon-wrap svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .vklin-ref-tab-meta {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .vklin-ref-tab-topline {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .vklin-ref-tab-num {
+    font-size: 0.68rem;
+    font-weight: 850;
+    line-height: 1;
+    flex-shrink: 0;
   }
 
   .vklin-ref-tab-label {
-    font-size: 0.76rem;
+    font-size: 0.78rem;
+    font-weight: 850;
+    line-height: 1.2;
+    white-space: nowrap;
   }
 
   .vklin-ref-tab-sub {
-    font-size: 0.62rem;
+    font-size: 0.64rem;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+
+  .vklin-ref-stage-card {
+    border-radius: 18px;
+  }
+
+  .vklin-ref-stage-topbar {
+    padding: 0.75rem 1rem;
   }
 
   .vklin-ref-topbar-title {
+    font-size: 0.82rem;
+  }
+
+  .vklin-ref-topbar-pill {
+    font-size: 0.64rem;
+    padding: 0.22rem 0.6rem;
+  }
+
+  .vklin-ref-card-body {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .vklin-ref-featured-card {
+    padding: 0.75rem;
+  }
+
+  .vklin-ref-problem-card,
+  .vklin-ref-action-card,
+  .vklin-ref-results-card {
+    padding: 0.85rem 1rem;
+  }
+
+  .vklin-ref-problem-desc,
+  .vklin-ref-action-desc {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .vklin-ref-results-item {
+    font-size: 0.78rem;
+  }
+
+  .vklin-ref-btn-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .vklin-ref-btn-primary,
+  .vklin-ref-btn-whatsapp {
+    width: 100%;
+    padding: 0.7rem 1rem;
     font-size: 0.82rem;
   }
 }
