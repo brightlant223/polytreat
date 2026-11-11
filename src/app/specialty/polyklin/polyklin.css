@@ -1467,14 +1467,6 @@
 
 /* --- RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 1024px) {
-  .polyklin-hero-layout,
-  .polyklin-problems-layout,
-  .polyklin-specs-layout,
-  .polyklin-apps-layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2.2rem;
-  }
-
   .polyklin-features-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1485,6 +1477,16 @@
 
   .polyklin-equipment-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 960px) {
+  .polyklin-hero-layout,
+  .polyklin-problems-layout,
+  .polyklin-specs-layout,
+  .polyklin-apps-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.2rem;
   }
 
   .polyklin-video-grid {
@@ -1513,20 +1515,23 @@
   }
 
   .polyklin-facts-strip {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.9rem;
   }
 
-  .polyklin-checklist-grid,
+  .polyklin-checklist-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .polyklin-facts-strip,
   .polyklin-steps-grid,
   .polyklin-equipment-grid,
   .polyklin-apps-grid,
   .polyklin-handling-grid {
     grid-template-columns: minmax(0, 1fr);
   }
-}
-
-@media (max-width: 640px) {
   .polyklin-hero {
     padding: 1.5rem 0 0;
     background: radial-gradient(ellipse 85% 32% at 88% 4%, #E6F5FE 0%, #F5FAFF 48%, #F8FBFE 100%);

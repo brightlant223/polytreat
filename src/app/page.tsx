@@ -98,9 +98,54 @@ const flagshipNotes: Record<string, string> = {
     "Directions are as published in our product literature; ask for the current sheet.",
 };
 
-const flagshipProducts = specialtyProducts.filter((product) =>
-  flagshipSlugs.has(product.slug),
-);
+type FlagshipDetailCard = {
+  slug: string;
+  name: string;
+  headline: string;
+  summary: string;
+  categoryBadge: string;
+  src: string;
+  alt: string;
+  chips: string[];
+  note: string;
+  href: string;
+  ctaLabel: string;
+};
+
+const flagshipDetailCards: FlagshipDetailCard[] = [
+  ...specialtyProducts
+    .filter((product) => flagshipSlugs.has(product.slug))
+    .map((product) => {
+      const media = flagshipMedia[product.slug];
+      return {
+        slug: product.slug,
+        name: product.name,
+        headline: product.headline,
+        summary: product.summary,
+        categoryBadge: media?.categoryBadge || product.category.toUpperCase(),
+        src: media.src,
+        alt: media.alt,
+        chips: flagshipChips[product.slug] ?? [],
+        note: flagshipNotes[product.slug] ?? "",
+        href: `/specialty/${product.slug}`,
+        ctaLabel: `Explore ${product.name}`,
+      };
+    }),
+  {
+    slug: "industrial-water",
+    name: "Industrial Water Treatment",
+    headline: "Scale, corrosion & fouling control across plant circuits.",
+    summary:
+      "Formulated chemical programmes for cooling water, steam boilers, reverse osmosis membranes and industrial effluent plants.",
+    categoryBadge: "WATER TREATMENT",
+    src: "/images/solutions/industrial-water-ro-facility.jpg",
+    alt: "Industrial reverse osmosis and water treatment facility with multi-tiered membrane pressure vessels",
+    chips: ["Cooling water", "Boiler water", "Reverse osmosis", "Effluent treatment"],
+    note: "Covers inhibitors, oxygen scavengers, antiscalants, biocides, coagulants & membrane care.",
+    href: "/solutions/industrial-water",
+    ctaLabel: "Explore Water Treatment",
+  },
+];
 
 
 const markets = operatingEnvironments.map(({ id, eyebrow, description }) => ({
@@ -456,83 +501,78 @@ export default function Home() {
                 <Layers size={24} strokeWidth={1.8} className="hp-specialty-icon" />
               </div>
               <p className="hp-specialty-lead">
-                POLYDOR-WS, COROSIL and POLYKLIN each solve one specific problem.
-                Their full pages carry the product literature, application lists,
-                and document requests.
+                POLYDOR-WS, COROSIL, POLYKLIN and our Industrial Water Treatment range
+                each solve specific plant challenges. Explore full product literature,
+                application lists, and solution overviews.
               </p>
             </div>
           </div>
 
           <div className="hp-specialty-grid">
-            {flagshipProducts.map((product) => {
-              const media = flagshipMedia[product.slug];
-              return (
-                <article className="hp-spec-card" key={product.slug}>
-                  {/* Top media banner with category pill (1:1 square ratio) */}
-                  <div className="hp-spec-media-wrap">
-                    {media && (
-                      <Image
-                        src={media.src}
-                        alt={media.alt}
-                        width={600}
-                        height={600}
-                        className="hp-spec-media-img"
-                        priority={product.slug === "corosil"}
-                      />
-                    )}
-                    <span className="hp-spec-category-pill">
-                      {media?.categoryBadge || product.category.toUpperCase()}
-                    </span>
-                    <svg
-                      className="hp-spec-wave-svg"
-                      viewBox="0 0 500 32"
-                      preserveAspectRatio="none"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M0 16C120 32 360 4 500 20V32H0V16Z"
-                        fill="#FFFFFF"
-                      />
-                    </svg>
-                  </div>
+            {flagshipDetailCards.map((card) => (
+              <article className="hp-spec-card" key={card.slug}>
+                {/* Top media banner with category pill */}
+                <div className="hp-spec-media-wrap">
+                  <Image
+                    src={card.src}
+                    alt={card.alt}
+                    width={600}
+                    height={600}
+                    className="hp-spec-media-img"
+                    priority={card.slug === "corosil"}
+                  />
+                  <span className="hp-spec-category-pill">
+                    {card.categoryBadge}
+                  </span>
+                  <svg
+                    className="hp-spec-wave-svg"
+                    viewBox="0 0 500 32"
+                    preserveAspectRatio="none"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M0 16C120 32 360 4 500 20V32H0V16Z"
+                      fill="#FFFFFF"
+                    />
+                  </svg>
+                </div>
 
-                  {/* Card Content */}
-                  <div className="hp-spec-body">
-                    <h3 className="hp-spec-name">{product.name}</h3>
-                    <p className="hp-spec-tagline">{product.headline}</p>
-                    <p className="hp-spec-summary">{product.summary}</p>
+                {/* Card Content */}
+                <div className="hp-spec-body">
+                  <h3 className="hp-spec-name">{card.name}</h3>
+                  <p className="hp-spec-tagline">{card.headline}</p>
+                  <p className="hp-spec-summary">{card.summary}</p>
 
-                    {/* Checkmark Tag Chips */}
-                    <div className="hp-spec-tags-wrap" aria-label={`${product.name} application areas`}>
-                      {flagshipChips[product.slug]?.map((chip) => (
-                        <span className="hp-spec-tag-item" key={chip}>
-                          <span className="hp-spec-tag-check-circle" aria-hidden="true">
-                            <Check size={9} strokeWidth={3.5} />
-                          </span>
-                          <span>{chip}</span>
+                  {/* Checkmark Tag Chips */}
+                  <div className="hp-spec-tags-wrap" aria-label={`${card.name} application areas`}>
+                    {card.chips.map((chip) => (
+                      <span className="hp-spec-tag-item" key={chip}>
+                        <span className="hp-spec-tag-check-circle" aria-hidden="true">
+                          <Check size={9} strokeWidth={3.5} />
                         </span>
-                      ))}
-                    </div>
-
-                    {/* Information Note Box */}
-                    <div className="hp-spec-note-box">
-                      <span className="hp-spec-note-icon" aria-hidden="true">
-                        <Info size={14} strokeWidth={2.2} />
+                        <span>{chip}</span>
                       </span>
-                      <p className="hp-spec-note-text">{flagshipNotes[product.slug]}</p>
-                    </div>
-
-                    {/* Full-width Explore Capsule Button */}
-                    <Link className="hp-spec-explore-btn" href={`/specialty/${product.slug}`}>
-                      <span>Explore {product.name}</span>
-                      <ArrowRight size={15} strokeWidth={2.4} className="hp-spec-btn-arrow" aria-hidden="true" />
-                    </Link>
+                    ))}
                   </div>
-                </article>
-              );
-            })}
+
+                  {/* Information Note Box */}
+                  <div className="hp-spec-note-box">
+                    <span className="hp-spec-note-icon" aria-hidden="true">
+                      <Info size={14} strokeWidth={2.2} />
+                    </span>
+                    <p className="hp-spec-note-text">{card.note}</p>
+                  </div>
+
+                  {/* Full-width Explore Capsule Button */}
+                  <Link className="hp-spec-explore-btn" href={card.href}>
+                    <span>{card.ctaLabel}</span>
+                    <ArrowRight size={15} strokeWidth={2.4} className="hp-spec-btn-arrow" aria-hidden="true" />
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
 
           {/* 8. Real-world applications */}
