@@ -20427,6 +20427,20 @@ h3,
 }
 
 /* ------------------------------------------------------------------ */
+/* Homepage Industries CTA Band — "Tell us what you work with."        */
+/* ------------------------------------------------------------------ */
+
+.hp-industries-cta-band {
+  background: #ffffff;
+  padding: 0 0 clamp(2.5rem, 5vw, 4.2rem);
+  position: relative;
+}
+
+.hp-industries-cta-band .industries-contact-inner {
+  margin: 0 auto;
+}
+
+/* ------------------------------------------------------------------ */
 /* V-Klin spotlight                                                    */
 /* ------------------------------------------------------------------ */
 
@@ -25905,6 +25919,10 @@ main {
   .hp-application-row {
     grid-template-columns: 36px minmax(0, 1fr) auto !important;
     padding: 0.75rem 0.75rem !important;
+  }
+
+  .hp-industries-cta-band {
+    padding: 0 0 2rem !important;
   }
 
   .hp-specialty-grid {

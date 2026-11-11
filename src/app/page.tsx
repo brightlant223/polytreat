@@ -5,6 +5,7 @@ import VKlinHeroSection from "@/components/VKlinHeroSection";
 import VKlinCommercialDemos from "@/components/VKlinCommercialDemos";
 import ScrollReveal from "@/components/ScrollReveal";
 import VKlinVideoPlayer from "@/components/VKlinVideoPlayer";
+import { CtaWaterSplashDesign } from "@/components/CtaWaterSplashDesign";
 import { homeStockImages } from "@/data/homeImages";
 import {
   vklinProductCount,
@@ -31,10 +32,7 @@ import {
   Info,
   Layers,
   Leaf,
-  Mail,
   MapPin,
-  MessageCircle,
-  Phone,
   ScrollText,
   ShieldCheck,
   Sparkles,
@@ -673,57 +671,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact */}
-      <section className="hp-section hp-section-contact" id="contact" aria-labelledby="contact-title">
-        <div className="container hp-contact-panel">
-          <div className="hp-contact-copy hp-reveal">
-            <h2 id="contact-title">Let&apos;s talk about your application.</h2>
-            <p>
-              Tell us the system, surface, or facility behind the requirement, and we&apos;ll
-              direct it to the right team, including current product documents.
-            </p>
-            <Link className="text-link hp-contact-form-link" href="/contact#contact-form">
-              Or send a detailed enquiry form <ArrowRight size={15} aria-hidden="true" />
-            </Link>
-          </div>
-
-          <div className="hp-contact-cards hp-stagger">
-            <a className="hp-contact-card" href="mailto:polyind2@gmail.com">
-              <span className="hp-contact-icon"><Mail size={18} aria-hidden="true" /></span>
-              <span className="hp-contact-card-copy">
-                <span>Email enquiries</span>
-                <strong>polyind2@gmail.com</strong>
-              </span>
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
-            <a className="hp-contact-card" href="tel:+919820235995">
-              <span className="hp-contact-icon"><Phone size={18} aria-hidden="true" /></span>
-              <span className="hp-contact-card-copy">
-                <span>Technical &amp; sales</span>
-                <strong>+91 98202 35995</strong>
-              </span>
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
-            <a
-              className="hp-contact-card"
-              href="https://wa.me/919820235995?text=Hi%20PolyTreat%2C%20I%27d%20like%20to%20discuss%20a%20product%20or%20site%20requirement."
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="hp-contact-icon"><MessageCircle size={18} aria-hidden="true" /></span>
-              <span className="hp-contact-card-copy">
-                <span>WhatsApp</span>
-                <strong>Chat with the team</strong>
-              </span>
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
-            <div className="hp-contact-card hp-contact-address">
-              <span className="hp-contact-icon"><MapPin size={18} aria-hidden="true" /></span>
-              <span className="hp-contact-card-copy">
-                <span>Corporate office</span>
-                <strong>7-A Topiwala Building, Goregaon (West), Mumbai 400104</strong>
-              </span>
+      {/* "Tell us what you work with" CTA Section */}
+      <section
+        className="industries-contact-band hp-industries-cta-band"
+        id="application-cta"
+        aria-labelledby="home-application-cta-title"
+      >
+        <div className="container">
+          <div className="industries-contact-inner">
+            <div className="industries-contact-copy">
+              <span className="industries-contact-eyebrow">Have a specific site or system in mind?</span>
+              <h2 id="home-application-cta-title">
+                Tell us what <span className="industries-highlight">you work with.</span>
+              </h2>
+              <p>
+                Share the application area, the system and the operating conditions, and
+                the team can direct your enquiry to the right category.
+              </p>
             </div>
+            <div className="industries-contact-action">
+              <Link className="btn btn-industries-primary" href="/contact#contact-form">
+                <span>Discuss your application</span>
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
+            <CtaWaterSplashDesign />
           </div>
         </div>
       </section>
