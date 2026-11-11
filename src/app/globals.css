@@ -25832,6 +25832,17 @@ main {
     border-radius: 14px !important;
   }
 
+  /* Hide "Every product area, at a glance" (Complete business map) completely on mobile view */
+  #range-map,
+  .hp-section-range-map {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    border: none !important;
+  }
+
   .hp-map-grid {
     grid-template-columns: 1fr !important;
     gap: 0.95rem !important;
