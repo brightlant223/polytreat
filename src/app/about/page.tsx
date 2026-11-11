@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import {
   ArrowRight,
   ArrowUpRight,
-  BadgeCheck,
+  Award,
+  CalendarDays,
   Building2,
-  CalendarClock,
   Check,
   Droplets,
   Factory,
@@ -37,14 +38,6 @@ export const metadata: Metadata = {
     "about PolyTreat Chemicals, ISO 9001:2015 chemical manufacturer, Tarapur MIDC plant, Goregaon chemical unit, water treatment chemicals since 1987",
 };
 
-const glance = [
-  { label: "Established", value: "1987, Mumbai" },
-  { label: "Certifications", value: "ISO 9001:2015 · WHO-GMP reference · Private FDA reference · UKcert Eco-Friendly" },
-  { label: "Manufacturing", value: "Tarapur MIDC · Goregaon (East), Mumbai" },
-  { label: "Corporate office", value: "Goregaon (West), Mumbai" },
-  { label: "Divisions", value: "Industrial water · Construction · V-Klin care" },
-  { label: "Markets", value: "Across India, plus Middle East & South Africa exports" },
-];
 
 const credentials = [
   {
@@ -170,162 +163,191 @@ export default function AboutPage() {
     <main className={`about-page-redesign ${plusJakarta.variable}`}>
       <AboutObserver />
 
-      {/* 1. HERO SECTION */}
-      <section className="ab-hero-section" aria-labelledby="about-title">
-        {/* Decorative water splash background graphics & rotating circle motion (Matching Home Hero) */}
-        <div className="hp-hero-water-bg" aria-hidden="true">
-          <div className="hp-water-splash hp-water-splash-top-right">
-            <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M120 0C170 50 160 110 220 140C290 175 360 110 420 160C470 200 480 300 500 360V0H120Z"
-                fill="url(#abWaterGlow1)"
-                opacity="0.65"
-              />
-              <path
-                d="M260 0C300 45 350 70 410 75C460 79 490 120 500 150V0H260Z"
-                fill="url(#abWaterGlow2)"
-                opacity="0.8"
-              />
-              <circle cx="190" cy="180" r="14" fill="#38BDF8" opacity="0.35" />
-              <circle cx="193" cy="177" r="4" fill="#FFFFFF" opacity="0.8" />
-              <circle cx="140" cy="220" r="8" fill="#0EA5E9" opacity="0.3" />
-              <circle cx="142" cy="218" r="2.5" fill="#FFFFFF" opacity="0.75" />
-              <circle cx="280" cy="250" r="20" fill="#0284C7" opacity="0.18" />
-              <circle cx="284" cy="246" r="6" fill="#FFFFFF" opacity="0.7" />
-              <defs>
-                <linearGradient id="abWaterGlow1" x1="500" y1="0" x2="160" y2="300" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#38BDF8" stopOpacity="0.5" />
-                  <stop offset="0.6" stopColor="#0EA5E9" stopOpacity="0.2" />
-                  <stop offset="1" stopColor="#BAE6FD" stopOpacity="0" />
-                </linearGradient>
-                <linearGradient id="abWaterGlow2" x1="500" y1="0" x2="300" y2="150" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#7DD3FC" stopOpacity="0.6" />
-                  <stop offset="1" stopColor="#38BDF8" stopOpacity="0.1" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-
-          <div className="hp-water-splash hp-water-splash-bottom-left">
-            <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M0 400C50 330 30 260 90 220C160 170 230 230 300 180C360 135 370 40 420 0H0V400Z"
-                fill="url(#abWaterGlow3)"
-                opacity="0.45"
-              />
-              <circle cx="180" cy="140" r="12" fill="#0284C7" opacity="0.22" />
-              <circle cx="183" cy="138" r="3.5" fill="#FFFFFF" opacity="0.75" />
-              <circle cx="320" cy="100" r="16" fill="#38BDF8" opacity="0.25" />
-              <circle cx="324" cy="97" r="5" fill="#FFFFFF" opacity="0.7" />
-              <circle cx="90" cy="160" r="7" fill="#0EA5E9" opacity="0.3" />
-              <defs>
-                <linearGradient id="abWaterGlow3" x1="0" y1="400" x2="350" y2="100" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#38BDF8" stopOpacity="0.4" />
-                  <stop offset="0.7" stopColor="#0284C7" stopOpacity="0.15" />
-                  <stop offset="1" stopColor="#E0F2FE" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-
-          <div className="hp-hero-watermark ab-hero-watermark" aria-hidden="true">
-            <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="200" cy="200" r="170" stroke="#0284C7" strokeWidth="2.5" strokeDasharray="8 8" opacity="0.14" />
-              <circle cx="200" cy="200" r="130" stroke="#0EA5E9" strokeWidth="1.5" opacity="0.1" />
-              <circle cx="200" cy="200" r="90" stroke="#38BDF8" strokeWidth="2" strokeDasharray="16 12" opacity="0.18" />
-              <circle cx="200" cy="200" r="40" stroke="#0284C7" strokeWidth="1.5" opacity="0.12" />
-            </svg>
-          </div>
+      {/* 1. HERO SECTION (Redesigned to replicate reference image exactly) */}
+      <section className="ab-hero-section about-hero-redesign" aria-labelledby="about-title">
+        {/* Soft atmospheric gradient & lower-left organic wave */}
+        <div className="about-hero-left-wave" aria-hidden="true">
+          <svg viewBox="0 0 500 350" fill="none" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="ab-hero-wave-left-1" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#0070EB" stopOpacity="0.28" />
+                <stop offset="50%" stopColor="#38BDF8" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="#BAE6FD" stopOpacity="0.05" />
+              </linearGradient>
+              <linearGradient id="ab-hero-wave-left-2" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#0099FF" stopOpacity="0.35" />
+                <stop offset="60%" stopColor="#7DD3FC" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.08" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M-40,350 C60,250 160,200 280,240 C380,270 440,210 500,140 L500,350 Z"
+              fill="url(#ab-hero-wave-left-1)"
+            />
+            <path
+              d="M-40,350 C90,280 190,230 300,265 C400,295 450,260 500,210 L500,350 Z"
+              fill="url(#ab-hero-wave-left-2)"
+            />
+          </svg>
         </div>
 
-        <div className="ab-container ab-hero-inner">
-          <div className="ab-hero-content">
-            <nav className="ab-breadcrumb" aria-label="Breadcrumb">
-              <ol>
-                <li>
-                  <Link href="/">Home</Link>
-                </li>
-                <li className="ab-breadcrumb-separator" aria-hidden="true">
-                  /
-                </li>
-                <li aria-current="page">About Us</li>
-              </ol>
-            </nav>
-
-            <span className="ab-label">About PolyTreat</span>
-
-            <h1 id="about-title" className="ab-hero-title">
-              <span className="ab-hero-title-line-mask">
-                <span className="ab-hero-title-line ab-hero-title-line-1">
-                  Chemical solutions,
-                </span>
-              </span>
-              <span className="ab-hero-title-line-mask">
-                <span className="ab-hero-title-line ab-hero-title-line-2">
-                  manufactured in-house
-                </span>
-              </span>
-              <span className="ab-hero-title-line-mask">
-                <span className="ab-hero-title-line ab-hero-title-line-3">
-                  <span className="ab-text-blue">since 1987.</span>
-                </span>
-              </span>
-            </h1>
-
-            <p className="ab-hero-lead">
-              PolyTreat Chemicals Pvt. Ltd. formulates and produces specialty chemicals for
-              industrial water systems, construction projects, and everyday facility care — from
-              two manufacturing units in Maharashtra and a corporate office in Mumbai.
-            </p>
-
-            <ul className="ab-hero-chips" aria-label="Key highlights">
-              <li className="ab-chip">
-                <span className="ab-chip-icon-wrap">
-                  <BadgeCheck size={15} strokeWidth={2.2} aria-hidden="true" />
-                </span>
-                <span>ISO 9001:2015 certified</span>
-              </li>
-              <li className="ab-chip">
-                <span className="ab-chip-icon-wrap">
-                  <Factory size={15} strokeWidth={2.2} aria-hidden="true" />
-                </span>
-                <span>2 production units</span>
-              </li>
-              <li className="ab-chip">
-                <span className="ab-chip-icon-wrap">
-                  <CalendarClock size={15} strokeWidth={2.2} aria-hidden="true" />
-                </span>
-                <span>Manufacturing since 1987</span>
-              </li>
-              <li className="ab-chip">
-                <span className="ab-chip-icon-wrap">
-                  <Leaf size={15} strokeWidth={2.2} aria-hidden="true" />
-                </span>
-                <span>V-Klin care range</span>
-              </li>
-            </ul>
-          </div>
-
-          <aside className="ab-card ab-glance-card" aria-label="PolyTreat at a glance">
-            <div className="ab-glance-header">
-              <div className="ab-glance-icon-badge">
-                <Building2 size={22} strokeWidth={1.8} aria-hidden="true" />
+        <div className="ab-container about-hero-container">
+          <div className="about-hero-grid">
+            {/* LEFT COLUMN: Label, Heading, Description, 3 Badges, CTA */}
+            <div className="about-hero-left">
+              {/* Eyebrow Label with blue dash */}
+              <div className="about-hero-eyebrow">
+                <span className="about-hero-eyebrow-dash" aria-hidden="true" />
+                <span className="about-hero-eyebrow-text">ABOUT POLYTREAT</span>
               </div>
-              <div>
-                <span>Company profile</span>
-                <h2>PolyTreat at a glance</h2>
+
+              {/* Main Heading */}
+              <h1 id="about-title" className="about-hero-h1">
+                Chemical solutions,<br />
+                manufactured<br />
+                in-house <span className="about-hero-h1-blue">since 1987.</span>
+              </h1>
+
+              {/* Lead Description */}
+              <p className="about-hero-desc">
+                PolyTreat Chemicals Pvt. Ltd. formulates and produces specialty chemicals for
+                industrial water systems, construction projects, and everyday facility care — from
+                two manufacturing units in Maharashtra and a corporate office in Mumbai.
+              </p>
+
+              {/* Three Horizontally Aligned Badges */}
+              <div className="about-hero-badges-row">
+                {/* Badge 1: ISO 9001:2015 */}
+                <div className="about-hero-badge-card">
+                  <div className="about-badge-icon-box" aria-hidden="true">
+                    <Award size={20} strokeWidth={2.2} />
+                  </div>
+                  <div className="about-badge-text">
+                    <strong className="about-badge-title">ISO 9001:2015</strong>
+                    <span className="about-badge-sub">Certified</span>
+                  </div>
+                </div>
+
+                {/* Badge 2: 2 Production Units */}
+                <div className="about-hero-badge-card">
+                  <div className="about-badge-icon-box" aria-hidden="true">
+                    <Factory size={20} strokeWidth={2.2} />
+                  </div>
+                  <div className="about-badge-text">
+                    <strong className="about-badge-title">2 Production</strong>
+                    <span className="about-badge-sub">Units</span>
+                  </div>
+                </div>
+
+                {/* Badge 3: V-Klin Care Range */}
+                <div className="about-hero-badge-card">
+                  <div className="about-badge-icon-box" aria-hidden="true">
+                    <FlaskConical size={20} strokeWidth={2.2} />
+                  </div>
+                  <div className="about-badge-text">
+                    <strong className="about-badge-title">V-Klin</strong>
+                    <span className="about-badge-sub">Care Range</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <div className="about-hero-actions">
+                <a href="#story" className="btn-about-hero">
+                  <span>Explore Our Company</span>
+                  <span className="btn-about-hero-arrow" aria-hidden="true">
+                    <ArrowRight size={15} strokeWidth={2.5} />
+                  </span>
+                </a>
               </div>
             </div>
 
-            <ul className="ab-glance-grid">
-              {glance.map(({ label, value }) => (
-                <li className="ab-glance-item" key={label}>
-                  <span className="ab-glance-label">{label}</span>
-                  <span className="ab-glance-value">{value}</span>
-                </li>
-              ))}
-            </ul>
-          </aside>
+            {/* RIGHT COLUMN: Asymmetrical Curved Portal with Industrial Water Treatment Image & Floating Badge */}
+            <div className="about-hero-right">
+              <div className="about-hero-portal-wrap">
+                {/* Decorative outer cyan/blue flowing halo border */}
+                <div className="about-hero-portal-halo" aria-hidden="true" />
+
+                {/* Main image frame with 8px crisp white border and curved arch */}
+                <div className="about-hero-portal-frame">
+                  <Image
+                    src="/images/about/hero-water-treatment.jpg"
+                    alt="PolyTreat advanced industrial reverse osmosis water treatment and filtration facility"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 52vw, 680px"
+                    className="about-hero-portal-img"
+                  />
+
+                  {/* Dynamic Water Splash (Seamlessly integrated inside the pool foreground) */}
+                  <div className="about-hero-portal-splash" aria-hidden="true">
+                    <Image
+                      src="/images/about/hero-water-splash.png"
+                      alt=""
+                      fill
+                      sizes="(max-width: 768px) 55vw, 420px"
+                      className="about-hero-portal-splash-img"
+                    />
+                  </div>
+                </div>
+
+                {/* Floating 'Since 1987' Badge (Upper-Right) */}
+                <div className="about-hero-since-badge">
+                  <div className="about-since-icon-box" aria-hidden="true">
+                    <CalendarDays size={24} strokeWidth={2.2} />
+                  </div>
+                  <div className="about-since-text">
+                    <span className="about-since-label">Since</span>
+                    <span className="about-since-year">1987</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Elegant Layered Cyan & Blue Flowing Wave Divider along bottom edge */}
+        <div className="about-hero-wave-bottom" aria-hidden="true">
+          <svg
+            viewBox="0 0 1440 96"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            className="about-hero-wave-svg"
+          >
+            <defs>
+              <linearGradient id="ab-wave-back" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.45" />
+                <stop offset="40%" stopColor="#D8EEFD" stopOpacity="0.75" />
+                <stop offset="70%" stopColor="#BAE6FD" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#EBF6FD" stopOpacity="0.45" />
+              </linearGradient>
+              <linearGradient id="ab-wave-mid" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#0070EB" stopOpacity="0.25" />
+                <stop offset="35%" stopColor="#0055B3" stopOpacity="0.38" />
+                <stop offset="70%" stopColor="#0070EB" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#0055B3" stopOpacity="0.2" />
+              </linearGradient>
+              <linearGradient id="ab-wave-front" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#0070EB" stopOpacity="0.55" />
+                <stop offset="35%" stopColor="#0055B3" stopOpacity="0.4" />
+                <stop offset="80%" stopColor="#BAE6FD" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="#ffffff" stopOpacity="1" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M0,32 C240,65 480,12 720,44 C960,76 1200,22 1440,48 L1440,96 L0,96 Z"
+              fill="url(#ab-wave-back)"
+            />
+            <path
+              d="M0,48 C280,18 520,72 800,38 C1080,4 1260,56 1440,32 L1440,96 L0,96 Z"
+              fill="url(#ab-wave-mid)"
+            />
+            <path
+              d="M0,58 C320,86 640,38 960,68 C1200,90 1360,52 1440,60 L1440,96 L0,96 Z"
+              fill="url(#ab-wave-front)"
+            />
+          </svg>
         </div>
       </section>
 
