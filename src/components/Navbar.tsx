@@ -24,7 +24,7 @@ const productGroups: MenuGroup[] = [
   {
     title: "Industrial water",
     links: [
-      { label: "Industrial water treatment", href: "/solutions/industrial-water" },
+      { label: "Industrial water overview", href: "/solutions/industrial-water" },
       { label: "Boiler & cooling water", href: "/solutions/boiler-cooling-water" },
       { label: "RO & effluent", href: "/solutions/ro-effluent" },
     ],
@@ -32,7 +32,7 @@ const productGroups: MenuGroup[] = [
   {
     title: "Construction & surface protection",
     links: [
-      { label: "Construction & surface protection", href: "/solutions/construction-chemistry" },
+      { label: "Construction overview", href: "/solutions/construction-chemistry" },
       { label: "Waterproofing, repair & coatings", href: "/solutions/waterproofing-repair-coatings" },
       { label: "Flooring & joint sealing", href: "/solutions/flooring-joint-sealing" },
     ],

@@ -28745,6 +28745,10 @@ main {
    Industrial Water Treatment Page - Reference Hero Section
    ========================================================================== */
 
+.industrial-water-page {
+  overflow-x: hidden;
+}
+
 .industrial-water-page .industrial-water-hero.industrial-water-reference-hero {
   position: relative;
   overflow: hidden;
@@ -29956,7 +29960,7 @@ main {
   }
 
   .industrial-water-page .industrial-approach-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.25rem;
   }
 
@@ -30015,7 +30019,7 @@ main {
   }
 
   .industrial-water-page .industrial-problems-checklist {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 0.85rem;
   }
 
@@ -34474,7 +34478,7 @@ body:has(.construction-solution-page) .footer-bottom {
    2. KEY BENEFITS (Section 2 - 4 Cards Strip)
    -------------------------------------------------------------------------- */
 .construction-solution-page .construction-features-section {
-  padding: clamp(1.25rem, 2vw, 1.75rem) 0 clamp(0.75rem, 1.25vw, 1.15rem);
+  padding: clamp(1.5rem, 2.5vw, 2.25rem) 0 clamp(1rem, 1.75vw, 1.5rem);
   background: #FFFFFF;
   position: relative;
   z-index: 4;
@@ -34482,42 +34486,58 @@ body:has(.construction-solution-page) .footer-bottom {
 
 .construction-solution-page .construction-features-strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: #FFFFFF;
-  border: 1px solid #BAE6FD;
-  border-radius: 18px;
-  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.10);
-  overflow: hidden;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.15rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
 }
 
 .construction-solution-page .construction-feature-col {
   position: relative;
   display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 1.05rem 1.25rem;
-  transition: background-color 0.2s ease;
-}
-
-.construction-solution-page .construction-feature-col+.construction-feature-col {
-  border-left: 1px solid #E2EBF6;
+  align-items: flex-start;
+  gap: 0.95rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid #E2EBF6;
+  border-radius: 18px;
+  padding: 1.2rem 1.25rem;
+  box-shadow: 0 4px 16px rgba(16, 33, 59, 0.04);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, background 0.25s ease;
+  cursor: default;
 }
 
 .construction-solution-page .construction-feature-col:hover {
-  background: #F8FBFE;
+  transform: translateY(-4px);
+  border-color: #7DD3FC;
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.12), 0 3px 8px rgba(16, 33, 59, 0.04);
+  background: #FFFFFF;
 }
 
 .construction-solution-page .construction-feature-icon-box {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
   background: #E0F2FE;
+  border: 1.5px solid #BAE6FD;
   color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid #BAE6FD;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease;
+}
+
+.construction-solution-page .construction-feature-col:hover .construction-feature-icon-box {
+  transform: scale(1.1) translateY(-2px);
+  background: #0284C7;
+  border-color: #0284C7;
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.32);
 }
 
 .construction-solution-page .construction-feature-text {
@@ -34526,18 +34546,23 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 .construction-solution-page .construction-feature-title {
-  font-size: 0.90rem;
-  font-weight: 800;
+  font-size: 0.95rem;
+  font-weight: 850;
   color: #10213B;
-  margin: 0 0 0.15rem;
+  margin: 0 0 0.25rem;
   letter-spacing: -0.015em;
+  transition: color 0.2s ease;
+}
+
+.construction-solution-page .construction-feature-col:hover .construction-feature-title {
+  color: #0284C7;
 }
 
 .construction-solution-page .construction-feature-desc {
-  font-size: 0.77rem;
-  color: #5B6E88;
+  font-size: 0.78rem;
+  color: #64748B;
   margin: 0;
-  line-height: 1.35;
+  line-height: 1.45;
 }
 
 /* --------------------------------------------------------------------------
@@ -35009,20 +35034,8 @@ body:has(.construction-solution-page) .footer-bottom {
 /* Tablet & Laptop (1024px and below) */
 @media (max-width: 1024px) {
   .construction-solution-page .construction-features-strip {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .construction-solution-page .construction-feature-col:nth-child(2) {
-    border-right: none;
-  }
-
-  .construction-solution-page .construction-feature-col:nth-child(3),
-  .construction-solution-page .construction-feature-col:nth-child(4) {
-    border-top: 1px solid #E2EBF6;
-  }
-
-  .construction-solution-page .construction-feature-col:nth-child(3) {
-    border-left: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
   }
 
   .construction-solution-page .construction-catalogue-row {
@@ -35181,12 +35194,28 @@ body:has(.construction-solution-page) .footer-bottom {
 
   .construction-solution-page .construction-features-strip {
     grid-template-columns: minmax(0, 1fr);
-    border-radius: 16px;
+    gap: 0.75rem;
+    border-radius: 0;
   }
 
-  .construction-solution-page .construction-feature-col+.construction-feature-col {
-    border-left: none;
-    border-top: 1px solid #E2EBF6;
+  .construction-solution-page .construction-feature-col {
+    padding: 0.9rem 1rem;
+    gap: 0.8rem;
+    border-radius: 14px;
+  }
+
+  .construction-solution-page .construction-feature-icon-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+  }
+
+  .construction-solution-page .construction-feature-title {
+    font-size: 0.86rem;
+  }
+
+  .construction-solution-page .construction-feature-desc {
+    font-size: 0.74rem;
   }
 
   .construction-solution-page .construction-problems-checklist {
@@ -35263,6 +35292,8 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 @media (hover: none) {
+  .construction-solution-page .construction-feature-col:hover,
+  .construction-solution-page .construction-feature-col:hover .construction-feature-icon-box,
   .construction-solution-page .construction-figure-wrap:hover,
   .construction-solution-page .construction-category-card:hover,
   .construction-solution-page .construction-catalogue-row:hover {
@@ -38719,6 +38750,8 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 .industrial-water-figure-wrap:hover .industrial-brand-pill,
+.industrial-water-figure-wrap:hover .specialty-brand-pill,
+.construction-figure-wrap:hover .specialty-brand-pill,
 .industrial-problems-image-frame:hover .industrial-brand-pill,
 .boiler-hero-figure-wrap:hover .boiler-brand-pill,
 .ro-hero-figure-wrap:hover .ro-brand-pill {
@@ -39100,7 +39133,7 @@ body:has(.construction-solution-page) .footer-bottom {
   }
 
   .specialty-showcase-highlights {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 0.45rem;
   }
 

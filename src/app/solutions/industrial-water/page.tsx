@@ -2,11 +2,14 @@ import { CtaWaterSplashDesign } from "@/components/CtaWaterSplashDesign";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { IndustrialCatalogueCarousel } from "./IndustrialCatalogueCarousel";
+import { IndustrialHeroVisualSlider } from "./IndustrialHeroVisualSlider";
 import {
   ArrowRight,
   Check,
   ChevronRight,
+  Droplets,
   Fan,
+  Flame,
   Home,
   MessageCircle,
 } from "lucide-react";
@@ -545,6 +548,65 @@ const catalogueRows = [
   },
 ];
 
+const waterSystemShowcases = [
+  {
+    id: "boiler-cooling-overview",
+    name: "Boiler & Cooling Water Treatment",
+    badgeTitle: "Thermal Systems",
+    badgeTag: "Boilers & Cooling Towers",
+    category: "Steam generation & heat rejection",
+    subtitle: "Scale, Corrosion & Bio-Fouling Control Across Thermal Loops",
+    image: "/images/solutions/boiler-cooling-hero-facility.jpg",
+    alt: "Industrial boiler plant and cooling tower heat-exchange facility",
+    description:
+      "Formulated programmes for steam-generation boilers and recirculating cooling-water loops—protecting heat-transfer surfaces from scale deposits, dissolved-oxygen corrosion, sludge accumulation, and biological growth.",
+    highlights: [
+      "Protects equipment & improves life",
+      "Maintains heat transfer performance",
+      "Reduces water & energy costs",
+      "Stable, long-term system operation",
+    ],
+    tags: [
+      "Scale inhibitors",
+      "Oxygen scavengers",
+      "Corrosion inhibitors",
+      "Biocides",
+      "Condensate care",
+    ],
+    linkText: "Explore Boiler & Cooling Range",
+    href: "/solutions/boiler-cooling-water",
+    icon: Flame,
+  },
+  {
+    id: "ro-effluent-overview",
+    name: "RO & Effluent Treatment",
+    badgeTitle: "Membrane & ETP",
+    badgeTag: "Reverse Osmosis & Wastewater",
+    category: "Membrane care & wastewater compliance",
+    subtitle: "High-Recovery Membrane Protection & Clarifier Conditioning",
+    image: "/images/solutions/ro-effluent-hero-facility.jpg",
+    alt: "Reverse osmosis membrane skid and industrial effluent clarification plant",
+    description:
+      "Integrated membrane antiscalants, acid/alkaline membrane cleaners, and effluent treatment aids built to maximise permeate recovery, extend membrane service intervals, and support environmental discharge compliance.",
+    highlights: [
+      "Consistent, high-purity RO output",
+      "Extended membrane service life",
+      "Supports regulatory discharge norms",
+      "Enables water reuse & lower waste",
+    ],
+    tags: [
+      "RO antiscalants",
+      "Membrane cleaners",
+      "Coagulants",
+      "Flocculants",
+      "Metal precipitants",
+    ],
+    linkText: "Explore RO & Effluent Range",
+    href: "/solutions/ro-effluent",
+    icon: Droplets,
+  },
+];
+
 export default function IndustrialWaterPage() {
   return (
     <main className="industrial-water-page">
@@ -610,22 +672,8 @@ export default function IndustrialWaterPage() {
                 <div className="industrial-hero-backdrop-dots" />
               </div>
 
-              {/* Large high-resolution RO facility photograph container */}
-              <div className="industrial-water-figure-wrap">
-                <div className="industrial-hero-visual-badge">
-                  <span className="industrial-brand-pill">
-                    <span className="industrial-pill-dot" aria-hidden="true" />
-                    <strong>RO &amp; Membrane Plant</strong>
-                    <span className="industrial-pill-sep">·</span>
-                    <span className="industrial-pill-sub">Industrial Process Demineralisation</span>
-                  </span>
-                </div>
-                <img
-                  src="/images/solutions/industrial-water-ro-facility.jpg"
-                  alt="Industrial reverse osmosis water treatment facility with multi-tiered membrane pressure vessels, high-pressure pumps and stainless steel piping"
-                  className="industrial-water-hero-img"
-                />
-              </div>
+              {/* Rotating High-Resolution Industrial Water Facilities Showcase */}
+              <IndustrialHeroVisualSlider />
             </div>
           </div>
         </div>
@@ -835,6 +883,108 @@ export default function IndustrialWaterPage() {
                     {card.id === "boiler-approach" && <BoilerApproachDecor />}
                     {card.id === "ro-approach" && <RoApproachDecor />}
                     {card.id === "effluent-approach" && <EffluentApproachDecor />}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 3B. SYSTEM PROGRAMMES SHOWCASE - ALTERNATING FLAGSHIP OVERVIEW CARDS */}
+      <section
+        className="specialty-showcase-section"
+        id="system-programmes"
+        aria-labelledby="water-system-programmes-title"
+      >
+        <div className="container">
+          <div className="industrial-section-header">
+            <div className="industrial-section-header-left">
+              <div className="industrial-section-eyebrow">
+                <span className="industrial-eyebrow-bar" aria-hidden="true" />
+                <span>Dedicated system ranges</span>
+              </div>
+              <h2 id="water-system-programmes-title" className="industrial-section-title">
+                Two core programmes. Complete plant protection.
+              </h2>
+            </div>
+            <div className="industrial-section-header-right">
+              <span className="industrial-header-divider" aria-hidden="true" />
+              <p>
+                Dive deeper into our thermal water systems and membrane-effluent ranges
+                to review dedicated treatment stages, key benefits, and product lines.
+              </p>
+            </div>
+          </div>
+
+          <div className="specialty-showcase-list">
+            {waterSystemShowcases.map((card, index) => {
+              const Icon = card.icon;
+              const isReversed = index === 1;
+              return (
+                <article
+                  className={`specialty-showcase-card ${isReversed ? "is-reversed" : ""}`}
+                  key={card.id}
+                  id={card.id}
+                >
+                  <div className="specialty-showcase-visual-col">
+                    <div className="specialty-showcase-figure-wrap">
+                      <div className="specialty-showcase-image-badge">
+                        <span className="specialty-brand-pill">
+                          <span className="specialty-pill-dot" aria-hidden="true" />
+                          <strong>{card.badgeTitle}</strong>
+                          <span className="specialty-pill-sep">·</span>
+                          <span className="specialty-pill-sub">{card.badgeTag}</span>
+                        </span>
+                      </div>
+                      <img
+                        src={card.image}
+                        alt={card.alt}
+                        className="specialty-showcase-img"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="specialty-showcase-content-col">
+                    <div className="specialty-showcase-eyebrow">
+                      <div className="specialty-showcase-icon-box" aria-hidden="true">
+                        <Icon size={16} />
+                      </div>
+                      <span className="specialty-showcase-category">{card.category}</span>
+                    </div>
+
+                    <h3 className="specialty-showcase-card-title">{card.name}</h3>
+                    <div className="specialty-showcase-subtitle">{card.subtitle}</div>
+
+                    <p className="specialty-showcase-desc">{card.description}</p>
+
+                    <div className="specialty-showcase-highlights">
+                      {card.highlights.map((item) => (
+                        <div key={item} className="specialty-showcase-highlight-item">
+                          <Check size={14} className="specialty-showcase-check" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="specialty-showcase-tags">
+                      {card.tags.map((tag) => (
+                        <span key={tag} className="specialty-showcase-tag-pill">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="specialty-showcase-actions">
+                      <Link href={card.href} className="btn btn-industrial-primary">
+                        <span>{card.linkText}</span>
+                        <ArrowRight size={15} aria-hidden="true" />
+                      </Link>
+                      <Link href="/contact#contact-form" className="btn btn-industrial-secondary">
+                        <span>Discuss Application</span>
+                      </Link>
+                    </div>
                   </div>
                 </article>
               );

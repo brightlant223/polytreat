@@ -1,4 +1,5 @@
 import { CtaWaterSplashDesign } from "@/components/CtaWaterSplashDesign";
+import { HeroVisualSlider, type HeroSlideItem } from "@/components/HeroVisualSlider";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -198,6 +199,89 @@ const catalogueRows = [
   },
 ];
 
+const constructionHeroSlides: HeroSlideItem[] = [
+  {
+    id: "construction-overview",
+    src: "/images/solutions/construction-hero-facility.jpg",
+    alt: "Industrial and commercial infrastructure building site with modern architectural concrete structures and protective coatings",
+    badgeTitle: "Structural Protection",
+    badgeSub: "Waterproofing, Repair & Coatings",
+  },
+  {
+    id: "waterproofing-membranes",
+    src: "/images/solutions/waterproofing-hero-facility.jpg",
+    alt: "Commercial industrial building rooftop with seamless elastomeric polyurethane waterproofing coating system",
+    badgeTitle: "Waterproofing Systems",
+    badgeSub: "Elastomeric Roof & Foundation Barriers",
+  },
+  {
+    id: "flooring-sealants",
+    src: "/images/solutions/flooring-hero-facility.jpg",
+    alt: "High-tech pharmaceutical manufacturing cleanroom floor with gleaming epoxy polyurethane coating and precision expansion joints",
+    badgeTitle: "Flooring & Joint Sealing",
+    badgeSub: "Heavy-Duty Epoxy, PU & Joint Fillers",
+  },
+];
+
+const constructionShowcases = [
+  {
+    id: "waterproofing-repair-overview",
+    name: "Waterproofing, Repair & Coatings",
+    badgeTitle: "Waterproofing & Repair",
+    badgeTag: "Membranes, Latices & Exterior Coats",
+    category: "Moisture protection & structural restoration",
+    subtitle: "Seamless Elastomeric Barriers, Concrete Bonding & Exterior Finishes",
+    image: "/images/solutions/waterproofing-hero-facility.jpg",
+    alt: "Commercial industrial building rooftop with seamless elastomeric polyurethane waterproofing coating system",
+    description:
+      "Single-pack elastomeric waterproofing membranes, carboxylated SBR & acrylic polymer concrete bonding admixtures, and UV-resistant exterior building coatings engineered to stop water seepage and restore damaged concrete.",
+    highlights: [
+      "Seamless acrylic & bitumen barriers",
+      "Polymer-modified repair & bonding",
+      "UV-stable exterior building coats",
+      "Roofs, basements & retaining walls",
+    ],
+    tags: [
+      "POLYPROOF-SPR",
+      "POLYGARD-AC",
+      "POLYBOND-SPR",
+      "PROTEX 2000",
+      "POLYROOF-ACE",
+    ],
+    linkText: "Explore Waterproofing & Repair",
+    href: "/solutions/waterproofing-repair-coatings",
+    icon: Droplets,
+  },
+  {
+    id: "flooring-sealants-overview",
+    name: "Flooring & Joint Sealing",
+    badgeTitle: "Flooring & Sealants",
+    badgeTag: "Epoxy, PU Topcoats & Joint Fillers",
+    category: "Industrial floors & expansion joints",
+    subtitle: "Chemical-Resistant Resin Floors, Heavy Mortars & Flexible Sealants",
+    image: "/images/solutions/flooring-hero-facility.jpg",
+    alt: "High-tech pharmaceutical manufacturing cleanroom floor with gleaming epoxy polyurethane coating and precision expansion joints",
+    description:
+      "High-build two-component epoxy floor coatings, solvent-free epoxy mortars for heavy forklift traffic, aliphatic polyurethane topcoats, and elastomeric joint sealants for expansion slabs and active cracks.",
+    highlights: [
+      "Two-component chemical epoxy coats",
+      "Solvent-free heavy traffic mortars",
+      "UV-resistant aliphatic PU finishes",
+      "Flexible crack & perimeter sealants",
+    ],
+    tags: [
+      "POLYBOND-HB",
+      "POLYBOND HB MORTAR",
+      "POLYBOND PU-100",
+      "POLYROOF CRACKSEAL",
+      "POLYBOND SILICON",
+    ],
+    linkText: "Explore Flooring & Sealants",
+    href: "/solutions/flooring-joint-sealing",
+    icon: Building2,
+  },
+];
+
 export default function ConstructionChemistryPage() {
   return (
     <main className="construction-solution-page construction-chemistry-page">
@@ -267,13 +351,12 @@ export default function ConstructionChemistryPage() {
                 <div className="construction-hero-backdrop-dots" />
               </div>
 
-              <div className="construction-figure-wrap">
-                <img
-                  src="/images/solutions/construction-hero-facility.jpg"
-                  alt="Industrial and commercial infrastructure building site with modern architectural concrete structures and protective coatings"
-                  className="construction-hero-img"
-                />
-              </div>
+              <HeroVisualSlider
+                slides={constructionHeroSlides}
+                wrapClassName="construction-figure-wrap"
+                imgClassName="construction-hero-img"
+                ariaLabel="Construction and surface protection slide selection"
+              />
             </div>
           </div>
         </div>
@@ -470,6 +553,108 @@ export default function ConstructionChemistryPage() {
                 <CardWaterSplash className="construction-card-water-splash" />
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4B. DEDICATED CONSTRUCTION RANGES - ALTERNATING SHOWCASE */}
+      <section
+        className="specialty-showcase-section"
+        id="construction-ranges"
+        aria-labelledby="construction-ranges-title"
+      >
+        <div className="container">
+          <div className="construction-section-header">
+            <div className="construction-section-header-left">
+              <div className="construction-section-eyebrow">
+                <span className="construction-eyebrow-bar" aria-hidden="true" />
+                <span>Dedicated construction suites</span>
+              </div>
+              <h2 id="construction-ranges-title" className="construction-section-title">
+                Two focused suites. Complete structural care.
+              </h2>
+            </div>
+            <div className="construction-section-header-right">
+              <span className="construction-header-divider" aria-hidden="true" />
+              <p>
+                Explore our dedicated waterproofing-repair range and heavy-duty industrial
+                flooring &amp; joint sealing systems in detail.
+              </p>
+            </div>
+          </div>
+
+          <div className="specialty-showcase-list">
+            {constructionShowcases.map((card, index) => {
+              const Icon = card.icon;
+              const isReversed = index === 1;
+              return (
+                <article
+                  className={`specialty-showcase-card ${isReversed ? "is-reversed" : ""}`}
+                  key={card.id}
+                  id={card.id}
+                >
+                  <div className="specialty-showcase-visual-col">
+                    <div className="specialty-showcase-figure-wrap">
+                      <div className="specialty-showcase-image-badge">
+                        <span className="specialty-brand-pill">
+                          <span className="specialty-pill-dot" aria-hidden="true" />
+                          <strong>{card.badgeTitle}</strong>
+                          <span className="specialty-pill-sep">·</span>
+                          <span className="specialty-pill-sub">{card.badgeTag}</span>
+                        </span>
+                      </div>
+                      <img
+                        src={card.image}
+                        alt={card.alt}
+                        className="specialty-showcase-img"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="specialty-showcase-content-col">
+                    <div className="specialty-showcase-eyebrow">
+                      <div className="specialty-showcase-icon-box" aria-hidden="true">
+                        <Icon size={16} />
+                      </div>
+                      <span className="specialty-showcase-category">{card.category}</span>
+                    </div>
+
+                    <h3 className="specialty-showcase-card-title">{card.name}</h3>
+                    <div className="specialty-showcase-subtitle">{card.subtitle}</div>
+
+                    <p className="specialty-showcase-desc">{card.description}</p>
+
+                    <div className="specialty-showcase-highlights">
+                      {card.highlights.map((item) => (
+                        <div key={item} className="specialty-showcase-highlight-item">
+                          <Check size={14} className="specialty-showcase-check" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="specialty-showcase-tags">
+                      {card.tags.map((tag) => (
+                        <span key={tag} className="specialty-showcase-tag-pill">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="specialty-showcase-actions">
+                      <Link href={card.href} className="btn btn-industrial-primary">
+                        <span>{card.linkText}</span>
+                        <ArrowRight size={15} aria-hidden="true" />
+                      </Link>
+                      <Link href="/contact#contact-form" className="btn btn-industrial-secondary">
+                        <span>Discuss Application</span>
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
