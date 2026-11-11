@@ -18,6 +18,7 @@ import {
   MapPin,
   MessageCircle,
   Phone,
+  Ship,
 } from "lucide-react";
 import { locationSites } from "@/data/locations";
 import AboutObserver from "./AboutObserver";
@@ -39,65 +40,106 @@ export const metadata: Metadata = {
 };
 
 
-const credentials = [
+const glanceCards = [
   {
-    value: "Since 1987",
+    id: "since-1987",
+    icon: CalendarDays,
+    statPrefix: "Since",
+    statValue: "1987",
+    statSuffix: null,
     title: "Manufacturing since 1987",
-    description: "Specialty chemicals formulated and produced in our own plants.",
+    description: "Specialty chemicals formulated and produced at our own plants.",
+    image: "/images/about/glance/card1-feathered.png",
+    imageAlt: "Industrial chemical storage tanks and manufacturing silos",
   },
   {
-    value: "ISO 9001:2015",
+    id: "iso-quality",
+    icon: Award,
+    statPrefix: "ISO",
+    statValue: "9001:2015",
+    statSuffix: null,
     title: "Certified quality system",
     description:
-      "SMCS certified, AIAO-BAR USA accredited, for water treatment and home-care chemicals.",
+      "QMS certified by ISO 9001:2015, ensuring consistent and reliable product quality.",
+    image: "/images/about/glance/card2-feathered.png",
+    imageAlt: "ISO 9001:2015 certified quality system assurance",
   },
   {
-    value: "2 units",
+    id: "manufacturing-units",
+    icon: Factory,
+    statPrefix: null,
+    statValue: "2",
+    statSuffix: " Units",
     title: "Tarapur MIDC & Goregaon",
-    description: "Heavy chemical and green-products manufacturing in Maharashtra.",
+    description:
+      "Two manufacturing units for industrial water and process chemical solutions.",
+    image: "/images/about/glance/card3-feathered.png",
+    imageAlt: "Industrial equipment and manufacturing units at Tarapur MIDC & Goregaon",
   },
   {
-    value: "Exports",
+    id: "exports",
+    icon: Ship,
+    statPrefix: null,
+    statValue: "Exports",
+    statSuffix: null,
     title: "Middle East & South Africa",
-    description: "Specialty formulations supplied to international industrial markets.",
+    description:
+      "Specialty formulations supplied to international industrial markets.",
+    image: "/images/about/glance/card4-feathered.png",
+    imageAlt: "Global export visual covering Middle East & South Africa",
   },
 ];
 
 const milestones = [
   {
-    era: "1987",
+    tag: "1987",
     title: "Founded in Mumbai",
     description:
-      "PolyTreat Chemicals begins as a manufacturer of industrial water-treatment solutions.",
+      "PolyTreat Chemical Industries was established in Mumbai with a focus on industrial chemical solutions.",
     tone: "green",
+    icon: Building2,
+    image: "/images/about/story/m1-mumbai-hq.jpg",
+    imageAlt: "Historic Gateway of India landmark in Mumbai",
   },
   {
-    era: "Manufacturing",
-    title: "Tarapur MIDC unit",
+    tag: "MANUFACTURING",
+    title: "Tarapur MIDC Unit",
     description:
-      "Heavy chemical manufacturing is established at Tarapur MIDC, Palghar district, adding capacity for the industrial water and process chemical ranges.",
+      "Heavy chemical manufacturing unit established at Tarapur MIDC, Palghar district, adding capacity for industrial water and process chemical ranges.",
     tone: "blue",
+    icon: Factory,
+    image: "/images/about/story/m2-tarapur-plant.jpg",
+    imageAlt: "Tarapur MIDC heavy chemical manufacturing facility and reaction silos",
   },
   {
-    era: "Quality",
-    title: "ISO 9001:2015 certification",
+    tag: "QUALITY",
+    title: "ISO 9001:2015 Certification",
     description:
-      "The quality management system is certified to ISO 9001:2015 by SMCS, accredited by AIAO-BAR USA, covering the manufacture of water-treatment and hygiene chemicals.",
+      "The quality management system is certified to ISO 9001:2015 by SMCS, ensuring consistent quality, reliable supply, and continuous improvement.",
     tone: "purple",
+    icon: Award,
+    image: "/images/about/story/m3-iso-hq.png",
+    imageAlt: "ISO 9001:2015 certified quality system seal and emblem",
   },
   {
-    era: "Care products",
-    title: "V-Klin range",
+    tag: "CARE PRODUCTS",
+    title: "V-Klin Range",
     description:
-      "The institutional and home-care cleaning range is developed at the Goregaon (East) green-products division.",
-    tone: "teal",
+      "The institutional and home-care cleaning range is developed at the Goregaon facility, offering effective and safe cleaning solutions.",
+    tone: "cyan",
+    icon: FlaskConical,
+    image: "/images/about/story/m4-vklin-products.jpg",
+    imageAlt: "V-Klin complete institutional and household cleaning products lineup",
   },
   {
-    era: "Exports",
+    tag: "EXPORTS",
     title: "Middle East & South Africa",
     description:
-      "Specialty formulations begin shipping to industrial buyers in the Middle East and South Africa.",
-    tone: "coral",
+      "Specialty formulations begin shipping to international industrial markets across the Middle East and South Africa.",
+    tone: "orange",
+    icon: Ship,
+    image: "/images/about/story/m5-exports-hq.jpg",
+    imageAlt: "International cargo container ship shipping specialty chemical formulations",
   },
 ];
 
@@ -351,65 +393,317 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 2. STATS STRIP */}
-      <section className="ab-stats-section" aria-label="Key credentials and stats">
-        <div className="ab-container">
-          <div className="ab-stats-grid ab-stagger">
-            {credentials.map(({ value, title, description }) => (
-              <div className="ab-stats-item" key={value}>
-                <span className="ab-stats-figure">{value}</span>
-                <h3 className="ab-stats-title">{title}</h3>
-                <p className="ab-stats-desc">{description}</p>
-              </div>
-            ))}
+      {/* 2. AT A GLANCE / COMPANY STATISTICS SECTION */}
+      <section className="ab-glance-section" aria-labelledby="ab-glance-title">
+        {/* Soft flowing background wave ribbons on the left and right margins */}
+        <div className="ab-glance-ambient-left" aria-hidden="true">
+          <svg viewBox="0 0 320 400" fill="none" preserveAspectRatio="none">
+            <path
+              d="M-40,0 C60,110 30,250 -50,400 L-50,0 Z"
+              fill="url(#ab-glance-amb-left)"
+            />
+            <defs>
+              <linearGradient id="ab-glance-amb-left" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.32" />
+                <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.04" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div className="ab-glance-ambient-right" aria-hidden="true">
+          <svg viewBox="0 0 320 400" fill="none" preserveAspectRatio="none">
+            <path
+              d="M360,0 C260,110 290,250 370,400 L370,0 Z"
+              fill="url(#ab-glance-amb-right)"
+            />
+            <defs>
+              <linearGradient id="ab-glance-amb-right" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.32" />
+                <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.04" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div className="ab-container ab-glance-container">
+          {/* Section Heading with subtle curved blue underline */}
+          <div className="ab-glance-header">
+            <div className="ab-glance-eyebrow">
+              <span className="ab-glance-dash" aria-hidden="true" />
+              <span className="ab-glance-eyebrow-text">OUR AT A GLANCE</span>
+              <span className="ab-glance-dash" aria-hidden="true" />
+            </div>
+
+            <h2 id="ab-glance-title" className="ab-glance-h2">
+              PolyTreat at a <span className="ab-glance-h2-blue">Glance</span>
+            </h2>
+
+            {/* Subtle curved blue underline below the heading */}
+            <div className="ab-glance-swoosh" aria-hidden="true">
+              <svg viewBox="0 0 260 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6 5 C80 18, 180 18, 254 5 C180 14, 80 14, 6 5 Z"
+                  fill="url(#ab-glance-swoosh-grad)"
+                />
+                <defs>
+                  <linearGradient id="ab-glance-swoosh-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#0070EB" stopOpacity="0" />
+                    <stop offset="25%" stopColor="#0070EB" stopOpacity="0.75" />
+                    <stop offset="50%" stopColor="#00A3FF" stopOpacity="1" />
+                    <stop offset="75%" stopColor="#0070EB" stopOpacity="0.75" />
+                    <stop offset="100%" stopColor="#0070EB" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
           </div>
+
+          {/* Four Statistics Cards */}
+          <div className="ab-glance-grid">
+            {glanceCards.map((card) => {
+              const IconComp = card.icon;
+              return (
+                <div className="ab-glance-card" key={card.id}>
+                  {/* Subtle decorative image in upper-right */}
+                  <div className="ab-glance-card-art" aria-hidden="true">
+                    <Image
+                      src={card.image}
+                      alt={card.imageAlt}
+                      fill
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 35vw, 280px"
+                      className="ab-glance-art-img"
+                    />
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="ab-glance-card-content">
+                    {/* Top Row: Icon badge + Main stat highlight */}
+                    <div className="ab-glance-card-top">
+                      <div className="ab-glance-icon-badge" aria-hidden="true">
+                        <IconComp size={22} strokeWidth={2.2} />
+                      </div>
+                      <div className="ab-glance-stat">
+                        {card.statPrefix && (
+                          <span className="ab-glance-stat-prefix">{card.statPrefix}</span>
+                        )}
+                        <span className="ab-glance-stat-value">
+                          {card.statValue}
+                          {card.statSuffix && (
+                            <span className="ab-glance-stat-suffix">{card.statSuffix}</span>
+                          )}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Short blue horizontal accent line */}
+                    <div className="ab-glance-divider" aria-hidden="true" />
+
+                    {/* Card Heading */}
+                    <h3 className="ab-glance-card-title">{card.title}</h3>
+
+                    {/* Supporting Description */}
+                    <p className="ab-glance-card-desc">{card.description}</p>
+                  </div>
+
+                  {/* Corner Accent: Blue curved water droplet detail */}
+                  <div className="ab-glance-corner-accent" aria-hidden="true">
+                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id={"ab-corner-" + card.id} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#00C0FF" />
+                          <stop offset="45%" stopColor="#0070EB" />
+                          <stop offset="100%" stopColor="#004DA8" />
+                        </linearGradient>
+                        <linearGradient id={"ab-corner-stroke-" + card.id} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#7DD3FC" stopOpacity="0.9" />
+                          <stop offset="50%" stopColor="#38BDF8" stopOpacity="0.6" />
+                          <stop offset="100%" stopColor="#0070EB" stopOpacity="0.2" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M60 16 C60 40, 40 60, 16 60 L60 60 Z"
+                        fill={"url(#ab-corner-" + card.id + ")"}
+                      />
+                      <path
+                        d="M60 16 C60 40, 40 60, 16 60"
+                        stroke={"url(#ab-corner-stroke-" + card.id + ")"}
+                        strokeWidth="2.5"
+                        fill="none"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Dynamic Water Splash Ribbon along Bottom Edge */}
+        <div className="ab-glance-bottom-water" aria-hidden="true">
+          <Image
+            src="/images/about/glance-bottom-splash.png"
+            alt=""
+            fill
+            sizes="100vw"
+            className="ab-glance-splash-img"
+          />
         </div>
       </section>
 
-      {/* 3. OUR STORY + TIMELINE */}
+      {/* 3. OUR STORY + VERTICAL TIMELINE SECTION */}
       <section className="ab-section ab-story-section" id="story" aria-labelledby="story-title">
+        {/* Subtle decorative background wave shapes */}
+        <div className="ab-story-ambient-top" aria-hidden="true">
+          <svg viewBox="0 0 500 250" fill="none" preserveAspectRatio="none">
+            <path
+              d="M-50,0 C120,60 250,20 400,90 C470,120 520,180 550,250 L-50,250 Z"
+              fill="url(#ab-story-amb-top)"
+            />
+            <defs>
+              <linearGradient id="ab-story-amb-top" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.22" />
+                <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.02" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
         <div className="ab-container ab-story-grid">
-          <div className="ab-story-sticky ab-reveal">
-            <span className="ab-label">Our story</span>
-            <h2 id="story-title">A manufacturer first, since the beginning.</h2>
-            <p>
-              PolyTreat Chemicals Pvt. Ltd. — also known as Polytreat Chemical Industries — has
-              manufactured specialty formulations from Mumbai since 1987. Two divisions run under a
-              single quality system: heavy industrial water and process chemicals, and the V-Klin
-              range of institutional and home-care products.
-            </p>
-            <p>
-              Everything PolyTreat supplies is formulated and produced in its own plants. The
-              range is built around performance and value, backed by clear technical
-              documentation and a direct conversation with the people who make the products.
-            </p>
-            <Link className="ab-story-cta" href="/#solutions">
-              Explore our solution areas <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-          </div>
+          {/* LEFT COLUMN: Eyebrow, Heading, Description, Pill CTA, Bottom-left Tanks */}
+          <div className="ab-story-left-col">
+            <div className="ab-story-sticky">
+              {/* Eyebrow Label with blue dash */}
+              <div className="ab-story-eyebrow">
+                <span className="ab-story-eyebrow-dash" aria-hidden="true" />
+                <span className="ab-story-eyebrow-text">OUR STORY</span>
+              </div>
 
-          <div className="ab-timeline-wrap">
-            <div className="ab-timeline-line-base" aria-hidden="true" />
-            <div className="ab-timeline-line-fill" aria-hidden="true">
-              <span className="ab-timeline-line-head" aria-hidden="true" />
-            </div>
+              {/* Main Heading with "the beginning." in blue & curved underline */}
+              <h2 id="story-title" className="ab-story-h2">
+                A manufacturer first,<br />
+                since <span className="ab-story-h2-blue">the beginning.</span>
+              </h2>
 
-            <ol className="ab-timeline-list">
-              {milestones.map(({ era, title, description, tone }) => (
-                <li className="ab-timeline-item" key={title}>
-                  <div
-                    className={`ab-timeline-dot ab-timeline-dot-${tone}`}
-                    aria-hidden="true"
+              {/* Subtle curved blue underline below the heading */}
+              <div className="ab-story-swoosh" aria-hidden="true">
+                <svg viewBox="0 0 240 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M4 4 C70 16, 170 16, 236 4 C170 13, 70 13, 4 4 Z"
+                    fill="url(#ab-story-swoosh-grad)"
                   />
-                  <div className={`ab-card ab-timeline-card ab-timeline-card-${tone}`}>
-                    <span className={`ab-timeline-era ab-era-${tone}`}>{era}</span>
-                    <h3>{title}</h3>
-                    <p>{description}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
+                  <defs>
+                    <linearGradient id="ab-story-swoosh-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#0070EB" stopOpacity="0" />
+                      <stop offset="25%" stopColor="#0070EB" stopOpacity="0.75" />
+                      <stop offset="50%" stopColor="#00A3FF" stopOpacity="1" />
+                      <stop offset="75%" stopColor="#0070EB" stopOpacity="0.75" />
+                      <stop offset="100%" stopColor="#0070EB" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+
+              {/* Body Paragraphs */}
+              <div className="ab-story-paragraphs">
+                <p>
+                  PolyTreat Chemicals Pvt. Ltd. — also known as PolyTreat Chemical Industries — has
+                  manufactured specialty formulations from Mumbai since 1987. Two divisions run
+                  under a single quality system: heavy industrial water and process chemicals, and
+                  the V-Klin range of institutional and home-care products.
+                </p>
+                <p>
+                  Everything PolyTreat makes is formulated and produced in its own plants. The range
+                  is built around performance and value, backed by clear technical documentation and
+                  a direct conversation with the people who make the products.
+                </p>
+              </div>
+
+              {/* Pill CTA Button */}
+              <div className="ab-story-cta-wrap">
+                <Link className="btn-story-pill" href="/solutions">
+                  <span>Explore Our Solutions</span>
+                  <span className="btn-story-pill-arrow" aria-hidden="true">
+                    <ArrowRight size={15} strokeWidth={2.5} />
+                  </span>
+                </Link>
+              </div>
+
+              {/* Bottom-left Industrial Tanks Visual */}
+              <div className="ab-story-tanks-wrap" aria-hidden="true">
+                <Image
+                  src="/images/about/story/story-tanks-feathered.png"
+                  alt="PolyTreat chemical reaction silos and storage tanks"
+                  width={420}
+                  height={218}
+                  className="ab-story-tanks-img"
+                />
+              </div>
+            </div>
           </div>
+
+          {/* RIGHT COLUMN: Vertical Company Timeline with 5 Milestone Cards */}
+          <div className="ab-timeline-container">
+            {/* Continuous Vertical Timeline Connector Line */}
+            <div className="ab-timeline-track-line" aria-hidden="true" />
+
+            <div className="ab-timeline-cards-list">
+              {milestones.map((milestone) => {
+                const IconComponent = milestone.icon;
+                return (
+                  <div className="ab-timeline-row" key={milestone.title}>
+                    {/* Circular Timeline Node Marker */}
+                    <div className={"ab-timeline-node ab-node-" + milestone.tone} aria-hidden="true">
+                      <span className="ab-node-core" />
+                    </div>
+
+                    {/* Milestone Card */}
+                    <article className={"ab-milestone-card ab-mcard-" + milestone.tone}>
+                      {/* Left: Colored Icon Box */}
+                      <div className={"ab-mcard-icon-box ab-ibox-" + milestone.tone} aria-hidden="true">
+                        <IconComponent size={22} strokeWidth={2.2} />
+                      </div>
+
+                      {/* Middle: Content */}
+                      <div className="ab-mcard-content">
+                        <span className={"ab-mcard-tag ab-mtag-" + milestone.tone}>
+                          {milestone.tag}
+                        </span>
+                        <h3 className="ab-mcard-title">{milestone.title}</h3>
+                        <p className="ab-mcard-desc">{milestone.description}</p>
+                      </div>
+
+                      {/* Right: Graphic / Visual with Curved Transition */}
+                      <div className="ab-mcard-visual" aria-hidden="true">
+                        <Image
+                          src={milestone.image}
+                          alt={milestone.imageAlt}
+                          fill
+                          sizes="(max-width: 640px) 40vw, 240px"
+                          className="ab-mcard-img"
+                        />
+                        <div className="ab-mcard-visual-fade" aria-hidden="true" />
+                      </div>
+                    </article>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Flowing Blue Waves along bottom of section */}
+        <div className="ab-story-bottom-wave" aria-hidden="true">
+          <svg viewBox="0 0 1440 85" fill="none" preserveAspectRatio="none">
+            <path
+              d="M0,45 C280,15 520,70 820,35 C1120,0 1320,55 1440,30 L1440,85 L0,85 Z"
+              fill="rgba(186, 230, 253, 0.45)"
+            />
+            <path
+              d="M0,58 C320,80 640,32 960,65 C1200,85 1360,48 1440,55 L1440,85 L0,85 Z"
+              fill="rgba(0, 112, 235, 0.22)"
+            />
+          </svg>
         </div>
       </section>
 
