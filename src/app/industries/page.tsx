@@ -84,8 +84,8 @@ function WaterStorageTankIcon({ size = 24, className = "" }: { size?: number; cl
       <path d="M4 12c0 1.38 3.58 2.5 8 2.5s8-1.12 8-2.5" />
       <path
         d="M14 9.5c0 1.1-.9 2-2 2s-2-.9-2-2c0-.8 1.2-2.2 2-2.2s2 1.4 2 2.2z"
-        fill="#0879E8"
-        stroke="#0879E8"
+        fill="#0284C7"
+        stroke="#0284C7"
         strokeWidth="1"
       />
     </svg>
@@ -120,22 +120,22 @@ function ProcessManufacturingWaveDecor() {
       <defs>
         <linearGradient id="proc-wave-bg" x1="0" y1="50" x2="360" y2="50" gradientUnits="userSpaceOnUse">
           <stop stopColor="#38BDF8" stopOpacity="0.28" />
-          <stop offset="0.65" stopColor="#0879E8" stopOpacity="0.32" />
+          <stop offset="0.65" stopColor="#0284C7" stopOpacity="0.32" />
           <stop offset="1" stopColor="#0284C7" stopOpacity="0.38" />
         </linearGradient>
         <linearGradient id="proc-wave-fg" x1="0" y1="60" x2="360" y2="60" gradientUnits="userSpaceOnUse">
           <stop stopColor="#7DD3FC" stopOpacity="0.55" />
-          <stop offset="0.55" stopColor="#0879E8" stopOpacity="0.75" />
+          <stop offset="0.55" stopColor="#0284C7" stopOpacity="0.75" />
           <stop offset="1" stopColor="#0369A1" stopOpacity="0.85" />
         </linearGradient>
         <linearGradient id="proc-splash-grad" x1="250" y1="10" x2="360" y2="90" gradientUnits="userSpaceOnUse">
           <stop stopColor="#38BDF8" />
-          <stop offset="0.5" stopColor="#0879E8" />
+          <stop offset="0.5" stopColor="#0284C7" />
           <stop offset="1" stopColor="#0284C7" />
         </linearGradient>
         <linearGradient id="proc-drop-grad" x1="0" y1="0" x2="0" y2="1">
           <stop stopColor="#7DD3FC" />
-          <stop offset="1" stopColor="#0879E8" />
+          <stop offset="1" stopColor="#0284C7" />
         </linearGradient>
       </defs>
 
@@ -205,16 +205,16 @@ function UtilitiesInfrastructureWaveDecor() {
       <defs>
         <linearGradient id="util-wave-bg" x1="0" y1="50" x2="360" y2="50" gradientUnits="userSpaceOnUse">
           <stop stopColor="#38BDF8" stopOpacity="0.25" />
-          <stop offset="0.6" stopColor="#0879E8" stopOpacity="0.32" />
+          <stop offset="0.6" stopColor="#0284C7" stopOpacity="0.32" />
           <stop offset="1" stopColor="#0284C7" stopOpacity="0.38" />
         </linearGradient>
         <linearGradient id="util-wave-fg" x1="0" y1="65" x2="360" y2="65" gradientUnits="userSpaceOnUse">
           <stop stopColor="#7DD3FC" stopOpacity="0.55" />
-          <stop offset="0.5" stopColor="#0879E8" stopOpacity="0.75" />
+          <stop offset="0.5" stopColor="#0284C7" stopOpacity="0.75" />
           <stop offset="1" stopColor="#0284C7" stopOpacity="0.88" />
         </linearGradient>
         <linearGradient id="util-bldg-grad" x1="310" y1="15" x2="350" y2="85" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#0879E8" />
+          <stop stopColor="#0284C7" />
           <stop offset="0.6" stopColor="#0284C7" />
           <stop offset="1" stopColor="#0C4A6E" />
         </linearGradient>
@@ -244,7 +244,7 @@ function UtilitiesInfrastructureWaveDecor() {
         opacity="0.88"
       />
       {/* Tower communications spire */}
-      <line x1="328" y1="8" x2="328" y2="16" stroke="#0879E8" strokeWidth="1.8" strokeLinecap="round" />
+      <line x1="328" y1="8" x2="328" y2="16" stroke="#0284C7" strokeWidth="1.8" strokeLinecap="round" />
       <circle cx="328" cy="8" r="1.8" fill="#38BDF8" />
 
       {/* Window grid matrix on main tower */}
@@ -262,8 +262,8 @@ function UtilitiesInfrastructureWaveDecor() {
 
       {/* Construction Tower Crane anchored in the flow */}
       {/* Crane Mast (Vertical Truss) */}
-      <line x1="246" y1="18" x2="246" y2="72" stroke="#0879E8" strokeWidth="1.6" />
-      <line x1="252" y1="18" x2="252" y2="72" stroke="#0879E8" strokeWidth="1.6" />
+      <line x1="246" y1="18" x2="246" y2="72" stroke="#0284C7" strokeWidth="1.6" />
+      <line x1="252" y1="18" x2="252" y2="72" stroke="#0284C7" strokeWidth="1.6" />
       {/* Mast Diagonal X-Braces */}
       <line x1="246" y1="26" x2="252" y2="34" stroke="#38BDF8" strokeWidth="1" opacity="0.7" />
       <line x1="252" y1="26" x2="246" y2="34" stroke="#38BDF8" strokeWidth="1" opacity="0.7" />
@@ -273,18 +273,18 @@ function UtilitiesInfrastructureWaveDecor() {
       <line x1="252" y1="50" x2="246" y2="58" stroke="#38BDF8" strokeWidth="1" opacity="0.7" />
 
       {/* Crane Jib & Counter-Jib */}
-      <line x1="230" y1="18" x2="294" y2="18" stroke="#0879E8" strokeWidth="2" strokeLinecap="round" />
+      <line x1="230" y1="18" x2="294" y2="18" stroke="#0284C7" strokeWidth="2" strokeLinecap="round" />
       {/* Counterweight Block */}
       <rect x="228" y="15" width="7" height="7" rx="1.5" fill="#0369A1" />
       {/* Crane Apex Tower Peak */}
-      <path d="M245 18 L249 7 L253 18" stroke="#0879E8" strokeWidth="1.5" fill="none" />
+      <path d="M245 18 L249 7 L253 18" stroke="#0284C7" strokeWidth="1.5" fill="none" />
       {/* Crane Tension Cables */}
       <line x1="249" y1="7" x2="276" y2="18" stroke="#38BDF8" strokeWidth="1" opacity="0.8" />
       <line x1="249" y1="7" x2="231" y2="18" stroke="#38BDF8" strokeWidth="1" opacity="0.8" />
       {/* Hoist Trolley & Cable */}
       <rect x="272" y="17" width="5" height="3" fill="#0284C7" />
-      <line x1="274.5" y1="20" x2="274.5" y2="36" stroke="#0879E8" strokeWidth="1" strokeDasharray="2 1.5" />
-      <circle cx="274.5" cy="37" r="1.5" fill="#0879E8" />
+      <line x1="274.5" y1="20" x2="274.5" y2="36" stroke="#0284C7" strokeWidth="1" strokeDasharray="2 1.5" />
+      <circle cx="274.5" cy="37" r="1.5" fill="#0284C7" />
 
       {/* Main Flowing Wave merging directly across the infrastructure base */}
       <path
@@ -323,16 +323,16 @@ function FacilitiesInstitutionsWaveDecor() {
       <defs>
         <linearGradient id="fac-wave-bg" x1="0" y1="50" x2="360" y2="50" gradientUnits="userSpaceOnUse">
           <stop stopColor="#38BDF8" stopOpacity="0.25" />
-          <stop offset="0.6" stopColor="#0879E8" stopOpacity="0.32" />
+          <stop offset="0.6" stopColor="#0284C7" stopOpacity="0.32" />
           <stop offset="1" stopColor="#0284C7" stopOpacity="0.38" />
         </linearGradient>
         <linearGradient id="fac-wave-fg" x1="0" y1="65" x2="360" y2="65" gradientUnits="userSpaceOnUse">
           <stop stopColor="#7DD3FC" stopOpacity="0.55" />
-          <stop offset="0.5" stopColor="#0879E8" stopOpacity="0.75" />
+          <stop offset="0.5" stopColor="#0284C7" stopOpacity="0.75" />
           <stop offset="1" stopColor="#0284C7" stopOpacity="0.88" />
         </linearGradient>
         <linearGradient id="fac-campus-grad" x1="280" y1="18" x2="350" y2="80" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#0879E8" />
+          <stop stopColor="#0284C7" />
           <stop offset="0.6" stopColor="#0284C7" />
           <stop offset="1" stopColor="#0C4A6E" />
         </linearGradient>
@@ -572,7 +572,7 @@ export default function IndustriesPage() {
                   >
                     <path
                       d="M3 10C75 2.5 205 2.5 277 10"
-                      stroke="#0879E8"
+                      stroke="#0284C7"
                       strokeWidth="3"
                       strokeLinecap="round"
                     />

@@ -1,4 +1,5 @@
 import { CtaWaterSplashDesign } from "@/components/CtaWaterSplashDesign";
+import { MobileProductCarousel } from "@/components/MobileProductCarousel";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -744,7 +745,10 @@ export default function BoilerCoolingWaterPage() {
             </div>
           </div>
 
-          <div className="boiler-products-grid">
+          <MobileProductCarousel
+            gridClassName="boiler-products-grid"
+            ariaLabel="Boiler and cooling water treatment product solutions"
+          >
             {productCards.map((product) => (
               <article className="boiler-product-card" key={product.id}>
                 <div className="boiler-product-img-wrap">
@@ -761,7 +765,7 @@ export default function BoilerCoolingWaterPage() {
                 </Link>
               </article>
             ))}
-          </div>
+          </MobileProductCarousel>
         </div>
       </section>
 

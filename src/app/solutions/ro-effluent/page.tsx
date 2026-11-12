@@ -1,3 +1,4 @@
+import { MobileProductCarousel } from "@/components/MobileProductCarousel";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -744,7 +745,10 @@ export default function RoEffluentPage() {
             </div>
           </div>
 
-          <div className="ro-products-grid">
+          <MobileProductCarousel
+            gridClassName="ro-products-grid"
+            ariaLabel="RO membrane and effluent treatment product solutions"
+          >
             {productCards.map((product) => (
               <article className="ro-product-card" key={product.id}>
                 <div className="ro-product-img-wrap">
@@ -761,7 +765,7 @@ export default function RoEffluentPage() {
                 </Link>
               </article>
             ))}
-          </div>
+          </MobileProductCarousel>
         </div>
       </section>
 
