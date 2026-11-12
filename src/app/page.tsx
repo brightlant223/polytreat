@@ -26,18 +26,23 @@ import {
   ArrowUpRight,
   BadgeCheck,
   BarChart3,
+  Bird,
   Building2,
   Check,
   Factory,
   FileCheck2,
   FileText,
+  FlaskConical,
   Info,
   Layers,
   Leaf,
   MapPin,
   ScrollText,
   ShieldCheck,
+  Ship,
   Sparkles,
+  Store,
+  Trash2,
   Users,
 } from "lucide-react";
 
@@ -147,6 +152,69 @@ const flagshipDetailCards: FlagshipDetailCard[] = [
     note: "Covers inhibitors, oxygen scavengers, antiscalants, biocides, coagulants & membrane care.",
     href: "/solutions/industrial-water",
     ctaLabel: "Explore Water Treatment",
+  },
+];
+
+const polydorApplications = [
+  {
+    id: "garbage-dump",
+    tag: "MUNICIPAL & WASTE",
+    title: "City Garbage Dump Yards",
+    description: "Neutralises large-scale decomposition odours over landfill sites. Proven dosage: 3 tons per 1.5–2 acres.",
+    image: "/images/polydor-apps/dump-landfill.webp",
+    alt: "Bulldozer operating on city garbage landfill dump site",
+    icon: Trash2,
+    isHighlight: false,
+  },
+  {
+    id: "sugar-brewery",
+    tag: "AGRO & BREWERIES",
+    title: "Sugar Mills & Breweries",
+    description: "Dosed directly into effluent wastewater ponds and sludge basins; eliminates foul odors within 2–3 hours.",
+    image: "/images/polydor-apps/sugar-brewery.webp",
+    alt: "Sugar mills and brewery industrial fermentation effluent tanks",
+    icon: FlaskConical,
+    isHighlight: false,
+  },
+  {
+    id: "slaughterhouse-poultry",
+    tag: "FOOD & LIVESTOCK",
+    title: "Slaughterhouses & Poultry",
+    description: "Breaks down stubborn animal fatty acid gases, meat processing scraps, and grease pits (1:30 dilution).",
+    image: "/images/polydor-apps/slaughterhouse-poultry.webp",
+    alt: "Poultry and livestock processing facility odour control",
+    icon: Bird,
+    isHighlight: false,
+  },
+  {
+    id: "kitchen-scrubbers",
+    tag: "COMMERCIAL RESTAURANTS",
+    title: "Kitchen Air Scrubbers",
+    description: "Installed in exhaust scrubbers of commercial kitchens and restaurants to deodorise discharge fumes.",
+    image: "/images/polydor-apps/kitchen-scrubber.webp",
+    alt: "Commercial restaurant kitchen exhaust scrubber ventilation",
+    icon: Store,
+    isHighlight: false,
+  },
+  {
+    id: "seafood-containers",
+    tag: "FISHERIES & LOGISTICS",
+    title: "Seafood Containers & Nets",
+    description: "Eliminates deep-set fish, barnacle, and seaweed smells from crates, holding tanks, and fishing nets.",
+    image: "/images/polydor-apps/seafood-containers.webp",
+    alt: "Fishing vessel, seafood storage crates and nets deodorising",
+    icon: Ship,
+    isHighlight: false,
+  },
+  {
+    id: "botanical-repellent",
+    tag: "BOTANICAL REPELLENT",
+    title: "POLYDOR-D MOS (Herbal)",
+    description: "Pure plant extracts with Neem & Citronella oil. 100% biodegradable, DEET-free, and safe for children & pets.",
+    image: "/images/polydor-apps/botanical-repellent.webp",
+    alt: "Botanical mosquito repellent herbal leaf with pure dew drops",
+    icon: Leaf,
+    isHighlight: true,
   },
 ];
 
@@ -585,49 +653,53 @@ export default function Home() {
           {/* 8. Real-world applications */}
           <div className="hp-polydor-work-box hp-reveal">
             <div className="hp-polydor-work-head">
-              <span className="eyebrow eyebrow-teal">Real-world applications</span>
-              <h3 className="hp-polydor-work-title">Where POLYDOR solves tough odour & pest problems.</h3>
+              <div className="hp-polydor-eyebrow-wrap">
+                <span className="hp-polydor-eyebrow">
+                  <Layers size={13} className="hp-polydor-eyebrow-icon" aria-hidden="true" />
+                  <span>Real-world Applications</span>
+                </span>
+                <span className="hp-polydor-eyebrow-line" aria-hidden="true" />
+              </div>
+              <h3 className="hp-polydor-work-title">
+                Where <span className="hp-polydor-brand-word">POLYDOR</span> solves tough odour &amp; pest problems.
+              </h3>
               <p className="hp-polydor-work-desc">
                 From municipal solid waste landfills and sugar mills to poultry farms and commercial kitchens, POLYDOR-WS permanently alters odoriferous molecules into non-odorous compounds.
               </p>
             </div>
 
             <div className="hp-polydor-work-grid">
-              <div className="hp-polydor-work-card">
-                <span className="hp-polydor-tag">MUNICIPAL & WASTE</span>
-                <h4>City Garbage Dump Yards</h4>
-                <p>Neutralises large-scale decomposition odours over landfill sites. Proven dosage: 3 tons per 1.5–2 acres.</p>
-              </div>
-
-              <div className="hp-polydor-work-card">
-                <span className="hp-polydor-tag">AGRO & BREWERIES</span>
-                <h4>Sugar Mills & Breweries</h4>
-                <p>Dosed directly into effluent wastewater ponds and sludge basins; eliminates foul odors within 2–3 hours.</p>
-              </div>
-
-              <div className="hp-polydor-work-card">
-                <span className="hp-polydor-tag">FOOD & LIVESTOCK</span>
-                <h4>Slaughterhouses & Poultry</h4>
-                <p>Breaks down stubborn animal fatty acid gases, meat processing scraps, and grease pits (1:30 dilution).</p>
-              </div>
-
-              <div className="hp-polydor-work-card">
-                <span className="hp-polydor-tag">COMMERCIAL RESTAURANTS</span>
-                <h4>Kitchen Air Scrubbers</h4>
-                <p>Installed in exhaust scrubbers of commercial kitchens and restaurants to deodorise discharge fumes.</p>
-              </div>
-
-              <div className="hp-polydor-work-card">
-                <span className="hp-polydor-tag">FISHERIES & LOGISTICS</span>
-                <h4>Seafood Containers & Nets</h4>
-                <p>Eliminates deep-set fish, barnacle, and seaweed smells from crates, holding tanks, and fishing nets.</p>
-              </div>
-
-              <div className="hp-polydor-work-card hp-polydor-card-highlight">
-                <span className="hp-polydor-tag hp-polydor-tag-green">BOTANICAL REPELLENT</span>
-                <h4>POLYDOR-D MOS (Herbal)</h4>
-                <p>Pure plant extracts with Neem & Citronella oil. 100% biodegradable, DEET-free, and safe for children & pets.</p>
-              </div>
+              {polydorApplications.map((app) => {
+                const AppIcon = app.icon;
+                return (
+                  <article
+                    key={app.id}
+                    className={`hp-polydor-work-card ${app.isHighlight ? "hp-polydor-card-highlight" : ""}`}
+                  >
+                    <div className="hp-polydor-card-content">
+                      <div className="hp-polydor-card-meta">
+                        <span className="hp-polydor-icon-box" aria-hidden="true">
+                          <AppIcon size={15} strokeWidth={2.2} />
+                        </span>
+                        <span className={`hp-polydor-tag ${app.isHighlight ? "hp-polydor-tag-green" : ""}`}>
+                          {app.tag}
+                        </span>
+                      </div>
+                      <h4>{app.title}</h4>
+                      <p>{app.description}</p>
+                    </div>
+                    <div className="hp-polydor-card-image-wrap">
+                      <Image
+                        src={app.image}
+                        alt={app.alt}
+                        width={224}
+                        height={262}
+                        className="hp-polydor-card-img"
+                      />
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
 

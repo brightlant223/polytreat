@@ -16404,6 +16404,7 @@ body:has(.contact-page) .footer-credit a {
 }
 
 @media (max-width: 900px) {
+
   .industrial-family-hero-layout,
   .industrial-family-heading {
     grid-template-columns: minmax(0, 1fr);
@@ -17107,6 +17108,7 @@ body:has(.contact-page) .footer-credit a {
     padding-left: 0;
     padding-top: 0.8rem;
   }
+
   :is(.paint-preservatives-page, .sugar-process-page, .fireside-page, .automotive-chemicals-page) .industrial-family-hero {
     padding: 1.25rem 0 clamp(4.5rem, 9vw, 5.5rem);
   }
@@ -26505,94 +26507,210 @@ main {
 
 .hp-polydor-work-box {
   margin-top: 3.5rem;
-  background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
-  border: 1.5px solid #BAE6FD;
-  border-radius: 24px;
-  padding: 2.2rem;
-  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.06);
+  background-color: #F8FBFE;
+  background-image: url('/images/polydor-apps/factory-skyline.webp');
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: clamp(260px, 32vw, 420px) auto;
+  border: 1px solid #D6E8F8;
+  border-radius: 28px;
+  padding: clamp(1.5rem, 3.2vw, 2.6rem);
+  box-shadow: 0 12px 36px rgba(2, 132, 199, 0.05);
+  position: relative;
+  overflow: hidden;
 }
 
 .hp-polydor-work-head {
-  max-width: 700px;
+  max-width: 780px;
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hp-polydor-eyebrow-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.hp-polydor-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.28rem 0.75rem;
+  background: #EBF5FF;
+  border: 1px solid #BAE6FD;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 750;
+  color: #0284C7;
+  letter-spacing: 0.02em;
+}
+
+.hp-polydor-eyebrow-icon {
+  color: #0284C7;
+  flex-shrink: 0;
+}
+
+.hp-polydor-eyebrow-line {
+  display: inline-block;
+  width: 48px;
+  height: 2px;
+  background: #38BDF8;
+  border-radius: 999px;
 }
 
 .hp-polydor-work-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.45rem, 2.6vw, 1.95rem);
   font-weight: 850;
-  color: #0F172A;
-  margin: 0.5rem 0 0.6rem;
+  color: #0B192C;
+  letter-spacing: -0.02em;
   line-height: 1.25;
+  margin: 0 0 0.75rem;
+  max-width: 780px;
+}
+
+.hp-polydor-brand-word {
+  color: #0284C7;
 }
 
 .hp-polydor-work-desc {
-  font-size: 0.94rem;
-  color: #475569;
+  font-size: clamp(0.85rem, 1.1vw, 0.94rem);
   line-height: 1.55;
+  color: #475569;
+  max-width: 720px;
   margin: 0;
 }
 
 .hp-polydor-work-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.85rem, 1.4vw, 1.25rem);
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .hp-polydor-work-card {
   background: #FFFFFF;
-  border: 1.5px solid rgba(186, 230, 253, 0.8);
-  border-radius: 18px;
-  padding: 1.35rem 1.2rem;
+  border: 1.5px solid #BAE6FD;
+  border-radius: 20px;
   display: flex;
-  flex-direction: column;
-  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+  justify-content: space-between;
+  align-items: stretch;
+  box-shadow: 0 4px 18px rgba(2, 132, 199, 0.04);
+  overflow: hidden;
+  min-height: 145px;
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 260ms ease, border-color 260ms ease;
+  position: relative;
 }
 
 .hp-polydor-work-card:hover {
   transform: translateY(-3px);
   border-color: #0284C7;
-  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.12);
-}
-
-.hp-polydor-tag {
-  display: inline-block;
-  align-self: flex-start;
-  font-size: 0.68rem;
-  font-weight: 800;
-  color: #0369A1;
-  background: #E0F2FE;
-  padding: 0.2rem 0.55rem;
-  border-radius: 6px;
-  margin-bottom: 0.65rem;
-  letter-spacing: 0.04em;
-}
-
-.hp-polydor-tag-green {
-  color: #15803D;
-  background: #DCFCE7;
-}
-
-.hp-polydor-work-card h4 {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #0B192C;
-  margin: 0 0 0.45rem;
-}
-
-.hp-polydor-work-card p {
-  font-size: 0.85rem;
-  color: #64748B;
-  line-height: 1.45;
-  margin: 0;
+  box-shadow: 0 10px 28px rgba(2, 132, 199, 0.12);
 }
 
 .hp-polydor-card-highlight {
+  background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 45%, #F4FDF7 100%);
   border-color: #86EFAC;
-  background: #F0FDF4;
 }
 
 .hp-polydor-card-highlight:hover {
   border-color: #22C55E;
+  box-shadow: 0 10px 28px rgba(34, 197, 94, 0.15);
+}
+
+.hp-polydor-card-content {
+  flex: 1;
+  min-width: 0;
+  padding: clamp(0.85rem, 1.3vw, 1.15rem) clamp(0.6rem, 0.9vw, 0.85rem) clamp(0.85rem, 1.3vw, 1.15rem) clamp(0.95rem, 1.5vw, 1.35rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hp-polydor-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.hp-polydor-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: #E0F2FE;
+  color: #0284C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hp-polydor-card-highlight .hp-polydor-icon-box {
+  background: #DCFCE7;
+  color: #16A34A;
+}
+
+.hp-polydor-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.6rem;
+  background: #E0F2FE;
+  color: #0284C7;
+  font-size: 0.62rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  border-radius: 999px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.hp-polydor-tag-green {
+  background: #DCFCE7 !important;
+  color: #15803D !important;
+}
+
+.hp-polydor-card-content h4 {
+  font-size: clamp(0.92rem, 1.15vw, 1.05rem);
+  font-weight: 850;
+  color: #0B192C;
+  margin: 0 0 0.35rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.hp-polydor-card-content p {
+  font-size: clamp(0.72rem, 0.85vw, 0.78rem);
+  line-height: 1.45;
+  color: #475569;
+  margin: 0;
+}
+
+.hp-polydor-card-image-wrap {
+  width: clamp(105px, 9vw, 130px);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(18px 0, 100% 0, 100% 100%, 0 100%);
+  background: #E2E8F0;
+}
+
+.hp-polydor-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 450ms ease;
+}
+
+.hp-polydor-work-card:hover .hp-polydor-card-img {
+  transform: scale(1.06);
 }
 
 /* ------------------------------------------------------------------ */
@@ -32255,6 +32373,7 @@ main {
 }
 
 @media (max-width: 640px) {
+
   .boiler-cooling-page .boiler-features-strip,
   .boiler-cooling-page .boiler-benefits-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -34152,6 +34271,7 @@ main {
 }
 
 @media (max-width: 640px) {
+
   .ro-effluent-page .ro-features-strip,
   .ro-effluent-page .ro-benefits-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -37870,6 +37990,7 @@ body:has(.construction-solution-page) .footer-bottom {
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
+
   .corosil-steps-grid,
   .corosil-systems-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -37877,6 +37998,7 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 @media (max-width: 960px) {
+
   .corosil-hero-layout,
   .corosil-problems-layout,
   .corosil-specs-layout,
@@ -37916,6 +38038,7 @@ body:has(.construction-solution-page) .footer-bottom {
 }
 
 @media (max-width: 640px) {
+
   .corosil-facts-strip,
   .corosil-steps-grid,
   .corosil-systems-grid,
@@ -37923,6 +38046,7 @@ body:has(.construction-solution-page) .footer-bottom {
   .corosil-handling-grid {
     grid-template-columns: minmax(0, 1fr);
   }
+
   .corosil-hero {
     padding: 1.5rem 0 0;
     background: radial-gradient(ellipse 85% 32% at 88% 4%, #E6F5FE 0%, #F5FAFF 48%, #F8FBFE 100%);
@@ -39341,6 +39465,7 @@ body:has(.construction-solution-page) .footer-bottom {
 
 /* Touch device failsafe: prevent card/hero images from jumping up when tapped on mobile */
 @media (hover: none) {
+
   .industrial-water-page .industrial-approach-card:hover,
   .boiler-cooling-page .boiler-feature-col:hover,
   .ro-effluent-page .ro-feature-col:hover,
