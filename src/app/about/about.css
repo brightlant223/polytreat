@@ -1661,218 +1661,327 @@
 }
 
 /* ==========================================================================
-   4. BRAND ARCHITECTURE
+   4. BRAND ARCHITECTURE (Replicating Exact Reference Design)
    ========================================================================== */
 
 .ab-brands-section {
-  padding: clamp(2.5rem, 4vw, 3.75rem) 0;
-  background: #FFFFFF;
+  position: relative;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FBFE 45%, #F0F7FD 100%);
+  padding-top: clamp(3.5rem, 5vw, 4.75rem);
+  padding-bottom: clamp(4rem, 6vw, 5.5rem);
+  overflow: hidden;
+  color: #0A2540;
 }
 
 .ab-brands-header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 1.75rem;
-  margin-bottom: 2rem;
+  gap: 2rem;
+  margin-bottom: 2.25rem;
 }
 
-.ab-brands-header-left h2 {
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  font-weight: 800;
+.ab-brands-header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ab-brands-eyebrow-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0070EB;
+  margin-bottom: 0.5rem;
+}
+
+.ab-brands-heading {
+  font-size: clamp(2.2rem, 3.8vw, 3.1rem);
+  font-weight: 850;
   letter-spacing: -0.03em;
-  color: var(--ab-navy);
+  color: #0B192C;
   margin: 0;
   line-height: 1.15;
 }
 
-.ab-brands-header p {
-  max-width: 500px;
-  color: var(--ab-text-muted);
-  font-size: 1rem;
+.ab-brands-subtitle {
+  max-width: 480px;
+  color: #486581;
+  font-size: 0.98rem;
   line-height: 1.65;
   margin: 0;
 }
 
+/* 4-Way Architectural Tree Connection Element */
+.ab-brands-connection {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  height: 50px;
+  margin-bottom: 0.75rem;
+  pointer-events: none;
+}
+
+.ab-conn-branch {
+  position: relative;
+  height: 100%;
+}
+
+.ab-conn-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.ab-conn-central-badge {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 26px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 2px solid #0070EB;
+  box-shadow: 0 2px 10px rgba(0, 112, 235, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.ab-conn-badge-p {
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 900;
+  font-style: italic;
+  color: #0070EB;
+  line-height: 1;
+  transform: translateY(-0.5px);
+}
+
+/* 4-Card Grid */
 .ab-brands-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
+  align-items: stretch;
 }
 
+/* Single Brand Card */
 .ab-brand-card {
-  border-radius: var(--ab-card-radius);
-  border: 1px solid var(--ab-border);
-  padding: 2.15rem 1.85rem;
+  position: relative;
+  border-radius: 22px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s var(--ab-ease), box-shadow 0.3s var(--ab-ease), background-color 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  box-shadow: 0 8px 24px rgba(11, 27, 58, 0.04), 0 1px 3px rgba(11, 27, 58, 0.02);
+  will-change: transform, box-shadow;
 }
 
-.ab-brand-card:hover {
-  transform: translateY(-8px);
-}
-
-/* 4 Tinted Card Backgrounds with Individual Glow & BG Hovers in Light Mode */
+/* 4 Tone Backgrounds & Borders */
 .ab-brand-blue {
-  background: #F0F7FD;
-  border-color: #CDE2F5;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFCFE 50%, #F0F7FE 100%);
+  border: 1.5px solid rgba(0, 112, 235, 0.22);
 }
-
 .ab-brand-blue:hover {
-  background: #E8F3FD;
-  border-color: #0284C7;
-  box-shadow:
-    0 22px 48px rgba(2, 132, 199, 0.2),
-    0 0 30px rgba(2, 132, 199, 0.12);
+  transform: translateY(-8px);
+  border-color: #0070EB;
+  box-shadow: 0 20px 44px rgba(0, 112, 235, 0.14), 0 4px 12px rgba(11, 25, 44, 0.04);
 }
 
 .ab-brand-orange {
-  background: #FFF8F0;
-  border-color: #FED7AA;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFFDFA 50%, #FFF7ED 100%);
+  border: 1.5px solid rgba(234, 88, 12, 0.22);
 }
-
 .ab-brand-orange:hover {
-  background: #FFF1E2;
-  border-color: #F97316;
-  box-shadow:
-    0 22px 48px rgba(249, 115, 22, 0.2),
-    0 0 30px rgba(249, 115, 22, 0.12);
+  transform: translateY(-8px);
+  border-color: #EA580C;
+  box-shadow: 0 20px 44px rgba(234, 88, 12, 0.14), 0 4px 12px rgba(11, 25, 44, 0.04);
 }
 
 .ab-brand-green {
-  background: #F0FDF4;
-  border-color: #BBF7D0;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFEFB 50%, #F0FDF4 100%);
+  border: 1.5px solid rgba(16, 185, 129, 0.22);
 }
-
 .ab-brand-green:hover {
-  background: #E5F9EE;
-  border-color: #0A7A55;
-  box-shadow:
-    0 22px 48px rgba(10, 122, 85, 0.2),
-    0 0 30px rgba(10, 122, 85, 0.12);
+  transform: translateY(-8px);
+  border-color: #10B981;
+  box-shadow: 0 20px 44px rgba(16, 185, 129, 0.14), 0 4px 12px rgba(11, 25, 44, 0.04);
 }
 
 .ab-brand-purple {
-  background: #FAF5FF;
-  border-color: #E9D5FF;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FCFAFE 50%, #FAF5FF 100%);
+  border: 1.5px solid rgba(139, 92, 246, 0.22);
 }
-
 .ab-brand-purple:hover {
-  background: #F3E8FF;
-  border-color: #7C3AED;
-  box-shadow:
-    0 22px 48px rgba(124, 58, 237, 0.2),
-    0 0 30px rgba(124, 58, 237, 0.12);
+  transform: translateY(-8px);
+  border-color: #8B5CF6;
+  box-shadow: 0 20px 44px rgba(139, 92, 246, 0.14), 0 4px 12px rgba(11, 25, 44, 0.04);
 }
 
-.ab-brand-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.35rem;
+/* Card Top Media Area */
+.ab-brand-media {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: #E2E8F0;
 }
 
-.ab-brand-icon-box {
+.ab-brand-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ab-brand-card:hover .ab-brand-img {
+  transform: scale(1.06);
+}
+
+/* Floating Circular Icon Badge */
+.ab-brand-icon-float {
+  position: absolute;
+  bottom: -22px;
+  left: 16px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(11, 25, 44, 0.12);
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(11, 27, 58, 0.06);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 3;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
 }
 
-.ab-brand-card:hover .ab-brand-icon-box {
+.ab-brand-card:hover .ab-brand-icon-float {
   transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(11, 25, 44, 0.16);
 }
 
-.ab-brand-blue .ab-brand-icon-box {
-  color: #0284C7;
+.ab-bicon-blue {
+  color: #0070EB;
+}
+.ab-bicon-orange {
+  color: #EA580C;
+}
+.ab-bicon-green {
+  color: #10B981;
+}
+.ab-bicon-purple {
+  color: #8B5CF6;
 }
 
-.ab-brand-orange .ab-brand-icon-box {
-  color: #C2410C;
+/* Numbered Badge (01, 02, 03, 04) */
+.ab-brand-number-badge {
+  position: absolute;
+  bottom: -14px;
+  right: 16px;
+  padding: 0.25rem 0.75rem;
+  border-radius: 8px;
+  font-weight: 850;
+  font-size: 0.85rem;
+  color: #FFFFFF;
+  line-height: 1;
+  z-index: 3;
+  box-shadow: 0 3px 10px rgba(11, 25, 44, 0.12);
 }
 
-.ab-brand-green .ab-brand-icon-box {
-  color: #0A7A55;
+.ab-bnum-blue {
+  background: #0070EB;
+}
+.ab-bnum-orange {
+  background: #EA580C;
+}
+.ab-bnum-green {
+  background: #10B981;
+}
+.ab-bnum-purple {
+  background: #8B5CF6;
 }
 
-.ab-brand-purple .ab-brand-icon-box {
-  color: #7E22CE;
-}
-
-.ab-brand-number {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  opacity: 0.95;
-}
-
-.ab-brand-blue .ab-brand-number {
-  color: #0284C7;
-}
-
-.ab-brand-orange .ab-brand-number {
-  color: #C2410C;
-}
-
-.ab-brand-green .ab-brand-number {
-  color: #0A7A55;
-}
-
-.ab-brand-purple .ab-brand-number {
-  color: #7E22CE;
+/* Card Body */
+.ab-brand-body {
+  padding: 2.25rem 1.4rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .ab-brand-eyebrow {
   display: block;
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 0.45rem;
+  line-height: 1.2;
 }
 
-.ab-brand-blue .ab-brand-eyebrow {
-  color: #0284C7;
+.ab-beyebrow-blue {
+  color: #0070EB;
+}
+.ab-beyebrow-orange {
+  color: #EA580C;
+}
+.ab-beyebrow-green {
+  color: #10B981;
+}
+.ab-beyebrow-purple {
+  color: #8B5CF6;
 }
 
-.ab-brand-orange .ab-brand-eyebrow {
-  color: #C2410C;
+/* Colored accent line below eyebrow */
+.ab-brand-eyebrow-line {
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  margin-top: 0.45rem;
+  margin-bottom: 0.75rem;
 }
 
-.ab-brand-green .ab-brand-eyebrow {
-  color: #0A7A55;
+.ab-bline-blue {
+  background: #0070EB;
+}
+.ab-bline-orange {
+  background: #EA580C;
+}
+.ab-bline-green {
+  background: #10B981;
+}
+.ab-bline-purple {
+  background: #8B5CF6;
 }
 
-.ab-brand-purple .ab-brand-eyebrow {
-  color: #7E22CE;
-}
-
-.ab-brand-card h3 {
-  font-size: clamp(1.15rem, 1.35vw, 1.25rem);
-  font-weight: 800;
-  color: #0B1B3A;
-  letter-spacing: -0.02em;
-  margin: 0 0 0.75rem;
-  line-height: 1.35;
+.ab-brand-title {
+  font-size: 1.15rem;
+  font-weight: 850;
+  color: #0B192C;
+  letter-spacing: -0.018em;
+  margin: 0 0 0.65rem;
+  line-height: 1.28;
+  min-height: 2.6em;
   word-break: normal;
   overflow-wrap: break-word;
 }
 
-/* High-contrast, clean and crisp light mode description text */
-.ab-brand-card p {
-  color: #2D3B52;
-  font-size: 0.925rem;
-  font-weight: 500;
-  line-height: 1.68;
-  margin: 0 0 1.5rem;
+.ab-brand-desc {
+  font-size: 0.865rem;
+  line-height: 1.6;
+  color: #486581;
+  margin: 0 0 1.35rem;
   flex-grow: 1;
 }
 
+/* Application Tags / Chips */
 .ab-brand-chips {
   display: flex;
   flex-wrap: wrap;
@@ -1884,267 +1993,460 @@
 }
 
 .ab-brand-chip {
-  padding: 0.35rem 0.8rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 9999px;
-  background: #FFFFFF;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: #0F172A;
-  border: 1px solid rgba(11, 27, 58, 0.1);
-  box-shadow: 0 2px 6px rgba(11, 27, 58, 0.04);
+  line-height: 1;
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
+.ab-bchip-blue {
+  background: #F0F7FE;
+  color: #0070EB;
+  border: 1px solid rgba(0, 112, 235, 0.2);
+}
+.ab-bchip-orange {
+  background: #FFF7ED;
+  color: #C2410C;
+  border: 1px solid rgba(234, 88, 12, 0.2);
+}
+.ab-bchip-green {
+  background: #F0FDF4;
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.ab-bchip-purple {
+  background: #FAF5FF;
+  color: #7C3AED;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
 .ab-brand-card:hover .ab-brand-chip {
-  border-color: rgba(11, 27, 58, 0.18);
   transform: translateY(-1px);
 }
 
 /* ==========================================================================
-   5. INFRASTRUCTURE
+   5. INFRASTRUCTURE (Replicating Exact Reference Design)
    ========================================================================== */
 
 .ab-infra-section {
-  padding: clamp(2.5rem, 4vw, 3.75rem) 0;
-  background:
-    radial-gradient(circle at 8% 25%, rgba(2, 132, 199, 0.06), transparent 40%),
-    var(--ab-bg);
+  position: relative;
+  background: linear-gradient(180deg, #F8FBFE 0%, #FFFFFF 50%, #F4FAFE 100%);
+  padding-top: clamp(3.5rem, 5vw, 4.75rem);
+  padding-bottom: clamp(4rem, 6vw, 5.5rem);
+  overflow: hidden;
+  color: #0A2540;
 }
 
+/* Ambient Matrix Dots in Top-Left */
+.ab-infra-dots-grid {
+  position: absolute;
+  top: 36px;
+  left: clamp(24px, 4.5vw, 56px);
+  display: grid;
+  grid-template-columns: repeat(6, 6px);
+  grid-template-rows: repeat(3, 6px);
+  gap: 12px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ab-infra-dot-cell {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #BAE6FD;
+  opacity: 0.8;
+}
+
+/* Ambient Flowing Wave Ribbons on Margins */
+.ab-infra-ambient-left {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: min(280px, 22vw);
+  height: min(380px, 32vw);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ab-infra-ambient-right {
+  position: absolute;
+  top: 15%;
+  right: 0;
+  width: min(280px, 22vw);
+  height: min(380px, 32vw);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ab-infra-ambient-left svg,
+.ab-infra-ambient-right svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Section Header */
 .ab-infra-heading {
   text-align: center;
-  max-width: 680px;
-  margin: 0 auto 2rem;
+  max-width: 700px;
+  margin: 0 auto clamp(2.5rem, 3.8vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ab-infra-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #0070EB;
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+
+.ab-infra-head-icon {
+  color: #0070EB;
+  flex-shrink: 0;
 }
 
 .ab-infra-heading h2 {
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  font-weight: 800;
+  font-size: clamp(2.2rem, 3.8vw, 3.1rem);
+  font-weight: 850;
   letter-spacing: -0.03em;
-  color: var(--ab-navy);
+  color: #0B192C;
   margin: 0 0 0.85rem;
+  line-height: 1.15;
+}
+
+.ab-infra-dot {
+  color: #0070EB;
 }
 
 .ab-infra-heading p {
-  color: var(--ab-text-muted);
-  font-size: 1.05rem;
+  color: #486581;
+  font-size: 1.02rem;
+  line-height: 1.6;
   margin: 0;
 }
 
-.ab-infra-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.75rem;
+/* Thin Divider with Central Water Droplet */
+.ab-infra-divider-decor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  width: min(440px, 85vw);
+  margin: 1.4rem auto 0;
 }
 
+.ab-infra-div-line {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 112, 235, 0.4) 50%, rgba(0, 112, 235, 0.7) 100%);
+}
+
+.ab-infra-divider-decor .ab-infra-div-line:last-child {
+  background: linear-gradient(90deg, rgba(0, 112, 235, 0.7) 0%, rgba(0, 112, 235, 0.4) 50%, transparent 100%);
+}
+
+.ab-infra-div-drop {
+  color: #0070EB;
+  display: flex;
+  align-items: center;
+  filter: drop-shadow(0 2px 4px rgba(0, 112, 235, 0.3));
+}
+
+/* 3-Card Grid */
+.ab-infra-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 2vw, 1.85rem);
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+}
+
+/* Single Infrastructure Card */
 .ab-infra-card {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1.5px solid rgba(226, 232, 240, 0.85);
+  border-top-width: 4px;
+  border-top-style: solid;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: 2.25rem 2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 10px 30px rgba(11, 27, 58, 0.05), 0 1px 3px rgba(11, 27, 58, 0.02);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s ease, border-color 0.32s ease;
+  will-change: transform, box-shadow;
 }
 
 .ab-infra-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-7px);
 }
 
-/* Infrastructure Location Cards - Distinct Highlighted Top Borders & Coordinating Accents */
-.ab-infra-card-blue,
-.ab-infra-card-green,
-.ab-infra-card-purple,
-.ab-infra-card-amber,
-.ab-infra-card-green-border {
-  border-top-width: 4px;
-  border-top-style: solid;
+/* Card Themes */
+.ab-infra-blue {
+  border-top-color: #0070EB;
+}
+.ab-infra-blue:hover {
+  border-color: rgba(0, 112, 235, 0.35);
+  border-top-color: #0070EB;
+  box-shadow: 0 20px 44px rgba(0, 112, 235, 0.12), 0 4px 12px rgba(11, 25, 44, 0.04);
 }
 
-/* 1. Blue Card (Corporate & Administrative Office) - Tinted Base Matching Brand Architecture */
-.ab-infra-card-blue {
-  background: #F0F7FD;
-  border-color: #CDE2F5;
-  border-top-color: #0284C7;
+.ab-infra-green {
+  border-top-color: #10B981;
+}
+.ab-infra-green:hover {
+  border-color: rgba(16, 185, 129, 0.35);
+  border-top-color: #10B981;
+  box-shadow: 0 20px 44px rgba(16, 185, 129, 0.12), 0 4px 12px rgba(11, 25, 44, 0.04);
 }
 
-.ab-infra-card-blue .ab-infra-icon-badge {
-  background: #FFFFFF;
-  color: #0284C7;
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.12);
+.ab-infra-purple {
+  border-top-color: #8B5CF6;
+}
+.ab-infra-purple:hover {
+  border-color: rgba(139, 92, 246, 0.35);
+  border-top-color: #8B5CF6;
+  box-shadow: 0 20px 44px rgba(139, 92, 246, 0.12), 0 4px 12px rgba(11, 25, 44, 0.04);
 }
 
-.ab-infra-card-blue .ab-infra-kind {
-  color: #0284C7;
-}
-
-.ab-infra-card-blue .ab-infra-footnote svg {
-  color: #0284C7;
-}
-
-.ab-infra-card-blue:hover {
-  background: #E8F3FD;
-  border-color: #0284C7;
-  box-shadow:
-    0 22px 48px rgba(2, 132, 199, 0.2),
-    0 0 30px rgba(2, 132, 199, 0.12);
-}
-
-/* 2. Green Card (Green Products Facility) - Tinted Base Matching Brand Architecture */
-.ab-infra-card-green,
-.ab-infra-card-green-border {
-  background: #F0FDF4;
-  border-color: #BBF7D0;
-  border-top-color: #0A7A55;
-}
-
-.ab-infra-card-green .ab-infra-icon-badge,
-.ab-infra-card-green-border .ab-infra-icon-badge {
-  background: #FFFFFF;
-  color: #0A7A55;
-  box-shadow: 0 4px 12px rgba(10, 122, 85, 0.12);
-}
-
-.ab-infra-card-green .ab-infra-kind,
-.ab-infra-card-green-border .ab-infra-kind {
-  color: #0A7A55;
-}
-
-.ab-infra-card-green .ab-infra-footnote svg,
-.ab-infra-card-green-border .ab-infra-footnote svg {
-  color: #0A7A55;
-}
-
-.ab-infra-card-green:hover,
-.ab-infra-card-green-border:hover {
-  background: #E5F9EE;
-  border-color: #0A7A55;
-  box-shadow:
-    0 22px 48px rgba(10, 122, 85, 0.2),
-    0 0 30px rgba(10, 122, 85, 0.12);
-}
-
-/* 3. Purple Card (Heavy Chemicals Manufacturing) - Tinted Base Matching Brand Architecture */
-.ab-infra-card-purple {
-  background: #FAF5FF;
-  border-color: #E9D5FF;
-  border-top-color: #7C3AED;
-}
-
-.ab-infra-card-purple .ab-infra-icon-badge {
-  background: #FFFFFF;
-  color: #7C3AED;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.12);
-}
-
-.ab-infra-card-purple .ab-infra-kind {
-  color: #7C3AED;
-}
-
-.ab-infra-card-purple .ab-infra-footnote svg {
-  color: #7C3AED;
-}
-
-.ab-infra-card-purple:hover {
-  background: #F3E8FF;
-  border-color: #7C3AED;
-  box-shadow:
-    0 22px 48px rgba(124, 58, 237, 0.2),
-    0 0 30px rgba(124, 58, 237, 0.12);
-}
-
-/* Alternate Amber Card */
-.ab-infra-card-amber {
-  border-top-color: #D97706;
-}
-
-.ab-infra-card-amber .ab-infra-icon-badge {
-  background: rgba(217, 119, 6, 0.1);
-  color: #D97706;
-}
-
-.ab-infra-card-amber .ab-infra-kind {
-  color: #D97706;
-}
-
-.ab-infra-card-amber .ab-infra-footnote svg {
-  color: #D97706;
-}
-
-.ab-infra-card-amber:hover {
-  background: #FFFBF5;
-  border-color: #D97706;
-  box-shadow:
-    0 22px 48px rgba(217, 119, 6, 0.2),
-    0 0 30px rgba(217, 119, 6, 0.1);
-}
-
-.ab-infra-top {
+/* Top Header Area with Meta on Left and Photo on Right */
+.ab-infra-card-header {
+  position: relative;
+  height: 135px;
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  margin-bottom: 1.25rem;
+  justify-content: space-between;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
 }
 
-.ab-infra-icon-badge {
-  display: grid;
-  place-items: center;
+.ab-iheader-blue {
+  background: linear-gradient(135deg, #F0F7FE 0%, #E2F0FD 100%);
+}
+.ab-iheader-green {
+  background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+}
+.ab-iheader-purple {
+  background: linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 100%);
+}
+
+.ab-infra-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.15rem 1.35rem;
+  position: relative;
+  z-index: 2;
+  max-width: 58%;
+}
+
+.ab-infra-icon-float {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
-  background: var(--ab-blue-light);
-  color: var(--ab-blue);
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: grid;
+  place-items: center;
   flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(11, 25, 44, 0.08);
   transition: transform 0.25s ease;
 }
 
-.ab-infra-card:hover .ab-infra-icon-badge {
+.ab-infra-card:hover .ab-infra-icon-float {
   transform: scale(1.08);
 }
 
-.ab-infra-kind {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+.ab-iicon-blue {
+  color: #0070EB;
+}
+.ab-iicon-green {
+  color: #10B981;
+}
+.ab-iicon-purple {
+  color: #8B5CF6;
+}
+
+.ab-infra-kind-box {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.ab-infra-kind-p1,
+.ab-infra-kind-p2 {
+  font-size: 0.69rem;
+  font-weight: 850;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--ab-blue-deep);
 }
 
-.ab-infra-card h3 {
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--ab-navy);
-  margin: 0 0 1rem;
+.ab-ikind-blue {
+  color: #0070EB;
+}
+.ab-ikind-green {
+  color: #10B981;
+}
+.ab-ikind-purple {
+  color: #8B5CF6;
 }
 
-.ab-infra-card address {
-  font-style: normal;
-  color: #2D3B52;
-  font-weight: 500;
-  font-size: 0.9rem;
-  line-height: 1.68;
-  white-space: pre-line;
+/* Facility Photograph */
+.ab-infra-media-wrap {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 48%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  border-top-right-radius: 16px;
+}
+
+.ab-infra-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ab-infra-card:hover .ab-infra-img {
+  transform: scale(1.06);
+}
+
+.ab-infra-media-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 45px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ab-mfade-blue {
+  background: linear-gradient(90deg, #F0F7FE 0%, transparent 100%);
+}
+.ab-mfade-green {
+  background: linear-gradient(90deg, #F0FDF4 0%, transparent 100%);
+}
+.ab-mfade-purple {
+  background: linear-gradient(90deg, #FAF5FF 0%, transparent 100%);
+}
+
+/* Card Body */
+.ab-infra-card-body {
+  padding: 1.5rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
 }
 
+.ab-infra-title {
+  font-size: 1.28rem;
+  font-weight: 850;
+  color: #0B192C;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.ab-infra-address-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+.ab-infra-pin-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.ab-ipin-blue {
+  background: #EFF6FF;
+  color: #0070EB;
+}
+.ab-ipin-green {
+  background: #F0FDF4;
+  color: #10B981;
+}
+.ab-ipin-purple {
+  background: #FAF5FF;
+  color: #8B5CF6;
+}
+
+.ab-infra-address {
+  font-style: normal;
+  font-size: 0.865rem;
+  color: #334155;
+  line-height: 1.62;
+  font-weight: 500;
+  margin: 0;
+}
+
 .ab-infra-divider {
-  border: none;
-  border-top: 1px solid var(--ab-border);
-  margin: 1.5rem 0 1.25rem;
+  height: 1px;
+  background: #E2E8F0;
+  margin: 1.35rem 0 1.15rem;
+  width: 100%;
 }
 
 .ab-infra-footnote {
   display: flex;
-  align-items: flex-start;
-  gap: 0.55rem;
-  color: #334155;
-  font-weight: 500;
-  font-size: 0.84rem;
-  line-height: 1.55;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: auto;
 }
 
-.ab-infra-footnote svg {
+.ab-infra-ficon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
   flex-shrink: 0;
-  color: var(--ab-blue);
-  margin-top: 0.15rem;
+}
+
+.ab-ificon-blue {
+  background: #EFF6FF;
+  color: #0070EB;
+}
+.ab-ificon-green {
+  background: #F0FDF4;
+  color: #10B981;
+}
+.ab-ificon-purple {
+  background: #FAF5FF;
+  color: #8B5CF6;
+}
+
+.ab-infra-note {
+  font-size: 0.84rem;
+  color: #475569;
+  line-height: 1.55;
+  font-weight: 500;
+  margin: 0;
 }
 
 /* ==========================================================================
@@ -2601,6 +2903,10 @@
 
 /* Tablet & Smaller Laptops (1025px - 1120px) */
 @media (max-width: 1120px) {
+  .ab-brands-connection {
+    display: none;
+  }
+
   .ab-brands-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
@@ -2647,6 +2953,9 @@
 
   .ab-infra-card:nth-child(3) {
     grid-column: span 2;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .ab-stats-grid {
@@ -2810,7 +3119,7 @@
   }
 
   .ab-brands-section {
-    padding: 2.25rem 0;
+    padding: 2.75rem 0;
   }
 
   .ab-brands-grid {
@@ -2818,8 +3127,16 @@
     gap: 1.25rem;
   }
 
+  .ab-brand-media {
+    height: 165px;
+  }
+
+  .ab-brand-title {
+    min-height: auto;
+  }
+
   .ab-infra-section {
-    padding: 2.25rem 0;
+    padding: 2.75rem 0;
   }
 
   .ab-infra-grid {
@@ -2829,6 +3146,15 @@
 
   .ab-infra-card:nth-child(3) {
     grid-column: span 1;
+    max-width: 100%;
+  }
+
+  .ab-infra-dots-grid {
+    display: none;
+  }
+
+  .ab-infra-card-header {
+    height: 125px;
   }
 
   .ab-quality-section {

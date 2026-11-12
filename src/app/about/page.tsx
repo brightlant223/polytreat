@@ -9,6 +9,7 @@ import {
   CalendarDays,
   Building2,
   Check,
+  Cog,
   Droplets,
   Factory,
   FlaskConical,
@@ -18,7 +19,9 @@ import {
   MapPin,
   MessageCircle,
   Phone,
+  ShieldCheck,
   Ship,
+  Users,
 } from "lucide-react";
 import { locationSites } from "@/data/locations";
 import AboutObserver from "./AboutObserver";
@@ -147,49 +150,96 @@ const brands = [
   {
     icon: Droplets,
     number: "01",
-    eyebrow: "Industrial water & process",
-    title: "Polytreat & Polycide",
+    eyebrow: "INDUSTRIAL WATER & PROCESS",
+    title: "PolyTreat & Polycide",
     description:
       "Water-treatment and biocide ranges for boilers, cooling towers, RO systems, effluent, and process applications.",
     categories: ["Boiler water", "Cooling water", "RO & effluent", "Biocides"],
     tone: "blue",
+    image: "/images/about/brands/b1-water-process.jpg",
+    imageAlt: "Clean industrial water droplet and ripple visual",
   },
   {
     icon: Layers3,
     number: "02",
-    eyebrow: "Construction chemicals",
+    eyebrow: "CONSTRUCTION CHEMICALS",
     title: "Polyproof, Polybond, Polyroof & Polygard",
     description:
       "Waterproofing membranes, protective coatings, concrete-repair systems, flooring, and sealants for built structures.",
     categories: ["Waterproofing", "Coatings", "Flooring", "Sealants"],
     tone: "orange",
+    image: "/images/about/brands/b2-construction-coatings.jpg",
+    imageAlt: "Protective coating and waterproofing application visual",
   },
   {
     icon: Leaf,
     number: "03",
-    eyebrow: "Institutional & home care",
+    eyebrow: "INSTITUTIONAL & HOME CARE",
     title: "V-Klin",
     description:
       "Cleaning products for hotels, hospitals, facilities, and homes — floor, surface, hand, dish, glass, and washroom care.",
     categories: ["Floor & surface", "Hand & dish", "Glass & toilet"],
     tone: "green",
+    image: "/images/about/brands/b3-floor-hygiene.jpg",
+    imageAlt: "Professional floor cleaning and institutional hygiene care visual",
   },
   {
     icon: FlaskConical,
     number: "04",
-    eyebrow: "Flagship specialty",
-    title: "Polydor-WS\u00A0\u00B7 Corosil\u00A0\u00B7 Polyklin",
+    eyebrow: "FLAGSHIP SPECIALTY",
+    title: "Polydor-WS · Corosil · Polyklin",
     description:
-      "Single-problem formulations: odor neutralization, rust conversion, and HVAC coil cleaning.",
+      "Single-problem formulations for odor neutralization, rust conversion, and HVAC coil cleaning.",
     categories: ["Odor control", "Rust converter", "Coil cleaner"],
     tone: "purple",
+    image: "/images/about/brands/b4-specialty-lab.jpg",
+    imageAlt: "Scientific laboratory glassware and specialty chemical visual",
   },
 ];
 
 const facilities = [
-  { icon: Building2, site: locationSites[0], tone: "blue" },
-  { icon: Leaf, site: locationSites[1], tone: "green" },
-  { icon: Factory, site: locationSites[2], tone: "purple" },
+  {
+    id: "goregaon-west",
+    tone: "blue",
+    icon: Building2,
+    kindPart1: "CORPORATE &",
+    kindPart2: "ADMINISTRATIVE OFFICE",
+    title: "Goregaon West",
+    address:
+      "7-A, Topiwala Building, 'C' Wing, Opp. Pramila Cinema, Goregaon (West), Mumbai – 400104, Maharashtra, India.",
+    roleIcon: Users,
+    note: "Sales, administration, and technical coordination.",
+    image: "/images/about/infra/office-goregaon-west.jpg",
+    imageAlt: "PolyTreat corporate office building in Goregaon West",
+  },
+  {
+    id: "goregaon-east",
+    tone: "green",
+    icon: Leaf,
+    kindPart1: "MANUFACTURING –",
+    kindPart2: "GREEN PRODUCTS",
+    title: "Goregaon East",
+    address:
+      "506, Shantilal Industrial Premises Co-op Society Ltd, Veer Gunjwala, Goregaon(E), Mumbai – 400063.",
+    roleIcon: ShieldCheck,
+    note: "The V-Klin cleaning and institutional care range, and the site named on our certificates.",
+    image: "/images/about/infra/green-plant-goregaon-east.jpg",
+    imageAlt: "PolyTreat green products manufacturing facility in Goregaon East",
+  },
+  {
+    id: "tarapur",
+    tone: "purple",
+    icon: Factory,
+    kindPart1: "MANUFACTURING –",
+    kindPart2: "HEAVY CHEMICALS",
+    title: "Tarapur MIDC",
+    address:
+      "Tarapur Industrial Area (MIDC), Palghar district, Maharashtra, India.",
+    roleIcon: Cog,
+    note: "Heavy manufacturing for the industrial water and process chemical ranges.",
+    image: "/images/about/infra/heavy-plant-tarapur-midc.jpg",
+    imageAlt: "PolyTreat heavy chemical manufacturing plant in Tarapur MIDC",
+  },
 ];
 
 const rdPoints = [
@@ -712,34 +762,90 @@ export default function AboutPage() {
         <div className="ab-container">
           <div className="ab-brands-header ab-reveal">
             <div className="ab-brands-header-left">
-              <span className="ab-label">Brand architecture</span>
-              <h2 id="brands-title">Four ranges, one manufacturer.</h2>
+              <span className="ab-brands-eyebrow-label">BRAND ARCHITECTURE</span>
+              <h2 id="brands-title" className="ab-brands-heading">Four ranges. One manufacturer.</h2>
             </div>
-            <p>
+            <p className="ab-brands-subtitle">
               PolyTreat&apos;s product names map to the work they do — industrial water treatment,
               construction protection, everyday care, and single-problem specialty formats.
             </p>
           </div>
 
+          {/* Architectural Brand Connection Tree Element */}
+          <div className="ab-brands-connection" aria-hidden="true">
+            {/* Branch 1 -> Card 01 */}
+            <div className="ab-conn-branch ab-conn-col-1">
+              <svg viewBox="0 0 100 50" preserveAspectRatio="none" className="ab-conn-svg">
+                <path d="M 100 16 L 58 16 Q 50 16 50 24 L 50 48" stroke="#0070EB" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+                <circle cx="50" cy="48" r="3.5" fill="#0070EB" />
+              </svg>
+            </div>
+            {/* Branch 2 -> Card 02 */}
+            <div className="ab-conn-branch ab-conn-col-2">
+              <svg viewBox="0 0 100 50" preserveAspectRatio="none" className="ab-conn-svg">
+                <path d="M 0 16 L 100 16 M 50 16 L 50 48" stroke="#0070EB" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+                <circle cx="50" cy="48" r="3.5" fill="#0070EB" />
+              </svg>
+            </div>
+            {/* Central Oval PolyTreat Badge */}
+            <div className="ab-conn-central-badge">
+              <span className="ab-conn-badge-p">P</span>
+            </div>
+            {/* Branch 3 -> Card 03 */}
+            <div className="ab-conn-branch ab-conn-col-3">
+              <svg viewBox="0 0 100 50" preserveAspectRatio="none" className="ab-conn-svg">
+                <path d="M 0 16 L 100 16 M 50 16 L 50 48" stroke="#0070EB" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+                <circle cx="50" cy="48" r="3.5" fill="#0070EB" />
+              </svg>
+            </div>
+            {/* Branch 4 -> Card 04 */}
+            <div className="ab-conn-branch ab-conn-col-4">
+              <svg viewBox="0 0 100 50" preserveAspectRatio="none" className="ab-conn-svg">
+                <path d="M 0 16 L 42 16 Q 50 16 50 24 L 50 48" stroke="#0070EB" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+                <circle cx="50" cy="48" r="3.5" fill="#0070EB" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Four Product Category Cards Grid */}
           <div className="ab-brands-grid ab-stagger">
-            {brands.map(({ icon: Icon, number, eyebrow, title, description, categories, tone }) => (
+            {brands.map(({ icon: Icon, number, eyebrow, title, description, categories, tone, image, imageAlt }) => (
               <article className={`ab-brand-card ab-brand-${tone}`} key={title}>
-                <div className="ab-brand-top">
-                  <div className="ab-brand-icon-box">
-                    <Icon size={24} strokeWidth={1.8} aria-hidden="true" />
+                {/* Large Rectangular Image at Top */}
+                <div className="ab-brand-media">
+                  <Image
+                    src={image}
+                    alt={imageAlt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1120px) 50vw, 25vw"
+                    className="ab-brand-img"
+                  />
+                  {/* Floating Circular Icon Badge */}
+                  <div className={`ab-brand-icon-float ab-bicon-${tone}`} aria-hidden="true">
+                    <Icon size={22} strokeWidth={2.2} />
                   </div>
-                  <span className="ab-brand-number">{number}</span>
+                  {/* Prominent Numbered Badge */}
+                  <div className={`ab-brand-number-badge ab-bnum-${tone}`}>
+                    {number}
+                  </div>
                 </div>
-                <span className="ab-brand-eyebrow">{eyebrow}</span>
-                <h3>{title}</h3>
-                <p>{description}</p>
-                <ul className="ab-brand-chips" aria-label={`${title} categories`}>
-                  {categories.map((category) => (
-                    <li className="ab-brand-chip" key={category}>
-                      {category}
-                    </li>
-                  ))}
-                </ul>
+
+                {/* Card Body */}
+                <div className="ab-brand-body">
+                  <span className={`ab-brand-eyebrow ab-beyebrow-${tone}`}>
+                    {eyebrow}
+                  </span>
+                  <div className={`ab-brand-eyebrow-line ab-bline-${tone}`} aria-hidden="true" />
+                  <h3 className="ab-brand-title">{title}</h3>
+                  <p className="ab-brand-desc">{description}</p>
+                  <ul className="ab-brand-chips" aria-label={`${title} categories`}>
+                    {categories.map((category) => (
+                      <li className={`ab-brand-chip ab-bchip-${tone}`} key={category}>
+                        {category}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </article>
             ))}
           </div>
@@ -752,34 +858,124 @@ export default function AboutPage() {
         id="infrastructure"
         aria-labelledby="infra-title"
       >
+        {/* Ambient Dot Matrix in top-left */}
+        <div className="ab-infra-dots-grid" aria-hidden="true">
+          {[...Array(18)].map((_, i) => (
+            <span key={i} className="ab-infra-dot-cell" />
+          ))}
+        </div>
+
+        {/* Ambient Wave Ribbons along left and right edges */}
+        <div className="ab-infra-ambient-left" aria-hidden="true">
+          <svg viewBox="0 0 280 400" fill="none" preserveAspectRatio="none">
+            <path d="M-40,0 C80,120 40,260 -50,400 L-50,0 Z" fill="url(#ab-infra-amb-l)" />
+            <defs>
+              <linearGradient id="ab-infra-amb-l" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.32" />
+                <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.04" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div className="ab-infra-ambient-right" aria-hidden="true">
+          <svg viewBox="0 0 280 400" fill="none" preserveAspectRatio="none">
+            <path d="M320,0 C200,120 240,260 330,400 L330,0 Z" fill="url(#ab-infra-amb-r)" />
+            <defs>
+              <linearGradient id="ab-infra-amb-r" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#BAE6FD" stopOpacity="0.32" />
+                <stop offset="100%" stopColor="#E0F2FE" stopOpacity="0.04" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
         <div className="ab-container">
+          {/* Section Heading with Building icon, Eyebrow, Main Heading, Subtitle & Divider */}
           <div className="ab-infra-heading ab-reveal">
-            <span className="ab-label">Infrastructure</span>
-            <h2 id="infra-title">Where PolyTreat makes its products.</h2>
+            <div className="ab-infra-eyebrow">
+              <Building2 size={20} strokeWidth={2.2} className="ab-infra-head-icon" aria-hidden="true" />
+              <span>INFRASTRUCTURE</span>
+            </div>
+            <h2 id="infra-title">
+              Where PolyTreat makes its products<span className="ab-infra-dot">.</span>
+            </h2>
             <p>Two manufacturing units and a corporate office, all within Maharashtra.</p>
+
+            {/* Decorative Divider with Central Water Droplet */}
+            <div className="ab-infra-divider-decor" aria-hidden="true">
+              <span className="ab-infra-div-line" />
+              <span className="ab-infra-div-drop">
+                <svg viewBox="0 0 16 20" fill="currentColor" width="13" height="16">
+                  <path d="M8 0 C8 0 0 9.5 0 14 C0 17.5 3.5 20 8 20 C12.5 20 16 17.5 16 14 C16 9.5 8 0 8 0 Z" />
+                </svg>
+              </span>
+              <span className="ab-infra-div-line" />
+            </div>
           </div>
 
+          {/* Three Infrastructure Cards */}
           <div className="ab-infra-grid ab-stagger">
-            {facilities.map(({ icon: Icon, site, tone }) => (
-              <article
-                className={`ab-card ab-infra-card ab-infra-card-${tone}`}
-                key={site.id}
-              >
-                <div className="ab-infra-top">
-                  <div className="ab-infra-icon-badge">
-                    <Icon size={22} strokeWidth={1.8} aria-hidden="true" />
+            {facilities.map((fac) => {
+              const Icon = fac.icon;
+              const RoleIcon = fac.roleIcon;
+              return (
+                <article
+                  className={`ab-infra-card ab-infra-${fac.tone}`}
+                  key={fac.id}
+                >
+                  {/* Top Header Media Banner */}
+                  <div className={`ab-infra-card-header ab-iheader-${fac.tone}`}>
+                    {/* Left side: Circular icon badge & 2-line category label */}
+                    <div className="ab-infra-header-meta">
+                      <div className={`ab-infra-icon-float ab-iicon-${fac.tone}`} aria-hidden="true">
+                        <Icon size={20} strokeWidth={2.2} />
+                      </div>
+                      <div className={`ab-infra-kind-box ab-ikind-${fac.tone}`}>
+                        <span className="ab-infra-kind-p1">{fac.kindPart1}</span>
+                        <span className="ab-infra-kind-p2">{fac.kindPart2}</span>
+                      </div>
+                    </div>
+
+                    {/* Right side: High-quality facility photograph */}
+                    <div className="ab-infra-media-wrap" aria-hidden="true">
+                      <Image
+                        src={fac.image}
+                        alt={fac.imageAlt}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="ab-infra-img"
+                      />
+                      <div className={`ab-infra-media-fade ab-mfade-${fac.tone}`} />
+                    </div>
                   </div>
-                  <span className="ab-infra-kind">{site.kind}</span>
-                </div>
-                <h3>{site.title}</h3>
-                <address>{site.addressLines.join("\n")}</address>
-                <hr className="ab-infra-divider" />
-                <div className="ab-infra-footnote">
-                  <MapPin size={15} aria-hidden="true" />
-                  <span>{site.note}</span>
-                </div>
-              </article>
-            ))}
+
+                  {/* Card Body */}
+                  <div className="ab-infra-card-body">
+                    {/* Bold Location Heading */}
+                    <h3 className="ab-infra-title">{fac.title}</h3>
+
+                    {/* Address with Location Pin */}
+                    <div className="ab-infra-address-wrap">
+                      <div className={`ab-infra-pin-box ab-ipin-${fac.tone}`} aria-hidden="true">
+                        <MapPin size={15} strokeWidth={2.2} />
+                      </div>
+                      <address className="ab-infra-address">{fac.address}</address>
+                    </div>
+
+                    {/* Subtle Divider */}
+                    <div className="ab-infra-divider" aria-hidden="true" />
+
+                    {/* Bottom Footnote Area */}
+                    <div className="ab-infra-footnote">
+                      <div className={`ab-infra-ficon-box ab-ificon-${fac.tone}`} aria-hidden="true">
+                        <RoleIcon size={17} strokeWidth={2.2} />
+                      </div>
+                      <p className="ab-infra-note">{fac.note}</p>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
