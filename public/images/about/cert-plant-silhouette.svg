@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 520" fill="none" stroke="#0070EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Distillation Column 1 (Main Tall Column) -->
+  <path d="M270,100 L270,470 M320,100 L320,470" />
+  <path d="M270,100 C270,82 320,82 320,100" fill="rgba(0,112,235,0.08)" />
+  <path d="M295,82 L295,60 M290,60 L300,60" />
+  <!-- Trays / Rings on Column 1 -->
+  <path d="M268,130 L322,130 M268,160 L322,160 M268,190 L322,190 M268,220 L322,220 M268,250 L322,250 M268,280 L322,280 M268,310 L322,310 M268,340 L322,340 M268,370 L322,370 M268,400 L322,400 M268,430 L322,430" />
+  <!-- External Conduit Pipe on Column 1 -->
+  <path d="M262,150 L262,440 L270,440 M262,150 L270,150" />
+  <!-- Catwalk / Platform 1 -->
+  <rect x="255" y="200" width="80" height="6" rx="1" fill="rgba(0,112,235,0.12)" />
+  <path d="M255,200 L255,185 L335,185 L335,200 M275,185 L275,200 M295,185 L295,200 M315,185 L315,200" />
+  <!-- Catwalk / Platform 2 -->
+  <rect x="255" y="320" width="80" height="6" rx="1" fill="rgba(0,112,235,0.12)" />
+  <path d="M255,320 L255,305 L335,305 L335,320 M275,305 L275,320 M295,305 L295,320 M315,305 L315,320" />
+  <!-- Caged Ladder -->
+  <path d="M328,120 L328,450 M336,120 L336,450" />
+  <path d="M328,135 L336,135 M328,155 L336,155 M328,175 L336,175 M328,195 L336,195 M328,215 L336,215 M328,235 L336,235 M328,255 L336,255 M328,275 L336,275 M328,295 L336,295 M328,315 L336,315 M328,335 L336,335 M328,355 L336,355 M328,375 L336,375 M328,395 L336,395 M328,415 L336,415 M328,435 L336,435" />
+
+  <!-- Column 2 (Medium Fractionation Column) -->
+  <path d="M190,170 L190,470 M232,170 L232,470" />
+  <path d="M190,170 C190,156 232,156 232,170" fill="rgba(0,112,235,0.08)" />
+  <path d="M211,156 L211,138" />
+  <path d="M188,200 L234,200 M188,230 L234,230 M188,260 L234,260 M188,290 L234,290 M188,320 L234,320 M188,350 L234,350 M188,380 L234,380 M188,410 L234,410 M188,440 L234,440" />
+  <!-- Overhead Vapor Line connecting Col 2 to Col 1 -->
+  <path d="M211,138 L211,122 L255,122 L255,160 L270,160" stroke-width="2" />
+  <!-- Platform on Col 2 -->
+  <rect x="182" y="245" width="58" height="5" rx="1" fill="rgba(0,112,235,0.12)" />
+  <path d="M182,245 L182,232 L240,232 L240,245 M200,232 L200,245 M220,232 L220,245" />
+
+  <!-- Column 3 (Left Slender Stack / Exhaust Tower) -->
+  <path d="M130,220 L130,470 M156,220 L156,470" />
+  <path d="M125,220 L161,220 M127,215 L159,215" />
+  <path d="M130,250 L156,250 M130,290 L156,290 M130,330 L156,330 M130,370 L156,370 M130,410 L156,410 M130,450 L156,450" />
+
+  <!-- Structural Framework & Pipe Rack -->
+  <path d="M90,450 L400,450 M90,470 L400,470" stroke-width="2" />
+  <path d="M110,380 L250,380 M110,380 L110,450 M140,380 L140,450 M170,380 L170,450" />
+  <path d="M110,380 L140,450 M140,380 L110,450 M140,380 L170,450 M170,380 L140,450" stroke-width="1" />
+  
+  <!-- Interconnecting Process Pipes & Valves -->
+  <path d="M156,300 L190,300 M232,300 L270,300" stroke-width="2" />
+  <path d="M232,360 L270,360 M320,260 L355,260 L355,430 L320,430" stroke-width="1.5" />
+  <circle cx="251" cy="300" r="4" fill="#0070EB" />
+  <circle cx="251" cy="360" r="4" fill="#0070EB" />
+
+  <!-- Storage Drum (Horizontal Bullet Tank) at bottom-right -->
+  <rect x="340" y="365" width="65" height="34" rx="17" fill="rgba(0,112,235,0.08)" stroke-width="1.5" />
+  <path d="M355,399 L355,450 M390,399 L390,450" stroke-width="2" />
+  <path d="M372,365 L372,350 L355,350" stroke-width="1.5" />
+
+  <!-- Heavy Concrete Base Foundations -->
+  <rect x="120" y="470" width="46" height="10" rx="1" fill="rgba(0,112,235,0.15)" />
+  <rect x="180" y="470" width="62" height="10" rx="1" fill="rgba(0,112,235,0.15)" />
+  <rect x="260" y="470" width="70" height="10" rx="1" fill="rgba(0,112,235,0.15)" />
+  <rect x="345" y="470" width="55" height="10" rx="1" fill="rgba(0,112,235,0.15)" />
+</svg>
+

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import {
   ArrowRight,
-  ArrowUpRight,
   Award,
   CalendarDays,
   Building2,
@@ -13,17 +12,16 @@ import {
   Droplets,
   Factory,
   FlaskConical,
+  Layers,
   Layers3,
   Leaf,
-  Mail,
   MapPin,
-  MessageCircle,
-  Phone,
   ShieldCheck,
   Ship,
   Users,
 } from "lucide-react";
 import { locationSites } from "@/data/locations";
+import { CtaWaterSplashDesign } from "@/components/CtaWaterSplashDesign";
 import AboutObserver from "./AboutObserver";
 import "./about.css";
 
@@ -1039,8 +1037,62 @@ export default function AboutPage() {
         id="certification"
         aria-labelledby="cert-title"
       >
+        {/* Top-Left Ambient Curved Swoosh */}
+        <div className="ab-cert-decor-swoosh" aria-hidden="true">
+          <svg viewBox="0 0 320 320" fill="none" preserveAspectRatio="none">
+            <path
+              d="M-40,-40 C140,40 180,180 80,320 L-40,320 Z"
+              fill="url(#ab-cert-swoosh-grad)"
+            />
+            <path
+              d="M-40,-40 C100,20 130,130 50,260"
+              stroke="#0070EB"
+              strokeWidth="4"
+              strokeOpacity="0.35"
+              fill="none"
+            />
+            <defs>
+              <linearGradient id="ab-cert-swoosh-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#0070EB" stopOpacity="0.22" />
+                <stop offset="50%" stopColor="#38BDF8" stopOpacity="0.12" />
+                <stop offset="100%" stopColor="#BAE6FD" stopOpacity="0.02" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        {/* Top-Right Ambient Dot Grid (4x4) */}
+        <div className="ab-cert-dots-tr" aria-hidden="true">
+          {[...Array(16)].map((_, i) => (
+            <span key={i} className="ab-cert-dot-cell" />
+          ))}
+        </div>
+
+        {/* Bottom-Left Ambient Dot Grid (3x5) */}
+        <div className="ab-cert-dots-bl" aria-hidden="true">
+          {[...Array(15)].map((_, i) => (
+            <span key={i} className="ab-cert-dot-cell" />
+          ))}
+        </div>
+
+        {/* Far-Right Industrial Manufacturing Silhouette */}
+        <div className="ab-cert-decor-silhouette" aria-hidden="true">
+          <Image
+            src="/images/about/cert-plant-silhouette.svg"
+            alt=""
+            width={380}
+            height={460}
+            className="ab-cert-sil-img"
+          />
+        </div>
+
         <div className="ab-container ab-cert-inner">
-          <div className="ab-cert-card-wrap ab-reveal">
+          {/* Left Column: Layered Certificate Display */}
+          <div className="ab-cert-visual-wrap ab-reveal">
+            {/* Slightly offset deep-blue decorative background panel */}
+            <div className="ab-cert-blue-backdrop" aria-hidden="true" />
+
+            {/* Large White Rounded Container with Thick Frame */}
             <a
               className="ab-cert-card"
               href="/iso-9001-2015-quality-certificate.jpeg"
@@ -1048,111 +1100,193 @@ export default function AboutPage() {
               rel="noopener noreferrer"
               aria-label="View ISO 9001:2015 Certificate in full resolution (opens in new tab)"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/iso-9001-2015-quality-certificate.jpeg"
-                alt="PolyTreat Chemicals ISO 9001:2015 quality management certificate"
-                className="ab-cert-img"
-              />
+              <div className="ab-cert-frame">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/iso-9001-2015-quality-certificate.jpeg"
+                  alt="PolyTreat Chemicals ISO 9001:2015 quality management certificate"
+                  className="ab-cert-img"
+                  loading="lazy"
+                />
+              </div>
             </a>
           </div>
 
+          {/* Right Column: Certification Content */}
           <div className="ab-cert-copy ab-reveal">
-            <span className="ab-label">Certification</span>
-            <h2 id="cert-title">ISO 9001:2015, for water treatment and home-care manufacturing.</h2>
-            <p>
+            {/* Eyebrow Label with subtle side lines: — ABOUT US — */}
+            <div className="ab-cert-eyebrow">
+              <span className="ab-cert-eyebrow-line" aria-hidden="true" />
+              <span className="ab-cert-eyebrow-text">ABOUT US</span>
+              <span className="ab-cert-eyebrow-line" aria-hidden="true" />
+            </div>
+
+            {/* Main Heading with Laurel Shield Check Icon */}
+            <div className="ab-cert-heading-row">
+              <svg
+                width="44"
+                height="44"
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="ab-cert-heading-icon"
+                aria-hidden="true"
+              >
+                {/* Laurel Branch Left */}
+                <path d="M24 41 C15 39 8 32 7 19" stroke="#0070EB" strokeWidth="2.2" strokeLinecap="round" />
+                <path d="M8 32 C5 31 4 28 6 26 C8 26 10 28 9 32 Z" fill="#0070EB" />
+                <path d="M7 25 C4 23 3 20 5 18 C7 18 9 21 8 25 Z" fill="#0070EB" />
+                <path d="M7 18 C5 15 5 12 7 11 C9 12 10 15 8 18 Z" fill="#0070EB" />
+                <path d="M10 13 C8 10 9 7 11 6 C13 8 13 11 11 13 Z" fill="#0070EB" />
+                <path d="M14 9 C13 6 15 4 17 4 C18 6 17 9 15 9 Z" fill="#0070EB" />
+
+                {/* Laurel Branch Right */}
+                <path d="M24 41 C33 39 40 32 41 19" stroke="#0070EB" strokeWidth="2.2" strokeLinecap="round" />
+                <path d="M40 32 C43 31 44 28 42 26 C40 26 38 28 39 32 Z" fill="#0070EB" />
+                <path d="M41 25 C44 23 45 20 43 18 C41 18 39 21 40 25 Z" fill="#0070EB" />
+                <path d="M41 18 C43 15 43 12 41 11 C39 12 38 15 40 18 Z" fill="#0070EB" />
+                <path d="M38 13 C40 10 39 7 37 6 C35 8 35 11 37 13 Z" fill="#0070EB" />
+                <path d="M34 9 C35 6 33 4 31 4 C30 6 31 9 33 9 Z" fill="#0070EB" />
+
+                {/* Shield in Center */}
+                <path
+                  d="M24 10 L33 13.5 C33 24 28 32.5 24 35 C20 32.5 15 24 15 13.5 L24 10 Z"
+                  fill="url(#ab-cert-shield-grad)"
+                />
+                {/* Checkmark */}
+                <path
+                  d="M19.5 22.5 L22.5 25.5 L28.5 18.5"
+                  stroke="#FFFFFF"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+                <defs>
+                  <linearGradient id="ab-cert-shield-grad" x1="15" y1="10" x2="33" y2="35" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#0084FF" />
+                    <stop offset="1" stopColor="#0052CC" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <h2 id="cert-title" className="ab-cert-heading">Certification</h2>
+            </div>
+
+            {/* Main Title with ISO 9001:2015 Highlight */}
+            <h3 className="ab-cert-lead">
+              <span className="ab-cert-lead-blue">ISO 9001:2015</span>, for water treatment and home-care manufacturing.
+            </h3>
+
+            {/* Short Blue Decorative Underline */}
+            <div className="ab-cert-underline" aria-hidden="true" />
+
+            {/* Descriptions */}
+            <p className="ab-cert-desc">
               Scope: manufacturing of water treatment chemicals and homecare, hygienic &amp;
               industrial cleaning chemicals.
             </p>
-            <p>
+            <p className="ab-cert-desc">
               The certificate is issued by SMCS and accredited by AIAO-BAR USA, for the Goregaon
               (East) site. Select the certificate to view it in full resolution.
             </p>
+
+            {/* Three Certification Trust Badges in a Row */}
+            <div className="ab-cert-badges">
+              <div className="ab-cert-badge">
+                <div className="ab-cert-badge-icon" aria-hidden="true">
+                  <Award size={22} strokeWidth={2.2} />
+                </div>
+                <div className="ab-cert-badge-text">
+                  <strong>ISO 9001:2015</strong>
+                  <span>Certified</span>
+                </div>
+              </div>
+
+              <div className="ab-cert-badge">
+                <div className="ab-cert-badge-icon" aria-hidden="true">
+                  <Factory size={22} strokeWidth={2.2} />
+                </div>
+                <div className="ab-cert-badge-text">
+                  <strong>Manufacturing</strong>
+                  <span>Assurance</span>
+                </div>
+              </div>
+
+              <div className="ab-cert-badge">
+                <div className="ab-cert-badge-icon" aria-hidden="true">
+                  <Layers size={22} strokeWidth={2.2} />
+                </div>
+                <div className="ab-cert-badge-text">
+                  <strong>International</strong>
+                  <span>Accreditation</span>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
             <div className="ab-cert-actions">
-              <Link className="ab-btn-primary" href="/certifications">
-                View all certifications <ArrowRight size={16} aria-hidden="true" />
+              <Link className="ab-cert-btn-primary" href="/certifications">
+                <span>View all certifications</span>
+                <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
               </Link>
-              <Link className="ab-btn-outline" href="/contact">
-                Request documents <ArrowRight size={16} aria-hidden="true" />
+              <Link className="ab-cert-btn-secondary" href="/contact">
+                <span>Request documents</span>
+                <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
               </Link>
             </div>
           </div>
         </div>
+
+        {/* Dynamic Water Wave and Splash Ribbon along Bottom Edge */}
+        <div className="ab-cert-bottom-decor" aria-hidden="true">
+          <svg
+            viewBox="0 0 1440 90"
+            fill="none"
+            preserveAspectRatio="none"
+            className="ab-cert-bottom-svg"
+          >
+            <path
+              d="M0,50 C320,15 620,80 920,40 C1220,5 1360,55 1440,35 L1440,90 L0,90 Z"
+              fill="rgba(186, 230, 253, 0.45)"
+            />
+            <path
+              d="M0,62 C360,82 680,36 1000,68 C1240,88 1360,50 1440,58 L1440,90 L0,90 Z"
+              fill="rgba(0, 112, 235, 0.18)"
+            />
+          </svg>
+          <div className="ab-cert-splash-wrap">
+            <Image
+              src="/images/about/glance-bottom-splash.png"
+              alt=""
+              fill
+              sizes="100vw"
+              className="ab-cert-splash-img"
+            />
+          </div>
+        </div>
       </section>
 
-      {/* 8. CONTACT CTA */}
-      <section className="ab-contact-section" aria-labelledby="about-contact-title">
-        <div className="ab-container ab-contact-inner">
-          <div className="ab-contact-copy ab-reveal">
-            <span className="ab-label ab-label-light">Start a conversation</span>
-            <h2 id="about-contact-title">Let&apos;s talk about your application.</h2>
-            <p>
-              Tell us about your system or facility, and we&apos;ll direct your enquiry to the
-              right team.
-            </p>
-            <div className="ab-contact-buttons">
-              <Link className="ab-btn-blue" href="/contact">
-                Send an enquiry <ArrowRight size={16} aria-hidden="true" />
+      {/* 8. BOTTOM CTA BAND (Exact design replication from Industries page) */}
+      <section className="industries-contact-band ab-contact-band" aria-labelledby="about-contact-title">
+        <div className="container">
+          <div className="industries-contact-inner">
+            <div className="industries-contact-copy">
+              <span className="industries-contact-eyebrow">Have a specific site or system in mind?</span>
+              <h2 id="about-contact-title">
+                Tell us what <span className="industries-highlight">you work with.</span>
+              </h2>
+              <p>
+                Share the application area, the system and the operating conditions, and
+                the team can direct your enquiry to the right category.
+              </p>
+            </div>
+            <div className="industries-contact-action">
+              <Link className="btn btn-industries-primary" href="/contact#contact-form">
+                <span>Discuss your application</span>
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
-              <a
-                className="ab-btn-outline-white"
-                href="https://wa.me/919820235995?text=Hi%20PolyTreat%2C%20I%27d%20like%20to%20discuss%20a%20product%20or%20site%20requirement."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Chat on WhatsApp <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
             </div>
-          </div>
-
-          <div className="ab-contact-grid ab-stagger">
-            <a className="ab-contact-tile" href="mailto:polyind2@gmail.com">
-              <div className="ab-contact-tile-icon">
-                <Mail size={18} strokeWidth={2} aria-hidden="true" />
-              </div>
-              <div className="ab-contact-tile-copy">
-                <span>Email enquiries</span>
-                <strong>polyind2@gmail.com</strong>
-              </div>
-              <ArrowUpRight size={16} aria-hidden="true" className="ab-contact-tile-arrow" />
-            </a>
-
-            <a className="ab-contact-tile" href="tel:+919820235995">
-              <div className="ab-contact-tile-icon">
-                <Phone size={18} strokeWidth={2} aria-hidden="true" />
-              </div>
-              <div className="ab-contact-tile-copy">
-                <span>Technical &amp; sales</span>
-                <strong>+91 98202 35995</strong>
-              </div>
-              <ArrowUpRight size={16} aria-hidden="true" className="ab-contact-tile-arrow" />
-            </a>
-
-            <a
-              className="ab-contact-tile"
-              href="https://wa.me/919820235995?text=Hi%20PolyTreat%2C%20I%27d%20like%20to%20discuss%20a%20product%20or%20site%20requirement."
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="ab-contact-tile-icon">
-                <MessageCircle size={18} strokeWidth={2} aria-hidden="true" />
-              </div>
-              <div className="ab-contact-tile-copy">
-                <span>WhatsApp</span>
-                <strong>Chat with the team</strong>
-              </div>
-              <ArrowUpRight size={16} aria-hidden="true" className="ab-contact-tile-arrow" />
-            </a>
-
-            <div className="ab-contact-tile ab-contact-tile-address">
-              <div className="ab-contact-tile-icon">
-                <MapPin size={18} strokeWidth={2} aria-hidden="true" />
-              </div>
-              <div className="ab-contact-tile-copy">
-                <span>Corporate office</span>
-                <strong>7-A Topiwala Building, Goregaon (West), Mumbai 400104</strong>
-              </div>
-            </div>
+            <CtaWaterSplashDesign />
           </div>
         </div>
       </section>

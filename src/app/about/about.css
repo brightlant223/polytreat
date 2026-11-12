@@ -2653,198 +2653,407 @@
    ========================================================================== */
 
 .ab-cert-section {
-  padding: clamp(2.5rem, 4vw, 3.75rem) 0;
-  background:
-    radial-gradient(circle at 90% 70%, rgba(2, 132, 199, 0.06), transparent 45%),
-    var(--ab-bg);
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3.75rem, 5.5vw, 5.5rem) 0 clamp(4.5rem, 6.5vw, 6.25rem);
+  background: linear-gradient(180deg, #F9FBFE 0%, #FFFFFF 50%, #F1F7FD 100%);
+  border-top: 1px solid rgba(0, 112, 235, 0.08);
 }
 
-.ab-cert-inner {
+/* Ambient Top-Left Swoosh Curves */
+.ab-cert-decor-swoosh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(240px, 24vw, 360px);
+  height: clamp(240px, 24vw, 360px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ab-cert-decor-swoosh svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Ambient Dot Grids */
+.ab-cert-dots-tr {
+  position: absolute;
+  top: 2.25rem;
+  right: clamp(1.5rem, 4vw, 4rem);
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(2rem, 3.5vw, 3.25rem);
+  grid-template-columns: repeat(4, 8px);
+  gap: 12px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ab-cert-dots-bl {
+  position: absolute;
+  bottom: 5.25rem;
+  left: clamp(1rem, 2.5vw, 2.5rem);
+  display: grid;
+  grid-template-columns: repeat(3, 8px);
+  gap: 12px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ab-cert-dot-cell {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #0070EB;
+  opacity: 0.28;
+}
+
+/* Far-Right Industrial Manufacturing Silhouette */
+.ab-cert-decor-silhouette {
+  position: absolute;
+  right: -20px;
+  top: 8%;
+  width: clamp(280px, 27vw, 400px);
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+}
+
+.ab-cert-sil-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Bottom Water Wave and Dynamic Splash */
+.ab-cert-bottom-decor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(75px, 8vw, 105px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ab-cert-bottom-svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ab-cert-splash-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.88;
+}
+
+.ab-cert-splash-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom left;
+  display: block;
+}
+
+/* Main Two-Column Grid */
+.ab-cert-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(2.5rem, 4.5vw, 4.75rem);
   align-items: center;
 }
 
-.ab-cert-card-wrap {
-  perspective: 1000px;
+/* LEFT COLUMN: Layered Certificate Card */
+.ab-cert-visual-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
+/* Offset Deep-Blue Decorative Background Panel */
+.ab-cert-blue-backdrop {
+  position: absolute;
+  top: 24px;
+  left: -24px;
+  width: 100%;
+  height: 96%;
+  background: linear-gradient(145deg, #0070EB 0%, #0050B3 100%);
+  border-radius: 28px;
+  z-index: 1;
+  box-shadow: 0 16px 40px rgba(0, 112, 235, 0.25);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ab-cert-visual-wrap:hover .ab-cert-blue-backdrop {
+  transform: translate(-3px, 3px);
+}
+
+/* Large White Rounded Container with Thick Frame */
 .ab-cert-card {
+  position: relative;
+  z-index: 2;
   display: block;
-  border-radius: var(--ab-card-radius);
-  border: 1px solid var(--ab-border);
   background: #FFFFFF;
-  padding: 1.15rem;
-  box-shadow: 0 24px 50px rgba(11, 27, 58, 0.16);
-  transform: rotate(-3deg);
-  transition: transform 0.4s var(--ab-ease), box-shadow 0.4s ease;
+  border-radius: 24px;
+  border: 1.5px solid rgba(0, 112, 235, 0.12);
+  padding: 1.25rem;
+  box-shadow:
+    0 24px 60px rgba(11, 37, 69, 0.14),
+    0 4px 16px rgba(0, 112, 235, 0.08);
   text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
 .ab-cert-card:hover {
-  transform: rotate(0deg) scale(1.02);
-  box-shadow: 0 30px 60px rgba(2, 132, 199, 0.22);
+  transform: translateY(-6px);
+  border-color: rgba(0, 112, 235, 0.28);
+  box-shadow:
+    0 32px 75px rgba(0, 112, 235, 0.22),
+    0 8px 24px rgba(0, 112, 235, 0.12);
+}
+
+.ab-cert-frame {
+  position: relative;
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid rgba(0, 112, 235, 0.18);
 }
 
 .ab-cert-img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 12px;
-  border: 1px solid rgba(216, 231, 241, 0.8);
+  object-fit: contain;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ab-cert-copy h2 {
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  line-height: 1.15;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--ab-navy);
-  margin: 0 0 1.5rem;
+.ab-cert-card:hover .ab-cert-img {
+  transform: scale(1.008);
 }
 
-.ab-cert-copy p {
-  color: var(--ab-text-muted);
-  font-size: 1rem;
-  line-height: 1.75;
-  margin: 0 0 1.25rem;
-}
-
-.ab-cert-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-/* ==========================================================================
-   8. CONTACT CTA
-   ========================================================================== */
-
-.ab-contact-section {
-  background:
-    radial-gradient(ellipse 700px 500px at 85% 15%, rgba(56, 189, 248, 0.1), transparent 60%),
-    radial-gradient(ellipse 600px 400px at 15% 85%, rgba(14, 165, 233, 0.08), transparent 60%),
-    linear-gradient(180deg, #F8FCFD 0%, #F0F8FF 100%);
-  border-top: 1px solid var(--ab-border);
-  color: var(--ab-navy);
-  padding: clamp(2.5rem, 4vw, 3.75rem) 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.ab-contact-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 1.08fr);
-  gap: clamp(1.75rem, 3.5vw, 2.75rem);
-  align-items: center;
-}
-
-.ab-contact-copy h2 {
-  font-size: clamp(2.2rem, 3.5vw, 3rem);
-  line-height: 1.1;
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  color: var(--ab-navy);
-  margin: 0 0 1.25rem;
-}
-
-.ab-contact-copy p {
-  font-size: 1.0625rem;
-  line-height: 1.7;
-  color: var(--ab-text-muted);
-  max-width: 500px;
-  margin: 0 0 2.25rem;
-}
-
-.ab-contact-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.ab-contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.85rem;
-}
-
-.ab-contact-tile {
-  background: #FFFFFF;
-  border: 1px solid var(--ab-border);
-  border-radius: 16px;
-  padding: 0.95rem 1.35rem;
-  display: grid;
-  grid-template-columns: 44px minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 1.1rem;
-  color: var(--ab-navy);
-  text-decoration: none;
-  box-shadow: 0 4px 16px rgba(11, 25, 44, 0.04);
-  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s var(--ab-ease), box-shadow 0.22s ease;
-  position: relative;
-}
-
-.ab-contact-tile:hover {
-  background: #FFFFFF;
-  border-color: var(--ab-blue);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(2, 132, 199, 0.1);
-}
-
-.ab-contact-tile-icon {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--ab-blue-light);
-  color: var(--ab-blue-deep);
-  flex-shrink: 0;
-}
-
-.ab-contact-tile-copy {
+/* RIGHT COLUMN: Certification Content */
+.ab-cert-copy {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
-  flex-grow: 1;
+}
+
+/* Eyebrow Label with subtle side lines: — ABOUT US — */
+.ab-cert-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.ab-cert-eyebrow-line {
+  width: 28px;
+  height: 2px;
+  background: #BAE6FD;
+  border-radius: 1px;
+}
+
+.ab-cert-eyebrow-text {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0070EB;
+}
+
+/* Heading Row with Laurel Shield Icon */
+.ab-cert-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.85rem;
+}
+
+.ab-cert-heading-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  filter: drop-shadow(0 4px 10px rgba(0, 112, 235, 0.25));
+}
+
+.ab-cert-heading {
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #0A1C3E;
+  margin: 0;
+}
+
+/* Main Title with ISO 9001:2015 Highlight */
+.ab-cert-lead {
+  font-size: clamp(1.4rem, 2.2vw, 1.95rem);
+  font-weight: 800;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: #0A1C3E;
+  margin: 0 0 1.15rem;
+}
+
+.ab-cert-lead-blue {
+  color: #0070EB;
+}
+
+/* Short Blue Decorative Underline */
+.ab-cert-underline {
+  width: 52px;
+  height: 4px;
+  border-radius: 2px;
+  background: #0070EB;
+  margin: 0 0 1.35rem;
+}
+
+/* Paragraphs */
+.ab-cert-desc {
+  font-size: 1.02rem;
+  line-height: 1.72;
+  color: #475569;
+  margin: 0 0 0.9rem;
+}
+
+.ab-cert-desc:last-of-type {
+  margin-bottom: 1.65rem;
+}
+
+/* Trust Badges in a Row */
+.ab-cert-badges {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.ab-cert-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 0.95rem;
+  background: linear-gradient(135deg, rgba(240, 247, 255, 0.95) 0%, rgba(224, 242, 254, 0.75) 100%);
+  border: 1px solid rgba(0, 112, 235, 0.16);
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 112, 235, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.ab-cert-badge:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 112, 235, 0.32);
+  box-shadow: 0 8px 20px rgba(0, 112, 235, 0.08);
+}
+
+.ab-cert-badge-icon {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(0, 112, 235, 0.1);
+  color: #0070EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ab-cert-badge-text {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
 }
 
-.ab-contact-tile-copy span {
-  font-size: 0.72rem;
+.ab-cert-badge-text strong {
+  font-size: 0.88rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ab-text-muted);
-}
-
-.ab-contact-tile-copy strong {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--ab-navy);
+  line-height: 1.25;
+  color: #0A1C3E;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.35;
 }
 
-.ab-contact-tile-address .ab-contact-tile-copy strong {
-  white-space: normal;
-  line-height: 1.4;
-  font-size: 0.92rem;
+.ab-cert-badge-text span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #475569;
+  line-height: 1.2;
 }
 
-.ab-contact-tile-arrow {
-  color: var(--ab-blue-deep);
-  flex-shrink: 0;
-  transition: transform 0.2s ease, color 0.2s ease;
+/* CTA Buttons */
+.ab-cert-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.1rem;
 }
 
-.ab-contact-tile:hover .ab-contact-tile-arrow {
-  color: var(--ab-blue);
-  transform: translate(2px, -2px);
+.ab-cert-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.9rem 1.65rem;
+  background: linear-gradient(135deg, #0070EB 0%, #0050B3 100%);
+  color: #FFFFFF !important;
+  font-size: 0.96rem;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(0, 112, 235, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ab-cert-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 112, 235, 0.4);
+}
+
+.ab-cert-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.88rem 1.65rem;
+  background: #FFFFFF;
+  color: #0070EB !important;
+  font-size: 0.96rem;
+  font-weight: 700;
+  border: 1.5px solid #0070EB;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 112, 235, 0.06);
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ab-cert-btn-secondary:hover {
+  transform: translateY(-2px);
+  background: #F0F7FF;
+  box-shadow: 0 8px 20px rgba(0, 112, 235, 0.12);
+}
+
+/* ==========================================================================
+   8. CONTACT CTA BAND (Direct replication of Industries page CTA)
+   ========================================================================== */
+
+.ab-contact-band {
+  padding: clamp(2rem, 3.8vw, 3.25rem) 0 clamp(3.5rem, 5vw, 4.5rem);
+  background: #ffffff;
 }
 
 /* ==========================================================================
@@ -2918,8 +3127,7 @@
   .ab-hero-inner,
   .ab-story-grid,
   .ab-quality-inner,
-  .ab-cert-inner,
-  .ab-contact-inner {
+  .ab-cert-inner {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.75rem;
   }
@@ -2978,15 +3186,19 @@
     max-width: 100%;
   }
 
-  .ab-cert-card {
-    max-width: 500px;
+  .ab-cert-visual-wrap {
+    max-width: 460px;
     margin: 0 auto;
-    transform: rotate(0deg);
   }
 
-  .ab-contact-grid {
-    grid-template-columns: 1fr;
-    max-width: 600px;
+  .ab-cert-blue-backdrop {
+    left: -18px;
+    top: 18px;
+  }
+
+  .ab-cert-decor-silhouette {
+    opacity: 0.14;
+    width: 280px;
   }
 }
 
@@ -3172,56 +3384,56 @@
   }
 
   .ab-cert-section {
-    padding: 2.25rem 0;
+    padding: 2.75rem 0 3.75rem;
+  }
+
+  .ab-cert-dots-tr,
+  .ab-cert-dots-bl,
+  .ab-cert-decor-silhouette {
+    display: none;
+  }
+
+  .ab-cert-decor-swoosh {
+    width: 180px;
+    height: 180px;
+    opacity: 0.6;
+  }
+
+  .ab-cert-visual-wrap {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .ab-cert-blue-backdrop {
+    left: -10px;
+    top: 12px;
+    border-radius: 20px;
   }
 
   .ab-cert-card {
-    transform: rotate(0deg);
-    max-width: 100%;
     padding: 0.85rem;
+    border-radius: 18px;
+  }
+
+  .ab-cert-badges {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .ab-cert-badge {
+    padding: 0.75rem 0.85rem;
   }
 
   .ab-cert-actions {
     flex-direction: column;
     width: 100%;
-  }
-
-  .ab-cert-actions .ab-btn-primary,
-  .ab-cert-actions .ab-btn-outline {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .ab-contact-section {
-    padding: 2.25rem 0;
-  }
-
-  .ab-contact-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .ab-btn-blue,
-  .ab-btn-outline-white {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .ab-contact-grid {
-    grid-template-columns: minmax(0, 1fr);
     gap: 0.75rem;
-    max-width: 100%;
   }
 
-  .ab-contact-tile {
-    padding: 0.85rem 1rem;
-    gap: 0.85rem;
-    grid-template-columns: 40px minmax(0, 1fr) auto;
-  }
-
-  .ab-contact-tile-icon {
-    width: 40px;
-    height: 40px;
+  .ab-cert-btn-primary,
+  .ab-cert-btn-secondary {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -3247,21 +3459,6 @@
     padding: 0.4rem 0.55rem;
     min-height: 40px;
     border-radius: 10px;
-  }
-
-  .ab-contact-tile {
-    padding: 0.8rem 0.85rem;
-    gap: 0.7rem;
-    grid-template-columns: 36px minmax(0, 1fr) auto;
-  }
-
-  .ab-contact-tile-icon {
-    width: 36px;
-    height: 36px;
-  }
-
-  .ab-contact-tile-copy strong {
-    font-size: 0.86rem;
   }
 }
 
@@ -3310,14 +3507,15 @@
     transform: scale(1) !important;
   }
 
-  .ab-cert-card {
+  .ab-cert-card,
+  .ab-cert-blue-backdrop {
     transform: none !important;
   }
 
   .ab-cert-card:hover,
+  .ab-cert-visual-wrap:hover .ab-cert-blue-backdrop,
   .ab-brand-card:hover,
-  .ab-infra-card:hover,
-  .ab-contact-tile:hover {
+  .ab-infra-card:hover {
     transform: none !important;
   }
 }
