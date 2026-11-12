@@ -27826,6 +27826,25 @@ main {
   box-shadow: 0 0 10px rgba(34, 197, 94, 0.8) !important;
 }
 
+.vklin-hero-arrow-btn {
+  opacity: 0.85;
+  transition: all 200ms ease;
+}
+
+.vklin-hero-arrow-btn:hover {
+  opacity: 1 !important;
+  background: #FFFFFF !important;
+  color: #0284C7 !important;
+  transform: translateY(-50%) scale(1.08) !important;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.25) !important;
+}
+
+.vklin-hero-arrow-btn:focus-visible {
+  opacity: 1 !important;
+  outline: 2px solid #0284C7 !important;
+  outline-offset: 2px !important;
+}
+
 /* Compact hero visual badge on small phones so it never collides with the
    carousel dots (badge sits bottom-left, dots bottom-right). */
 @media (max-width: 480px) {

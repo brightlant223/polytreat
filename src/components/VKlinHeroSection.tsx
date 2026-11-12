@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import VKlinHeroCarousel from "@/components/VKlinHeroCarousel";
@@ -70,38 +69,7 @@ const heroCategories = [
   },
 ];
 
-const heroTitles = [
-  { line1: "Complete Cleaning &", line2: "Care Solutions" },
-  { line1: "Tough Stain & 99.9%", line2: "Germ Protection" },
-  { line1: "Sparkling Floor &", line2: "Surface Hygiene" },
-  { line1: "Grease-Cutting Utensils &", line2: "Kitchen Care" },
-  { line1: "Streak-Free Glass &", line2: "Mirror Shine" },
-  { line1: "Molecular Odour &", line2: "Herbal Freshness" },
-];
-
 export default function VKlinHeroSection() {
-  const [titleIdx, setTitleIdx] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const transitionTimeout = useRef<number | null>(null);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      setIsTransitioning(true);
-      transitionTimeout.current = window.setTimeout(() => {
-        setTitleIdx((prev) => (prev + 1) % heroTitles.length);
-        setIsTransitioning(false);
-      }, 350);
-    }, 4500);
-
-    return () => {
-      clearInterval(timer);
-      if (transitionTimeout.current !== null) {
-        window.clearTimeout(transitionTimeout.current);
-      }
-    };
-  }, []);
-
   return (
     <section className="vklin-hero-wrap" aria-labelledby="vklin-hero-title">
       {/* Ambient Faint-Blue Sky & Window Light Glows */}
@@ -119,9 +87,9 @@ export default function VKlinHeroSection() {
             </div>
 
             <h1 id="vklin-hero-title" className="vklin-hero-title">
-              <span className={`vklin-rotating-text ${isTransitioning ? "is-transitioning" : ""}`}>
-                <span className="vklin-title-line-1">{heroTitles[titleIdx].line1}</span>
-                <span className="vklin-title-line-2">{heroTitles[titleIdx].line2}</span>
+              <span className="vklin-rotating-text">
+                <span className="vklin-title-line-1">Complete Cleaning &amp;</span>
+                <span className="vklin-title-line-2">Care Solutions</span>
               </span>
             </h1>
 

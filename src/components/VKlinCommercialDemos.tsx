@@ -206,34 +206,28 @@ export default function VKlinCommercialDemos() {
   const [duration, setDuration] = useState(45);
   const videoRef = useRef<HTMLVideoElement>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const pillBarRef = useRef<HTMLDivElement>(null);
 
   const activeDemo = cleaningDemos[activeTab];
 
-  // Smoothly center active tab in horizontal scroll track on mobile
-  useEffect(() => {
-    const activeEl = tabRefs.current[activeTab];
-    if (activeEl) {
-      activeEl.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center",
-      });
+  // User-initiated tab selection: smoothly center tab inside pill bar horizontally ONLY (never scrolls window)
+  const handleTabSelect = (idx: number) => {
+    setActiveTab(idx);
+    const navBar = pillBarRef.current;
+    const targetBtn = tabRefs.current[idx];
+    if (navBar && targetBtn) {
+      const scrollLeft =
+        targetBtn.offsetLeft -
+        navBar.clientWidth / 2 +
+        targetBtn.clientWidth / 2;
+      navBar.scrollTo({ left: scrollLeft, behavior: "smooth" });
     }
-  }, [activeTab]);
-
-  // Advance to next tab when video ends
-  const handleVideoEnded = () => {
-    setActiveTab((prev) => (prev + 1) % cleaningDemos.length);
   };
 
-  // Full 10.5-second timer fallback
-  useEffect(() => {
-    const autoTimer = setInterval(() => {
-      setActiveTab((prev) => (prev + 1) % cleaningDemos.length);
-    }, 10500);
-
-    return () => clearInterval(autoTimer);
-  }, [activeTab]);
+  // When video ends, stay on current tab and pause (no automatic tab hijacking)
+  const handleVideoEnded = () => {
+    setIsPlaying(false);
+  };
 
   // Video autoplay on active tab switch
   useEffect(() => {
@@ -310,8 +304,8 @@ export default function VKlinCommercialDemos() {
       next = cleaningDemos.length - 1;
     }
 
-    setActiveTab(next);
-    document.getElementById(`demo-tab-${cleaningDemos[next].id}`)?.focus();
+    handleTabSelect(next);
+    tabRefs.current[next]?.focus();
   };
 
   return (
@@ -346,6 +340,7 @@ export default function VKlinCommercialDemos() {
 
         {/* 5-Category Floating White Pill Nav Bar Matching Reference Image 2 */}
         <div
+          ref={pillBarRef}
           className="vklin-ref-nav-pill-bar"
           role="tablist"
           aria-label="Cleaning demonstrations"
@@ -365,7 +360,7 @@ export default function VKlinCommercialDemos() {
                 aria-selected={isActive}
                 aria-controls="cleaning-demos-panel"
                 className={`vklin-ref-nav-item ${isActive ? "is-active" : ""}`}
-                onClick={() => setActiveTab(idx)}
+                onClick={() => handleTabSelect(idx)}
               >
                 <span className="vklin-ref-tab-icon-wrap" aria-hidden="true">
                   <TabIcon id={demo.id} isActive={isActive} />

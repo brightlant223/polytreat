@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const heroSlides = [
   {
@@ -33,19 +34,23 @@ export default function VKlinHeroCarousel({
 }) {
   const [slideIdx, setSlideIdx] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (
-        typeof window !== "undefined" &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      ) {
-        return;
-      }
-      setSlideIdx((prev) => (prev + 1) % heroSlides.length);
-    }, 2000);
+  const handlePrev = () => {
+    setSlideIdx((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
 
-    return () => clearInterval(timer);
-  }, []);
+  const handleNext = () => {
+    setSlideIdx((prev) => (prev + 1) % heroSlides.length);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      handlePrev();
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      handleNext();
+    }
+  };
 
   return (
     <div
@@ -53,6 +58,8 @@ export default function VKlinHeroCarousel({
       role="region"
       aria-roledescription="carousel"
       aria-label="V-Klin Product Showcase Slideshow"
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
       style={{
         position: "relative",
         width: "100%",
@@ -109,6 +116,63 @@ export default function VKlinHeroCarousel({
           );
         })}
       </div>
+
+      {/* Manual Slide Controls: Previous & Next Buttons */}
+      <button
+        type="button"
+        onClick={handlePrev}
+        aria-label="Previous slide"
+        className="vklin-hero-arrow-btn vklin-hero-arrow-prev"
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "12px",
+          transform: "translateY(-50%)",
+          zIndex: 10,
+          width: "36px",
+          height: "36px",
+          borderRadius: "50%",
+          background: "rgba(255, 255, 255, 0.88)",
+          backdropFilter: "blur(6px)",
+          border: "1px solid rgba(255, 255, 255, 0.95)",
+          boxShadow: "0 4px 12px rgba(11, 37, 69, 0.12)",
+          display: "grid",
+          placeItems: "center",
+          cursor: "pointer",
+          color: "#0F172A",
+          transition: "all 180ms ease",
+        }}
+      >
+        <ChevronLeft size={18} strokeWidth={2.4} />
+      </button>
+
+      <button
+        type="button"
+        onClick={handleNext}
+        aria-label="Next slide"
+        className="vklin-hero-arrow-btn vklin-hero-arrow-next"
+        style={{
+          position: "absolute",
+          top: "50%",
+          right: "12px",
+          transform: "translateY(-50%)",
+          zIndex: 10,
+          width: "36px",
+          height: "36px",
+          borderRadius: "50%",
+          background: "rgba(255, 255, 255, 0.88)",
+          backdropFilter: "blur(6px)",
+          border: "1px solid rgba(255, 255, 255, 0.95)",
+          boxShadow: "0 4px 12px rgba(11, 37, 69, 0.12)",
+          display: "grid",
+          placeItems: "center",
+          cursor: "pointer",
+          color: "#0F172A",
+          transition: "all 180ms ease",
+        }}
+      >
+        <ChevronRight size={18} strokeWidth={2.4} />
+      </button>
 
       {/* Subtle Navigation Dots Indicator */}
       <div
