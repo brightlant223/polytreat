@@ -25,10 +25,12 @@ import {
   ArrowRight,
   ArrowUpRight,
   BadgeCheck,
+  BarChart3,
   Building2,
   Check,
   Factory,
   FileCheck2,
+  FileText,
   Info,
   Layers,
   Leaf,
@@ -36,6 +38,7 @@ import {
   ScrollText,
   ShieldCheck,
   Sparkles,
+  Users,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -161,21 +164,25 @@ const pqrsTiles = [
     letter: "P",
     title: "Performance",
     description: "Formulations considered in the context of the task and operating system.",
+    icon: BarChart3,
   },
   {
     letter: "Q",
     title: "Quality",
     description: "A focus on product quality and clear technical documentation.",
+    icon: BadgeCheck,
   },
   {
     letter: "R",
     title: "Reliability",
     description: "A dependable working relationship from product enquiry through supply.",
+    icon: Layers,
   },
   {
     letter: "S",
     title: "Service",
     description: "A direct conversation with the team about the product and its intended use.",
+    icon: Users,
   },
 ];
 
@@ -643,69 +650,123 @@ export default function Home() {
 
       {/* 9. A manufacturer first, since 1987. */}
       <section className="hp-section hp-section-story" id="story" aria-labelledby="story-title">
-        <div className="container">
+        {/* Decorative Skyline & Corner Cyan Wave Graphics matching Reference Image 2 */}
+        <div className="hp-story-decor-skyline" aria-hidden="true" />
+        <div className="hp-story-decor-wave-left" aria-hidden="true" />
+        <div className="hp-story-decor-wave-right" aria-hidden="true" />
+
+        <div className="container hp-story-container">
           <div className="hp-story-layout">
             <div className="hp-story-copy hp-reveal">
-              <h2 id="story-title">A manufacturer first, since 1987.</h2>
-              <p>
+              <div className="hp-story-eyebrow">
+                <span>ABOUT POLYTREAT</span>
+                <span className="hp-story-eyebrow-line" aria-hidden="true" />
+              </div>
+
+              <h2 id="story-title" className="hp-story-title">
+                A manufacturer first,
+                <br />
+                <span className="hp-story-title-highlight">
+                  since 1987.
+                  <svg
+                    className="hp-story-title-swoosh"
+                    viewBox="0 0 160 14"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M2 9C45 13 110 14 158 3"
+                      stroke="#0D9488"
+                      strokeWidth="4.5"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
+              </h2>
+
+              <p className="hp-story-lead">
                 PolyTreat Chemicals Pvt. Ltd. formulates and produces its ranges at its own
                 plants, with rigorous quality control monitoring every batch daily, and a direct
                 technical conversation behind every enquiry.
               </p>
 
-              <ul className="hp-story-facts" aria-label="Company facts">
-                <li>
-                  <BadgeCheck size={16} aria-hidden="true" />
-                  <span><strong>Consistent batch quality</strong> with daily production standards & ISO compliance</span>
+              <ul className="hp-story-facts-list" aria-label="Company facts">
+                <li className="hp-story-fact-card">
+                  <span className="hp-story-fact-icon-wrap" aria-hidden="true">
+                    <ShieldCheck size={18} strokeWidth={2.4} />
+                  </span>
+                  <span className="hp-story-fact-text">
+                    <strong>Consistent batch quality</strong> with daily production standards &amp; ISO compliance.
+                  </span>
                 </li>
-                <li>
-                  <Building2 size={16} aria-hidden="true" />
-                  <span><strong>Three sites</strong>: Mumbai offices and green products facility, plus Tarapur MIDC manufacturing</span>
+                <li className="hp-story-fact-card">
+                  <span className="hp-story-fact-icon-wrap" aria-hidden="true">
+                    <Building2 size={18} strokeWidth={2.4} />
+                  </span>
+                  <span className="hp-story-fact-text">
+                    <strong>Three sites</strong>: Mumbai offices and green products facility, plus Tarapur MIDC manufacturing.
+                  </span>
                 </li>
-                <li>
-                  <Factory size={16} aria-hidden="true" />
-                  <span><strong>Formulated in our own plants</strong>, in continuous operation since 1987</span>
+                <li className="hp-story-fact-card">
+                  <span className="hp-story-fact-icon-wrap" aria-hidden="true">
+                    <Factory size={18} strokeWidth={2.4} />
+                  </span>
+                  <span className="hp-story-fact-text">
+                    <strong>Formulated in our own plants</strong>, in continuous operation since 1987.
+                  </span>
                 </li>
               </ul>
 
-              <div className="hp-story-locations" aria-label="PolyTreat locations">
+              <div className="hp-story-locations-row" aria-label="PolyTreat locations">
                 {locationSites.map((site) => (
-                  <span className="hp-story-location" key={site.id}>
-                    <MapPin size={14} aria-hidden="true" />
-                    <span className="hp-story-location-text">
-                      {site.title} <em>{site.role}</em>
+                  <span className="hp-story-loc-pill" key={site.id}>
+                    <MapPin size={13} className="hp-story-loc-pin" aria-hidden="true" />
+                    <span className="hp-story-loc-txt">
+                      {site.title} <em>{site.role || site.area}</em>
                     </span>
                   </span>
                 ))}
               </div>
 
-              <div className="hp-story-actions">
-                <Link className="text-link" href="/about">
-                  More about PolyTreat <ArrowRight size={15} aria-hidden="true" />
+              <div className="hp-story-btn-row">
+                <Link className="hp-story-btn-primary" href="/about">
+                  <span>More about PolyTreat</span>
+                  <ArrowRight size={15} strokeWidth={2.4} aria-hidden="true" />
                 </Link>
-                <Link className="text-link" href="/certifications">
-                  Certificates and their scope <ArrowRight size={15} aria-hidden="true" />
+                <Link className="hp-story-btn-secondary" href="/certifications">
+                  <span>Certificates and their scope</span>
+                  <ArrowRight size={15} strokeWidth={2.4} aria-hidden="true" />
                 </Link>
               </div>
             </div>
 
             <div className="hp-story-side">
-              <div className="hp-pqrs hp-reveal-scale">
-                <h3 className="hp-pqrs-label">The PQRS framework</h3>
-                <div className="hp-pqrs-list">
-                  {pqrsTiles.map(({ letter, title, description }) => (
-                    <article className={`hp-pqrs-tile hp-pqrs-${letter.toLowerCase()}`} key={letter}>
-                      <span className="hp-pqrs-letter" aria-hidden="true">{letter}</span>
-                      <div className="hp-pqrs-copy">
+              <div className="hp-pqrs-card hp-reveal-scale">
+                <div className="hp-pqrs-header">
+                  <span className="hp-pqrs-header-title">THE PQRS FRAMEWORK</span>
+                  <span className="hp-pqrs-header-line" aria-hidden="true" />
+                </div>
+
+                <div className="hp-pqrs-grid">
+                  {pqrsTiles.map(({ letter, title, description, icon: TileIcon }) => (
+                    <article className="hp-pqrs-white-tile" key={letter}>
+                      <div className="hp-pqrs-tile-head">
+                        <span className="hp-pqrs-tile-icon-box" aria-hidden="true">
+                          <TileIcon size={20} strokeWidth={2.2} />
+                        </span>
                         <h4>{title}</h4>
-                        <p>{description}</p>
                       </div>
+                      <p>{description}</p>
                     </article>
                   ))}
                 </div>
-                <p className="hp-pqrs-note">
-                  Request product TDS and safety documents for application and handling details.
-                </p>
+
+                <div className="hp-pqrs-bottom-bar">
+                  <FileText size={18} strokeWidth={2.2} className="hp-pqrs-file-icon" aria-hidden="true" />
+                  <p className="hp-pqrs-note">
+                    Request product TDS and safety documents for application and handling details.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
