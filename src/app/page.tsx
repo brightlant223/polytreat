@@ -661,7 +661,7 @@ export default function Home() {
                 <span className="hp-polydor-eyebrow-line" aria-hidden="true" />
               </div>
               <h3 className="hp-polydor-work-title">
-                Where <span className="hp-polydor-brand-word">POLYDOR</span> solves tough odour &amp; pest problems.
+                Where <span className="hp-polydor-brand-word">POLYDOR</span>{" "}solves tough odour &amp; pest problems.
               </h3>
               <p className="hp-polydor-work-desc">
                 From municipal solid waste landfills and sugar mills to poultry farms and commercial kitchens, POLYDOR-WS permanently alters odoriferous molecules into non-odorous compounds.
