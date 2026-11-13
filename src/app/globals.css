@@ -26526,7 +26526,7 @@ main {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: right center !important;
+    object-position: center !important;
     display: block !important;
   }
 
@@ -26988,25 +26988,47 @@ main {
   margin: 0;
 }
 
+.hp-polydor-svg-clip {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 .hp-polydor-card-image-wrap {
-  width: clamp(100px, 9.5vw, 128px);
+  width: clamp(100px, 9.5vw, 130px);
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
   background: transparent;
+  border-radius: 0 18px 18px 0;
 }
 
 .hp-polydor-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: right center;
+  object-position: center;
   display: block;
+  clip-path: url(#hpPolydorArcClip);
+  -webkit-clip-path: url(#hpPolydorArcClip);
   transition: transform 450ms ease;
 }
 
 .hp-polydor-work-card:hover .hp-polydor-card-img {
   transform: scale(1.06);
+}
+
+.hp-polydor-card-arc-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
 }
 
 /* ------------------------------------------------------------------ */
@@ -27489,7 +27511,7 @@ main {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: right center !important;
+    object-position: center !important;
     display: block !important;
   }
 

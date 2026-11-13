@@ -668,6 +668,15 @@ export default function Home() {
               </p>
             </div>
 
+            {/* SVG Clip Path Definition for Card Arch */}
+            <svg width="0" height="0" className="hp-polydor-svg-clip" aria-hidden="true">
+              <defs>
+                <clipPath id="hpPolydorArcClip" clipPathUnits="objectBoundingBox">
+                  <path d="M 0.345,0 Q 0.0635,0.5 0,1 L 1,1 L 1,0 Z" />
+                </clipPath>
+              </defs>
+            </svg>
+
             <div className="hp-polydor-work-grid">
               {polydorApplications.map((app) => {
                 const AppIcon = app.icon;
@@ -692,10 +701,26 @@ export default function Home() {
                       <Image
                         src={app.image}
                         alt={app.alt}
-                        width={224}
-                        height={262}
+                        width={600}
+                        height={400}
+                        quality={90}
+                        sizes="(max-width: 640px) 240px, (max-width: 1024px) 320px, 400px"
                         className="hp-polydor-card-img"
                       />
+                      <svg
+                        className="hp-polydor-card-arc-line"
+                        viewBox="0 0 100 100"
+                        preserveAspectRatio="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M 34.5,0 Q 6.35,50 0,100"
+                          fill="none"
+                          stroke={app.isHighlight ? "#22C55E" : "#0284C7"}
+                          strokeWidth="2.5"
+                          vectorEffect="non-scaling-stroke"
+                        />
+                      </svg>
                     </div>
                   </article>
                 );
