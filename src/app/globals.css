@@ -26422,102 +26422,79 @@ main {
   }
 
   /* ================================================================ */
-  /* SECTION 8: POLYDOR REAL-WORLD WORK APPLICATIONS (MOBILE)          */
+  /* SECTION 8: POLYDOR REAL-WORLD WORK APPLICATIONS (MOBILE 2-COL)     */
   /* ================================================================ */
   .hp-polydor-work-box {
     margin-top: 2rem !important;
-    padding: clamp(1.2rem, 3.5vw, 1.6rem) clamp(0.85rem, 2.5vw, 1.25rem) !important;
+    padding: clamp(1rem, 3vw, 1.4rem) clamp(0.65rem, 2.2vw, 1rem) !important;
     border-radius: 20px !important;
-    background-size: 200px auto !important;
+    background-size: 160px auto !important;
     background-position: top right !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
 
   .hp-polydor-work-head {
-    margin-bottom: 1.35rem !important;
+    margin-bottom: 1.15rem !important;
     max-width: 100% !important;
   }
 
   .hp-polydor-work-title {
-    font-size: clamp(1.25rem, 5.2vw, 1.55rem) !important;
+    font-size: clamp(1.2rem, 5vw, 1.55rem) !important;
     line-height: 1.25 !important;
-    margin: 0 0 0.5rem !important;
+    margin: 0 0 0.45rem !important;
   }
 
   .hp-polydor-work-desc {
     font-size: 0.8rem !important;
     line-height: 1.48 !important;
+    margin: 0 !important;
   }
 
-  /* Single Column Stack on Mobile — No squeezing or overlapping */
+  /* 2-Column Compact Grid on Mobile (Matching Image 2 Proportions) */
   .hp-polydor-work-grid {
     display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 0.85rem !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(8px, 2.4vw, 12px) !important;
     width: 100% !important;
-    margin-top: 1.25rem !important;
+    margin-top: 1.15rem !important;
+    align-items: stretch !important;
   }
 
   .hp-polydor-work-card {
     display: flex !important;
-    justify-content: space-between !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
     align-items: stretch !important;
     width: 100% !important;
-    min-height: 120px !important;
-    border-radius: 16px !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: auto !important;
+    border-radius: 14px !important;
+    border: 1px solid #BAE6FD !important;
     background: #FFFFFF !important;
     overflow: hidden !important;
     box-sizing: border-box !important;
+    box-shadow: 0 2px 10px rgba(11, 25, 44, 0.05) !important;
+    position: relative !important;
+    transition: transform 200ms ease, box-shadow 200ms ease !important;
   }
 
-  .hp-polydor-card-content {
-    flex: 1 !important;
-    min-width: 0 !important;
-    padding: 0.85rem 0.65rem 0.85rem 0.95rem !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
+  .hp-polydor-card-highlight {
+    background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 45%, #F4FDF7 100%) !important;
+    border-color: #86EFAC !important;
   }
 
-  .hp-polydor-card-meta {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.45rem !important;
-    margin-bottom: 0.45rem !important;
-  }
-
-  .hp-polydor-icon-box {
-    width: 28px !important;
-    height: 28px !important;
-    border-radius: 8px !important;
-  }
-
-  .hp-polydor-tag {
-    font-size: 0.58rem !important;
-    padding: 0.18rem 0.5rem !important;
-  }
-
-  .hp-polydor-card-content h4 {
-    font-size: 0.92rem !important;
-    font-weight: 850 !important;
-    margin: 0 0 0.25rem !important;
-    line-height: 1.25 !important;
-    color: #0B192C !important;
-  }
-
-  .hp-polydor-card-content p {
-    font-size: 0.72rem !important;
-    line-height: 1.42 !important;
-    color: #475569 !important;
-    margin: 0 !important;
-  }
-
+  /* Image at top of each card */
   .hp-polydor-card-image-wrap {
-    width: clamp(88px, 26vw, 110px) !important;
-    flex-shrink: 0 !important;
+    order: -1 !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10 !important;
+    max-height: 110px !important;
     position: relative !important;
     overflow: hidden !important;
+    flex-shrink: 0 !important;
     clip-path: none !important;
     background: transparent !important;
   }
@@ -26528,6 +26505,77 @@ main {
     object-fit: cover !important;
     object-position: center !important;
     display: block !important;
+  }
+
+  /* Category label positioned over the top of the image */
+  .hp-polydor-card-meta {
+    position: absolute !important;
+    top: 6px !important;
+    right: 6px !important;
+    z-index: 3 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .hp-polydor-icon-box {
+    display: none !important;
+  }
+
+  .hp-polydor-tag {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #0284c7 !important;
+    border: 1px solid #bae6fd !important;
+    padding: 0.16rem 0.42rem !important;
+    font-size: clamp(0.48rem, 1.5vw, 0.54rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.02em !important;
+    border-radius: 999px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.15) !important;
+    backdrop-filter: blur(4px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .hp-polydor-tag-green {
+    background: rgba(240, 253, 244, 0.95) !important;
+    color: #15803d !important;
+    border-color: #86efac !important;
+  }
+
+  /* Card content below image */
+  .hp-polydor-card-content {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    padding: 0.65rem 0.6rem 0.75rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .hp-polydor-card-content h4 {
+    font-size: clamp(0.8rem, 2.6vw, 0.92rem) !important;
+    font-weight: 850 !important;
+    color: #0B192C !important;
+    margin: 0 0 0.25rem !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .hp-polydor-card-content p {
+    font-size: clamp(0.66rem, 2vw, 0.74rem) !important;
+    line-height: 1.4 !important;
+    color: #475569 !important;
+    margin: 0 !important;
+    overflow-wrap: break-word !important;
   }
 
   /* ================================================================ */
@@ -27402,27 +27450,27 @@ main {
   }
 
   /* ---------------------------------------------------------------- */
-  /* SECTION 8: POLYDOR REAL-WORLD APPLICATIONS (MOBILE SINGLE COL)   */
+  /* SECTION 8: POLYDOR REAL-WORLD APPLICATIONS (MOBILE 2-COL COMPACT)*/
   /* ---------------------------------------------------------------- */
   .hp-polydor-work-box {
     margin-top: 2rem !important;
-    padding: clamp(1.2rem, 3.5vw, 1.6rem) clamp(0.85rem, 2.5vw, 1.25rem) !important;
+    padding: clamp(1rem, 3vw, 1.4rem) clamp(0.65rem, 2.2vw, 1rem) !important;
     border-radius: 20px !important;
-    background-size: 200px auto !important;
+    background-size: 160px auto !important;
     background-position: top right !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
 
   .hp-polydor-work-head {
-    margin-bottom: 1.35rem !important;
+    margin-bottom: 1.15rem !important;
     max-width: 100% !important;
   }
 
   .hp-polydor-work-title {
-    font-size: clamp(1.25rem, 5.2vw, 1.55rem) !important;
+    font-size: clamp(1.2rem, 5vw, 1.55rem) !important;
     line-height: 1.25 !important;
-    margin: 0 0 0.5rem !important;
+    margin: 0 0 0.45rem !important;
   }
 
   .hp-polydor-work-desc {
@@ -27431,78 +27479,50 @@ main {
     margin: 0 !important;
   }
 
-  /* Single Column on mobile so cards never get squished */
+  /* 2-Column Compact Grid on Mobile (Matching Image 2 Proportions) */
   .hp-polydor-work-grid {
     display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 0.85rem !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(8px, 2.4vw, 12px) !important;
     width: 100% !important;
-    margin-top: 1.25rem !important;
+    margin-top: 1.15rem !important;
+    align-items: stretch !important;
   }
 
   .hp-polydor-work-card {
     display: flex !important;
-    justify-content: space-between !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
     align-items: stretch !important;
     width: 100% !important;
-    min-height: 120px !important;
-    border-radius: 16px !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: auto !important;
+    border-radius: 14px !important;
+    border: 1px solid #BAE6FD !important;
     background: #FFFFFF !important;
     overflow: hidden !important;
     box-sizing: border-box !important;
+    box-shadow: 0 2px 10px rgba(11, 25, 44, 0.05) !important;
+    position: relative !important;
+    transition: transform 200ms ease, box-shadow 200ms ease !important;
   }
 
-  .hp-polydor-card-content {
-    flex: 1 !important;
-    min-width: 0 !important;
-    padding: 0.85rem 0.65rem 0.85rem 0.95rem !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    box-sizing: border-box !important;
+  .hp-polydor-card-highlight {
+    background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 45%, #F4FDF7 100%) !important;
+    border-color: #86EFAC !important;
   }
 
-  .hp-polydor-card-meta {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.45rem !important;
-    margin-bottom: 0.45rem !important;
-  }
-
-  .hp-polydor-icon-box {
-    width: 28px !important;
-    height: 28px !important;
-    border-radius: 8px !important;
-    flex-shrink: 0 !important;
-  }
-
-  .hp-polydor-tag {
-    font-size: 0.58rem !important;
-    padding: 0.18rem 0.5rem !important;
-    border-radius: 999px !important;
-    white-space: nowrap !important;
-  }
-
-  .hp-polydor-card-content h4 {
-    font-size: 0.92rem !important;
-    font-weight: 850 !important;
-    margin: 0 0 0.25rem !important;
-    line-height: 1.25 !important;
-    color: #0B192C !important;
-  }
-
-  .hp-polydor-card-content p {
-    font-size: 0.72rem !important;
-    line-height: 1.42 !important;
-    color: #475569 !important;
-    margin: 0 !important;
-  }
-
+  /* Image at top of each card */
   .hp-polydor-card-image-wrap {
-    width: clamp(88px, 26vw, 110px) !important;
-    flex-shrink: 0 !important;
+    order: -1 !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10 !important;
+    max-height: 110px !important;
     position: relative !important;
     overflow: hidden !important;
+    flex-shrink: 0 !important;
     clip-path: none !important;
     background: transparent !important;
   }
@@ -27513,6 +27533,77 @@ main {
     object-fit: cover !important;
     object-position: center !important;
     display: block !important;
+  }
+
+  /* Category label positioned over the top of the image */
+  .hp-polydor-card-meta {
+    position: absolute !important;
+    top: 6px !important;
+    right: 6px !important;
+    z-index: 3 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .hp-polydor-icon-box {
+    display: none !important;
+  }
+
+  .hp-polydor-tag {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #0284c7 !important;
+    border: 1px solid #bae6fd !important;
+    padding: 0.16rem 0.42rem !important;
+    font-size: clamp(0.48rem, 1.5vw, 0.54rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.02em !important;
+    border-radius: 999px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.15) !important;
+    backdrop-filter: blur(4px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .hp-polydor-tag-green {
+    background: rgba(240, 253, 244, 0.95) !important;
+    color: #15803d !important;
+    border-color: #86efac !important;
+  }
+
+  /* Card content below image */
+  .hp-polydor-card-content {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    padding: 0.65rem 0.6rem 0.75rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .hp-polydor-card-content h4 {
+    font-size: clamp(0.8rem, 2.6vw, 0.92rem) !important;
+    font-weight: 850 !important;
+    color: #0B192C !important;
+    margin: 0 0 0.25rem !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .hp-polydor-card-content p {
+    font-size: clamp(0.66rem, 2vw, 0.74rem) !important;
+    line-height: 1.4 !important;
+    color: #475569 !important;
+    margin: 0 !important;
+    overflow-wrap: break-word !important;
   }
 
   /* ---------------------------------------------------------------- */
@@ -27776,21 +27867,31 @@ main {
   }
 
   .hp-polydor-card-image-wrap {
-    width: 82px !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 10 !important;
+    max-height: 95px !important;
     clip-path: none !important;
     background: transparent !important;
   }
 
   .hp-polydor-card-content {
-    padding: 0.75rem 0.5rem 0.75rem 0.75rem !important;
+    padding: 0.5rem 0.42rem 0.6rem !important;
   }
 
   .hp-polydor-card-content h4 {
-    font-size: 0.88rem !important;
+    font-size: 0.78rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.2rem !important;
   }
 
   .hp-polydor-card-content p {
-    font-size: 0.68rem !important;
+    font-size: 0.62rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .hp-polydor-tag {
+    font-size: 0.46rem !important;
+    padding: 0.12rem 0.35rem !important;
   }
 
   .hp-pqrs-grid {
