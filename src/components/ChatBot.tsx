@@ -33,13 +33,13 @@ interface ChatMessage {
 
 const CATEGORIZED_PROMPTS = [
   {
-    category: "Industrial Water",
+    category: "Water Treatment",
     icon: Droplets,
     color: "#0284c7",
     items: [
       "Boiler scale & corrosion inhibitors",
       "Cooling tower biocides & algae control",
-      "RO membrane antiscalants & CIP cleaners",
+      "RO membrane antiscalants & cleaners",
     ],
   },
   {
@@ -47,27 +47,27 @@ const CATEGORIZED_PROMPTS = [
     icon: Shield,
     color: "#0d9488",
     items: [
-      "What is COROSIL rust converter used for?",
-      "POLYDOR-WS molecular odour neutraliser",
-      "POLYKLIN HVAC coil cleaning",
+      "What is COROSIL rust converter?",
+      "POLYDOR-WS odour neutraliser",
+      "POLYKLIN HVAC coil cleaner",
     ],
   },
   {
-    category: "Facility & V-Klin",
+    category: "V-Klin & Facilities",
     icon: Sparkle,
     color: "#d97706",
     items: [
-      "V-Klin institutional cleaners range",
+      "V-Klin institutional cleaning range",
       "AC duct & room odour eliminator",
     ],
   },
   {
-    category: "Sales & Support",
+    category: "Quotes & Contact",
     icon: PhoneCall,
     color: "#4f46e5",
     items: [
       "Request a Technical Data Sheet (TDS)",
-      "PolyTreat factory & office locations",
+      "Office & factory locations",
     ],
   },
 ];
@@ -322,7 +322,6 @@ export default function ChatBot() {
   }, [isOpen]);
 
   const copyToClipboard = (id: string, text: string) => {
-    // Strip markdown formatting for clean clipboard copy
     const plainText = text
       .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
       .replace(/\*\*/g, "")
@@ -445,10 +444,10 @@ export default function ChatBot() {
             type="button"
             className={styles.triggerPill}
             onClick={() => setIsOpen(true)}
-            aria-label="Open PolyTreat AI Assistant"
+            aria-label="Ask Polytreat AI"
           >
             <Sparkles size={15} color="#0284c7" />
-            <span>Ask PolyTreat AI</span>
+            <span>Ask Polytreat AI</span>
           </button>
         )}
 
@@ -481,7 +480,7 @@ export default function ChatBot() {
             isExpanded ? styles.chatWindowExpanded : ""
           }`}
           role="dialog"
-          aria-label="PolyTreat AI Technical Assistant"
+          aria-label="PolyTreat AI Assistant"
         >
           {/* Mobile Sheet Drag Handle */}
           <div className={styles.sheetDragBar}>
@@ -501,7 +500,7 @@ export default function ChatBot() {
                 </h2>
                 <div className={styles.headerStatus}>
                   <span className={styles.statusDot} />
-                  <span>Chemical Technical Advisor</span>
+                  <span>AI-Assisted Support</span>
                 </div>
               </div>
             </div>
@@ -518,7 +517,7 @@ export default function ChatBot() {
                   <RotateCcw size={16} />
                 </button>
               )}
-              {/* Expand/Contract Toggle (Hidden on small mobile) */}
+              {/* Expand/Contract Toggle */}
               <button
                 type="button"
                 className={styles.headerIconBtn}
@@ -552,18 +551,13 @@ export default function ChatBot() {
           {/* Messages Scroll Area */}
           <div className={styles.messagesArea}>
             {messages.length === 0 ? (
-              /* Categorized Welcome Discovery Screen */
+              /* Clean Welcome Discovery Screen */
               <div className={styles.welcomeCard}>
-                <span className={styles.welcomeBadge}>
-                  <Sparkles size={12} />
-                  <span>PolyTreat Chemical Intelligence</span>
-                </span>
                 <h3 className={styles.welcomeTitle}>
-                  Hello! How can we assist your plant or project?
+                  👋 Hi! How can I help you today?
                 </h3>
                 <p className={styles.welcomeDesc}>
-                  Select a topic below or type any question regarding water
-                  treatment, specialty formulations, or facility hygiene.
+                  Select a topic below or type any question about our products and water solutions.
                 </p>
 
                 <div className={styles.categoriesGroup}>
@@ -713,7 +707,7 @@ export default function ChatBot() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about chemicals, dosage, specs..."
+                placeholder="Ask a question about products or solutions..."
                 className={styles.chatInput}
                 disabled={isLoading}
               />
@@ -727,7 +721,7 @@ export default function ChatBot() {
               </button>
             </div>
             <p className={styles.inputDisclaimer}>
-              AI advice is grounded in PolyTreat literature. Always verify with official TDS.
+              AI-assisted response • Verify critical specifications with official TDS.
             </p>
           </form>
         </aside>
