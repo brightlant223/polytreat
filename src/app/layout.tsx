@@ -2,6 +2,7 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SiteFooter from "@/components/SiteFooter";
+import ChatBot from "@/components/ChatBot";
 
 export const metadata: Metadata = {
   title: "PolyTreat Chemicals | Industrial Water Treatment & Specialty Formulations",
@@ -53,6 +54,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <SiteFooter />
+        <ChatBot />
       </body>
     </html>
   );
